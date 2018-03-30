@@ -1,0 +1,1442 @@
+1.js 与严格模式的区别
+		严格模式下, delete运算符后跟随非法标识符(即delete 不存在的标识符)，会抛出语法错误； 非严格模式下，会静默失败并返回false
+		严格模式中，对象直接量中定义同名属性会抛出语法错误； 非严格模式不会报错
+		严格模式中，函数形参存在同名的，抛出错误； 非严格模式不会
+		严格模式不允许八进制整数直接量（如：023）
+		严格模式中，arguments对象是传入函数内实参列表的静态副本；非严格模式下，arguments对象里的元素和对应的实参是指向同一个值的引用
+		严格模式中 eval和arguments当做关键字，它们不能被赋值和用作变量声明
+		严格模式会限制对调用栈的检测能力，访问arguments.callee.caller会抛出异常
+		严格模式 变量必须先声明，直接给变量赋值，不会隐式创建全局变量，不能用with,
+		严格模式中 call apply传入null undefined保持原样不被转换为window
+
+HTTP协议   TCP握手  http2.0  https
+	HTTP协议（HyperText Transfer Protocol，超文本传输协议）是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少。
+	它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示(如文本先于图形)等
+	TCP协议对应于传输层，而HTTP协议对应于应用层
+	Http协议是建立在TCP协议基础之上的，当浏览器需要从服务器获取网页数据的时候，会发出一次Http请求。
+	Http会通过TCP建立起一个到服务器的连接通道，当本次请求需要的数据完毕后，Http会立即将TCP连接断开，这个过程是很短的。所以Http连接是一种短连接，是一种无状态的连接
+	超文本传输安全协议（英语：Hyper Text Transfer Protocol over Secure Socket Layer，缩写HTTPS。也被称为HTTP over TLS，HTTP over SSL或HTTP Secure）。 上面说到的加密协议叫SSL，
+
+nginx 配置浏览器缓存是如何实现的
+	开启 gzip on
+	开启 etag on
+	开启 expires
+	     	expires 30d;
+	        	add_header Cache-Control no-cache;
+
+服务器如何判断文件是否需要更新 
+
+
+webpack fis3 gulp  之间有何区别
+
+
+web安全 
+xss   SQL注入  cookie安全
+跨域
+IMG script iframe css
+
+http状态码
+	200 ok
+	401 token 失效
+	415 请求数据方式错误
+	301 暂时本地
+	302 永久
+	403 没有权限
+	404  找不到文件
+	500 server错误
+	502 服务器挂了
+	503 服务器不可用
+	504 超时
+
+完美解决IE6中双边距BUG问题
+一段无错的代码把一个居左浮动(float:left)的元素放置进一个容器盒(box)，并在浮动元素上使用了左边界(margin-left) 来令它和容器的左边产生一段距离。看起来相当的简单，对吗？但直至它被在IE/Win中浏览为止，在浏览器中居左浮动元素的边界长度被神秘地翻了一倍！
+.floatbox { 
+	float: left;
+	width: 150px; 
+	height: 150px; 
+	margin: 5px 0 5px 100px; 
+	display: inline; 
+	}
+transform: translate3d（0,0,0）开启GPU处理器之外，我们也需要使用
+-webkit-backface-visibility: hidden; 和	 -webkit-perspective: 1000;
+rel="dns-prefetch"
+pjax
+orm
+publicpath
+pm2
+
+
+2018年03 月01
+html 5 css  3d效果 
+http://720yun.com/
+http://www.h5doo.com/
+http://www.html5pano.com/
+http://h6app.com
+陀螺仪
+event.acceleration   //静止  x(y,z)
+event.accelerationIncludingGravity  //加速度的时候   x(y,z)
+event.rotationRate   //alpha,beta, gamma :设备x,y,z 轴的旋转角度
+
+3D
+css3d-engine   //创建3d库
+parallax.js        //js创建3D库
+
+-webkit-perspective     //视距 800px
+-webkit-perspective-orign    //视距点 top left bottom....
+
+
+css 双飞翼布局  
+移动端布局
+ 	css grid_layout   flex
+box-sizing:border-box
+css 格式化：
+	reset.css  normalize.css  neat.css(推荐)
+移动端：
+	flex
+	neat.css
+	html{ box-sizing:border-box}
+	*,*:after,*:brfore{ box-sizing:inherit}
+css icon   
+	iconfont:http://www.iconfont.cn/
+	cssicon:http://cssicon.space/#/
+设计的js 
+ 	underline.js
+	responsify.js
+	typedetail.com
+	cssicon.space
+	designresearch.space
+bfc ifc gfc ffc
+ 	bfc 	
+ 		 block Formatting contexts
+		 display:  inline-block,table-cell,table-caption,flex,inline-flex
+		 float:不为none;
+		 overflow:不为visible
+		 ifc display:inline;
+		 两个bfc之间是相互独立的
+		 overflow:hidden 生成bfc 浮动元素也参与bfc结算 父级浮动
+		 margin 之间会有重叠 加个父元素 设置overflow:hidden;
+		高度由其包含行内元素中最高的的实际高度计算，不收 padding margin 影响
+	csshint
+ie6 bug	
+1、IE6怪异解析之padding与border算入宽高
+	原因:未加声明文档造成盒模型解析
+	解决方法:加入文格声明 <!doctype html>
+2、IE6在块元素,左布浮动、设定margin时适成margin(双边距)
+	解决方法: display:inline
+3、以下三种其实是同一种bug,其实也不算是个bug,举个例子:父标签高度20,子标签11,垂直居中,
+      20-11=9,9零分给文字的上面与下面,怎么分?IE6就会与其它的不同,所以,尽量避免。
+	1.字体大小为奇数之边框高度少1Px
+	解决方法:字体大小设置为偶数或line-height为偶取
+	2.line-height,文本垂直居中差1px
+	解决方法:Padding-top代替line-height居中,或line-height加1或减1
+	3.与父标签的宽度的奇偶不同的居中造成1px偏高
+	解决方法:如果父标签是奇数宽度,则子标签也用奇数宽度，如果是父标偶数宽度,则子标签也偶数宽度
+4,内部盒模型超出父级时，父级被撑大
+	解决方法：父标签使用overflow:hidden;
+5,line-height默认行高
+	解决方法:lime- height设值
+6.行标签乏间会有一小段空白
+	解决方法:float或结构并排(可读性差,不建议）
+7.子、标签高度无法小于19Px
+	解决方法: overflow: hidden
+8.左浮元素margin- bottom失效
+	解决方法:显示设置高度or父标签设置_ Padding-bottom代替子标签时margin-bottom or再个标签让父标签浮动,子标签aysi- bottom,即( margin-bottom,float不同时作用于一个标签)
+9.img于块元素中,底边多出空自
+	解决方法:父级设置 overflow.hidden;或img{ display: block;}或_margin:-5Px
+10.li之间会有间距
+	解决方法:float:left
+11.块元素中有文字及右浮动的行元素,行元素块行
+	解决方法:将行元素置于块元素内的文字前
+12. Position下的left, bottom错位
+	解决方法:为父级( relative层)设置宽高或添加*zoom:1
+13.子级中有设置 Position,则父级 overflow,失效
+	解决方法:为父级设置 Position:relative
+
+css数学的巧妙运用
+	clip-path:polygon(50% 0 ,100% 50%, 50% 100%, 0 50%) //裁切路径
+	多背景
+	box-shadow,outline
+martix  从右往左读
+	 http://www.css88.com/tool/css3Preview/Transform-Matrix.html martix 转换
+	 http://f2e.name/case/css3/tools.html
+	 https://meyerweb.com/eric/tools/matrix/
+css 分层理论
+	SMACSS    csshint
+	ACSS
+
+第二天03.02
+1函数式编程
+	1，函数式编程是范畴论的数学分支是一门很复杂的数学，认为世界上所有概念体系都可以抽象出一个个范畴
+	2，彼此之间存在某种关系概念，事物，对象等等，都构成范畴，任何事物只要找出他们之间的关系，就能定义
+	3，箭头表示范畴成员之间的关系，正式的名称叫态射 范畴论认为 同一范畴的所有成员，就是不同的状态的变形
+	4，函数式编程本身一套数学理论
+	通过态射 一个成员可以变成另一个成员
+	
+	注：javascript函数称为一等公民 
+	        只用表达式不用语句
+	        没有副作用
+	        不修改状态
+	        引用透明
+	        函数式编程没有全局变量这一说
+	        map & reduce 是最常用的函数式编程方法
+
+	二、纯函数 ：纯函数的定义是，对于相同的输入，永远会得到相同的输出，而且没有任何可观察的副作用，也不依赖外部环境的状态。
+	var arr = [1,2,3,4,5];
+	// Array.slice是纯函数，因为它没有副作用，对于固定的输入，输出总是固定的
+	xs.slice(0,3); 	 //=> [1,2,3]
+	xs.slice(0,3);	//=> [1,2,3]
+	// Array.splice是不纯的，它有副作用，对于固定的输入，输出不是固定的
+	xs.splice(0,3);  //=> [1,2,3]
+	xs.splice(0,3); //=> [4,5]
+
+	三、函数的柯里化
+	函数柯里化（curry）的定义很简单：传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数。
+	var add = function(x){
+	    return function(y){
+	        return x + y;
+	    }
+	}
+	事实上柯里化是一种“预加载”函数的方法，通过传递较少的参数，得到一个已经记住了这些参数的新函数，某种意义上讲，
+	这是一种对参数的“缓存”，是一种非常高效的编写函数的方法
+
+	四、函数组合
+	h(g(f(x)));
+
+	//两个函数的组合
+	var compose = function(f, g) {
+	    return function(x) {
+	        return f(g(x));
+	    };
+	};
+	var add1 = function(x){ 
+		return x + 1;
+	}
+	var mul5 = function(x) {
+		return x * 5;
+	}
+	compose(mul5, add1)(2);
+
+	五、Point Free 
+	不要命名转瞬即逝的中间变量
+	fp:函数式
+	frp：函数响应式
+
+	RX.js
+	clcle.js
+	lodash.js
+	underscore.js
+	ramda.js
+	elm.js
+
+	Observable 可观察对象
+	Observer 观察者
+	subscribe:订阅
+	subject:推送功能
+	Scheduler:调度器
+
+	设计模式：为解决同一问题设计出的不同解决方案
+	命令模式
+	代理模式
+	单例模式
+	职责链模式
+	发布订阅者模式
+
+
+	QA测试
+	什么是测试
+		描述一种用来促进鉴定软件的正确性、完整性、安全性和质量的过程。换句话说，软件测试是一种实际输出与预期输出之间的审核或者比较过程。
+		软件测试的经典定义是：在规定的条件下对程序进行操作，以发现程序错误，衡量软件质量，并对其是否能满足设计要求进行评估的过程。
+	目的
+	 	让开发者明确知道代码结果
+
+	常见的测试类型 
+		单元测试 :从字面意思理解,写一段代码来测试一个单元 他有可能是一个 function，一个 module 一个package 一个类
+		集成测试 :在单元测试的基础上，将所有模块按照设计要求（如根据结构图）组装成为子系统或系统，进行集成测试
+		样式测试 :UI的样式测试为了测试我们的样式是否复合设计稿预期。同时通过样式测试我们可以感受当我们 code 变化带来的ui变化，以及他是否符合预期
+		Jasmine mocha  Karma
+
+	TDD：测试驱动开发（Test-Driven Development）测试驱动开发是敏捷开发中的一项核心实践和技术，也是一种设计方法论。 先编写单元测试用例代码，
+	测试代码确定需要编写什么产品代码。TDD的基本思路就是通过测试来推动整个开发的进行，但测试驱动开发并不只是单纯的测试工作，而是把需求分析，
+	设计，质量控制量化的过程。TDD首先考虑使用需求（对象、功能、过程、接口等），主要是编写测试用例框架对功能的过程和接口进行设计，而测试框架可以持续进行验证。
+	关注所有的功能是否被实现(每一个功能都必须有测试用例) 
+
+	TDD方法的一些特点：
+	有利于更加专注软件设计；
+	清晰地了解软件的需求；
+	很好的诠释了代码即文档。
+	TDD更偏重与测试代码的功能是否实现正确，
+
+
+	BDD：行为驱动开发（Behavior Driven Development）行为驱动开发是一种敏捷软件开发的技术，它鼓励软件项目中的开发者、QA和非技术人员或商业参与者之间的协作,
+	主要是从用户的需求出发，强调系统行为。BDD最初是由Dan North在2003年命名，它包括验收测试和客户测试驱动等的极限编程的实践，作为对测试驱动开发的回应
+
+	关注整体行为是否符合整体预期，编写的每一段代码都有目的提供一个全面的测试用例集
+	单元测试的目的是为了保证开发质量,减小测试成本,而手段是通过检查实际情况是否满足期望
+
+	1，单元测试  (Mocha+chai)  kaima+mocha
+	2，e2e测试 selenium webdirver  下载插件firefox    执行node  ./test/test.js   
+	3，API测试  mocha+chai (supertest)  mocha  ./tests/test.js
+	4，UI还原性测试   backstop.js 、uirecorder、nightwatchjs
+	5，性能测试
+
+	UI还原性测试
+		 npm install -g  backstopjs
+		 backstop init   //生成  backstop.json 配置文件
+		 backstop reference //backstop会自动截取屏幕整个样板图，并会存在bitmaps_reference指定的路径下
+		 backstop test //  重构样式后执行命令行
+
+1.观看第三周的作业直播课
+2.继续复习QA测试工程师课程整理笔记
+
+
+第一周作业详解
+	函数提升的优先级高于变量
+	已经声明的变量再次声明会被忽略
+	如果局部变量未被声明引用，者默认声明为全局变量，
+	最后谁掉用，this指向谁
+	原形链不new 是挂载不上的
+	__proto__ 指向根
+
+	js 宏任务(macro-task) 微任务(micro-task)
+		macro-task(宏任务)：包括整体代码script，setTimeout，setInterval
+		micro-task(微任务)：Promise，process.nextTick
+	
+	同步事件队列：
+	异步事件队列： setTimeout， setInterval ，ajax ，promise，事件绑定
+	事件循环Event Loop
+	Event Loop 先执行 微任务 后执行 宏任务
+	事件循环是JS实现异步的一种方法，也是JS的执行机制
+	参考 https://baijiahao.baidu.com/s?id=1584876586345446053&wfr=spider&for=pc
+	console.log('1');
+	setTimeout(function() {
+	        console.log('2')
+	        process.nextTick(function() {
+	                console.log('3');
+	        })
+	        newPromise(function(resolve) {
+	                console.log('4');
+	                resolve();
+	        }).then(function() {
+	                console.log('5')
+	        })
+	})
+	process.nextTick(function() {
+	        console.log('6');
+	})
+	newPromise(function(resolve) {
+	        console.log('7');
+	        resolve();
+	}).then(function() {
+	        console.log('8')
+	})
+	// 1 7 6 8  2 4 3 5
+
+	while(true){
+		console.log(Math.random())
+	}
+	//一直占用 执行  
+	模拟  多线程  concurrent.Thread.js  webwork
+	case接受 是常量
+	"abcd".split();
+	Array.from("abcd");
+	reduce
+	赋值操作点先执行
+
+
+HTTP协议
+	一次http操作称为一个事务 
+	请求： 请求行 消息报头 请求正文
+	响应： 状态行 消息报头 响应正文
+	tar -zxvf  解压文件
+	./nginx -t
+	./nginx -s reload
+	./nginx -s stop
+copy /y C:\Users\Administrator\.jenkins\workspace\once  H:\once
+
+node架构 优化
+		IO密集型：大量的输入输出；
+		CUP密集型 :大量的计算；
+	异步IO的好处
+		1前端通过异步IO可以消除UI堵塞
+		2IO是昂贵的 异步IO是更加昂贵的
+		3node.js适合IO密集型不适用cup密集型	
+	eventLoop
+		libuv : 管理通知；liunx 轮循通知  custom threadpool 、 windows 事件通知 IOCP
+		custor ：都是一样各自独立 
+		fork:复制 主的一挂全都完了
+		pm2 :塞满进程 进程守护
+		setTimeout,setInterval现成池不参与
+		process.nextTick()
+	高阶函数：把函数当做参数或者返回值为函数的函数
+	node 控制异步手段
+		1.Async Await
+		2.promise/Defferred
+		3.step,wind ,bigpipe,Q.js
+	node内存管理
+		node使用javascript在服务端操作大内存对象收到了一定的限制64位： 1.4G ;32位：0.7G
+	垃圾回收机制
+		标记清除
+		新生代：scavenge 
+		新生代被回收过一次 发现to的使用空间超过25%晋升到老生代
+		老生代：mark-sweep标记  mark-compact
+		v8后续还延续了 延迟处理， 增量处理 计划引入并行标记处理；
+	node 常见的内存泄漏
+		1. 无线增长的数组
+		2.无线设置属性和值
+		3.任何模块内的私有变量和方法均是永驻内存的a=null
+		4,大循环 无gc机会
+	AOP:面向对象
+	IOC：控制反转
+	DI：依赖注入
+
+1.复习第二周项目课程整理笔记
+2,搭建nginx ，负载均衡
+
+第二周作业
+	moon.js   1.2kb	mvvm
+	san.js 	    12Kb 兼容ie6 mvvm
+	navigator.sendBeacon("a.php") //埋点
+	UI自动化测试框架F2etest
+
+ECMAScript 5.1
+	es5-shim:兼容插件
+	es5严格模式
+		 给作者提供了选择一个限制性更强语言的变种方式
+	特点：
+		 消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;
+		 消除代码运行的一些不安全之处，保证代码运行的安全；
+		 提高编译器效率，增加运行速度；
+		 为未来新版本的Javascript做好铺垫。
+	代码在严格模式下受到的限制：
+		 全局变量显式声明
+		 禁止使用with语句
+		 禁止this关键字指向全局对象
+		 禁止在函数内部遍历调用栈
+		 对象不能有重名的属性
+		 函数不能有重名的参数
+		 禁止八进制表示法
+		 函数必须声明在顶层
+		 保留字
+	附加对象
+		Object.getPrototypeOf  //方法返回指定对象的原型（内部[[Prototype]]属性的值） 对对象的属性读写操作
+			Object.getPrototypeOf(object)
+			obj:要返回其原型的对象
+		Object.getOwnPropertyDescriptor //方法返回指定对象上一个自有属性对应的属性描述符。（自有属性指的是直接赋予该对象的属性，不需要从原型链上进行查找的属性）
+			Object.getOwnPropertyDescriptor(obj, prop)
+			obj：需要查找的目标对象
+			prop：目标对象内属性名称（String类型）
+			如果指定的属性存在于对象上，则返回其属性描述符对象（property descriptor），否则返回 undefined。
+		Object.getOwnPropertyNames //返回一个数组，该数组对元素是 obj自身拥有的枚举或不可枚举属性名称字符串 方法返回一个由指定对象的所有自身属性的属性名
+			Object.getOwnPropertyNames(obj)
+			obj：一个对象，其自身的可枚举和不可枚举属性的名称被返回。
+		Object.create   // 方法会使用指定的原型对象及其属性去创建一个新的对象。深度创建对象副本
+			Object.create(proto, [propertiesObject])
+			proto：新创建对象的原型对象。
+			propertiesObject:可选,如果没有指定为 undefined，则是要添加到新创建对象的可枚举属性（即其自身定义的属性，而不是其原型链上的枚举属性）
+					        对象的属性描述符以及相应的属性名称。这些属性对应Object.defineProperties()的第二个参数。
+			返回一个新对象，带着指定的原型对象和属性。
+		Object.defineProperty//方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+			Object.defineProperty(obj, prop, descriptor)
+			obj：要在其上定义属性的对象。
+			prop：要定义或修改的属性的名称。
+			descriptor：将被定义或修改的属性描述符。
+			返回被传递给函数的对象。
+		Object.defineProperties  方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+			Object.defineProperty(obj, prop, descriptor)
+			obj：要在其上定义属性的对象。
+			prop：要定义或修改的属性的名称。
+			descriptor：将被定义或修改的属性描述符。
+			返回：被传递给函数的对象。
+		Object.seal 方法可以让一个对象密封，并返回被密封后的对象。密封对象将会阻止向对象添加新的属性，并且会将所有已有属性的可配置性（configurable）置为不可配置（false），
+			即不可修改属性的描述或删除属性。但是可写性描述（writable）为可写（true）的属性的值仍然可以被修改。
+			obj：将要被密封的对象
+		Object.freeze  方法可以冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、
+			可配置性、可写性。也就是说，这个对象永远是不可变的。该方法返回被冻结的对象。
+		Object.preventExtensions  //方法让一个对象变的不可扩展，也就是永远不能再添加新的属性。
+		Object.isSealed //方法判断一个对象是否被密封。
+		Object.isFrozen //方法判断一个对象是否被冻结
+		Object.isExtensible//用于拦截对对象的Object.isExtensible()
+		Object.keys  方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for...in 循环遍历该对象时返回的顺序一致 
+			（两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。
+	数组操作
+		Array.prototype.indexOf //方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1
+			arr.indexOf(searchElement)
+			arr.indexOf(searchElement[, fromIndex = 0])
+			searchElement：要查找的元素
+			fromIndex：开始查找的位置。如果该索引值大于或等于数组长度，意味着不会在数组里查找，返回-1。如果参数中提供的索引值是一个负值，则将其作为数组末尾的一个抵消，
+					即-1表示从最后一个元素开始查找，-2表示从倒数第二个元素开始查找 ，以此类推。 注意：如果参数中提供的索引值是一个负值，并不改变其查找顺序，
+					查找顺序仍然是从前向后查询数组。如果抵消后的索引值仍小于0，则整个数组都将会被查询。其默认值为0.
+		Array.prototype.lastIndexOf //方法返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找，从 fromIndex 处开始。
+			arr.lastIndexOf(searchElement[, fromIndex = arr.length - 1]
+			searchElement:被查找的元素。
+			fromIndex:从此位置开始逆向查找。默认为数组的长度减 1，即整个数组都被查找。如果该值大于或等于数组的长度，则整个数组会被查找。如果为负值，将其视为从数组末尾向前的偏移。
+				 即使该值为负，数组仍然会被从后向前查找。如果该值为负时，其绝对值大于数组长度，则方法返回 -1，即数组不会被查找。
+		Array.prototype.every//方法测试数组的所有元素是否都通过了指定函数的测试。
+			arr.every(callback[, thisArg])
+			callback:用来测试每个元素的函数。
+			thisArg:执行 callback 时使用的 this 值。
+		Array.prototype.some //方法测试数组中的某些元素是否通过由提供的函数实现的测试
+			arr.some(callback[, thisArg])
+			callback:用来测试每个元素的函数。
+			thisArg:执行 callback 时使用的 this 值。
+		Array.prototype.forEach //方法对数组的每个元素执行一次提供的函数
+			array.forEach(callback(currentValue, index, array){
+			    //do something
+			}, this)
+			array.forEach(callback[, thisArg])
+			
+			callback：为数组中每个元素执行的函数，该函数接收三个参数：
+			currentValue(当前值)：数组中正在处理的当前元素。
+			index(索引)：数组中正在处理的当前元素的索引。
+			array：forEach()方法正在操作的数组。
+			thisArg可选：可选参数。当执行回调 函数时用作this的值(参考对象)。
+		Array.prototype.map // 方法创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+			let new_array = arr.map(function callback(currentValue, index, array) { 
+			    // Return element for new_array 
+			}[, thisArg])
+
+			callback：生成新数组元素的函数，使用三个参数：
+			currentValue：callback 的第一个参数，数组中正在处理的当前元素。
+			index：callback 的第二个参数，数组中正在处理的当前元素的索引。
+			array：callback 的第三个参数，map 方法被调用的数组。
+			thisArg：可选的。执行 callback 函数时 使用的this 值。
+		Array.prototype.filter//方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素
+			var new_array = arr.filter(callback[, thisArg])
+			callback：用来测试数组的每个元素的函数。调用时使用参数 (element, index, array)。返回true表示保留该元素（通过测试），false则不保留。
+			thisArg：可选。执行 callback 时的用于 this 的值。
+		Array.prototype.reduce //方法对累加器和数组中的每个元素（从左到右）应用一个函数，将其减少为单个值。
+			arr.reduce(callback[, initialValue])
+			callback：执行数组中每个值的函数，包含四个参数：
+			accumulator：累加器累加回调的返回值; 它是上一次调用回调时返回的累积值，或initialValue（如下所示）。
+			currentValue：数组中正在处理的元素。
+			currentIndex可选数组中正在处理的当前元素的索引。 如果提供了initialValue，则索引号为0，否则为索引为1。
+			array可选调用reduce的数组
+			initialValue可选用作第一个调用 callback的第一个参数的值。 如果没有提供初始值，则将使用数组中的第一个元素。 在没有初始值的空数组上调用 reduce 将报错
+		Array.prototype.reduceRight//方法接受一个函数作为累加器（accumulator）和数组的每个值（从右到左）将其减少为单个值。
+		Array.isArray //判断是否是数组
+ECMAScript 6
+	 解构赋值
+	 	数组解构
+	 	const s=['12','ok','dsd'];
+	 	const {f,se,t}=s;
+	 	对象
+	 		functon test(){
+	 			return{
+	 				a:1,
+	 				b:2,
+	 			}
+	 		}
+	 		const result=test();
+	 		const {a,b}=result;
+	 	字符串模板
+	 	const val='world'
+	 	var attr=`hello ${val}`;
+	 	attr.startsWith('h')//以h 开头
+	 	attr.endsWith('h')//以h 结尾
+	 	attr.includes('h')//包含 h
+	 	扩展运算符 (...value)
+	    
+	    //数组
+	 	var s='haha he ook';
+	 	consr Arr=Array.form(s);
+	 	console.log(result);
+	 	var s='haha he ook';
+	 	const =['ok','ll',...s]
+	    // 对象
+	    const k=1
+	    const res={
+	    	[k+1]:k,
+	    	s,
+	    	test,
+	    }
+	    const.log(res)
+	    console.log(NaN===NaN)
+	    console.log(Object.is(NaN,NaN)) //判断是否相等
+	 	const eat={
+	 		geteat(){
+	 			return '鸡腿'
+	 		}
+	 	}
+	 	const drink={
+	 		getdrink(){
+	 			return 'he'
+	 		}
+	 	}
+	 	let sunday=Object.create(eat)
+	 	console.log(sunay.geteat())
+
+	 	Object.setPrototypeOf(sunday,drink)
+	 	console.log(sunday.getdrink())
+	 	let sunday={
+	 		__proto__ :eat,
+	 		geteat(){
+	 			return super.geteat()+'大虾'
+	 		}
+	 	}
+	 	console.log(sunday.geteat())
+		const fn=functon pp(){
+		}
+		console.log(fn.name)
+		let habo=functon*(){
+			yield 'ok1'
+			yield 'ok3'
+			yield 'ok35'
+		}
+
+	    var res=habo.next();
+	    console.log(res.next())
+	    console.log(res.next())
+	    console.log(res.next())
+	    console.log(res.next())
+
+	    const arr=['ok','23','232']
+	    console obj={
+	    	a:'12',
+	    	b:'123'.
+	    }
+	    for (let i in obj){
+	    	const.log(i)
+	    }
+	    for(let v of obj){
+	    	console.log(v)
+	    }
+
+	    constructor
+	    get
+	    set
+	    static
+	    //数组
+	    let arr=new Set('hello ok 2')
+	    arr.add('123')
+	    arr.add('123')
+	    arr.size()
+	    arr.has('ok')
+	    arr.delete('123')
+	    for (let a of arr){
+	    	console.log(a)
+	    }
+	    arr.clear()
+	    arr.size()
+
+	    //键值对
+	    let food=new Map();
+	    let frult={}
+	    let ok=functon(){}
+	    food.set(frult,'345')
+	    food.set(ok,'3q')
+	    console.log(food.get(ok))
+	    console.log(food.size())
+	    console.log(food.delete(ok))
+	    console.log(food.clear())
+
+
+	    //去重
+	    var arr=['12','6','34','6']
+	    const ad=[new Set(...arr)]
+	    console.log(ad)
+
+
+	    export 封箱 
+	    import 拆箱
+
+	    async await 嵌套黑洞
+	    promise()
+
+	    (async(){
+	    	functon Promisefn(url){
+	    	 return new Promise(functon(resolve,reject){
+	    		$.ajax({
+	    			url,
+	    			success:(){
+	    				resolve(res)
+	    			},
+	    			error:(){
+	    				reject('error')
+	    			}
+
+	    		})
+	    	})
+
+	    	}
+	    	await Promisefn('www.baidu.com').then(functon(){})
+	    })
+
+	    类的修饰
+	    	readonly
+	    	autobind
+	    	...
+	    symbol
+	  代理   proxy
+	   let Person={
+	   	name:'ok',
+	   	sex:'nan',
+	   	age:12,
+	   }
+
+	   let p=new proxy(Person,{
+	   	get(target,key){
+	   		return target[key]
+	   	},
+	   	set(target,key,val){
+	   		if(key!=="sex"){
+	   			target[key]=val
+	   		}
+	   	}
+	   })
+	   console.log(p.name)
+	   console.log(p.sex='nv')
+
+1.复习前端新能优化后端必会知识
+
+
+
+
+LIUNX 预备知识
+	liunx 命令
+		netstat  -ntpl 查看进程
+		ss –an –p | grep 8080
+		lsof  -i:80
+		cat /etc/passwd  查看用户列表
+		kill -9 pid   强制杀死进程
+		nginx –t 查看是否生效
+		nginx -s reload: 重新启动
+		ssh启动 sudo service ssh start
+		tar -cvf  vitest.zip vitest 压缩
+		tar -xvf vitest.zip 解压缩
+		systemctl start firewalld  开启防火墙
+		systemctl stop  firewalld 关闭防火墙
+		systemctl status firewalld  查看防火墙状态
+		firewall-cmd –list-all 查看所有的信息
+		Chmod 600  ubuntu02_key 修改私钥权限
+		ps -ef | grep nginx 查看 nginx的进程
+		sudo passwd 设置root用户密码
+		su root  切换用户
+		/etc/profile		//环境变量配置文件
+
+		ssh root@192.168.50.14 -P 8090
+		复制文件：scp width.html roottest@192.168.50.141:home/newtest
+		复制目录：scp -r filename roottest@192.168.50.141:home/newtest
+		ssh  roottest@192.168.50.141
+		注如果 scp ssh 失败：
+			sudo ps -e |grep ssh“–>回车–>有sshd,说明ssh服务已经启动，如果没有启动，输入”sudo service ssh start“–>回车–>ssh服务就会启动 
+			如果没有下载 apt-get install openssh-server 并且
+
+
+			
+	      	ssh-keygen –t rsa  –C ‘sddr’  -f ‘wenjanjaim’
+	      	-t 选择加密方式量不用中文
+	      	-f 文件名
+	      	rsa 加密方式
+	      	“happy” 什么标识 尽
+	      	cat ubuntu02_key.pub >> authorized_keys  把公钥写入authorized_keys
+	      	>覆盖
+	      	>> 追加
+	      	Exit：退出
+	      	ssh登录：ssh -i pri-key  root@192.168.50.134
+	known_hosts: 存放其他服务器生成的指纹
+	config 配置 
+	      	Host evil-cloud
+	      	User root
+	      	Host yideng
+	      	HostName 192.168.50.142
+	      	port 22
+	      	IdentityFile ~/.ssh/new
+	      	IdentitiesOnly yes
+	      	Protocol 2
+	      	Compression yes
+	      	ServerAliveInterval 60
+	      	ServerAliveCountMax 20
+	      	LogLevel INFO
+	ssh yideng  可直接登录
+git&&svn
+	yum install git /svn
+
+1.复习liunx基本命令 整理笔记
+2,实践免密登录 和lazyload.js 静态资源分发
+
+
+从0到大论前端持续集成
+	Allow-Control-Allow-Origin:*
+	shell.js 启用shell 命令行
+	https://www.npmjs.com/package/shelljs
+	前端工程化目标
+		自动化编译
+		前端模块化
+		定位静态资源
+		前端开发组件化
+		自动化部署测试配合版本库
+		自动化性能测试
+	Web Components
+		1.custom Elements
+		2.HTML Imports
+		3.HTML Templates
+		4.Shadow DOM
+	xtag
+	travis click
+	jenkins
+	requestAnimationFrame:动画渲染帧
+	fastdom.js:先读然后批量操作
+	www.jankfree.org
+
+
+前端架构启蒙课
+	1，统帅全军
+	2，消息通讯
+	3，插件随组 
+	4，本地可调
+	5，多段方案
+	6，代码分模
+	7，雅虎军规
+	8，工业为先
+	9，持续扩展
+	10，一键部署
+
+前端性能优化
+一个准则 小
+雅虎军规 性能优化  初级
+====开始====
+1.html要小 减少http请求文件大小 加载 html dom ready 可见可操作时间提前
+2.html css after before outset 阴影 渐变 模拟 dom 元素 1div 7div 压缩
+3.css 动画 绘制 gpu参与 
+作业 ： 如何用chrome的工具调试一个css动画的性能！！重汇和重排！！
+4.硬件加速 如何开启 transform: translate3d(-2600px, 0px, 0px); 让元素开启硬件加速 一层 
+5.减少css的体积  压缩工具 直接结束
+6.减少js的体积 代码的执行时长 函数 benchmark 跑分 
+7.图片 png 无损压缩 webp no images时代 纯色系的话 css Symbol 
+
+======以上的小儿科===============
+8.移动端 网络昂贵的 请求的珍贵性 etag -> expires time 
+9.缓存 离线缓存的一些介质 localStorage 同步读取 5m 2.5m 
+if("a.js" = "xxx4546") {
+    localStorage
+}
+a.js   a.xxx4546.js
+a.xxx4546.js  js代码内容..... 增量更新上线
+10.任何的限制  js css 。。。更新资源的时候 弹个框 刷新 一旦缓存 更新不进去！！！
+a  f版本 PWA !!!! 
+11.异步的读取 50m nosql 关系型  localStorage扩容机制 postmessage 
+12.backbone.js mvc model.js 发送请求 view.js 绑定事件 controll.js 用户路由 业务逻辑 js
+13. xxxxx -》网站-》壳-》js -> controll.js -> view.js -》 model.js -《view.js 用户白屏时间 js堵塞 
+a/b -> c/d  pushstate 刷新页面 js -》 ajax
+14. xxxxx -》网站(前端代码长征 打包 送到后台去 直出) 内容吐出来(nodejs+swig) 大文件 先吐核心的 再通过bigpipe 往回打
+15. controll.js #hash路由 真正的nodejs路由 
+16.model.js  转移到后端去了 数据直接打给swig 
+17.view.js 点击逻辑 全部靠view去实现 <a href="b.php">
+18.nodejs项目 真正的业务逻辑 多页 jqeury.js 
+19.views spa js CSS html 拼进去 ssr spa vue  webapp 内部打开的话 加载局部的页面 全部刷新打开 整体加载页面
+2012技术 页面请求太珍贵了 4G WIFI spdy vue~ssr   
+20.ssr 百度 不支持ajax seo heaers~~~ spa 
+
+=========算是入门阶段=========================
+21.深  脑洞打开 /mobile/simple/static/common/pkg/common_sync_js_0_cb55e17.js
+删掉 新建 全变？？ a.js b.js c.js d.js => common_sync_js_0_cb55e17 js-》diff 一小块
+22.图片 + canvas 请求数据 手机 研究 深入埋点 a.gif?白屏时间=图对应的阶段& navigator.sendBeacon("a.php") ua
+用户画像 最优解 机型 灰度上线 百度 AB 全量 
+23.图片 网速 img 波动性 ip -> 手机型号 网速 wise window._WISE_INFO 定制用户内容 降级 看 用！！
+24.http请求 cdn 5个js 3个headers 压缩 轻
+25.nodejs 性能 权衡集群情况 qps 27.7 
+
+=========合格的性能优化=========
+1.k8s+docker
+2.图形学的时候 性能超高 js语言+c
+性能优化领域 小字为先 网络第一 渲染第二 语言特性
+
+
+
+
+
+前端性能优化必备服务器知识
+	DNS: 一个域名对应多个ip
+	pop 邮件服务器协议
+	qps=每秒的并发数
+	传输层 tcp：三次握手 四次握手
+	CDN
+
+
+
+
+
+
+
+
+
+
+
+第四周的作业
+dns预解析：DNS prefetch
+web Performance API Timing
+router:pajx
+webpack-manifest
+getScript
+localForage：orm 库 indexDB
+cross-storage :本地库的扩容
+Eruda:移动端调试插件
+ 
+
+
+less
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//尾递归
+	// function mode (x){
+	// 	console.log(x)
+	// 	if(x===1){
+	// 		return -10;
+	// 	}else{
+
+	// 		return x+mode(x-1)
+	// 	}
+	// }
+	// console.log(mode(3))
+
+	//f(g(x))
+	// var add=function (a,b) {
+	// 	return a+b;
+	// }
+	// function math(func,array){
+	// 	return func(array[0],array[1])
+	// }
+	// console.log(math(add,[1,3]))
+
+	// console.log(Rx)
+
+
+	// var button = document.querySelector('button');
+	// button.addEventListener('click', () => console.log('hello react!'));
+
+	//观察者
+	// var button = document.querySelector('button');
+	// var event=Rx.Observable.fromEvent(button, 'click')
+	//  event.subscribe(() => console.log('Clicked!'));
+
+
+	// var count = 0;
+	// var button = document.querySelector('button');
+	// button.addEventListener('click', () => console.log(`Clicked ${++count} times`));
+	// Rx.Observable.fromEvent(button, 'click') .throttleTime(1000).scan(count => count + 1, 0).subscribe(() => console.log(`Clicked ${++count} times`))
+
+	
+	// var button = document.querySelector('button');
+	// Rx.Observable.fromEvent(button,'click').throttleTime(1000).scan(count =>count+1,0).subscribe(count=>console.log(count))
+
+	// var button = document.querySelector('button');
+	// Rx.Observable.fromEvent(button, 'click') .throttleTime(1000).map(event => event.clientX).scan((count, clientX) => count + clientX,0)   .subscribe(x => console.log(x))
+
+
+	// var clicks = Rx.Observable.fromEvent(document, 'click');
+	// var tagNames = clicks.pluck('target', 'class');
+	// tagNames.subscribe(x => console.log(x))
+
+	// var clicks = Rx.Observable.fromEvent(document, 'click');
+	// var pairs = clicks.pairwise();
+	// var distance = pairs.map(pair => {
+	//   var x0 = pair[0].clientX;
+	//   var y0 = pair[0].clientY;
+	//   var x1 = pair[1].clientX;
+	//   var y1 = pair[1].clientY;
+	//   return Math.sqrt(Math.pow(x0 - x1, 2) + Math.pow(y0 - y1, 2));
+	// });
+	// distance.subscribe(x => console.log(x));
+
+
+	// var seconds = Rx.Observable.interval(1000);
+	// var clicks = Rx.Observable.fromEvent(document, 'click');
+	// var result = Rx.Observable.interval(1000).sample(clicks).subscribe(x => console.log(x));
+	// result
+
+
+
+	// var observable = Rx.Observable.create(function (observer) {
+	//   observer.next(1);
+	//   observer.next(2);
+	//   observer.next(3);
+	//   setTimeout(() => {
+	//     observer.next(4);
+	//     observer.complete();
+	//   }, 2000);
+	// });
+
+	// console.log('just before subscribe');
+	// observable.subscribe({
+	// 	  next: x => console.log('got value ' + x),
+	// 	  error: err => console.error('something wrong occurred: ' + err),
+	// 	  complete: () => console.log('done'),
+	// });
+	// console.log('just after subscribe');
+
+
+
+	// var foo = Rx.Observable.create(function (observer) {
+	// 	  observer.next(42);
+	// 	  observer.complete();
+	// 	});
+
+	// 	foo.subscribe({
+	// 	 next: x => console.log('got value ' + x),
+	// 	 complete: x => console.log('ok'),
+	// 	});
+
+	// 	foo.subscribe(function (y) {
+	// 	  console.log(y);
+	// 	});
+
+	// var observable = Rx.Observable.interval(1000);
+	// var subscription = observable.subscribe(x => console.log(x));
+	// // 稍后：
+	// // 这会取消正在进行中的 Observable 执行
+	// // Observable 执行是通过使用观察者调用 subscribe 方法启动的
+	// subscription.unsubscribe();
+
+		
+
+	// var subject = new Rx.Subject();
+
+	// subject.subscribe({
+	//   next: (v) => console.log('observerA: ' + v)
+	// });
+	// subject.subscribe({
+	// 	  setTimeout(() => {
+	// 			console.log('ok')
+	// 		  }, 2000);
+
+	// 	// setTimeout(()=>{next: (v) => console.log('observerB: ' + v)}   , 200)
+	// });
+
+	// subject.next(1);
+	// subject.next(2);
+
+
+	// var source = Rx.Observable.from([1, 2, 3]);
+	// var subject = new Rx.Subject();
+	// var multicasted = source.multicast(subject);
+
+	// // 在底层使用了 `subject.subscribe({...})`:
+	// multicasted.subscribe({
+	//   next: (v) => console.log('observerA: ' + v)
+	// });
+	// multicasted.subscribe({
+	//   next: (v) => console.log('observerB: ' + v)
+	// });
+
+	// // 在底层使用了 `source.subscribe(subject)`:
+	// multicasted.connect();
+
+
+
+	// function multiplyByTen(input) {
+
+	//   var output = Rx.Observable.create(function subscribe(observer) {
+	//     input.subscribe({
+
+	//       next: (v) => observer.next(10 * v),
+	//       error: (err) => observer.error(err),
+	//       complete: () => observer.complete()
+	//     });
+	//   });
+	//   return output;
+	// }
+
+	// var input = Rx.Observable.from([1, 2, 3, 4]);
+	// var output = multiplyByTen(input);
+	// output.subscribe(x => console.log(x));
+
+
+
+	// var myObservable = Rx.Observable.create(observer => {
+	// observer.next('foo');
+	// setTimeout(() => observer.next('bar'), 1000);
+	// });
+	// myObservable.subscribe(value => console.log(value));
+
+
+	//柯里化
+	// function add(x){
+	// 	return function(y){
+	// 		return x+y;
+	// 	}
+	// }
+
+	// var sd=add(5)
+	// console.log(sd(3))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+安装node npm
+  sudo apt-get install python-software-properties
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - 
+  如果 curl 没有 安装 curl
+  $ sudo apt-get install nodejs
+
+
+下载 nginx 
+解压
+tar -xvf  nginx
+进入nginx
+ sudo ./configure
+ 报错的话执行
+	sudo apt-get install libpcre3 libpcre3-dev
+	sudo apt-get install openssl libssl-dev
+执行 install make
+进入安装后的文件夹
+进入sbin
+启动  sudo   ./nginx 
+
+ ps –ef | grep nginx    查看nginx 进程
+./nginx -v
+./nginx -t //测试配置是否正确
+./nginx -s stop
+./nginx -s reload
+配置反向代理
+
+  upstream web_mgrsys {
+        server 127.0.0.1:8090 weight=10;
+        server 127.0.0.1:3000 weight=3;
+    }
+
+    proxy_pass http://web_mgrsys;
+
+
+
+  1.backup  
+     备份机，所有服务器挂了之后才会生效
+    2.Weight
+        默认为1.weight越大，负载的权重就越大。
+    3.max_fails
+        允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream 模块定义的错误
+
+    4.fail_timeout
+        max_fails 次失败后，暂停的时间。
+     5.max_conns 
+	限制分配给某台Server处理的最大连接数量，超过这个数量，将不会分配新的连接给它。默认为0，表示不限制。注意：1.5.9之后的版本才有这个配置
+     ip_hash;  每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题
+    nginx 开启缓存
+	开启 gzip on
+	         gzip_types text/plain application/javascript text/css application/xml
+	开启 etag on
+
+	开启 expires
+	     	expires 30d;
+	        	add_header Cache-Control no-cache;
+     pm2 设置
+     		pm2 start app.json
+     		pm2 restart app.json
+     		pm2 logs
+     		pm2 stop all
+
+     	{
+     	"name": 'nodedapp', //应用名称
+     	"script": "app.js",   //实际启动脚本
+     	"watch" :true,
+     	"instances" :"max",
+     	"exec_mode" : "cluster",
+     	"error_file" :"./logs/app_err.org",
+     	"out_file" :"./logs/app_out.org", 
+     	}
+
+
+
+   ssh
+     sudo ps -e |grep ssh“–>回车–>有sshd,说明ssh服务已经启动，如果没有启动，输入”sudo service ssh start“–>回车–>ssh服务就会启动
+     下载 apt-get install openssh-server 并且
+     打开”终端窗口”，输入”sudo gedit /etc/ssh/sshd_config“–>回车–>把配置文件中的”PermitRootLogin without-password“加一个”#”号,把它注释掉–>再增加一句”PermitRootLogin yes“–>保存
+      exit 退出登录
+
+      	ssh免密登录
+	      	公共密钥放到要访问的服务器上  /root/.ssh
+	      	Chmod 600  ubuntu02_key 修改私钥权限
+	      	ssh-keygen –t ras  –C ‘sddr’  -f ‘wenjanjaim’
+	      	-t 选择加密方式
+	      	rsa 加密方式
+	      	“happy” 什么标识 尽量不用中文
+	      	-f 文件名
+	      	cat ubuntu02_key.pub >> authorized_keys  把公钥写入authorized_keys
+	      	>覆盖
+	      	>> 追加
+	      	Exit：退出
+	      	ssh登录：ssh -i pri-key 192.168.50.134
+	      	config 配置 
+
+      	#单主机配置
+	      	Host evil-cloud
+	      	User root
+	      	HostName IP或网址
+	      	IdentityFile ~/.ssh/evilboy_rsa
+	      	Protocol 2
+	      	Compression yes
+	      	ServerAliveInterval 60
+	      	ServerAliveCountMax 20
+	      	LogLevel INFO
+
+
+
+
+网页性能
+网页加载测速插件：Make the web faster
+benchmark  js性能跑分
+
+硬件加速原理
+浏览器接收到页面文档后，会将文档中的标记语言解析为DOM树。DOM树和CSS结合后形成浏览器构建页面的渲染树。渲染树中包含了大量的渲染元素，
+每一个渲染元素会被分到一个图层中，每个图层又会被加载到GPU形成渲染纹理，而图层在GPU中transform 是不会触发 repaint 的，
+最终这些使用 transform 的图层都会由独立的合成器进程进行处理。
+
+首先transform和绝对定位都会产生新的图层，所以都不存在重排，图层在GPU中transform又不会引起重绘，这就是硬件加速的原理。
+另外，transform3D和2D的区别在于3D渲染前便会产生新的图层，而2D是在运行时产生图层，运行结束时删除图层
+
+
+css symbol
+
+navigator.sendBeacon('a.php') 埋点
+rel="dns-prefetch"
+publicpath
+lazyload.js 同步加载css js
+pm2
+
+URI 是统一资源标识符，
+URL 是统一资源定位符。
+
+
+// config
+// model 
+// controller
+// view
+// assets
+// tests
+Nginx的基本架构：master/worker
+       master/worker模型：一个master进程可生成一个或多个worker进程；每个worker基于时间驱动机制可以并行响应多个请求
+       master:加载配置文件、管理worker进程、平滑升级，...
+       worker：http服务，http代理，fastcgi代理，...
+
+
+WorkFlow
+	font-variant-caps: small-caps;
+	font-variant-numeric: lining-nums;
+	image-set() ：高倍图
+	symbol
+	a:love hate
+	 lvha
+	 重绘不一定重排
+	 重排一定引起重绘
+	 css 分层理论： bem Acss
+
+
+项目搭建总结
+	编辑器：sublime text3： 
+		字体设置:"font_face": "Comic Sans MS",
+		 A File Icon
+		 Seti_UI
+		 Emmet
+	版本控制工具：Git,svn
+	合理的文件夹划分：controller,views, assets,tests,models,configs
+	css:
+		css编译器：less,sass, styles
+		css 格式化：reset.css  normalize.css  neat.css(推荐)
+		css 分层理论： SMACSS，ACSS
+		css:圣杯布局，动画，3d,WorkFlow
+		css语法和风格的检查工具：csslint
+		css重排重绘 ,开启3D硬件加速：transform: translate3d(0,0,0)开启GPU处理器之外,我们也需要使用 -webkit-backface-visibility: hidden; 和-webkit-perspective: 1000;
+	js:
+		框架   react, vue ,angular,zepto X-tag.js,moon.js san.js，apm.js, elm.js
+		函数式变成 underscore.js,lodash.js
+		es6：解构赋值，箭头函数，字符串模板，new Set(),new Map()，proxy
+		巧用设计模式：命令模式、代理模式、单例模式、职责链模式、发布订阅者模式
+		js语法和风格的检查工具：jshint
+	图片： tiny压缩， cssicon, 小图合并，
+	组件化开发
+	编译工具：webpack ,gulp,rollup,grunt,parcel (打包，压缩，合并，生成版本戳，cnd， babel编译)
+	chrome :  chrome调试 ，性能插件PageSpeed Insights for Chrome ，跨域插件Allow-Control-Allow-Origin:*，Eruda:移动端调试插件
+	文档生成器wiki： jsdoc, yaml(hologram)
+	离线缓存： localStorage (2.5MB以上会卡顿 ),local扩容(postmessage)，cross-storage :本地库的扩容
+	web安全 :   xss,csrf  SQL注入  cookie安全 
+	node  : express,koa2
+	测试：
+		TDD：测试驱动开发（Test-Driven Development）
+		BDD：行为驱动开发（Behavior Driven Development）
+		1，单元测试  (Mocha+chai)  kaima+mocha
+		2，e2e测试 selenium webdirver  下载插件firefox    执行node  ./test/test.js   
+		3，API测试  mocha+chai (supertest)  mocha  ./tests/test.js
+		4，UI还原性测试   backstop.js 、uirecorder、nightwatchjs, phantomcss,F2etest
+		5，性能测试:jmeter, grunt-perfbudget
+上线阶段
+	持续集成平台：Travis ci,jenkins
+	部署工具：rsync,shell.js,yargs
+	nginx：负载均衡，反向代理，开启gzip, etag，expire，
+	liunx:免密登陆,配置node 服务 
+性能优化
+	前端性能优化:小字为先，navigator.sendBeacon("a.php") 埋点测速， 雅虎军规， DNS prefetch
+	node优化：内存泄漏  闭包，数组无线的扩大,Jimb Esser ,Dave Pacheco, Danny Coates,  Felix Geisendörfer, Joyent ,memwatch+heapdump 
+		没经过压力测试的Node代码基本只完成10%
+		准确计算QPS 未雨绸缪
+		合理利用压力测试工具
+		缓存 队列 内存泄露 耗时较长的代码
+	准确计算QPS: wrk 
+	pm2 性能监测
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.bootcss.com/eruda/1.4.3/eruda.min.js"></script>
+eruda.init()
+
+
+lazyload.js并行加载css ，js: https://appelsiini.net/projects/lazyload/
+iconfont:http://www.iconfont.cn/
+cssicon:http://cssicon.space/#/
+字体生成器：https://www.fontke.com/tool/fontface/
+占位图生成器：https://tool.lu/imageholder/
+去除多余的css:https://uncss-online.com/
+网站性能魔方：http://www.mmtrix.com/
+xss 攻击：http://jsxss.com/zh/index.html
+p2m:https://keymetrics.io/
+Eruda:移动端调试插件：https://github.com/liriliri/eruda/blob/master/doc/README_CN.md
+谷歌插件：
+	性能插件PageSpeed Insights for Chrome ，
+	跨域插件Allow-Control-Allow-Origin:*，
+
+https://icomoon.io/icons.html
+underline.js
+responsify.js
+typedetail.com
+cssicon.space
+designresearch.space
+css hint
+fastdom.js
+font-family: monaco, menlo, consolas, 'courier new', courier, monospace;
+
+IP: 113.10.156.216 账号： root  密码：ccc12345
+meng  meng1234
+
+
+第一周项目搭建
+
+	transform-es2015-modules-commonsjs
+	tree-shaking
+	cross-env
+	rellup-plugin-replace
+	const replace = require("rollup-plugin-replace");
+
+	scope hosting
+
+
+高性能css原理
+	1.网页的渲染过程webkit渲染 html+Css
+		1-1.获取dom分割层
+		1-2计算样式
+		1-3.重排 放置dom的位置 layout
+		1-4.节点填充重绘 paint
+		1-5网页GPU纹理图片展现到页面元素偏移、缩放)
+		1-6.网页合成层生成屏幕最终图像
+	2网页就像摆积木一旦积木位置动了的话 重排 颜色 重绘
+	         重绘不一定会引起重排重排一定会引起重绘
+	3合成层这个阶段GPU参与
+	4根元素， position ，transform，半透明， canvas， css的滤镜，
+		Gpu, CSS3D, WEBGL ,trans form 直接开启硬件加速
+	5.圆角 阴影 颜色 啊...外观一定会造成重绘
+	6元素尺寸变了 元素位置变了 内容边了引起盒子变化 页面初始化
+	正准备执行优化后的队列的时候-》 width全部放弃
+	const width=$(window).width()
+	requestAnimationFrame(function(){
+		$('#test'). width()
+	});
+	https:/github.com/wilsonpage/fastdom
+	7不要以为单独的层是万能的,单独层触发重排的条件一样会重排,只重排自己的层
+	8. GPU
+	相同:两者都有总线和外界联系,有自己的缓存体系,以及运算单元,两者都为了完成计算而生。
+	不同:cpu主要负责的操作系统和应用程序GPU显示相关和数据处理GPu运算要快
+
+
+前端架构
+	1.src是开发文件夹 东西不参与上线 
+	2.上线的阶段的代码 通过动态编译而来 build不是你写的 生成的 build而服务
+	3.外面的config是webpack的配置 里面的是node的开发配置
+	4.为什么我要gulp编译node 简单！！快~
+	5.开发的src写es6文件 上线的这个配置文件 不支持的语法就不要写了
+	6.编译node直接用一个 es2015-moudles
+	7.错误！！
+	8.app.js 不能随便往里写业务逻辑 核心！启动所有的项目 
+	9.进行测试的时候一定要记得退出！！！
+
+
+	高内聚  低耦合
+
+
+
+	请说明前端工程化与性能优化的关系？
+	 前端工程化使项目结构清晰，文件模块化，这有利于项目的优化
+	 .请说明静态资源文件放入CDN的好处
+	  1,减少本地服务请求，节约带宽，可以更加快速的加载其他业务代码
+	  2,在请求不同域名的资源文件，可以减少头部的cookey参数
+
+	  请你写出你知道的缓存前端静态资源的常用方法
+	  nginx ：etag ,expires
+	  浏览器：localStorage, mainfest,indexDB
+
+
+	  在移动端特别重视首屏时间，请写出你掌握的降低首屏时间的方法
+		  开启cnd加速
+		  开启懒加载
+		  减少重排 重绘，
+		  script 放在底部
+		  减少http请求
+	我们知道一个网站的并发是有限制的，那即使合并了很多请求还是不能解决静态资源请求过多的情况，你有什么优化手段么。
+	开启cnd
+	 lazyload.js
+	性能优化不仅仅限于前台静态资源文件，很多时候还需要优化Node,那你知道哪些优化后台的技术手段么
+	 避免内存泄漏
+	 假设现在给你一个接口能够取到用户的网速和机型等关键信息，你能做出什么具体的抉择优化你的H5 WebAPP
+

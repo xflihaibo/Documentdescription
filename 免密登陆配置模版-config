@@ -1,0 +1,140 @@
+# 多主机配置
+Host gateway-produce
+HostName IP或网址
+Port 22
+Host node-produce
+HostName IP或网址
+Port 22
+Host java-produce
+HostName IP或网址
+Port 22
+
+Host *-produce
+User root
+IdentityFile ~/.ssh/produce_key_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+
+#单主机配置
+Host evil-cloud
+User root
+HostName IP或网址
+IdentityFile ~/.ssh/evilboy_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+
+#单主机配置
+Host git.yideng.site
+User git
+IdentityFile ~/.ssh/evilboy_rsa
+Protocol 2
+Compression yes
+ServerAliveInterval 60
+ServerAliveCountMax 20
+LogLevel INFO
+
+
+
+安装node npm
+ sudo apt-get install python-software-properties
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - 
+  如果 curl 没有 安装 curl
+  $ sudo apt-get install nodejs
+
+
+下载 nginx 
+解压
+tar -xvf  nginx
+进入nginx
+ sudo ./configure
+ 报错的话执行
+	sudo apt-get install libpcre3 libpcre3-dev
+	sudo apt-get install openssl libssl-dev
+
+进入安装后的文件夹
+进入sbin
+启动  sudo   ./nginx 
+
+ ps –ef | grep nginx    查看nginx 进程
+./nginx -v
+./nginx -t
+./nginx -s stop
+配置反向代理
+
+  upstream web_mgrsys {
+        server 127.0.0.1:8090 weight=10;
+        server 127.0.0.1:3000 weight=3;
+    }
+  1.backup  
+     备份机，所有服务器挂了之后才会生效
+    2.Weight
+        默认为1.weight越大，负载的权重就越大。
+    3.max_fails
+        允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream 模块定义的错误
+
+    4.fail_timeout
+        max_fails 次失败后，暂停的时间。
+     5.max_conns 
+	限制分配给某台Server处理的最大连接数量，超过这个数量，将不会分配新的连接给它。默认为0，表示不限制。注意：1.5.9之后的版本才有这个配置
+     ip_hash;  每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题
+
+
+     pm2 设置
+     		pm2 start app.json
+     		pm2 restart app.json
+     		pm2 logs
+     		pm2 stop all
+
+     	{
+     	"name": 'nodedapp', //应用名称
+     	"script": "app.js",   //实际启动脚本
+     	"watch" :true,
+     	"instances" :"max",
+     	"exec_mode" : "cluster",
+     	"error_file" :"./logs/app_err.org",
+     	"out_file" :"./logs/app_out.org",
+
+
+     	}
+
+
+
+   ssh
+     sudo ps -e |grep ssh“–>回车–>有sshd,说明ssh服务已经启动，如果没有启动，输入”sudo service ssh start“–>回车–>ssh服务就会启动
+     下载 apt-get install openssh-server 并且
+     打开”终端窗口”，输入”sudo gedit /etc/ssh/sshd_config“–>回车–>把配置文件中的”PermitRootLogin without-password“加一个”#”号,把它注释掉–>再增加一句”PermitRootLogin yes“–>保存
+      exit 退出登录
+
+      ssh免密登录
+      	公共密钥放到要访问的服务器上  /root/.ssh
+      	Chmod 600  ubuntu02_key 修改私钥权限
+      	ssh-keygen –t ras  –C ‘sddr’  -f ‘wenjanjaim’
+      	-t 选择加密方式
+      	rsa 加密方式
+      	“happy” 什么标识 尽量不用中文
+      	-f 文件名
+      	cat ubuntu02_key.pub >> authorized_keys  把公钥写入authorized_keys
+      	>覆盖
+      	>> 追加
+      	Exit：退出
+
+      	ssh登录：ssh -i pri-key 192.168.50.134
+      	config 配置 
+
+      	#单主机配置
+      	Host evil-cloud
+      	User root
+      	HostName IP或网址
+      	IdentityFile ~/.ssh/evilboy_rsa
+      	Protocol 2
+      	Compression yes
+      	ServerAliveInterval 60
+      	ServerAliveCountMax 20
+      	LogLevel INFO
+
