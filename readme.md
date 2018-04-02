@@ -20,7 +20,7 @@
 > Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
 ![brower](img/brower.png)
 > 因此导致了VUE 不支持IE9 一下浏览器
-
+> 如果想要向下兼容，则需要使用 VBbScript 或者 __defineGetter__, __defineSetter__, 
 ### 目录结构
 ![目录](img/vuemulu.png)
 ![目录](img/vuemulu2.png)
