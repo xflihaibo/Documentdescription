@@ -31,6 +31,8 @@
 ![流程图](img/img1.png)
 
 ![流程图](img/vueliucheng.png)
+> setter 触发消息到Watcher watcher帮忙告诉Directive 更新DOM DOM修改数据也会通知 Watcher，watcher帮忙修改数据
+
 ![流程图](img/zhishidian.png)
 
 >* Observer 数据监听器，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者，内部采用Object.defineProperty的getter和setter来实现。
