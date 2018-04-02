@@ -41,6 +41,188 @@
 > 从图中可以看出，当执行 new Vue() 时，Vue 就进入了初始化阶段，一方面Vue 会遍历 data 选项中的属性，并用 Object.defineProperty 将它们转为 getter/setter，实现数据变化监听功能；另一方面，Vue 的指令编译器Compile 对元素节点的指令进行扫描和解析，初始化视图，并订阅Watcher 来更新视图， 此时Wather 会将自己添加到消息订阅器中(Dep),初始化完毕
 > 当数据发生变化时，Observer 中的 setter 方法被触发，setter 会立即调用Dep.notify()，Dep 开始遍历所有的订阅者，并调用订阅者的 update 方法，订阅者收到通知后对视图进行相应的更新。
 
+### 代码
+```bash
+--------------html---------------------
+1.全局创建一个vue实例
+<div id="app">
+  <input type="text" id="a" v-model="text">
+  {{text}}
+</div>
+<script>
+    var vm = new Vue({
+      el: 'app',
+      data: {
+        text: 'hello world'
+      }
+    });
+</script>
+
+----------------MVVM------------------------
+2.创建VUE 类
+function Vue(options) {
+    // 2.实例挂载属性 data: {text:'hello'}
+    this.data = options.data;
+    var data = this.data;
+   // 3.observe 遍历了data对象，进行拆分
+    observe(data, this);
+    var id = options.el;
+   //7.Compile(app节点,vue的实例对象)将app节点内容转换成文档片段，拿回html，编译指令，插回到dom,并创建一个watcher
+    var dom =new Compile(document.getElementById(id),this);
+    // 编译完成后，将dom替换到html模板
+    document.getElementById(id).appendChild(dom);
+}
+
+-----------------Observe--------------------
+/**
+ * obj: {text:'hello'}
+ * vm: vue实例
+ */
+function observe(obj, vm) {
+  //遍历
+  Object.keys(obj).forEach(function(key) {
+    //拆分
+    defineReactive(vm, key, obj[key]);
+  })
+}
+4.Object.defineProperty将data数据里的属性分别进行 set和get
+/**
+ * obj: vue实例
+ * key: text
+ * val: 'hello'
+ */
+function defineReactive(vm, key, val) {
+  var dep = new Dep();
+  Object.defineProperty(vm, key, {
+    get: function() {
+      //5.addSub添加观察者watcher到主题对象Dep
+      if (Dep.target) {
+        //JS的浏览器单线程特性，保证这个全局变量在同一时间内，只会有同一个监听器使用
+        dep.addSub(Dep.target);
+      }
+      return val;
+    },
+   // 5.notify
+    set: function(newVal) {
+      //如果set的值与原来的值相同则返回
+      if (newVal === val) return;
+      //不同则由dep来notify发通知给watcher
+      val = newVal;
+      console.log(val);
+      5.作为发布者发出通知
+      dep.notify();
+    }
+  })
+}
+
+-------------------Dep----------------------
+5.Dep 就是发布者，subs就是收集来的订阅者（就是一个个watcher），很好的实现了观察者模式
+function Dep() {
+  this.subs = [];
+}
+Dep.prototype = {
+  addSub: function(sub) {
+    this.subs.push(sub);
+  },
+  notify: function() {
+    this.subs.forEach(function(sub) {
+      sub.update();
+    })
+  }
+}
+
+--------------------Compile----------------------
+6.Compile(app节点,vue的实例对象)将app节点内容转换成文档片段，拿回html，编译指令，插回到dom,并创建一个watcher
+//此处代码比较多，简写一下
+function Compile(node, vm) {
+  if (node) {
+    this.$frag = this.nodeToFragment(node, vm);
+    return this.$frag;
+  }
+}
+Compile.prototype = {
+  nodeToFragment: function(node, vm) {
+    var self = this;
+    //创建DOM片段
+    var frag = document.createDocumentFragment();
+    var child;
+
+    while (child = node.firstChild) {
+      self.compileElement(child, vm);
+       // 将所有子节点添加到fragment中
+      frag.append(child);
+    }
+    return frag;
+  },
+  compileElement: function(node, vm) {
+    var reg = /\{\{(.*)\}\}/;
+    //节点类型为元素
+    if (node.nodeType === 1) {
+      var attr = node.attributes;
+      // 解析属性
+      for (var i = 0; i < attr.length; i++) {
+        if (attr[i].nodeName == 'v-model') {
+          // 获取v-model绑定的属性名
+          var name = attr[i].nodeValue; 
+          node.addEventListener('input', function(e) {
+            // 给相应的data属性赋值，进而触发该属性的set方法
+            vm[name] = e.target.value;
+          });
+          // 将data的值赋给该node
+          // node.value = vm[name]; 
+          new Watcher(vm, node, name, 'value');
+        }
+      };
+    }
+    //节点类型为文本节点或span
+    if (node.nodeType === 3) {
+      if (reg.test(node.nodeValue)) {
+        // 获取匹配到的字符串
+        var name = RegExp.$1; 
+        name = name.trim();
+         // 将data的值赋给该node
+        // node.nodeValue = vm[name];
+        new Watcher(vm, node, name, 'nodeValue');
+      }
+    }
+  },
+}
+
+----------------Watcher--------------------
+//7.监听更新
+function Watcher(vm, node, name, type) {
+    Dep.target = this;
+    this.name = name;
+    this.node = node;
+    this.vm = vm;
+    this.type = type;
+    this.update();
+    Dep.target = null;
+}
+Watcher.prototype = {
+    update: function() {
+        this.get();
+        //9.批量更新
+        var batcher = new Batcher();
+        batcher.push(this);
+        // 订阅者执行相应操作
+        // this.node[this.type] = this.value; 
+        // this.cb();
+    },
+    cb:function(){
+        // 订阅者执行相应操作
+        this.node[this.type] = this.value; 
+    },
+    // 获取data的属性值
+    get: function() {
+        //触发相应属性的get
+        this.value = this.vm[this.name];
+    }
+}
+
+
+```
+
 
 ###  Virtual DOM
 > JavaScript 对象表示的树结构来构建一个真正的 DOM 。当状态变更时，重新渲染这个 JavaScript 的对象结构，实现视图的变更，结构根据变更的地方重新渲染。
