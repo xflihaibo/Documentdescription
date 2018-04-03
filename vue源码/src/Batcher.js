@@ -9,7 +9,7 @@ function Batcher() {
 /**
  * 批处理重置
  */
-Batcher.prototype.reset = function () {
+Batcher.prototype.reset = function() {
     this.has = {};
     this.queue = [];
     this.waiting = false;
@@ -19,7 +19,7 @@ Batcher.prototype.reset = function () {
  * 将事件添加到队列中
  * @param job {Watcher} watcher事件
  */
-Batcher.prototype.push = function (job) {
+Batcher.prototype.push = function(job) {
     if (!this.has[job.name]) {
         this.queue.push(job);
         this.has[job.name] = job;
@@ -35,7 +35,7 @@ Batcher.prototype.push = function (job) {
 /**
  * 执行并清空事件队列
  */
-Batcher.prototype.flush = function () {
+Batcher.prototype.flush = function() {
     this.queue.forEach((job) => {
         job.cb();
     });

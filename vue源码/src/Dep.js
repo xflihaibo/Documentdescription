@@ -1,13 +1,16 @@
+//实现观察者模式
 function Dep() {
-  this.subs = [];
+    this.subs = [];
 }
 Dep.prototype = {
-  addSub: function(sub) {
-    this.subs.push(sub);
-  },
-  notify: function() {
-    this.subs.forEach(function(sub) {
-      sub.update();
-    })
-  }
+    //向数组添加值  放入观察者
+    addSub: function(sub) {
+        this.subs.push(sub);
+    },
+    //更新数组值  发送通知
+    notify: function() {
+        this.subs.forEach(function(sub) {
+            sub.update();
+        })
+    }
 }

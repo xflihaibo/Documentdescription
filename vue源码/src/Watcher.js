@@ -1,5 +1,8 @@
+// vm vue实例
 function Watcher(vm, node, name, type) {
+    //target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
     Dep.target = this;
+    // console.log(Dep)
     this.name = name;
     this.node = node;
     this.vm = vm;
@@ -16,7 +19,7 @@ Watcher.prototype = {
         // this.node[this.type] = this.value; // 订阅者执行相应操作
         // this.cb();
     },
-    cb:function(){
+    cb: function() {
         this.node[this.type] = this.value; // 订阅者执行相应操作
     },
     // 获取data的属性值

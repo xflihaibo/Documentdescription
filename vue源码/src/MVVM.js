@@ -4,7 +4,6 @@ function Vue(options) {
 	this.data = options.data;
 	var data = this.data;
 	//
-
 	observe(data, this);
 	var id = options.el;
 	//编译文本

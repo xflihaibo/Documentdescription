@@ -7,6 +7,7 @@ vue-class-component
 vue-rx
 vue-devtools
 
+createDocumentFragment
 
 jQuery  实现方式
   on
