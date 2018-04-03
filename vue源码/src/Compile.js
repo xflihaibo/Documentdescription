@@ -22,15 +22,18 @@ Compile.prototype = {
     compileElement: function(node, vm) {
         var reg = /\{\{(.*)\}\}/;
         //节点类型为元素
+        // nodeType 判端节点类型
         if (node.nodeType === 1) {
             var attr = node.attributes;
+            console.log(attr)
             // 解析属性
             for (var i = 0; i < attr.length; i++) {
                 if (attr[i].nodeName == 'v-model') {
                     // 获取v-model绑定的属性名
                     var name = attr[i].nodeValue; 
                     node.addEventListener('input', function(e) {
-                        // 给相应的data属性赋值，进而触发该属性的set方法
+                        // 监听给相应的data属性赋值，进而触发该属性的set方法
+                        console.log('ol')
                         vm[name] = e.target.value;
                     });
                     // node.value = vm[name]; // 将data的值赋给该node
@@ -45,6 +48,7 @@ Compile.prototype = {
                 var name = RegExp.$1;
                 name = name.trim();
                 // node.nodeValue = vm[name]; // 将data的值赋给该node
+                console.log(node)
                 new Watcher(vm, node, name, 'nodeValue');
             }
         }

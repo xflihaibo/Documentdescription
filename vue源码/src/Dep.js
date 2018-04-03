@@ -9,8 +9,9 @@ Dep.prototype = {
     },
     //更新数组值  发送通知
     notify: function() {
+    	console.log(  this.subs)
         this.subs.forEach(function(sub) {
-            sub.update();
+            sub.update("dep");
         })
     }
 }

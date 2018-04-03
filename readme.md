@@ -224,12 +224,27 @@ Watcher.prototype = {
 
 
 ```
+初始化：new vue ->
+                    // observe.get- dep  存储一个监听数组
+                    // Compile-Watcher.update 更新数据
+//更新：observe -dep - watcher.update  更新数组 
+
+
+
+### VUE 3.0
+vm.data="2333" 无效
+vm.$set(this.$data,)   要走监听麻烦
+![流程图](img/del.png)
+VUE3.0会去掉DEP，Watcher，Observer这一坨东西，为什么这么说呢，VUE3.0将利用ES6的proxy代理和Reflect反射来实现双向绑定，监听，那么流程图就应该是这样了
+
+Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
 
 
 ###  Virtual DOM
 > JavaScript 对象表示的树结构来构建一个真正的 DOM 。当状态变更时，重新渲染这个 JavaScript 的对象结构，实现视图的变更，结构根据变更的地方重新渲染。
-
 > DOM 很慢，为啥说它慢，先看一下 Webkit 引擎，所有浏览器都遵循类似的工作流，只是在细节处理有些不同。一旦浏览器接收到一个 HTML 文件，渲染引擎 Render Engine就开始解析它，根据 HTML 元素 Elements 对应地生成 DOM 节点 Nodes，最终组成一棵 DOM 树。
+![流程图](img/dom.png)
+这仅仅是第一层。真正的 DOM 元素非常庞大，这是因为标准就是这么设计的。而且操作它们的时候你要小心翼翼，轻微的触碰可能就会导致页面重排，这可是杀死性能的罪魁祸首。
 
 > 构造了渲染树以后，浏览器引擎开始着手布局 Layout。布局时，渲染树上的每个节点根据其在屏幕上应该出现的精确位置，分配一组屏幕坐标值。接着，浏览器将会通过遍历渲染树，调用每个节点的 Paint 方法来绘制这些 Render 对象。Paint 方法根据浏览器平台，使用不同的 UI后端 API（Agnostic UI Backend API）通过绘制，最终将在屏幕上展示内容。只要在这过程中进行一次 DOM 更新，整个渲染流程都会重做一遍。
 ![流程图](img/vdom.png)
