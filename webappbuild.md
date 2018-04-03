@@ -8,6 +8,8 @@
 ###版本控制工具：Git,svn
  >* 新建 项目 查看历史记录
  >* 新建分支，合并分支
+ >* 解决项目冲突
+ >* 回滚指定版本
 
 ### 合理的文件夹划分：
 >* controllers
@@ -20,21 +22,21 @@
 >* widgets
 
 ### 规范
->* css 样式统一
+>* css 样式主题样式统一，间距统一
 >* 图片大小规范
 
 ### css
-* css编译器：less,sass, styles, cssnext(推荐)
+* css编译器：less,sass, styles,  postcss(推荐cssnext)
 * css 格式化：reset.css  normalize.css  neat.css(推荐)
 * css 分层理论： SMACSS，ACSS
 * css:圣杯布局，动画，3d,WorkFlow
 * css语法和风格的检查工具：csslint
-* css重排重绘 ,开启3D硬件加速：transform: translate3d(0,0,0)开启GPU处理器之外,我们也需要使用 -webkit-backface-visibility: hidden; 和-webkit-perspective: 1000;
+* css重排重绘 ,开启3D硬件加速(transform: translate3d(0,0,0)开启GPU处理器之外,我们也需要使用 -webkit-backface-visibility: hidden; 和-webkit-perspective: 1000)
 
 ### js
 >* 框架   react, vue ,angular,zepto X-tag.js,moon.js san.js，apm.js, elm.js ...
->* 函数式变成 underscore.js,lodash.js
->* es6：解构赋值，箭头函数，字符串模板，new Set(),new Map()，proxy
+>* 函数式编程 underscore.js,lodash.js
+>* es6：解构赋值，箭头函数，字符串模板，new Set(),new Map()，proxy,Reflect,Promise...
 >* 巧用设计模式：命令模式、代理模式、单例模式、职责链模式、发布订阅者模式
 >* js法和风格的检查工具：jshint
 
@@ -64,10 +66,11 @@
 >* 5，性能测试:jmeter, grunt-perfbudget
 
 ### 上线阶段
-* 持续集成平台：Travis ci,jenkins
+* 持续集成平台：Travis ci, jenkins
+* 微服务 docker
 * 部署工具：rsync,shell.js,yargs
-* nginx：负载均衡，反向代理，开启gzip, etag，expire，
-* liunx:免密登陆,配置node 服务 
+* nginx: 负载均衡，反向代理，开启gzip, etag，expire，
+* liunx: 免密登陆,配置node 服务 
 
 ### 性能优化
 * 前端性能优化:小字为先，navigator.sendBeacon("a.php") 埋点测速， 雅虎军规， DNS prefetch

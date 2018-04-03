@@ -10,12 +10,12 @@ DNS解析
 
 http协议
  网络超文本协议传输
- 由 请求和相应组成
- 一次http操作称为一个事物
+ 由 请求和响应组成
+ 一次http操作称为一个事务
  pequest-uri
 
 
- cookie 服务器响应http 设置的生成
+cookie 服务器响应http 设置的生成
 cookie 浏览器通过js设置的
 
 数据签名
@@ -32,4 +32,18 @@ gulp hot-reload
 
 nuxt
 
-https://eslint.org/docs/rules/no-console
+https://eslint.org/docs/rules/no-console、
+
+
+
+
+
+
+
+
+
+
+
+
+
+
