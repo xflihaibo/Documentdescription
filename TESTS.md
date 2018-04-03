@@ -34,7 +34,7 @@
 >* 5，性能测试 jemter
 
 #### UI还原性测试backstop 操作步骤
-> npm install -g  backstopjs
-> backstop init   //生成  backstop.json 配置文件
-> backstop reference //backstop会自动截取屏幕整个样板图，并会存在bitmaps_reference指定的路径下
-> backstop test //  重构样式后执行命令行
+>* npm install -g  backstopjs
+>* backstop init   //生成  backstop.json 配置文件
+>* backstop reference //backstop会自动截取屏幕整个样板图，并会存在bitmaps_reference指定的路径下
+>* backstop test //  重构样式后执行命令行
