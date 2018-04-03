@@ -232,11 +232,12 @@ Watcher.prototype = {
 
 
 ### VUE 3.0
+
 vm.data="2333" 无效
 vm.$set(this.$data,)   要走监听麻烦
 ![流程图](img/del.png)
-> VUE3.0会去掉DEP，Watcher，Observer这一坨东西，为什么这么说呢，VUE3.0将利用ES6的proxy代理和Reflect反射来实现双向绑定，监听，那么流程图就应该是这样了
 
+> VUE3.0会去掉DEP，Watcher，Observer这一坨东西，为什么这么说呢，VUE3.0将利用ES6的proxy代理和Reflect反射来实现双向绑定，监听，那么流程图就应该是这样了
 > Proxy可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
 
 > Reflect对象与Proxy对象一样，也是ES6为了操作对象而提供的新API。Reflect对象的设计目的有这样几个。
@@ -244,15 +245,30 @@ vm.$set(this.$data,)   要走监听麻烦
 >（2） 修改某些Object方法的返回结果，让其变得更合理。比如，Object.defineProperty(obj, name, desc)在无法定义属性时，会抛出一个错误，而Reflect.defineProperty(obj, name, desc)则会返回false。
 
 ###  Virtual DOM
+
 > JavaScript 对象表示的树结构来构建一个真正的 DOM 。当状态变更时，重新渲染这个 JavaScript 的对象结构，实现视图的变更，结构根据变更的地方重新渲染。
 > DOM 很慢，为啥说它慢，先看一下 Webkit 引擎，所有浏览器都遵循类似的工作流，只是在细节处理有些不同。一旦浏览器接收到一个 HTML 文件，渲染引擎 Render Engine就开始解析它，根据 HTML 元素 Elements 对应地生成 DOM 节点 Nodes，最终组成一棵 DOM 树。
+
 ![流程图](img/dom.png)
+
 这仅仅是第一层。真正的 DOM 元素非常庞大，这是因为标准就是这么设计的。而且操作它们的时候你要小心翼翼，轻微的触碰可能就会导致页面重排，这可是杀死性能的罪魁祸首。
 
 > 构造了渲染树以后，浏览器引擎开始着手布局 Layout。布局时，渲染树上的每个节点根据其在屏幕上应该出现的精确位置，分配一组屏幕坐标值。接着，浏览器将会通过遍历渲染树，调用每个节点的 Paint 方法来绘制这些 Render 对象。Paint 方法根据浏览器平台，使用不同的 UI后端 API（Agnostic UI Backend API）通过绘制，最终将在屏幕上展示内容。只要在这过程中进行一次 DOM 更新，整个渲染流程都会重做一遍。
+
 ![流程图](img/vdom.png)
 
 ###  Virtual DOM 树的差异介绍（Diff算法）
+
 > 比较两个 DOM 树的差异是 Virtual DOM 算法最核心的部分，这也是所谓的 Virtual DOM 的diff 算法。在前端当中，很少会跨越层级地移动 DOM 元素。所以 Virtual DOM 只会对同一个层级的元素进行对比，下面的 div 只会和同一层级的 div 对比，第二层级的只会跟第二层级对比。采用的是深度优先遍历，来记录差异，这样每个节点都会有一个唯一的标记。
 ![流程图](img/diff.png)
 
+#####节点的差异指的是什么呢？对 DOM 操作可能会：
+>* 1.替换掉原来的节点，例如把上面的div换成了section
+>* 2.移动、删除、新增子节点，例如上面div的子节点，把p和ul顺序互换 
+>* 3.修改了节点的属性 
+>* 4.对于文本节点，文本内容可能会改变如修改上面的文本节点2内容为Virtual DOM。
+
+## 运行流程
+![流程图](img/liucheng.png)
+
+## 优化
