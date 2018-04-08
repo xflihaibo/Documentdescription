@@ -14,8 +14,7 @@
 ### 合理的文件夹划分：
 >* controllers
 >* views
->* assets
->* tests
+ >* tests
 >* models
 >* configs
 >* middleweares
@@ -36,7 +35,7 @@
 ### js
 >* 框架   react, vue ,angular,zepto X-tag.js,moon.js san.js，apm.js, elm.js ...
 >* 函数式编程 underscore.js,lodash.js
->* es6：解构赋值，箭头函数，字符串模板，new Set(),new Map()，proxy,Reflect,Promise...
+>* es6：解构赋值，箭头函数，字符串模板，new Set(),new Map()，proxy,Reflect,Promise,class ....
 >* 巧用设计模式：命令模式、代理模式、单例模式、职责链模式、发布订阅者模式
 >* js法和风格的检查工具：jshint
 
