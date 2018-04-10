@@ -1,4 +1,8 @@
 ## 前端跨界之 pc应用开发
+
+> zip -r ../nwjs.app/Contents/Resources/app.nw *
+> 合并压缩代码
+> 替换图标
 .icns(mac)
 
 
