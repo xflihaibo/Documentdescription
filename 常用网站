@@ -21,7 +21,17 @@ p2m:https://keymetrics.io/
 lazyload.js并行加载css ，js: https://appelsiini.net/projects/lazyload/
 Eruda:移动端调试插件：https://github.com/liriliri/eruda/blob/master/doc/README_CN.md
 谷歌插件：
-	性能插件PageSpeed Insights for Chrome ，
+	性能插件PageSpeed Insights for Chrome ， 
 	跨域插件Allow-Control-Allow-Origin:*，
+	win7  关闭所有的chrome浏览器。 新建一个chrome快捷方式，右键“属性”，“快捷方式”选项卡里选择“目标”，添加  --args --disable-web-security --user-data-dir
+	mos   open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/lihaibo/MyChromeDevUserData/
 
 macOS 缺失的软件包管理器 https://brew.sh/index_zh-cn
+
+
+
+pdf文档转图片： gm,pdf.js pdfmake.js
+
+hapi
+egg.js
+fastify.js
