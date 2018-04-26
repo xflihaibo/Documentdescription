@@ -70,7 +70,7 @@
 * 持续集成平台：Travis ci, jenkins
 * 微服务 docker
 * 部署工具：rsync,shell.js,yargs
-* 网站监测:pm2塞满进程,进程守护
+* 网站监测:pm2塞满线程,进程守护
 * nginx: 负载均衡，反向代理，开启gzip, etag，expire，
 * liunx: 免密登陆,配置node 服务 
 
