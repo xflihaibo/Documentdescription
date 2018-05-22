@@ -21,7 +21,7 @@
 >* widgets
 
 ### 规范
->* css 样式主题样式统一
+>* css 样式主题样式字体统一
 >* 图片大小规范
 >* css,js命名规范化
 
@@ -38,7 +38,8 @@
 >* 函数式编程 underscore.js,lodash.js
 >* es6：解构赋值，箭头函数，字符串模板，new Set(),new Map()，proxy,Reflect,Promise,class ....
 >* 巧用设计模式：命令模式、代理模式、单例模式、职责链模式、发布订阅者模式
->* js法和风格的检查工具：jshint
+>* js法和风格的检查工具：jshint jslint、
+
 
 ### NODE 后台开发
 * node  : express,koa2
