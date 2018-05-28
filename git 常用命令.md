@@ -18,8 +18,8 @@ git diff <file> # 比较当前文件和暂存区文件差异 git diff
 git log -p <file> # 查看每次详细修改内容的diff
 git log -p -2 # 查看最近两次详细修改内容的diff
 git log --pretty=oneline 查看log信息列表
-git reset --hard fdce8d 回到制定版本
-git reflog 查看以往所有log
+git reset --hard fdce8d 回到指定版本
+git reflog 查看提交历史log
 git config –list 查看信息
 git log –oneline 查看log信息
 git commit –amend 覆盖上次提交的版本信息
@@ -31,11 +31,11 @@ git branch dev 创建dev分支
 git checkout dev 切换分支dev
 git branch -d dev  删除分支
 git branch –m dev fix  修改分支名称
-git checkout -b dev 创建切换分支dev
-ssh-keygen -C '1056497547@qq.com' 生成 密钥 注 用ssh协议生成
+git checkout -b dev 切换分支dev
+ssh-keygen -C 'email@maik.com' 生成 密钥 注 用ssh协议生成
 git remote –v 查看仓库地址
 git remote remove qhht 删除远程库名
-git remote add qhht https://git.oschina.net/silenceLi/test.git 添加远程库名
+git remote add qhht https://www.github.com/test.git 添加远程库名
 git merge qhht 合并分支
 git remote –v 查看项目
 git remote add home git@github.com:Silence520/homework02.git  添加项目别名

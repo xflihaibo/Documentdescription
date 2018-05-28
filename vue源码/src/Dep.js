@@ -5,6 +5,8 @@ function Dep() {
 Dep.prototype = {
     //向数组添加值  放入观察者
     addSub: function(sub) {
+        console.log("DEP")
+        console.log(sub)
         this.subs.push(sub);
     },
     //更新数组值  发送通知
