@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+  <head></head>
+  <body>
+  <div id="app">
+    <input type="text" id="a" v-model="text">
+    {{text}}
+  </div>
+<!-- 批量更新 -->
+  <script src="src/Batcher.js"></script>
+<!-- 依赖 -->
+  <script src="src/Dep.js"></script>
+<!-- 观察 -->
+  <script src="src/Observe.js"></script>
+<!-- 监听 链接DOM -->
+  <script src="src/Watcher.js"></script>
+<!-- 编译模板引擎 -->
+  <script src="src/Compile.js"></script>
+<!-- 双向数据绑定 -->
+<script src="src/MVVM.js"></script>
+  <script>
+    var vm = new Vue({
+      el: 'app',
+      data: {
+        text: 'hello world'
+      }
+    });
+  </script>
+  </body>
+</html>

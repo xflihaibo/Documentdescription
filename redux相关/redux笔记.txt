@@ -1,0 +1,28 @@
+1.引入相对应的js文件 470kb
+2.ReactRedux Provider 链接了 view+store
+  <Provider store={store}>
+    <App/>
+  </Provider>
+3.reducer区分action 复用 ActionTypes 
+3.actions 给用户用的 动作 
+  action分成同步动作 异步的动作 reducer不能处理异步的任务
+   return {type:xxxx}
+   dispatch({type:xxx,text:resp}); //同步任务的type 异步的参数 
+   dispatch->store做的 
+   真正的需要去干活的
+4.reducer~ ----> dispatch
+  认识你拿回来的这个return {}
+  构建基础的state 
+5.actions -> state 没有任何关系
+6.reducer里注册了一个 light函数体
+  根据Action返回的内容 reuder负责修改state
+  reducer里面return出来的东西是真正的state
+7.Redux.combineReducers({light})
+8.middeware dispatch?????
+9.thunkMiddleware-> api -> reducer
+10.Redux.createStore(thunkMiddleware,reducer)
+dispatch -> reducer -> action ????  reducer具备了store修改state的全部功能的实现
+11.reducer + action
+12.action 里面的  Redux.bindActionCreators()
+13.store里面的key变成props
+14.回归到第一步 App->(thunkMiddleware,reducer)
