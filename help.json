@@ -853,41 +853,19 @@ a/b -> c/d  pushstate 刷新页面 js -》 ajax
 	CDN
 
 
-
-
-
-
-
-
-
-
-
 第四周的作业
 dns预解析：DNS prefetch
 web Performance API Timing
 router:pajx
 webpack-manifest
 getScript
-localForage：orm 库 indexDB
+localForage.js：orm 库 indexDB
 cross-storage :本地库的扩容
 Eruda:移动端调试插件
  
 
 
 less
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	//尾递归
 	// function mode (x){
@@ -1070,45 +1048,6 @@ less
 
 	// var sd=add(5)
 	// console.log(sd(3))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 安装node npm
   sudo apt-get install python-software-properties
