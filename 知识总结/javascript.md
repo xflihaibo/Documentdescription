@@ -159,9 +159,52 @@
  >  Point Free 
 
 ## 安全
+#### 混淆
+> 混淆:具体处理为重命名局部变量、在相同语义 的情况下压缩代码，比如去掉末尾分号(Remove Terminator Semicolons)，常量替 换(Constant Propagation)、移除代码空白(Space、Tab、Line-Feed)全局变量 不会更名如LocalStorage。
+####  常⽤用混淆技术
+ UglifyJS, JS Packer, Closure Compiler, JS Min
 
-on off trigger
+![node](img/biaoshi.png);
+![node](img/luoji.png);
+![node](img/aaencode.png);
+![node](img/jjencode.png);
 
 
+####  爆破
+https://github.com/svent/jsdetox
+ http://jsnice.org/
+ ```javascript
+ Number.prototype.constructor.constructor = function(a) { console.log('--------');
+console.log(a);
+return Function.apply(null, arguments);
+}
+```
+#### 加密
+> 加密重要的目的是出于对商业利益的保护。由于作品太容易被复制窜 改，容易会失去渠道先机
+> 加密的目标:减少加密的成本增加破解的成本，需注意 加密后的文件不易过大、没有人工介入不能破解、限制在其他域名部署、不容易被 调试跟踪。
 
-box-sing
+#### 加密算法
+> 不基于key的算法就是消息双⽅方都通过⼀一定的 加密和解密算法来进⾏行行通信，这种算法缺点很 明显如果加密算法被破解了了就泄露露了
+> key是⼀一个什什么东⻄西呢?随便便你，可以是⼀一个随机产⽣生 的数字，或者⼀一个单词，只要你⽤用的算法认为你选来 做key的东⻄西合法就⾏行行。所以基于key的加密算法⼜又分 为2类:对称加密和不不对称加密
+
+#### 常用的加密手段
+base64、md5、 sha1
+
+### AST 语法分析树
+![node](img/ast.png);
+> 将代码分析成树状结构, transformer 进行遍历,碰到要替换的进行替换.
+#### 常见的攻击
+> Web前端的黑客攻防技术是一门非常新颖且有趣的黑 客技术，主要包含Web前端安全的跨站脚本(XSS)、 跨站请求伪造(CSRF)、界面操作劫持、WebShell这 几大类，涉及的知识点涵盖信任与非信任关系、Cookie 安全、Flash安全、DOM渲染、字符集、跨域、原生态 攻击、高级钓鱼、蠕虫思想
+#### CSRF跨站请求
+##### 存在问题
+> 被黑客抓包，捕获请求地址，直接修改参数。
+> 加入验证码，判断reffer。 这些参数前端都是可以穆 改的。
+##### 解决方案
+> 验证Token请求。每次动 强验证码+动态Token请求 态刷新。
+> 强验证码+动态Token请求
+
+#### 跨站脚本(XSS)
+![node](img/xss.png);
+
+###### 跨站脚本(XSS)防患
+![node](img/xssself.png);
