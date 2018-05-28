@@ -30,7 +30,7 @@
 ## 数据结构
 > 数据结构的基本操作的设置的最重要的准则是,实现应用程序与存储结构的独立
 > 数据结构:数据的存储+算法
-![node](img/tree.png);
+![node](img/tree.png)
 ```javascript
 数据结构:
     逻辑结构:反映数据之间的逻辑关系;
@@ -61,7 +61,7 @@
     层次遍历：用一维数组存储二叉树时,总是以层次遍历的顺序存储结点。层次遍历应该借助队列。(深度遍历)
 
 ```
-![node](img/code.png);
+![node](img/code.png)
 内存: 一条很长一维数组;
 地址 (门牌号) 指针(指向门牌号) 引用(带路党)
 ## 算法
@@ -139,7 +139,7 @@
 >* 任务队列:是一个先进先出的数据结构，排在前面的事件，优先被主线程读取
 
 ## [node 相关](https://github.com/Silence520/Documentdescription/blob/master/node%E8%A7%A3%E6%9E%90.md)
-![node](img/node.png);
+![node](img/node.png)
 > [node 相关](https://github.com/Silence520/Documentdescription/blob/master/node%E8%A7%A3%E6%9E%90.md)
 
 ## js设计模式
@@ -164,10 +164,10 @@
 ####  常⽤用混淆技术
  UglifyJS, JS Packer, Closure Compiler, JS Min
 
-![node](img/biaoshi.png);
-![node](img/luoji.png);
-![node](img/aaencode.png);
-![node](img/jjencode.png);
+![node](img/biaoshi.png)
+![node](img/luoji.png)
+![node](img/aaencode.png)
+![node](img/jjencode.png)
 
 
 ####  爆破
@@ -191,7 +191,7 @@ return Function.apply(null, arguments);
 base64、md5、 sha1
 
 ### AST 语法分析树
-![node](img/ast.png);
+![node](img/ast.png)
 > 将代码分析成树状结构, transformer 进行遍历,碰到要替换的进行替换.
 #### 常见的攻击
 > Web前端的黑客攻防技术是一门非常新颖且有趣的黑 客技术，主要包含Web前端安全的跨站脚本(XSS)、 跨站请求伪造(CSRF)、界面操作劫持、WebShell这 几大类，涉及的知识点涵盖信任与非信任关系、Cookie 安全、Flash安全、DOM渲染、字符集、跨域、原生态 攻击、高级钓鱼、蠕虫思想
@@ -204,7 +204,7 @@ base64、md5、 sha1
 > 强验证码+动态Token请求
 
 #### 跨站脚本(XSS)
-![node](img/xss.png);
+![node](img/xss.png)
 
 ###### 跨站脚本(XSS)防患
-![node](img/xssself.png);
+![node](img/xssself.png)
