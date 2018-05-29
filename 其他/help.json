@@ -1196,14 +1196,14 @@ Nginx的基本架构：master/worker
 
 
 WorkFlow
-	font-variant-caps: small-caps;
+	
+	 lvha
+	 重绘不一定重排
+	 重排一定引起重绘font-variant-caps: small-caps;
 	font-variant-numeric: lining-nums;
 	image-set() ：高倍图
 	symbol
 	a:love hate
-	 lvha
-	 重绘不一定重排
-	 重排一定引起重绘
 	 css 分层理论： bem Acss
 
 

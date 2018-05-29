@@ -1,10 +1,9 @@
 ## http 相关
 
-#### HTTP协议   TCP握手  http2.0  https
+#### HTTP协议   TCP三次握手四次挥手  http2.0  https
 > HTTP协议（HyperText Transfer Protocol，超文本传输协议）是用于从WWW服务器传输超文本到本地浏览器的传送协议。它可以使浏览器更加高效，使网络传输减少。
-> 它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示(如文本先于图形)等
-> TCP协议对应于传输层，而HTTP协议对应于应用层
-> Http协议是建立在TCP协议基础之上的，当浏览器需要从服务器获取网页数据的时候，会发出一次Http请求。
+> 它不仅保证计算机正确快速地传输超文本文档，还确定传输文档中的哪一部分，以及哪部分内容首先显示(如文本先于图形)等;Http协议是建立在TCP协议基础之上的应用层;当浏览器需要从服务器获取网页数据的时候，会发出一次Http请求。
+> TCP协议对应于传输层，而HTTP协议对应于传输层协议, 通常用IP地址+端口号描述通信双方、server服务的提供方,client 服务的使用方;
 > 超文本传输安全协议（英语：Hyper Text Transfer Protocol over Secure Socket Layer，缩写HTTPS。也被称为HTTP over TLS，HTTP over SSL或HTTP Secure）。 上面说到的加密协议叫SSL，应用层（安全层） 传输层 网络层 数据链路层
 
 #### 输入网址浏览器做了哪些
