@@ -70,5 +70,21 @@ webpack 利用了 tapable 这个库（https://github.com/webpack/tapable）来�
 
 ##### webpack5 废除 happypack     
 
+#### webpack性能优化：
+> 经历多个web项目实战之后，归纳webpack缺陷
+> 1.代码全量构建速度过慢，即使是很小的改动，也要等待很长时间才能查看更新与编译之后的结果（引入HMR热更新之后有明显的改进）
+> 2.随着项目业务的复杂度增加，工程模块的体积也会急剧增大，构建后的模块通常要以M为单位计算
+> 3.多个项目之间公用基础资源存在重复打包，基础库代码复用率不算太高
+> 4.node的单进程实现在CPU计算型的loader中表现不佳
+#### webpack 分析工具
+webpack-bundle-analyzer：自动帮你计算出各个模块在你的项目中的依赖和分部情况
+
+#### 优化建议：
+> 1.利用dllPlugin 和dllReferencePlugin 预编译资源模块：因为npm包不会进行修改，所以构建的时候没必要每次都去解析
+> 2.使用happypack 加速代码构建--开启多线程：happypack在编译过程中除了利用多进程的模式加速编译，还同时开启了cache计算，能充分利用缓存读取构建文件
+> 3.增加uglify，在构建的时候发现，webpack build走到80%左右的时候，会发生很长时间的停滞，经测试对比发现正是uglifyJS在对我们output中的bundle部门进行压缩导致耗时过长，针对这块儿可以使用webpack-uglify-parallel 来提成压缩速度（才用多核并行压缩的方式）
+> 4.配置external +libraryTarget，把各种库的源码external一下，使用了之后，webpack就不会去打包，加快速度
+> 5.生成输出的文件要走chunkhash 而不用trunk
+> 6.激活代码热更新功能HMR
 
  
