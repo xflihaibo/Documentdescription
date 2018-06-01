@@ -133,7 +133,7 @@ img ,script,iframe,link
 * 开启cnd加速(最多5个)。节约cookie带宽  节约主域名的连接数，优化页面响应速度
 * 开启懒加载
 * 缓存静态资源文件
-* 开启 etag expires
+* 开启 etag expires gizp
 
 
 

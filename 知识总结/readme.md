@@ -4,9 +4,17 @@ box-sizing
 padding + border + width= 盒子的宽度
 padding+ border + height = 盒子的高度
 
+#### 同源策略
+> 协议相同
+> 域名相同
+> 端口相同
+#### 目的
+> 是为了保证用户信息的安全，防止恶意的网站窃取数据。
+#### 跨域
+> script , background、img、link、frame
 
-css 分层理论
-SMACSS  、ACSS
+
+
 
 
 WorkFlow
@@ -39,8 +47,9 @@ css icon
 	typedetail.com
 	cssicon.space
 	designresearch.space
-bfc ifc gfc ffc
- 	bfc 	
+#### bfc ifc gfc ffc
+```javascript
+	bfc 	
  		 block Formatting contexts
 		 display:  inline-block,table-cell,table-caption,flex,inline-flex
 		 float:不为none;
@@ -50,7 +59,7 @@ bfc ifc gfc ffc
 		 overflow:hidden 生成bfc 浮动元素也参与bfc结算 父级浮动
 		 margin 之间会有重叠 加个父元素 设置overflow:hidden;
 		高度由其包含行内元素中最高的的实际高度计算，不收 padding margin 影响
-
+```
 css 双飞翼布局
 ```javascript
 <style type="text/css">
@@ -131,7 +140,8 @@ css 双飞翼布局
 ocss
 
 
-css 分层理论
+#### css 分层理论
+SMACSS  、ACSS
 
 
 
@@ -139,4 +149,4 @@ cssnext
 
 
 
-bfc gfc ifc
+

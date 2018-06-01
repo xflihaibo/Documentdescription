@@ -7,7 +7,6 @@
 #### setState执行
 ![react](./img/React.png)
 
-
 * Stack reconcile 会深度优先遍历所有的 Virtual DOM 节点，进行Diff。它一定要等整棵 Virtual DOM 计算完成之后，才将任务出栈释放主线程所以，在浏览器主线程被 React更新状态任务占据的时候，用户与浏览器进行任何的交互都不能得到反馈，只有等到任务结束，才能突然得到浏览器的响应。
 * react16 :为解决setState 阻塞 而 React Fiber   ReactDOMFiber.render();
 * Reactdomfiber.render(Fiberexample/>, document. getelementbyid('app-container')

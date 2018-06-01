@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css" media="screen">
+	body{
+		border-radius: 10px;
+	}	
+	</style>
+</head>
+<body>
+	<h1>hello test</h1>
+</body>
+<script>
+	var obj={
+		foo:'bar',
+		fun:function(){
+			var self=this;
+			console.log('output '+this.foo)	
+			console.log('output' +self.foo);
+			(function(){
+				console.log('inner '+this.foo);	
+				console.log('inner '+self.foo);
+			}())
+		}
+	}
+	obj.fun()
+
+
+	// var a =25;
+	// (function(){
+	// 	console.log(a)
+	// 	var a=30;
+	// })
+
+
+
+
+	// for(var i=0; i<5; i++){
+	// 	setTiemout(function(){
+	// 		console.log(i)
+	// 	},1000)
+	// }
+
+
+
+
+</script>
+</html>
