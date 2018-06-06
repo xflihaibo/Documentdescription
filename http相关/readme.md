@@ -130,7 +130,7 @@ img ,script,iframe,link
 * 简化页面标签, 减少重排 重绘
 * 精简css 
 * 打包压缩合并 
-* 开启cnd加速(最多5个)。节约cookie带宽  节约主域名的连接数，优化页面响应速度
+* 开启cnd加速(最多5个)。dns 预解析节,  https 是关闭预解析的, 约cookie带宽  节约主域名的连接数，优化页面响应速度
 * 开启懒加载
 * 缓存静态资源文件
 * 开启 etag expires gizp
