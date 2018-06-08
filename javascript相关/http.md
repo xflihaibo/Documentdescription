@@ -70,6 +70,8 @@
 *   服务器主动推送,减少请求延迟
 *   流量控制 优先级设置
 
+
+
 ####   常见http状态码
 ``` javascript
      200 ok
@@ -150,6 +152,8 @@ img ,script,iframe,link,jsonp 、Hash、 cors、  webSocket、  postMessage
 * loadEventStart：返回当前网页load事件的回调函数开始时的Unix毫秒时间戳。如果该事件还没有发生，返回0。
 * loadEventEnd：返回当前网页load事件的回调函数运行结束时的Unix毫秒时间戳。如果该事件还没有发生，返回0。
 
+
+
 #### Sumary chrome浏览器
 >* 蓝色:网络通信 
 >* 黄色:javascript执行
@@ -171,3 +175,12 @@ img ,script,iframe,link,jsonp 、Hash、 cors、  webSocket、  postMessage
 * 开启懒加载
 * 缓存静态资源文件
 * 开启 etag expires
+
+
+
+
+
+
+
+
+

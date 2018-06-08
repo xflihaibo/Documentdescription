@@ -87,4 +87,26 @@ webpack-bundle-analyzer：自动帮你计算出各个模块在你的项目中的
 > 5.生成输出的文件要走chunkhash 而不用trunk
 > 6.激活代码热更新功能HMR
 
+## 版本更新
+
+#### webpack4
+> 另一个大的改变是webpack需要设置mode属性，可以是 development 或 production。
+>  webpack4受Parcel打包工具启发，尽可能的让开发者运行项目的成本变低。为了做到0配置，webpack4不再强制需要 webpack.config.js 作为打包的入口配置文件了，它默认的入口为'./src/'和默认出口'./dist'，
+>  webpack4删除了CommonsChunkPlugin插件，它使用内置API optimization.splitChunks 和 ** optimization.runtimeChunk **
+>* 这意味着webpack会默认为你生成共享的代码块。其它插件变化如下:
+>  NoEmitOnErrorsPlugin 废弃，使用optimization.noEmitOnErrors替代，在生产环境中默认开启该插件。
+>  ModuleConcatenationPlugin 废弃，使用optimization.concatenateModules替代，在生产环境默认开启该插件。
+>  NamedModulesPlugin 废弃，使用optimization.namedModules替代，在生产环境默认开启。
+>  uglifyjs-webpack-plugin升级到了v1.0版本, 默认开启缓存和并行功能。
+
+#### Webpack5展望
+> 已经有不少关于webpack5的计划正在进行中了，包括以下：
+>*  对WebAssembly的支持更加稳定
+>* 支持开发者自定义模块类型
+>* 去除ExtractTextWebpackPlugig插件，支持开箱即用的CSS模块类型
+>* 支持Html模块类型
+>* 持久化缓存
+
+
+
  

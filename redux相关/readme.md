@@ -70,7 +70,25 @@ store：数据
 ![fllux](./img/redux4.png)
 
 
-装饰器。mobx
+##版本更新记录
+
+#### react16
+> React 16 采用了称为“Fiber”的全新的内部架构。官方对 Fiber 的一句话解释是“React Fiber是对核心算法的一次重新实现
+> render 方法能够返回数组了  //但是要使用 key
+> ReactDOM.createPortal //新增了一个顶级 API
+> setState传入null时不会再触发更新
+> componentDidCatch(error, info) 的生命周期函数，你可以定义组件的错误处理函数，这样组件在遇到运行时错误时会像增加了 try...catch 一样，不会将错误直接抛出了，错误被局部组件 catch 住，保证了整个应用的可用性。
+> react 是5.3kb（gzip：2.2kb），之前是20.7kb（gzip：6.9kb）
+> react-dom 是103.7kb（gzip：32.6kb），之前是141kb（gzip：42.9kb）
+> react + react-dom 是109kb（gzip：34.8kb），之前是161.7kb（gzip：49.8kb）
+
+
+#### react 16.3
+> React.createContext()，这样就创建了两个组件：
+> 要被废弃的方法：
+> componentWillMount--使用componentDidMount代替
+> componentWillUpdate--使用componentDidUpdate代替
+> componentWillReceiveProps--使用一个新的方法：static getDerivedStateFromProps来代替。
 
 
 

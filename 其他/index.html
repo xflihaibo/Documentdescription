@@ -11,7 +11,9 @@
 </head>
 <body>
 	<h1>hello test</h1>
+	<div id="ev">ok<div>
 </body>
+<script type="text/javascript" src="http://w.abcs.com/ssdd/a.js"></script>
 <script>
 	var obj={
 		foo:'bar',
@@ -27,6 +29,29 @@
 	}
 	obj.fun()
 
+
+	var res=0;
+	for(var i=1, k=1; i<5, k<10;i++,k++){
+		console.log(i)
+		console.log(k)
+		res=i+ks
+	}
+	console.log(res)
+
+
+	window.addEventListener("error", function(evt){
+		console.log('hello error')
+	})
+
+	(window.onerror = function(msg, url, line){ 
+			console.log(msg)
+			console.log(url)
+			console.log(line)
+	 })()
+
+	// window.onerror=function(){
+	// 	console.error('error')
+	// }
 
 	// var a =25;
 	// (function(){
@@ -61,18 +86,30 @@
 
 	// new set()
 
-	var a=[1,2,3,4,5];
-	var b=a.map(function(i,v){
-		return i+1
-	});
-	console.log(b)
-	console.log(a)
+	// var a=[1,2,3,4,5];
+	// var b=a.map(function(i,v){
+	// 	return i+1
+	// });
+	// console.log(b)
+	// console.log(a)
+
 	// map():返回一个新的Array，每个元素为调用func的结果
 	// filter():返回一个符合func条件的元素数组
 	// some():返回一个boolean，判断是否有元素是否符合func条件
 	// every():返回一个boolean，判断每个元素是否符合func条件
 	// forEach():没有返回值，只是针对每个元素调用func
 
+	// 尾部删除pop()，尾部添加push()，头部删除shift()，头部添加unshift()，排序sort()，颠倒数组元素reverse()，删除或插入元素splice();
+	//合并数组concat()，拼接数组元素join()，截取元素slice()，indexOf()，lastIndexOf()，toString()
+	// const nums = [2 ,4 , 6, ...odd];
+
+
+
+
+	//深拷贝
+	// var array = [1, 2, 3, 4];
+	// var testArray =  Array.from(array);
+	// testArray.push(5)
 	// cookie 设置过期时间
 
 	// let set = new Set(['red', 'green', 'no']);
@@ -87,6 +124,7 @@
 	//  console.log(Array.isArray(a));//true
  // 	 console.log(Array.isArray(b))//false
 	//concat 数组合并
+
 
 
 	// let mp = new Map(['red', 'green', 'no']);
@@ -104,6 +142,143 @@
 	 // ajax同步请求 async false
 
 
+	// var array = [1, 2, 3, 4];
+	// var testArray =  Array.from(array);
+
+	// var arr = [1,[2,3],[4,5,[6,7]]];
+	// console.log(arr+'')
+	// var newArr= (arr + ' ').split(',')
+	// console.log(newArr)
+
+	
+	// event.preventDefault()//，是用来阻止点击a默认跳转
+	// event.stopPropagation()// 该方法将停止事件的传播，阻止它被分派到其他 Document 节点
+	// event.stopImmediatePropagation() //函数用于阻止剩余的事件处理函数的执行，并防止当前事件在DOM树上冒泡。
+	// event.target //返回的是点击的元素节点
+	// event.currentTarget //事件属性返回其监听器触发事件的节点，即当前处理该事件的元素、文档或窗口。
+
+	//自定义事件
+	// var ev = document.getElementById('ev');
+	// var  eve =new Event('custome');
+	// window.addEventListener('custome',function(){
+	// 	console.log('custome');
+	// });
+	// setTimeout(function(){
+	// 	window.dispatchEvent(eve);
+	// },1000)
+
+	//跨域
+	// jsonp   Hash cors  webSocker  postMessage
+
+	// var quickSort = function(arr) {
+	//     if (arr.length <= 1) { return arr; }
+	//     var pivotIndex = Math.floor(arr.length / 2);   //基准位置（理论上可任意选取）
+	//     var pivot = arr.splice(pivotIndex, 1)[0];  //基准数
+	//     var left = [];
+	//     var right = [];
+	//     for (var i = 0; i < arr.length; i++){
+	//         if (arr[i] < pivot) {
+	//             left.push(arr[i]);
+	//         } else {
+	//             right.push(arr[i]);
+	//         }
+	//     }
+	//     return quickSort(left).concat([pivot], quickSort(right));  //链接左数组、基准数构成的数组、右数组
+	// };
+
+	// var quick=quickSort([29,5,40,21,32,12,8,99])
+	// console.log(quick)
+
+
+
+// es7
+//async/await  异步 
+// /Users/lihaibo/Library/Application Support/Sublime Text 3/Packages/JSLint
+// Array.prototype.includes()。  是查找一个值在不在数组里，若在，则返回true，反之返回fals
+//3 ** 2     //求幂运算符（**）
+
+
+
+//es8
+//async function foo() {}
+//Object.entries()   //如果一个对象是具有键值对的数据结构，则每一个键值对都将会编译成一个具有两个元素的数组，这些数组最终会放到一个数组中，返回一个二维数组
+// Object.values()只返回自己的键值对中属性的值
+//Object.getOwnPropertyDescriptors()
+//padStart()。//'x'.padStart(4, 'ab') abax
+//padEnd()。//'x'.padEnd(4, 'ab')   xaba
+
+
+//es6 
+// let const.   字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
+
+
+// Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、
+// Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如Object.assign）都不会转码。
+// babel-polyfill主要包含了core-js和regenerator两部分
+
+// babel-polyfill：提供了如ES5、ES6、ES7等规范中 中新定义的各种对象、方法的模拟实现。
+// regenerator：提供generator支持，如果应用代码中用到generator、async函数的话用到。
+
+
+
+
+// ## react16
+// > React 16 采用了称为“Fiber”的全新的内部架构。官方对 Fiber 的一句话解释是“React Fiber是对核心算法的一次重新实现
+// > render 方法能够返回数组了  //但是要使用 key
+// > ReactDOM.createPortal //新增了一个顶级 API
+// > setState传入null时不会再触发更新
+// > componentDidCatch(error, info) 的生命周期函数，你可以定义组件的错误处理函数，这样组件在遇到运行时错误时会像增加了 try...catch 一样，不会将错误直接抛出了，错误被局部组件 catch 住，保证了整个应用的可用性。
+// > react 是5.3kb（gzip：2.2kb），之前是20.7kb（gzip：6.9kb）
+// > react-dom 是103.7kb（gzip：32.6kb），之前是141kb（gzip：42.9kb）
+// > react + react-dom 是109kb（gzip：34.8kb），之前是161.7kb（gzip：49.8kb）
+
+
+// ## react 16.3
+// > React.createContext()，这样就创建了两个组件：
+// > 要被废弃的方法：
+// > componentWillMount--使用componentDidMount代替
+// > componentWillUpdate--使用componentDidUpdate代替
+// > componentWillReceiveProps--使用一个新的方法：static getDerivedStateFromProps来代替。
+
+
+
+
+// webpack4
+// 另一个大的改变是webpack需要设置mode属性，可以是 development 或 production。
+// webpack4受Parcel打包工具启发，尽可能的让开发者运行项目的成本变低。为了做到0配置，webpack4不再强制需要 webpack.config.js 作为打包的入口配置文件了，它默认的入口为'./src/'和默认出口'./dist'，
+// webpack4删除了CommonsChunkPlugin插件，它使用内置API optimization.splitChunks 和 ** optimization.runtimeChunk **，这意味着webpack会默认为你生成共享的代码块。其它插件变化如下:
+// NoEmitOnErrorsPlugin 废弃，使用optimization.noEmitOnErrors替代，在生产环境中默认开启该插件。
+// ModuleConcatenationPlugin 废弃，使用optimization.concatenateModules替代，在生产环境默认开启该插件。
+// NamedModulesPlugin 废弃，使用optimization.namedModules替代，在生产环境默认开启。
+// uglifyjs-webpack-plugin升级到了v1.0版本, 默认开启缓存和并行功能。
+
+
+// Webpack5展望
+// 已经有不少关于webpack5的计划正在进行中了，包括以下：
+
+// 对WebAssembly的支持更加稳定
+// 支持开发者自定义模块类型
+// 去除ExtractTextWebpackPlugig插件，支持开箱即用的CSS模块类型
+// 支持Html模块类型
+// 持久化缓存
+
+//小程序
+
+
+
+//你的项目
+//遇到的难题
+
+
+// window.onerror
+// try catch
+
+
+
+// object.onerror
+
+// preformance.getEntries()
+// error捕获
 
 </script>
-</html>
+</html> 
