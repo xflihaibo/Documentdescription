@@ -98,6 +98,18 @@ store：数据
 > 将所有<Router>替换为<BrowserRouter>. 只能有一个子节点
 
 
+#### 小程序注意点
+
+> 任何情况下的视图更新只能通过setData()
+> 路径只能是十层。
+> 不要直接对 Page.data 进行修改，请使用 Page.setData
+> 跳转到tabbar页面一定要用 wx.switchTab()
+> 使用wx:for遍历的时候最好加上wx:key=”{{index}}”
+> input组件的宽度使用百分比，设置placeholder的文本text-align：canter，这时文字并不会正常居中。原来input设置百分比， placeholder就不支持设置 text-align样式了，想实现居中，就只能把input的长度写死。
+
+
+
+
 
 
 
