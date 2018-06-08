@@ -90,7 +90,12 @@ store：数据
 > componentWillUpdate--使用componentDidUpdate代替
 > componentWillReceiveProps--使用一个新的方法：static getDerivedStateFromProps来代替。
 
-
+#### react-router4
+>所有组件更改为从react-router-dom导入
+> v2 import {Router,Route,hashHistory} from 'react-router';
+> 在react-router4 开始,所有的router组件均是从react-router-dom中导入, 所以一下的需要更改为以下代码:
+> v4   import {Route,BrowserRouter, Switch} from 'react-router-dom
+> 将所有<Router>替换为<BrowserRouter>. 只能有一个子节点
 
 
 
