@@ -137,4 +137,24 @@ tar -xvf  nginx
       	ServerAliveInterval 60
       	ServerAliveCountMax 20
       	LogLevel INFO
+	
+	
+	
+	
+center os
+yum install epel-release
+cd /etc/nginx
+cd /root/www/
+
+scp
+yum install openssh-client
+
+
+
+jenkins 
+yum install java
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum install jenkins
+
 
