@@ -157,4 +157,18 @@ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenk
 sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 sudo yum install jenkins
 
+yum install git
+git config --global user.name ''
+git config --golbal user.email ''
+
+ssh-keygen -t rsa -c 'key' -f 'comgit'
+
+GitHub  -> setting ->ssh and gpg keys 复制公钥文件
+
+验证 ssh@github.com
+
+
+
+
+
 
