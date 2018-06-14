@@ -5,6 +5,7 @@
 >* lsof  -i:80
 >* cat /etc/passwd  查看用户列表
 >* kill -9 pid   强制杀死进程
+>* killall nginx  杀死nginx 所有的进程
 >* nginx –t 查看是否生效
 >* nginx -s reload: 重新启动
 >* ssh启动 sudo service ssh start
@@ -23,6 +24,10 @@
 >* 复制文件：scp width.html roottest@192.168.50.141:home/newtest
 >* 复制目录：scp -r filename roottest@192.168.50.141:home/newtest
 >*  ssh  roottest@192.168.50.141
+>* service jenkins restart 启动jenkins 进程
+>* service nginx restar	启动nginx  进程
+>* yum uninstall nginx 卸载
+>* curl 127.0.0.1; 访问网络
 - 注如果 scp ssh 失败：
 - sudo ps -e |grep ssh“–>回车–>有sshd,说明ssh服务已经启动，如果没有启动，输入”sudo service ssh start“–>回车–>ssh服务就会启动 如果没有下载 apt-get install openssh-server 并且
 ### 生成密钥对

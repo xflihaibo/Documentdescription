@@ -151,7 +151,7 @@ yum install openssh-client
 
 
 
-jenkins 
+jenkins 安装 
 yum install java
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
 sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
@@ -161,11 +161,28 @@ yum install git
 git config --global user.name ''
 git config --golbal user.email ''
 
+//生成密钥匙
 ssh-keygen -t rsa -c 'key' -f 'comgit'
-
 GitHub  -> setting ->ssh and gpg keys 复制公钥文件
-
 验证 ssh@github.com
+
+
+改变jenkins 权限
+
+Jenkins运行shell脚本权限终极解决办fa
+1) vim /etc/sysconfig/jenkins
+
+2) 找到$JENKINS_USER改为 “root”:
+
+$JENKINS_USER="root"
+3)然后更改Jenkins home，webroot和日志的所有权：
+
+chown -R root:root /var/lib/jenins
+chown -R root:root /var/cache/jenkins
+chown -R root:root /var/log/jenkins
+4).重新启动Jenkins并检查用户是否已被更改
+
+
 
 
 
