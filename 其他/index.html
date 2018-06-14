@@ -15,39 +15,39 @@
 </body>
 <script type="text/javascript" src="http://w.abcs.com/ssdd/a.js"></script>
 <script>
-	var obj={
-		foo:'bar',
-		fun:function(){
-			var self=this;
-			console.log('output '+this.foo)	
-			console.log('output' +self.foo);
-			(function(){
-				console.log('inner '+this.foo);	
-				console.log('inner '+self.foo);
-			}())
-		}
-	}
-	obj.fun()
+	// var obj={
+	// 	foo:'bar',
+	// 	fun:function(){
+	// 		var self=this;
+	// 		console.log('output '+this.foo)	
+	// 		console.log('output' +self.foo);
+	// 		(function(){
+	// 			console.log('inner '+this.foo);	
+	// 			console.log('inner '+self.foo);
+	// 		}())
+	// 	}
+	// }
+	// obj.fun()
 
 
-	var res=0;
-	for(var i=1, k=1; i<5, k<10;i++,k++){
-		console.log(i)
-		console.log(k)
-		res=i+ks
-	}
-	console.log(res)
+	// var res=0;
+	// for(var i=1, k=1; i<5, k<10;i++,k++){
+	// 	console.log(i)
+	// 	console.log(k)
+	// 	res=i+ks
+	// }
+	// console.log(res)
 
 
-	window.addEventListener("error", function(evt){
-		console.log('hello error')
-	})
+	// window.addEventListener("error", function(evt){
+	// 	console.log('hello error')
+	// })
 
-	(window.onerror = function(msg, url, line){ 
-			console.log(msg)
-			console.log(url)
-			console.log(line)
-	 })()
+	// (window.onerror = function(msg, url, line){ 
+	// 		console.log(msg)
+	// 		console.log(url)
+	// 		console.log(line)
+	//  })()
 
 	// window.onerror=function(){
 	// 	console.error('error')
