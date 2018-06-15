@@ -1,13 +1,12 @@
 var a = {
-	name:'a'
+	name: 'a'
 };
 var b = a;
-a.x =a = {age:2
-console.log(a.x)
-console.log(b.x)
+a.x = a = { age: 2 };
+console.log(a.x);
+console.log(b.x);
 
-
-var a= 'csd'
+var a = 'csd';
 var b = a;
-console.log(a)
-console.log(b)
+console.log(a);
+console.log(b);
