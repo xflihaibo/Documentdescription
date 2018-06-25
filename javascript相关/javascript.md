@@ -128,6 +128,12 @@
 >* Object.prototype.toString.call(undefined) // "[object Undefined]"
 >* Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
+## 创建对象的方式
+>* new
+>* object.create()
+>* var obe={a:'12'}
+>* function(){}
+
 ##Promise
 #### 三种状态:
 >* pending：进行中
@@ -136,7 +142,6 @@
 >* promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
 
 #### 原理
-
 ```javascript
  var promise = new Promise(function (resolve, reject) {
    if (/* 异步操作成功 */){
