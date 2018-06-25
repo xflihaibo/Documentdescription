@@ -99,41 +99,41 @@
 *   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
 
 #### 函数重载
-> 重载就是一组具有相同名字、不同参数列表的函数（方法）
-> 使用 arguments.length 可以实现重载
+>* 重载就是一组具有相同名字、不同参数列表的函数（方法）
+>* 使用 arguments.length 可以实现重载
 
 #### new 操作符会经历以下四个步骤
-> 创建一个新对象
-> 将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
-> 执行构造函数中的代码（为这个新对象添加属性）
-> 返回新对象
+>* 创建一个新对象
+>* 将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
+>* 执行构造函数中的代码（为这个新对象添加属性）
+>* 返回新对象
 
 ## 判断数据类型的方法
 #### typeof 实现原理
-> typeof 一般被用于判断一个变量的类型，我们可以利用 typeof 来判断 number, string, object, boolean, function, undefined,symbol 这七种类型，这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候，typeof 能比较清楚的告诉我们具体是哪一类的类型。但是，很遗憾的一点是，typeof 在判断一个 object 的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object
-> null：所有机器码均为 0 typeof null 是 object
+>* typeof 一般被用于判断一个变量的类型，我们可以利用 typeof 来判断 number, string, object, boolean, function, undefined,symbol 这七种类型，这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候，typeof 能比较清楚的告诉我们具体是哪一类的类型。但是，很遗憾的一点是，typeof 在判断一个 object 的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object
+>* null：所有机器码均为 0 typeof null 是 object
 
 #### instanceof 操作符的实现原理
-> instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实
-> 原型的链式查找
+>* instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实
+>* 原型的链式查找
 
 #### Object.prototype.toString.call()
-> Object.prototype.toString.call(1) // "[object Number]"
-> Object.prototype.toString.call('hi') // "[object String]"
-> Object.prototype.toString.call({a:'hi'}) // "[object Object]"
-> Object.prototype.toString.call([1,'a']) // "[object Array]"
-> Object.prototype.toString.call(true) // "[object Boolean]"
-> Object.prototype.toString.call(() => {}) // "[object Function]"
-> Object.prototype.toString.call(null) // "[object Null]"
-> Object.prototype.toString.call(undefined) // "[object Undefined]"
-> Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
+>* Object.prototype.toString.call(1) // "[object Number]"
+>* Object.prototype.toString.call('hi') // "[object String]"
+>* Object.prototype.toString.call({a:'hi'}) // "[object Object]"
+>* Object.prototype.toString.call([1,'a']) // "[object Array]"
+>* Object.prototype.toString.call(true) // "[object Boolean]"
+>* Object.prototype.toString.call(() => {}) // "[object Function]"
+>* Object.prototype.toString.call(null) // "[object Null]"
+>* Object.prototype.toString.call(undefined) // "[object Undefined]"
+>* Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
 ##Promise
 #### 三种状态:
-> pending：进行中
-> fulfilled :已经成功 reslove
-> rejected 已经失败 reject
-> promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
+>* pending：进行中
+>* fulfilled :已经成功 reslove
+>* rejected 已经失败 reject
+>* promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
 
 #### 原理
 
@@ -148,11 +148,11 @@
 ```
 
 ## enent
-> event.preventDefault()//，是用来阻止点击 a 默认跳转
-> event.stopPropagation()// 该方法将停止事件的传播，阻止它被分派到其他 Document 节点
-> event.stopImmediatePropagation() //函数用于阻止剩余的事件处理函数的执行，并防止当前事件在 DOM 树上冒泡。
-> event.target //返回的是点击的元素节点
-> event.currentTarget //事件属性返回其监听器触发事件的节点，即当前处理该事件的元素、文档或窗口。
+>* event.preventDefault()//，是用来阻止点击 a 默认跳转
+>* event.stopPropagation()// 该方法将停止事件的传播，阻止它被分派到其他 Document 节点
+>* event.stopImmediatePropagation() //函数用于阻止剩余的事件处理函数的执行，并防止当前事件在 DOM 树上冒泡。
+>* event.target //返回的是点击的元素节点
+>* event.currentTarget //事件属性返回其监听器触发事件的节点，即当前处理该事件的元素、文档或窗口。
 
 ## 自定义事件
 
@@ -169,7 +169,7 @@ setTimeout(function() {
 
 ## 内存泄漏
 #### 内存泄漏
-> javaScript 会自动垃圾收集，但是如果我们的代码写法不当，会让变量一直处于“进入环境”的状态，无法被回收
+>* javaScript 会自动垃圾收集，但是如果我们的代码写法不当，会让变量一直处于“进入环境”的状态，无法被回收
 
 #### 那些会引起内存泄漏
 *   1.意外的全局变量
