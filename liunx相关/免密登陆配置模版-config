@@ -188,7 +188,20 @@ killall nginx
 
 
 
+## liunx 升级 node
 
+```javascript
+node -v
+4.2.1  
+sudo npm cache clean -f  
+sudo npm install -g n  
+sudo n stable  
 
+sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/nodejs  
 
+node -v  
+8.2.1  
+```
+
+凡是杀不死我的,最终只会让我变得更强--致自己
 

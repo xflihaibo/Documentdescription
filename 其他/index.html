@@ -13,7 +13,7 @@
 	<h1>hello test</h1>
 	<div id="ev">ok<div>
 </body>
-<script type="text/javascript" src="http://w.abcs.com/ssdd/a.js"></script>
+<!-- <script type="text/javascript" src="http://w.abcs.com/ssdd/a.js"></script> -->
 <script>
 	// var obj={
 	// 	foo:'bar',
@@ -98,6 +98,8 @@
 	// some():返回一个boolean，判断是否有元素是否符合func条件
 	// every():返回一个boolean，判断每个元素是否符合func条件
 	// forEach():没有返回值，只是针对每个元素调用func
+	// reduce():返回一个计算后的值
+	// reduceRight():没有返回值，只是针对每个元素调用func
 
 	// 尾部删除pop()，尾部添加push()，头部删除shift()，头部添加unshift()，排序sort()，颠倒数组元素reverse()，删除或插入元素splice();
 	//合并数组concat()，拼接数组元素join()，截取元素slice()，indexOf()，lastIndexOf()，toString()
@@ -222,8 +224,6 @@
 // regenerator：提供generator支持，如果应用代码中用到generator、async函数的话用到。
 
 
-
-
 // ## react16
 // > React 16 采用了称为“Fiber”的全新的内部架构。官方对 Fiber 的一句话解释是“React Fiber是对核心算法的一次重新实现
 // > render 方法能够返回数组了  //但是要使用 key
@@ -287,6 +287,146 @@
 //正则匹配 手机号码
 // 	"12345678901".replace(/(^\d{3}|\d{4}\B)/g,"$1-");
 //      '99893'.replace(/\B(?=(?:\d{3})+$)/g, ',')  // '99,893'
+
+// 遇到的最深刻的问题:第一次使用webpack打包过大问题，当时打包达到1.2mb，总共是也就是十几个页面而已，当时我也是第一次用，而且又要紧急上线，公司也就两个初级前端，没有其他可用资源，遇到这样的问题解决很难，刚开始我就感觉是不是页面大多啦，就自己先测试一下打包5个页面和全部打包是大小对比，发现的确将了不少然后就看看看源码，发现图片也打包进去了，我就看看webpack配置图片的信息发现都打进去啦！然后修改配置信息，大小是降了下来，在总体打包试了一下发现还是很大，我就去群里问问有没人遇到这样的问题，然后百度一下看看有没有遇到类似的问题的，有些说是用commonChunksPlugins的插件抽离公共模块可以减少体积，我就按网上的配置方法配置了一下,打包试试果然可以
+
+// 做管理的任务职责:
+// 1根据每个人的实际情况分配每日的工作任务
+// 2负责对后台产品的工作对接
+// 3每日下班的工作总结,对下属工作遇到的问题进行分析处理
+// 4定期组织部门学习分析
+
+// 优点:
+// 做事认真,
+// 对分配自己的任务负责、
+// 上进每天都给自己安排有学习计划
+
+// 缺点:
+// 遇到多人发言的时候好时候比较紧张
+
+//目前的学习任务
+// node+koa2+pm2
+//rn,nw跨平台开发
+// three.js cocos2d 
+
+//redux
+//
+
+
+// video 抖动
+// flex 定位失效
+// 1像素问题
+// 阻止旋转屏幕时自动调整字体大小
+// html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
+// 动端修改难看的点击的高亮效果，iOS和安卓下都有效：
+// {-webkit-tap-highlight-color:rgba(0,0,0,0);}
+// iphone及ipad下输入框默认内阴影
+
+// Element{
+//   -webkit-appearance:none;
+// }
+
+// 13、ios和android下触摸元素时出现半透明灰色遮罩
+
+// Element {
+//   -webkit-tap-highlight-color:rgba(255,255,255,0)
+// }
+
+
+// typeof 实现原理
+// typeof 一般被用于判断一个变量的类型，我们可以利用 typeof 来判断number, string, object, boolean, function, undefined,symbol 这七种类型，这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候，typeof能比较清楚的告诉我们具体是哪一类的类型。但是，很遗憾的一点是，typeof 在判断一个 object的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object, 
+
+// null：所有机器码均为0 typeof null  是object
+
+// instanceof 操作符的实现原理
+// 原型的链式查找
+03.__proto__.constructor==m
+// instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实例
+
+// Object.prototype.toString.call(1) // "[object Number]"
+// Object.prototype.toString.call('hi') // "[object String]"
+// Object.prototype.toString.call({a:'hi'}) // "[object Object]"
+// Object.prototype.toString.call([1,'a']) // "[object Array]"
+// Object.prototype.toString.call(true) // "[object Boolean]"
+// Object.prototype.toString.call(() => {}) // "[object Function]"
+// Object.prototype.toString.call(null) // "[object Null]"
+// Object.prototype.toString.call(undefined) // "[object Undefined]"
+// Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
+
+
+var obj={}
+// obj.prototype.say=function(){
+// 	console.log('jell')
+// }
+obj.x=1;
+for(var i in obj){
+	console.log(i)
+}
+console.log(obj.toString)
+console.log(obj.__proto__)
+
+
+
+//函数重载
+// 重载就是一组具有相同名字、不同参数列表的函数（方法）
+//使用 arguments.length 可以实现重载
+
+// setTimeout共有4个参数。最后那两个参数，将在1000毫秒之后回调函数执行时，作为回调函数的参数。
+//最小间隔不是0 而是4毫秒
+// Promise
+
+// 三种状态:
+// pending：进行中
+// fulfilled :已经成功 reslove
+// rejected 已经失败 reject
+
+// promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数
+// ,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
+// 原理
+// var promise = new Promise(function (resolve, reject) {
+//   if (/* 异步操作成功 */){
+//     resolve(value);
+//   } else { /* 异步操作失败 */
+//     reject(new Error());
+//   }
+// });
+
+
+
+// 错误分类
+
+// 1 即时运行错误
+// 捕获错误
+// try ...catch
+// window.onerror()
+
+// 2资源加载失败
+
+// 捕获错误
+// object.onerror()(图片 script)
+// performance.getEnries() 返回数组 
+
+
+// 资源加载失败不能用冒泡得到错误,可以用捕获处理可以到的错误监听
+
+// 捕获错误
+// try ...catch
+// window.onerror()
+
+
+// 上报
+//  (new Image()).src='http://www.baidu.com?sa=we';
+//  navigator.sendBeacon("a.php");  //埋点
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </html> 
