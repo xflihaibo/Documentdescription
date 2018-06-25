@@ -20,7 +20,6 @@
 > *  堆（数据结构）：堆可以被看成是一棵树，如：堆排序；
 > *  栈（数据结构）：一种先进后出的数据结构。
 >     Symbol，表示独一无二的值, Symbol 最大的用途是用来定义对象的唯一属性名;
-
 *  Symbol 值通过 Symbol 函数生成 let symbol1 = Symbol();
 *  typeof 运算符用于 Symbol 类型值，返回 symbol;
 *  Symbol 不是一个构造函数，如果用 new Symbol 会报错;
@@ -100,31 +99,25 @@
 *   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
 
 #### 函数重载
-
 > 重载就是一组具有相同名字、不同参数列表的函数（方法）
 > 使用 arguments.length 可以实现重载
 
 #### new 操作符会经历以下四个步骤
-
 > 创建一个新对象
 > 将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
 > 执行构造函数中的代码（为这个新对象添加属性）
 > 返回新对象
 
 ## 判断数据类型的方法
-
 #### typeof 实现原理
-
-> typeof 一般被用于判断一个变量的类型，我们可以利用 typeof 来判断 number, string, object, boolean, function, undefined,symbol 这七种类型，这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候，typeof 能比较清楚的告诉我们具体是哪一类的类型。但是，很遗憾的一点是，typeof 在判断一个 object 的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object,
+> typeof 一般被用于判断一个变量的类型，我们可以利用 typeof 来判断 number, string, object, boolean, function, undefined,symbol 这七种类型，这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候，typeof 能比较清楚的告诉我们具体是哪一类的类型。但是，很遗憾的一点是，typeof 在判断一个 object 的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object
 > null：所有机器码均为 0 typeof null 是 object
 
 #### instanceof 操作符的实现原理
-
 > instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实
 > 原型的链式查找
 
 #### Object.prototype.toString.call()
-
 > Object.prototype.toString.call(1) // "[object Number]"
 > Object.prototype.toString.call('hi') // "[object String]"
 > Object.prototype.toString.call({a:'hi'}) // "[object Object]"
@@ -136,9 +129,7 @@
 > Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
 ##Promise
-
 #### 三种状态:
-
 > pending：进行中
 > fulfilled :已经成功 reslove
 > rejected 已经失败 reject
@@ -157,7 +148,6 @@
 ```
 
 ## enent
-
 > event.preventDefault()//，是用来阻止点击 a 默认跳转
 > event.stopPropagation()// 该方法将停止事件的传播，阻止它被分派到其他 Document 节点
 > event.stopImmediatePropagation() //函数用于阻止剩余的事件处理函数的执行，并防止当前事件在 DOM 树上冒泡。
@@ -178,36 +168,27 @@ setTimeout(function() {
 ```
 
 ## 内存泄漏
-
 #### 内存泄漏
-
 > javaScript 会自动垃圾收集，但是如果我们的代码写法不当，会让变量一直处于“进入环境”的状态，无法被回收
 
 #### 那些会引起内存泄漏
-
 *   1.意外的全局变量
 *   2.被遗忘的计时器或回调
 *   3.超出 DOM 引用
 *   4.闭包
 
 #### 内存泄漏检测
-
 > Chrome 内存分析工具
 
 ###### Timeline 视图
-
 ![Timeline视图](img/timeline.png)
 
 ###### Profile 视图
-
 ![Profile](img/profiles.png)
 
 #### 垃圾回收机制
-
 *   标记清除（mark and sweep）
-
-    > 1.垃圾回收器，在运行的时候会给存储在内存中的所有变量都加上标记。 2.去掉环境中的变量以及被环境中的变量引用的变量的标记。 3.再被加上标记的会被视为准备删除的变量。 4.垃圾回收器完成内存清除工作，销毁那些带标记的值并回收他们所占用的内存空间。
-    >
+    >* 1.垃圾回收器，在运行的时候会给存储在内存中的所有变量都加上标记。 2.去掉环境中的变量以及被环境中的变量引用的变量的标记。 3.再被加上标记的会被视为准备删除的变量。 4.垃圾回收器完成内存清除工作，销毁那些带标记的值并回收他们所占用的内存空间。
     > *   大部分浏览器都是使用这种方式进行垃圾回收，区别在于如何标记及垃圾回收间隔而已，只有低版本 IE，不出所料，又是 IE。
 
 *   引用计数(reference counting)
@@ -218,34 +199,26 @@ setTimeout(function() {
     > 5.  当垃圾收集器下一次运行时，它就会释放引用次数是 0 的值所占的内存。
 
 #### 什么时候触发垃圾回收
-
 ## 事件队列
-
 > JavaScript 语言的一大特点就是单线程，也就是说，同一个时间只能做一件事
 
 ##### 怎么才能多线程
-
 > webworker(html5),
 > concurrent.Thread.js
 
 #### 任务可以分成两种:
-
 >*   同步任务(synchronous):在主线程上排队执行的任务 **(执行栈)** ，只有前一个任务执行完毕(入栈出栈)，才能执行后一个任务
 >*   异步任务(asynchronous):不进入主线程、而进入"任务队列"(task queue)的任务，只有"任务队列"通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行
 
 #### 任务队列分为:
-
 >*   微任务:process.nextTick, Promises, Object.observe, MutationObserver
 >*   任务队列:是一个先进先出的数据结构，排在前面的事件，优先被主线程读取
 
 ## [node 相关](https://github.com/Silence520/Documentdescription/tree/master/node%E7%9B%B8%E5%85%B3)
-
 ![node](img/node.png)
-
 > [node 相关](https://github.com/Silence520/Documentdescription/tree/master/node%E7%9B%B8%E5%85%B3)
 
 ## js 设计模式
-
 >*   单例模式
 >*   代理模式
 >*   命令模式
@@ -256,27 +229,22 @@ setTimeout(function() {
 >*   适配器模式
 
 ## 函数式编程
-
 > 纯函数
 > 函数组合 f(g(y(x))
 > 函数的柯里化
 > Point Free
 
 ##版本更新记录
-
 #### ES6
-
 >*   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
 
 #### ES7
-
 >*   async/await 异步
 >*   Users/lihaibo/Library/Application Support/Sublime Text 3/Packages/JSLint
 >*   Array.prototype.includes()。 是查找一个值在不在数组里，若在，则返回 true，反之返回 false
 >*   3 ** 2 求幂运算符
 
 #### ES8
-
 >*   async function foo() {}
 >*   Object.entries() 如果一个对象是具有键值对的数据结构，则每一个键值对都将会编译成一个具有两个元素的数组，这些数组最终会放到一个数组中，返回一个二维数组
 >*   Object.values()只返回自己的键值对中属性的值
@@ -285,14 +253,12 @@ setTimeout(function() {
 >*   padEnd()。//'x'.padEnd(4, 'ab') xaba
 
 ## babel
-
 >*   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
 >*   babel-polyfill 主要包含了 core-js 和 regenerator 两部分
 >*   babel-polyfill：提供了如 ES5、ES6、ES7 等规范中 中新定义的各种对象、方法的模拟实现。
 >*   regenerator：提供 generator 支持，如果应用代码中用到 generator、async 函数的话用到。
 
 ## 错误监控
-
 #### 错误分类
 
 > 1 即时运行错误
@@ -305,25 +271,20 @@ setTimeout(function() {
 > performance.getEnries() 返回数组
 
 #### 资源加载失败不能用冒泡得到错误,可以用捕获处理可以到的错误监听
-
-捕获错误
-
+>捕获错误
 > try ...catch
 > window.onerror()
 
 ### 错误上报
-
-> (new Image()).src='http://www.baidu.com?sa=we';
-> navigator.sendBeacon("a.php"); //埋点
-
+```javascript
+(new Image()).src='http://www.baidu.com?sa=we';
+navigator.sendBeacon("a.php"); //埋点
+```
 ## 安全
-
 #### 混淆
-
 > 混淆:具体处理为重命名局部变量、在相同语义 的情况下压缩代码，比如去掉末尾分号(Remove Terminator Semicolons)，常量替 换(Constant Propagation)、移除代码空白(Space、Tab、Line-Feed)全局变量 不会更名如 LocalStorage。
 
 #### 常⽤用混淆技术
-
 UglifyJS, JS Packer, Closure Compiler, JS Min
 
 ![node](img/biaoshi.png)
