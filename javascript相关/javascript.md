@@ -1,34 +1,34 @@
 ## js 数据类型
 
--   基本类型(栈 stack) : Number、String 、Boolean、Null 和 Undefined , Symbol(es6 新增)
--   基本数据类型是按值访问 高低分配,栈内存最大是 8MB, String:是特殊的栈内存 ,程序员分配
--   引用类型(堆 heap) :Object 、Array 、Function 、Data
--   引用类型数据在栈内存中保存的实际上是对象在堆内存中的引用地址(指针),向高分配,系统自动分配
+*  基本类型(栈 stack) : Number、String 、Boolean、Null 和 Undefined , Symbol(es6 新增)
+*  基本数据类型是按值访问 高低分配,栈内存最大是 8MB, String:是特殊的栈内存 ,程序员分配
+*  引用类型(堆 heap) :Object 、Array 、Function 、Data
+*  引用类型数据在栈内存中保存的实际上是对象在堆内存中的引用地址(指针),向高分配,系统自动分配
 
 ##### 堆栈空间分配区别：
 
-> -   栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈；
-> -   堆（操作系统）： 一般由程序员分配释放，若程序员不释放，程序结束时可能由 OS 回收，分配方式倒是类似于链表。
+> *  栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈；
+> *  堆（操作系统）： 一般由程序员分配释放，若程序员不释放，程序结束时可能由 OS 回收，分配方式倒是类似于链表。
 
 ##### 二、堆栈缓存方式区别：
 
-> -   栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放；
-> -   堆是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。
+> *  栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放；
+> *  堆是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。
 
 ###### 堆 、栈数据结构区别：
 
-> -   堆（数据结构）：堆可以被看成是一棵树，如：堆排序；
-> -   栈（数据结构）：一种先进后出的数据结构。
+> *  堆（数据结构）：堆可以被看成是一棵树，如：堆排序；
+> *  栈（数据结构）：一种先进后出的数据结构。
 >     Symbol，表示独一无二的值, Symbol 最大的用途是用来定义对象的唯一属性名;
 
--   Symbol 值通过 Symbol 函数生成 let symbol1 = Symbol();
--   typeof 运算符用于 Symbol 类型值，返回 symbol;
--   Symbol 不是一个构造函数，如果用 new Symbol 会报错;
--   由于 Symbol 值不是对象，所以不能添加属性;
--   Symbol 值不能与其他类型的值进行运算;
--   Symbol 值可以显式转为字符串，也可以转为布尔值，但是不能转为数值;
--   在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中，如果不放在方括号中，该属性名就是字符串，而不是代表的 Symbol 值。
--   Symbol 值作为对象属性名时，不能用点运算符。由于点运算符后面总是字符串，所以不会读取 name 作为标识名所指代的那个值，导致属性名实际上是一个字符串，而不是一个 Symbol 值。
+*  Symbol 值通过 Symbol 函数生成 let symbol1 = Symbol();
+*  typeof 运算符用于 Symbol 类型值，返回 symbol;
+*  Symbol 不是一个构造函数，如果用 new Symbol 会报错;
+*  由于 Symbol 值不是对象，所以不能添加属性;
+*  Symbol 值不能与其他类型的值进行运算;
+*  Symbol 值可以显式转为字符串，也可以转为布尔值，但是不能转为数值;
+*  在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中，如果不放在方括号中，该属性名就是字符串，而不是代表的 Symbol 值。
+*  Symbol 值作为对象属性名时，不能用点运算符。由于点运算符后面总是字符串，所以不会读取 name 作为标识名所指代的那个值，导致属性名实际上是一个字符串，而不是一个 Symbol 值。
 
 ## 数据结构
 
@@ -73,35 +73,31 @@
 ## 算法
 
 #### 算法特征:
-
 有穷性、确定性、可行性、输入、输出
 
 #### 算法设计衡量：
-
 正确性、可读性、健壮性, 时间复杂度, 空间复杂度
 
 #### 算法分类
-
 ![node](img/suanfa.png)
 
 ### 基本算法(必会)
-
--   冒泡 :
--   快速排序:
--   插入
--   选择
+*   冒泡 :
+*   快速排序:
+*   插入
+*   选择
 
 ## es5 三剑客
 
--   this:谁调用 this 指向谁 改变 this 指向 (call apply bind new)
--   闭包: 函数嵌套函数,函数外部的不能引用函数内部的函数变量,函数内部的可以引用函数外部的变量(用完记得回收掉,容易引起内存泄漏)
--   原型:为一群对象添加属性和方法的对象 **proto** 指向根
--   原型链:由原型组成的链式查找
--   继承:复用其他对象的属性和方法,来扩张自己的属性和方法
-    > -   函数提升的优先级高于变量
-    > -   已经声明的变量再次声明会被忽略
-    > -   如果局部变量未被声明引用，者默认声明为全局变量，
--   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
+*   this:谁调用 this 指向谁 改变 this 指向 (call apply bind new)
+*   闭包: 函数嵌套函数,函数外部的不能引用函数内部的函数变量,函数内部的可以引用函数外部的变量(用完记得回收掉,容易引起内存泄漏)
+*   原型:为一群对象添加属性和方法的对象 **proto** 指向根
+*   原型链:由原型组成的链式查找
+*   继承:复用其他对象的属性和方法,来扩张自己的属性和方法
+    > *   函数提升的优先级高于变量
+    > *   已经声明的变量再次声明会被忽略
+    > *   如果局部变量未被声明引用，者默认声明为全局变量，
+*   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
 
 #### 函数重载
 
@@ -189,10 +185,10 @@ setTimeout(function() {
 
 #### 那些会引起内存泄漏
 
--   1.意外的全局变量
--   2.被遗忘的计时器或回调
--   3.超出 DOM 引用
--   4.闭包
+*   1.意外的全局变量
+*   2.被遗忘的计时器或回调
+*   3.超出 DOM 引用
+*   4.闭包
 
 #### 内存泄漏检测
 
@@ -208,11 +204,11 @@ setTimeout(function() {
 
 #### 垃圾回收机制
 
--   标记清除（mark and sweep）
+*   标记清除（mark and sweep）
 
     > 1.垃圾回收器，在运行的时候会给存储在内存中的所有变量都加上标记。 2.去掉环境中的变量以及被环境中的变量引用的变量的标记。 3.再被加上标记的会被视为准备删除的变量。 4.垃圾回收器完成内存清除工作，销毁那些带标记的值并回收他们所占用的内存空间。
     >
-    > -   大部分浏览器都是使用这种方式进行垃圾回收，区别在于如何标记及垃圾回收间隔而已，只有低版本 IE，不出所料，又是 IE。
+    > *   大部分浏览器都是使用这种方式进行垃圾回收，区别在于如何标记及垃圾回收间隔而已，只有低版本 IE，不出所料，又是 IE。
 
 *   引用计数(reference counting)
     > 1.  声明了一个变量并将一个引用类型的值赋值给这个变量，这个引用类型值的引用次数就是 1。
@@ -234,13 +230,13 @@ setTimeout(function() {
 
 #### 任务可以分成两种:
 
-> -   同步任务(synchronous):在主线程上排队执行的任务 **(执行栈)** ，只有前一个任务执行完毕(入栈出栈)，才能执行后一个任务
-> -   异步任务(asynchronous):不进入主线程、而进入"任务队列"(task queue)的任务，只有"任务队列"通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行
+>*   同步任务(synchronous):在主线程上排队执行的任务 **(执行栈)** ，只有前一个任务执行完毕(入栈出栈)，才能执行后一个任务
+>*   异步任务(asynchronous):不进入主线程、而进入"任务队列"(task queue)的任务，只有"任务队列"通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行
 
 #### 任务队列分为:
 
-> -   微任务:process.nextTick, Promises, Object.observe, MutationObserver
-> -   任务队列:是一个先进先出的数据结构，排在前面的事件，优先被主线程读取
+>*   微任务:process.nextTick, Promises, Object.observe, MutationObserver
+>*   任务队列:是一个先进先出的数据结构，排在前面的事件，优先被主线程读取
 
 ## [node 相关](https://github.com/Silence520/Documentdescription/tree/master/node%E7%9B%B8%E5%85%B3)
 
@@ -250,14 +246,14 @@ setTimeout(function() {
 
 ## js 设计模式
 
-> -   单例模式
-> -   代理模式
-> -   命令模式
-> -   职责链模式
-> -   发布订阅者模式
-> -   工厂模式
-> -   迭代器模式
-> -   适配器模式
+>*   单例模式
+>*   代理模式
+>*   命令模式
+>*   职责链模式
+>*   发布订阅者模式
+>*   工厂模式
+>*   迭代器模式
+>*   适配器模式
 
 ## 函数式编程
 
@@ -270,30 +266,30 @@ setTimeout(function() {
 
 #### ES6
 
-> -   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
+>*   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
 
 #### ES7
 
-> -   async/await 异步
-> -   Users/lihaibo/Library/Application Support/Sublime Text 3/Packages/JSLint
-> -   Array.prototype.includes()。 是查找一个值在不在数组里，若在，则返回 true，反之返回 false
-> -   3 \*\* 2 求幂运算符
+>*   async/await 异步
+>*   Users/lihaibo/Library/Application Support/Sublime Text 3/Packages/JSLint
+>*   Array.prototype.includes()。 是查找一个值在不在数组里，若在，则返回 true，反之返回 false
+>*   3 ** 2 求幂运算符
 
 #### ES8
 
-> -   async function foo() {}
-> -   Object.entries() 如果一个对象是具有键值对的数据结构，则每一个键值对都将会编译成一个具有两个元素的数组，这些数组最终会放到一个数组中，返回一个二维数组
-> -   Object.values()只返回自己的键值对中属性的值
-> -   Object.getOwnPropertyDescriptors()
-> -   padStart()。//'x'.padStart(4, 'ab') abax
-> -   padEnd()。//'x'.padEnd(4, 'ab') xaba
+>*   async function foo() {}
+>*   Object.entries() 如果一个对象是具有键值对的数据结构，则每一个键值对都将会编译成一个具有两个元素的数组，这些数组最终会放到一个数组中，返回一个二维数组
+>*   Object.values()只返回自己的键值对中属性的值
+>*   Object.getOwnPropertyDescriptors()
+>*   padStart()。//'x'.padStart(4, 'ab') abax
+>*   padEnd()。//'x'.padEnd(4, 'ab') xaba
 
 ## babel
 
-> -   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
-> -   babel-polyfill 主要包含了 core-js 和 regenerator 两部分
-> -   babel-polyfill：提供了如 ES5、ES6、ES7 等规范中 中新定义的各种对象、方法的模拟实现。
-> -   regenerator：提供 generator 支持，如果应用代码中用到 generator、async 函数的话用到。
+>*   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
+>*   babel-polyfill 主要包含了 core-js 和 regenerator 两部分
+>*   babel-polyfill：提供了如 ES5、ES6、ES7 等规范中 中新定义的各种对象、方法的模拟实现。
+>*   regenerator：提供 generator 支持，如果应用代码中用到 generator、async 函数的话用到。
 
 ## 错误监控
 
