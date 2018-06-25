@@ -1,13 +1,44 @@
 ## HTMl 相关
 
-### doctype
+#### 标准的 CSS 的盒子模型？与低版本 IE 的盒子模型有什么不同的
 
-定义文档解析类型;
+> 标准盒子模型：宽度=内容的宽度（content）+ border + padding + margin
+> 低版本 IE 盒子模型：宽度=内容宽度（content+border+padding）+ margin
 
-### box-sizing
+#### box-sizing 属性
 
-padding + border + width= 盒子的宽度
-padding+ border + height = 盒子的高度
+> 用来控制元素的盒子模型的解析模式，默认为 content-box
+> context-box：W3C 的标准盒子模型，设置元素的 height/width 属性指的是 content 部分的高/宽
+> border-box：IE 传统盒子模型。设置元素的 height/width 属性指的是 border + padding + content 部分的高/宽
+
+#### 对 BFC 规范(块级格式化上下文：block formatting context)的理解
+
+> 内部的 Box 会在垂直方向上一个接一个放置。
+> Box 垂直方向的距离由 margin 决定，属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠。
+> 每个元素的 margin box 的左边，与包含块 border box 的左边相接触。
+> BFC 的区域不会与 float box 重叠。
+> BFC 是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。
+> 计算 BFC 的高度时，浮动元素也会参与计算。
+
+##### 满足下列条件之一就可触发 BFC
+
+> 根元素，即 html
+> float 的值不为 none（默认）
+> overflow 的值不为 visible（默认）
+> display 的值为 inline-block、table-cell、table-caption
+> position 的值为 absolute 或 fixed
+
+#### 如果需要手动写动画，你认为最小时间间隔是多久，为什么？
+
+> 多数显示器默认频率是 60Hz，即 1 秒刷新 60 次，所以理论上最小间隔为 1/60＊1000ms ＝ 16.7ms。
+> requestAnimationFrame
+
+#### li 与 li 之间有看不见的空白间隔是什么原因引起的？有什么解决办法？
+
+> 行框的排列会受到中间空白（回车空格）等的影响，因为空格也属于字符,这些空白也会被应用样式，占据空间，所以会有间隔，把字符大小设为 0，就没有空格了。
+> 可以将<li>代码全部写在一排
+> 浮动 li 中 float：left
+> 在 ul 中用 font-size：0（谷歌不支持）；可以使用 letter-space：-3px
 
 #### 同源策略
 
@@ -104,20 +135,6 @@ image-set() ：高倍图
 > css icon  
 >  iconfont:http://www.iconfont.cn/
 > cssicon:http://cssicon.space/#/
-
-#### bfc ifc gfc ffc
-
-```javascript
-    bfc(block Formatting contexts)
-         display:  inline-block,table-cell,table-caption,flex,inline-flex
-         float:不为none;
-         overflow:不为visible
-         ifc display:inline;
-         两个bfc之间是相互独立的
-         overflow:hidden 生成bfc 浮动元素也参与bfc结算 父级浮动
-         margin 之间会有重叠 加个父元素 设置overflow:hidden;
-        高度由其包含行内元素中最高的的实际高度计算，不收 padding margin 影响
-```
 
 css 双飞翼布局
 
