@@ -1,20 +1,13 @@
-// var a = {
-// 	name: 'a'
-// };
-// var b = a;
-// a.x = a = { age: 2 };
-// console.log(a.x);
-// console.log(b.x);
-
-// var a = 'csd';
-// var b = a;
-// console.log(a);
-// console.log(b);
+//得到嵌套函数的
+var arr = [1,[2,3],[4,5,[6,7]]];
+console.log(arr+'')
+var newArr= (arr + ' ').split(',')
+console.log(newArr)
 
 var arr = [1, 3, 5, 7, 10, 1];
 function chong(arr) {
 	var newarr = new Array();
-	if (typeof arr != 'Array') {
+	if (! arr instanceof Array ) {
 		return;
 	}
 	for (var i = 0; i < arr.length; i++) {
@@ -25,3 +18,4 @@ function chong(arr) {
 		}
 	}
 }
+chong(arr)
