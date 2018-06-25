@@ -2,7 +2,6 @@
 
 -   基本类型(栈 stack) : Number、String 、Boolean、Null 和 Undefined , Symbol(es6 新增)
 -   基本数据类型是按值访问 高低分配,栈内存最大是 8MB, String:是特殊的栈内存 ,程序员分配
-
 -   引用类型(堆 heap) :Object 、Array 、Function 、Data
 -   引用类型数据在栈内存中保存的实际上是对象在堆内存中的引用地址(指针),向高分配,系统自动分配
 

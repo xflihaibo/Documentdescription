@@ -1,5 +1,5 @@
 //得到嵌套函数的
-var arr = [1,[2,3],[4,5,[6,7]]];
+var arr = [1,[2,3],[4,5,[6,7]]]
 console.log(arr+'')
 var newArr= (arr + ' ').split(',')
 console.log(newArr)

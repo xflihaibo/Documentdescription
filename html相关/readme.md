@@ -120,11 +120,11 @@ font-variant-caps: small-caps;
 font-variant-numeric: lining-nums;
 image-set() ：高倍图
 
-###移动端布局
+### 移动端布局
 
 > css grid layout flex
 
-###css 格式化：
+### css 格式化：
 
 > reset.css normalize.css neat.css(推荐)
 > 移动端：
