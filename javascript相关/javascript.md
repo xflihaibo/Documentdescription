@@ -81,10 +81,74 @@
 ![node](img/suanfa.png)
 
 ### 基本算法(必会)
-*   冒泡 :
-*   快速排序:
-*   插入
-*   选择
+#### 冒泡排序
+```javascript
+function bubbleSort(arr) {
+    var len = arr.length;
+    for (var i = 0; i < len - 1; i++) {
+        for (var j = 0; j < len - 1 - i; j++) {
+            if (arr[j] > arr[j+1]) {        // 相邻元素两两对比
+                var temp = arr[j+1];        // 元素交换
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+```
+#### 快速排序
+```javascript
+function quickSort(arr, left, right) {
+    var len = arr.length,
+        partitionIndex,
+        left = typeof left != 'number' ? 0 : left,
+        right = typeof right != 'number' ? len - 1 : right;
+
+    if (left < right) {
+        partitionIndex = partition(arr, left, right);
+        quickSort(arr, left, partitionIndex-1);
+        quickSort(arr, partitionIndex+1, right);
+    }
+    return arr;
+}
+```
+#### 插入排序
+```javascript
+function insertionSort(arr) {
+    var len = arr.length;
+    var preIndex, current;
+    for (var i = 1; i < len; i++) {
+        preIndex = i - 1;
+        current = arr[i];
+        while(preIndex >= 0 && arr[preIndex] > current) {
+            arr[preIndex+1] = arr[preIndex];
+            preIndex--;
+        }
+        arr[preIndex+1] = current;
+    }
+    return arr;
+}
+```
+#### 选择排序
+```javaScript
+function selectionSort(arr) {
+    var len = arr.length;
+    var minIndex, temp;
+    for (var i = 0; i < len - 1; i++) {
+        minIndex = i;
+        for (var j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {     // 寻找最小的数
+                minIndex = j;                 // 将最小数的索引保存
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+```
 
 ## es5 三剑客
 
@@ -134,7 +198,7 @@
 >* var obe={a:'12'}
 >* function(){}
 
-##Promise
+## Promise
 #### 三种状态:
 >* pending：进行中
 >* fulfilled :已经成功 reslove
@@ -239,7 +303,7 @@ setTimeout(function() {
 > 函数的柯里化
 > Point Free
 
-##版本更新记录
+## 版本更新记录
 #### ES6
 >*   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
 
@@ -267,16 +331,16 @@ setTimeout(function() {
 #### 错误分类
 
 > 1 即时运行错误
-> 捕获错误
-> try ...catch
-> window.onerror()
+###### 捕获错误
+>* try ...catch
+>* window.onerror()
 > 2 资源加载失败
-> 捕获错误
-> object.onerror()(img\ script)
-> performance.getEnries() 返回数组
+###### 捕获错误
+>* object.onerror()(img\ script)
+>* performance.getEnries() 返回数组
 
 #### 资源加载失败不能用冒泡得到错误,可以用捕获处理可以到的错误监听
->捕获错误
+> 捕获错误
 > try ...catch
 > window.onerror()
 
