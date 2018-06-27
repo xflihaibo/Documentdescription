@@ -82,6 +82,8 @@
 
 ### 基本算法(必会)
 #### 冒泡排序
+> ![node](img/maopao.gif)
+
 ```javascript
 function bubbleSort(arr) {
     var len = arr.length;
@@ -98,6 +100,8 @@ function bubbleSort(arr) {
 }
 ```
 #### 快速排序
+> ![node](img/kuaisu.gif)
+
 ```javascript
 function quickSort(arr, left, right) {
     var len = arr.length,
@@ -114,6 +118,8 @@ function quickSort(arr, left, right) {
 }
 ```
 #### 插入排序
+> ![node](img/charu.gif)
+
 ```javascript
 function insertionSort(arr) {
     var len = arr.length;
@@ -131,6 +137,8 @@ function insertionSort(arr) {
 }
 ```
 #### 选择排序
+> ![node](img/xuanze.gif)
+
 ```javaScript
 function selectionSort(arr) {
     var len = arr.length;
