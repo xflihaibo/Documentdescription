@@ -169,16 +169,23 @@ function selectionSort(arr) {
     > *   已经声明的变量再次声明会被忽略
     > *   如果局部变量未被声明引用，者默认声明为全局变量，
 *   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
-
-#### 函数重载
->* 重载就是一组具有相同名字、不同参数列表的函数（方法）
->* 使用 arguments.length 可以实现重载
+## prototype __proto__ constructor
+把 公用的方法与属性抽离出来 生成成一个构造函数，  把抽离出来的方法属性 通过 prototype 绑定在构造函数上，
+如果要继承构造函数的属性与方法 需要通过实例(new)，实例的方法就有了构造函数的方法与属性，实例的原型对象（__proto__）与构造函数的原型(prototype)对象相同
+构造函数.prototype.constructor指向 构造函数
+实例的__proto__.constructor 指向  构造函数
 
 #### new 操作符会经历以下四个步骤
 >* 创建一个新对象
 >* 将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
 >* 执行构造函数中的代码（为这个新对象添加属性）
 >* 返回新对象
+
+## 创建对象的方式
+>* new
+>* object.create()
+>* var obe={a:'12'}
+>* function(){}
 
 ## 判断数据类型的方法
 #### typeof 实现原理
@@ -200,11 +207,10 @@ function selectionSort(arr) {
 >* Object.prototype.toString.call(undefined) // "[object Undefined]"
 >* Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
-## 创建对象的方式
->* new
->* object.create()
->* var obe={a:'12'}
->* function(){}
+#### 函数重载
+>* 重载就是一组具有相同名字、不同参数列表的函数（方法）
+>* 使用 arguments.length 可以实现重载
+
 
 ## Promise
 #### 三种状态:
