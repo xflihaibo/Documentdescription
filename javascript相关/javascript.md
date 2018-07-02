@@ -145,11 +145,6 @@ function quickSort(items, left, right) {
 
 var items = [3,8,7,2,9,4,10]
 var result = quickSort(items, 0, items.length - 1);
-
-作者：幸福拾荒者
-链接：https://juejin.im/post/5b331bc7f265da598451fd88
-来源：掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 ```
 #### 插入排序
 > ![node](img/charu.gif)
@@ -203,12 +198,13 @@ function selectionSort(arr) {
     > *   已经声明的变量再次声明会被忽略
     > *   如果局部变量未被声明引用，者默认声明为全局变量，
 *   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
+
 ## prototype __proto__ constructor
 把 公用的方法与属性抽离出来 生成一个构造函数，  把抽离出来的方法和属性 通过 prototype 绑定在构造函数上，
 如果要继承构造函数的属性与方法 需要通过实例化(new)，实例的方法就继承构造函数的方法与属性，实例的原型对象（__proto__）与构造函数的原型(prototype)对象相同
 构造函数.prototype.constructor指向 构造函数
 实例的__proto__.constructor 指向  构造函数
-
+![Profile](img/prototype.png)
 #### new 操作符会经历以下四个步骤
 >* 创建一个新对象
 >* 将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
