@@ -204,6 +204,21 @@ function selectionSort(arr) {
 如果要继承构造函数的属性与方法 需要通过实例化(new)，实例的方法就继承构造函数的方法与属性，实例的原型对象（__proto__）与构造函数的原型(prototype)对象相同
 构造函数.prototype.constructor指向 构造函数
 实例的__proto__.constructor 指向  构造函数
+constructor指向构造函数
+
+```javascript
+hasOwnProperty(propertyName) ：判断对象是否拥有一个指定名称的实例属性(非继承)
+isPrototypeOf(obejct) ：判断某个原型是否出现在对象的原型链中
+propertyIsEnumerable(propertyName) ：判断指定名称的属性是否为实例属性并且是可枚举的(可用for/in循环枚举)
+Object.getOwnPropertyNames(object) ：返回一个数组，包含对象的所有实例属性和方法，不包含原型继承的属性和方法
+Object.getPrototypeOf(object) ：返回对象的上一级原型
+Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属性名称
+```
+
+
+
+
+
 ![Profile](img/prototype.png)
 #### new 操作符会经历以下四个步骤
 >* 创建一个新对象
@@ -364,6 +379,19 @@ setTimeout(function() {
 >*   Object.getOwnPropertyDescriptors()
 >*   padStart()。//'x'.padStart(4, 'ab') abax
 >*   padEnd()。//'x'.padEnd(4, 'ab') xaba
+
+#### ES9
+>* 异步迭代器：使用AsyncIterable和AsyncIterator协议为异步迭代添加语法支持。该特性使创建异步生成器函数和方法的语法成为可能。
+>* 为正则表达式添加s (dotAll)标志：为这些表达式提供一致的行为。该特性旨在解决正则表达式中的点(.)不匹配行终止符的限制。s标志改变了这一点。此标志将在选择的基础上运行，因此现有的正则表达式模式不会受到影响。
+>* Regexp(正则表达式) Unicode属性转义：使开发者能够更好地访问Unicode字符属性。属性转义将以\p{…}和\P{…}的形式添加。
+>* Regexp环视匹配断言：解决了环视（lookaround）的一个缺点，它是零宽度的断言，与字符串进行匹配，不消耗任何东西。使用隐藏的断言，开发人员可以确保模式之前有或没有另一个模式。例如：匹配美元的金额而不获取美元符号。
+>* Rest/spread属性：提供一个较小的语法改进。
+>* prototype.finally()：用于在处理完资源后进行清理。
+>* Regexp 命名捕获组：用来标识捕获组，使它们更容易查找并使正则表达式更容易理解。以前，捕获组是通过数字访问的。
+>* 模板文字的修订：为带标签的模板文字增加了语法的自由度。
+>* 一个预期的功能，即Function.prototype.toString的更新被删除，因为仍然有人担心它正在解决中。 toString()方法会返回一个表示函数源代码的字符串
+
+
 
 ## babel
 >*   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
