@@ -81,10 +81,116 @@
 ![node](img/suanfa.png)
 
 ### 基本算法(必会)
-*   冒泡 :
-*   快速排序:
-*   插入
-*   选择
+#### 冒泡排序
+> ![node](img/maopao.gif)
+
+```javascript
+function bubbleSort(arr) {
+    var len = arr.length;
+    for (var i = 0; i < len - 1; i++) {
+        for (var j = 0; j < len - 1 - i; j++) {
+            if (arr[j] > arr[j+1]) {        // 相邻元素两两对比
+                var temp = arr[j+1];        // 元素交换
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+```
+#### 快速排序
+> ![node](img/kuaisu.gif)
+
+```javascript
+function swap(items, firstIndex, secondIndex){
+    var temp = items[firstIndex];
+    items[firstIndex] = items[secondIndex];
+    items[secondIndex] = temp;
+}
+
+function partition(items, left, right) {
+    var pivot = items[Math.floor((right + left) / 2)],
+        i = left,
+        j = right;
+    while (i <= j) {
+        while (items[i] < pivot) {
+            i++;
+        }
+        while (items[j] > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            swap(items, i, j);
+            i++;
+            j--;
+        }
+    }
+    return i;
+}
+
+function quickSort(items, left, right) {
+    var index;
+    if (items.length > 1) {
+        index = partition(items, left, right);
+        if (left < index - 1) {
+            quickSort(items, left, index - 1);
+        }
+        if (index < right) {
+            quickSort(items, index, right);
+        }
+    }
+    return items;
+}
+
+var items = [3,8,7,2,9,4,10]
+var result = quickSort(items, 0, items.length - 1);
+
+作者：幸福拾荒者
+链接：https://juejin.im/post/5b331bc7f265da598451fd88
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+#### 插入排序
+> ![node](img/charu.gif)
+
+```javascript
+function insertionSort(arr) {
+    var len = arr.length;
+    var preIndex, current;
+    for (var i = 1; i < len; i++) {
+        preIndex = i - 1;
+        current = arr[i];
+        while(preIndex >= 0 && arr[preIndex] > current) {
+            arr[preIndex+1] = arr[preIndex];
+            preIndex--;
+        }
+        arr[preIndex+1] = current;
+    }
+    return arr;
+}
+```
+#### 选择排序
+> ![node](img/xuanze.gif)
+
+```javaScript
+function selectionSort(arr) {
+    var len = arr.length;
+    var minIndex, temp;
+    for (var i = 0; i < len - 1; i++) {
+        minIndex = i;
+        for (var j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {     // 寻找最小的数
+                minIndex = j;                 // 将最小数的索引保存
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+```
 
 ## es5 三剑客
 
@@ -97,16 +203,23 @@
     > *   已经声明的变量再次声明会被忽略
     > *   如果局部变量未被声明引用，者默认声明为全局变量，
 *   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
-
-#### 函数重载
->* 重载就是一组具有相同名字、不同参数列表的函数（方法）
->* 使用 arguments.length 可以实现重载
+## prototype __proto__ constructor
+把 公用的方法与属性抽离出来 生成一个构造函数，  把抽离出来的方法和属性 通过 prototype 绑定在构造函数上，
+如果要继承构造函数的属性与方法 需要通过实例化(new)，实例的方法就继承构造函数的方法与属性，实例的原型对象（__proto__）与构造函数的原型(prototype)对象相同
+构造函数.prototype.constructor指向 构造函数
+实例的__proto__.constructor 指向  构造函数
 
 #### new 操作符会经历以下四个步骤
 >* 创建一个新对象
 >* 将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
 >* 执行构造函数中的代码（为这个新对象添加属性）
 >* 返回新对象
+
+## 创建对象的方式
+>* new
+>* object.create()
+>* var obe={a:'12'}
+>* function(){}
 
 ## 判断数据类型的方法
 #### typeof 实现原理
@@ -128,13 +241,12 @@
 >* Object.prototype.toString.call(undefined) // "[object Undefined]"
 >* Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
-## 创建对象的方式
->* new
->* object.create()
->* var obe={a:'12'}
->* function(){}
+#### 函数重载
+>* 重载就是一组具有相同名字、不同参数列表的函数（方法）
+>* 使用 arguments.length 可以实现重载
 
-##Promise
+
+## Promise
 #### 三种状态:
 >* pending：进行中
 >* fulfilled :已经成功 reslove
@@ -239,7 +351,7 @@ setTimeout(function() {
 > 函数的柯里化
 > Point Free
 
-##版本更新记录
+## 版本更新记录
 #### ES6
 >*   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
 
@@ -267,16 +379,16 @@ setTimeout(function() {
 #### 错误分类
 
 > 1 即时运行错误
-> 捕获错误
-> try ...catch
-> window.onerror()
+###### 捕获错误
+>* try ...catch
+>* window.onerror()
 > 2 资源加载失败
-> 捕获错误
-> object.onerror()(img\ script)
-> performance.getEnries() 返回数组
+###### 捕获错误
+>* object.onerror()(img\ script)
+>* performance.getEnries() 返回数组
 
 #### 资源加载失败不能用冒泡得到错误,可以用捕获处理可以到的错误监听
->捕获错误
+> 捕获错误
 > try ...catch
 > window.onerror()
 
