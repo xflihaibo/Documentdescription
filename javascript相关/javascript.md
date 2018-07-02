@@ -368,7 +368,6 @@ setTimeout(function() {
 
 #### ES7
 >*   async/await 异步
->*   Users/lihaibo/Library/Application Support/Sublime Text 3/Packages/JSLint
 >*   Array.prototype.includes()。 是查找一个值在不在数组里，若在，则返回 true，反之返回 false
 >*   3 ** 2 求幂运算符
 
