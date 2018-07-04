@@ -89,7 +89,7 @@ store：数据
 > -   react-dom 是 103.7kb（gzip：32.6kb），之前是 141kb（gzip：42.9kb）
 > -   react + react-dom 是 109kb（gzip：34.8kb），之前是 161.7kb（gzip：49.8kb）
 
-#### react 16.3
+#### react 16.0.3
 
 > -   React.createContext()，这样就创建了两个组件：
 > -   要被废弃的方法：
