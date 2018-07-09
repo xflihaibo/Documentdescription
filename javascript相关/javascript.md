@@ -103,6 +103,25 @@ function bubbleSort(arr) {
 > ![node](img/kuaisu.gif)
 
 ```javascript
+//方案1
+ var arrs = [123, 45, 656, 233, 46, 80, 23, 122];
+function quckilyu(arr) {
+    var valete = arr[0];
+    var leftarr = [];
+    var rightarr = [];
+    if(arr.length<1){
+     return arr
+    }
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < valete) {
+            leftarr.push(arr[i])
+        } else {
+            rightarr.push(arr[i])
+        }
+    }
+    return quckilyu(leftarr).concat(valete, quckilyu(rightarr));
+}
+//方案2
 function swap(items, firstIndex, secondIndex){
     var temp = items[firstIndex];
     items[firstIndex] = items[secondIndex];
