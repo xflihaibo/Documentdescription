@@ -159,15 +159,38 @@
 //toString() ： 方法返回指定的布尔对象的字符串形式。
 //unshift():头部添加
  //sort(): 排序
-	// const nums = [2 ,4 , 6, ...odd];
+
+// const nums = [2 ,4 , 6, ...odd];
+// let arr = [1,2,4,5,2,5,6,12]
+// console.log(Array.from(new Map(...arr)))
 
 
-
-
-	//深拷贝
+	//数组深拷贝
 	// var array = [1, 2, 3, 4];
 	// var testArray =  Array.from(array);
 	// testArray.push(5)
+	//方法二
+	// var array = [1, 2, 3, 4];
+	// var tasarr= JSON.parse(JSON.stringify(array))
+	// tasarr.push(5)
+	// console.log(tasarr)
+    // 数组去重
+	// var tt =[...new Set([1,2,3,4,1,3,4,6])]
+	// var set1 = Array.from(new Set([1,1,2,2,33,'33',44,'44']))
+	//方法二
+	// var arr= [12,24,56,78,32,12,24];
+	// var obj={};
+	// var newArr=[];
+	// for(var i=0;i<arr.length;i++){
+	// 	if(!obj[arr[i]]){
+	// 		newArr.push(arr[i]);
+	// 		obj[arr[i]]=1;
+	// 	}
+	// }
+	// console.log(newArr)
+
+
+	
 	// cookie 设置过期时间
 
 	// let set = new Set(['red', 'green', 'no']);
@@ -202,8 +225,7 @@
 	 // ajax同步请求 async false
 
 
-	// var array = [1, 2, 3, 4];
-	// var testArray =  Array.from(array);
+
 
 	// var arr = [1,[2,3],[4,5,[6,7]]];
 	// console.log(arr+'')
