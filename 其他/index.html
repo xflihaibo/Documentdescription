@@ -369,6 +369,7 @@
 //forEach():没有返回值，只是针对每个元素调用func
 //includes(): 函数判断是否包含某一元素，除了不能定位外，解决了indexOf的上述的两个问题。它直接返回true或者false表示是否包含元素，对NaN一样能有有效。
 //indexOf() 方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1
+// isArray
 //join(): 拼接数组元素
 //keys() :方法返回一个新的Array迭代器，它包含数组中每个索引的键
 //lastIndexOf() :lastIndexOf() 方法返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。从数组的后面向前查找，从 fromIndex 处开始。
@@ -420,13 +421,16 @@
 	
 	// cookie 设置过期时间
 
-	// let set = new Set(['red', 'green', 'no']);
-	// console.log(set)
-	// console.log(typeof set)
-	// var setArr=Array.from(set)  //输出[1,2,3,4]
-	// console.log(setArr)
-	// console.log(typeof setArr)
-	// console.log(Array.isArray( setArr))
+	let set = new Set(['red', 'green', 'no']);
+	console.log(set)
+	console.log(typeof set)
+console.log(Array.isArray(set))
+	var setArr=Array.from(set)  //输出[1,2,3,4]
+	console.log(setArr)
+	console.log(typeof setArr)
+	console.log(Array.isArray( setArr))
+
+
 	//  var a=[];
 	//  var b={};
 	//  console.log(Array.isArray(a));//true
