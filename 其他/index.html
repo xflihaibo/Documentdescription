@@ -15,6 +15,233 @@
 </body>
 <!-- <script type="text/javascript" src="http://w.abcs.com/ssdd/a.js"></script> -->
 <script>
+	// 把公用的方法与属性抽离出来 生成成一个构造函数，  把抽离出来的方法属性 通过 prototype 绑定在构造函数上，
+	// 如果要继承构造函数的属性与方法 需要通过实例(new)，实例的方法就有了构造函数的方法与属性，实例的原型对象（__proto__）与构造函数的原型(prototype)对象相同
+	// 构造函数.prototype.constructor指向 构造函数
+	// 实例的__proto__.constructor 指向  构造函数
+
+// 	function Car(color,price){
+// 			this.color=color;
+// 			this.price=price;
+// 	}
+// Car.prototype.sali=function(){
+// 			console.log( this.color +'的车卖了'+this.price+"万元！！")
+// }
+// var bmw=new Car('蓝色','10');
+// bmw.sali()
+// console.dir(bmw.__proto__.constructor == Car)
+// console.dir(Car.prototype.constructor == Car )
+// console.dir(Car.prototype  == bmw.__proto__ )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function swap(items, firstIndex, secondIndex){
+//     var temp = items[firstIndex];
+//     items[firstIndex] = items[secondIndex];
+//     items[secondIndex] = temp;
+// }
+ 
+// function partition(items, left, right) {
+//     var pivot   = items[Math.floor((right + left) / 2)],
+//         i       = left,
+//         j       = right;
+//     while (i <= j) {
+//         while (items[i] < pivot) {
+//             i++;
+//         }
+//         while (items[j] > pivot) {
+//             j--;
+//         }
+//         if (i <= j) {
+//             swap(items, i, j);
+//             i++;
+//             j--;
+//         }
+//     }
+//     return i;
+// }
+
+// function quickSort(arr, left, right) {
+//     var len = arr.length,
+//         partitionIndex,
+//         left = typeof left != 'number' ? 0 : left,
+//         right = typeof right != 'number' ? len - 1 : right;
+
+//     if (left < right) {
+//         partitionIndex = partition(arr, left, right);
+//         quickSort(arr, left, partitionIndex-1);
+//         quickSort(arr, partitionIndex+1, right);
+//     }
+
+//     return arr;
+// }
+
+
+
+// var items = [4, 2, 6, 5, 3, 9];
+// var result = quickSort(items);
+// console.log(result)
+
+// function swap(items, firstIndex, secondIndex){
+//     var temp = items[firstIndex];
+//     items[firstIndex] = items[secondIndex];
+//     items[secondIndex] = temp;
+// }
+
+// function partition(items, left, right) {
+//     var pivot = items[Math.floor((right + left) / 2)],
+//         i = left,
+//         j = right;
+//     while (i <= j) {
+//         while (items[i] < pivot) {
+//             i++;
+//         }
+//         while (items[j] > pivot) {
+//             j--;
+//         }
+//         if (i <= j) {
+//             swap(items, i, j);
+//             i++;
+//             j--;
+//         }
+//     }
+//     return i;
+// }
+
+// function quickSort(items, left, right) {
+//     var index;
+//     if (items.length > 1) {
+//         index = partition(items, left, right);
+//         if (left < index - 1) {
+//             quickSort(items, left, index - 1);
+//         }
+//         if (index < right) {
+//             quickSort(items, index, right);
+//         }
+//     }
+//     return items;
+// }
+
+// var items = [3,8,7,2,9,4,10]
+// var result = quickSort(items, 0, items.length - 1);
+// console.log(result)
+
+
+
+// function selectionSort(arr) {
+//     var len = arr.length;
+//     var minIndex, temp;
+//     for (var i = 0; i < len - 1; i++) {
+//         minIndex = i;
+//         for (var j = i + 1; j < len; j++) {
+//             if (arr[j] < arr[minIndex]) {     // 寻找最小的数
+//                 minIndex = j;                 // 将最小数的索引保存
+//             }
+//         }
+//         temp = arr[i];
+//         arr[i] = arr[minIndex];
+//         arr[minIndex] = temp;
+//     }
+//     return arr;
+// }
+
+
+// function insertionSort(arr) {
+//     var len = arr.length;
+//     var preIndex, current;
+//     for (var i = 1; i < len; i++) {
+//         preIndex = i - 1;
+//         current = arr[i];
+//         while(preIndex >= 0 && arr[preIndex] > current) {
+//             arr[preIndex+1] = arr[preIndex];
+//             preIndex--;
+//         }
+//         arr[preIndex+1] = current;
+//     }
+//     return arr;
+// }
+
+// var items = [3,8,7,2,9,4,10]
+// var result = selectionSort(items);
+// console.log(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function quickSort(array){
+//     function sort(prev, numsize){
+//         var nonius = prev;
+//         var j = numsize -1;
+//         var flag = array[prev];
+//         if ((numsize - prev) > 1) {
+//             while(nonius < j){
+//                 for(; nonius < j; j--){
+//                     if (array[j] < flag) {
+//                         array[nonius++] = array[j];　//a[i] = a[j]; i += 1;
+//                         break;
+//                     };
+//                 }
+//                 for( ; nonius < j; nonius++){
+//                     if (array[nonius] > flag){
+//                         array[j--] = array[nonius];
+//                         break;
+//                     }
+//                 }
+//             }
+//             array[nonius] = flag;
+//             sort(0, nonius);
+//             sort(nonius + 1, numsize);
+//         }
+//     }
+//     sort(0, array.length);
+//     return array;
+// }
+// console.log(quickSort([23,11,89,45,67,76,56,99]))
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// var obj={
 	// 	foo:'bar',
 	// 	fun:function(){
@@ -354,16 +581,16 @@
 // Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
 
-var obj={}
-// obj.prototype.say=function(){
-// 	console.log('jell')
+// var obj={}
+// // obj.prototype.say=function(){
+// // 	console.log('jell')
+// // }
+// obj.x=1;
+// for(var i in obj){
+// 	console.log(i)
 // }
-obj.x=1;
-for(var i in obj){
-	console.log(i)
-}
-console.log(obj.toString)
-console.log(obj.__proto__)
+// console.log(obj.toString)
+// console.log(obj.__proto__)
 
 
 

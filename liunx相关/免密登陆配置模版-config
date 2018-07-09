@@ -205,3 +205,10 @@ node -v
 
 凡是杀不死我的,最终只会让我变得更强--致自己
 
+
+rm -rf test.tar.gz
+tar czvf test.tar.gz * 
+mv -f test.tar.gz /root/www
+cd /root/www
+tar -xzvf test.tar.gz
+rm -rf test.tar.gz
