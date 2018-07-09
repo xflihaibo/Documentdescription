@@ -50,7 +50,7 @@
 
 #### 跨域
 
->* script , background、img、link ,iframe,
+>* script , background、img、link ,iframe, cors
 
 #### hover link active, visite 定义顺序
 

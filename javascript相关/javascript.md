@@ -103,19 +103,67 @@ function bubbleSort(arr) {
 > ![node](img/kuaisu.gif)
 
 ```javascript
-function quickSort(arr, left, right) {
-    var len = arr.length,
-        partitionIndex,
-        left = typeof left != 'number' ? 0 : left,
-        right = typeof right != 'number' ? len - 1 : right;
-
-    if (left < right) {
-        partitionIndex = partition(arr, left, right);
-        quickSort(arr, left, partitionIndex-1);
-        quickSort(arr, partitionIndex+1, right);
+//方案1
+ var arrs = [123, 45, 656, 233, 46, 80, 23, 122];
+function quckilyu(arr) {
+    var valete = arr[0];
+    var leftarr = [];
+    var rightarr = [];
+    if(arr.length<1){
+     return arr
     }
-    return arr;
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] < valete) {
+            leftarr.push(arr[i])
+        } else {
+            rightarr.push(arr[i])
+        }
+    }
+    return quckilyu(leftarr).concat(valete, quckilyu(rightarr));
 }
+//方案2
+function swap(items, firstIndex, secondIndex){
+    var temp = items[firstIndex];
+    items[firstIndex] = items[secondIndex];
+    items[secondIndex] = temp;
+}
+
+function partition(items, left, right) {
+    var pivot = items[Math.floor((right + left) / 2)],
+        i = left,
+        j = right;
+    while (i <= j) {
+        while (items[i] < pivot) {
+            i++;
+        }
+        while (items[j] > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            swap(items, i, j);
+            i++;
+            j--;
+        }
+    }
+    return i;
+}
+
+function quickSort(items, left, right) {
+    var index;
+    if (items.length > 1) {
+        index = partition(items, left, right);
+        if (left < index - 1) {
+            quickSort(items, left, index - 1);
+        }
+        if (index < right) {
+            quickSort(items, index, right);
+        }
+    }
+    return items;
+}
+
+var items = [3,8,7,2,9,4,10]
+var result = quickSort(items, 0, items.length - 1);
 ```
 #### 插入排序
 > ![node](img/charu.gif)
@@ -170,15 +218,38 @@ function selectionSort(arr) {
     > *   如果局部变量未被声明引用，者默认声明为全局变量，
 *   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
 
-#### 函数重载
->* 重载就是一组具有相同名字、不同参数列表的函数（方法）
->* 使用 arguments.length 可以实现重载
+## prototype __proto__ constructor
+把 公用的方法与属性抽离出来 生成一个构造函数，  把抽离出来的方法和属性 通过 prototype 绑定在构造函数上，
+如果要继承构造函数的属性与方法 需要通过实例化(new)，实例的方法就继承构造函数的方法与属性，实例的原型对象（__proto__）与构造函数的原型(prototype)对象相同
+构造函数.prototype.constructor指向 构造函数
+实例的__proto__.constructor 指向  构造函数
+constructor指向构造函数
 
+```javascript
+hasOwnProperty(propertyName) ：判断对象是否拥有一个指定名称的实例属性(非继承)
+isPrototypeOf(obejct) ：判断某个原型是否出现在对象的原型链中
+propertyIsEnumerable(propertyName) ：判断指定名称的属性是否为实例属性并且是可枚举的(可用for/in循环枚举)
+Object.getOwnPropertyNames(object) ：返回一个数组，包含对象的所有实例属性和方法，不包含原型继承的属性和方法
+Object.getPrototypeOf(object) ：返回对象的上一级原型
+Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属性名称
+```
+
+
+
+
+
+![Profile](img/prototype.png)
 #### new 操作符会经历以下四个步骤
 >* 创建一个新对象
 >* 将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
 >* 执行构造函数中的代码（为这个新对象添加属性）
 >* 返回新对象
+
+## 创建对象的方式
+>* new
+>* object.create()
+>* var obe={a:'12'}
+>* function(){}
 
 ## 判断数据类型的方法
 #### typeof 实现原理
@@ -200,11 +271,10 @@ function selectionSort(arr) {
 >* Object.prototype.toString.call(undefined) // "[object Undefined]"
 >* Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
-## 创建对象的方式
->* new
->* object.create()
->* var obe={a:'12'}
->* function(){}
+#### 函数重载
+>* 重载就是一组具有相同名字、不同参数列表的函数（方法）
+>* 使用 arguments.length 可以实现重载
+
 
 ## Promise
 #### 三种状态:
@@ -306,10 +376,92 @@ setTimeout(function() {
 >*   适配器模式
 
 ## 函数式编程
-> 纯函数
-> 函数组合 f(g(y(x))
-> 函数的柯里化
-> Point Free
+>* 说到函数式编程，大家可能第一印象都是学院派的那些晦涩难懂的代码，充满了一大堆抽象的不知所云的符号，似乎只有大学里的计算机教授才会使用这些东西。在曾经的某个时代可能确实如此，但是近年来随着技术的发展，函数式编程已经在实际生产中发挥巨大的作用了，越来越多的语言开始加入闭包，匿名函数等非常典型的函数式编程的特性，从某种程度上来讲，函数式编程正在逐步“同化”命令式编程
+
+>*JavaScript 作为一种典型的多范式编程语言，这两年随着React的火热，函数式编程的概念也开始流行起来，RxJS、cycleJS、lodashJS、underscoreJS等多种开源库都使用了函数式的特性。所以下面介绍一些函数式编程的知识和概念。
+
+
+
+###  纯函数
+>* 纯函数的定义是，对于相同的输入，永远会得到相同的输出，而且没有任何可观察的副作用，也不依赖外部环境的状态
+```javascript
+var arr = [1,2,3,4,5];
+
+// Array.slice是纯函数，因为它没有副作用，对于固定的输入，输出总是固定的
+xs.slice(0,3);    //=> [1,2,3]
+xs.slice(0,3);    //=> [1,2,3]
+
+// Array.splice是不纯的，它有副作用，对于固定的输入，输出不是固定的
+xs.splice(0,3);     //=> [1,2,3]
+xs.splice(0,3);     //=> [4,5]
+xs.splice(0,3);     //=> []
+```
+
+### 函数的柯里化
+>* 函数柯里化（curry）的定义很简单：传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数
+>* 比如对于加法函数 var add = (x, y) =>　x + y ，我们可以这样进行柯里化：
+```jacascript
+var add = function(x){ //比较容易读懂的ES5写法
+    return function(y){
+        return x + y
+    }
+}
+var add = x => (y => x + y); //ES6写法，也是比较正统的函数式写法
+
+var add2 = add(2);
+add2(2); // 4
+var add200 = add(200);
+add200(80); // 280
+```
+>* 事实上柯里化是一种“预加载”函数的方法，通过传递较少的参数，得到一个已经记住了这些参数的新函数，某种意义上讲，这是一种对参数的“缓存”，是一种非常高效的编写函数的方法;
+
+
+
+### 函数组合 f(g(y(x))
+>* 学会了使用纯函数以及如何把它柯里化之后，我们会很容易写出这样的“包菜式”代码
+```javascript
+h(g(f(x)));
+```
+
+```javascript
+//es5 两个函数的组合
+var compose = function(f, g) {
+    return function(x) {
+        return f(g(x));
+    };
+};
+
+//es6
+var compose = (f, g) => (x => f(g(x)));
+var add1 = x => x + 1;
+var mul5 = x => x * 5;
+compose(mul5, add1)(2);     //15 
+```
+>* 我们定义的compose就像双面胶一样，可以把任何两个纯函数结合到一起。
+* 这种灵活的组合可以让我们像拼积木一样来组合函数式的代码
+```javascript
+var first = arr => arr[0];
+var reverse = arr => arr.reverse();
+var last = compose(first, reverse);
+last([1,2,3,4,5]);   //5
+
+```
+
+### Point Free
+>* 不要命名转瞬即逝的中间变量
+```javascript
+var f = str => str.toUpperCase().split(' ');   //这不Piont free
+//这个函数中，我们使用了 str 作为我们的中间变量，但这个中间变量除了让代码变得长了一点以外是毫无意义的。下面改造一下这段代码：
+
+var toUpperCase = word => word.toUpperCase();
+var split = x => (str => str.split(x));
+var f = compose(split(' '), toUpperCase);
+f("abcd efgh");  //["ABCD", "EFGH"]
+
+```
+
+
+
 
 ## 版本更新记录
 #### ES6
@@ -317,7 +469,6 @@ setTimeout(function() {
 
 #### ES7
 >*   async/await 异步
->*   Users/lihaibo/Library/Application Support/Sublime Text 3/Packages/JSLint
 >*   Array.prototype.includes()。 是查找一个值在不在数组里，若在，则返回 true，反之返回 false
 >*   3 ** 2 求幂运算符
 
@@ -328,6 +479,19 @@ setTimeout(function() {
 >*   Object.getOwnPropertyDescriptors()
 >*   padStart()。//'x'.padStart(4, 'ab') abax
 >*   padEnd()。//'x'.padEnd(4, 'ab') xaba
+
+#### ES9
+>* 异步迭代器：使用AsyncIterable和AsyncIterator协议为异步迭代添加语法支持。该特性使创建异步生成器函数和方法的语法成为可能。
+>* 为正则表达式添加s (dotAll)标志：为这些表达式提供一致的行为。该特性旨在解决正则表达式中的点(.)不匹配行终止符的限制。s标志改变了这一点。此标志将在选择的基础上运行，因此现有的正则表达式模式不会受到影响。
+>* Regexp(正则表达式) Unicode属性转义：使开发者能够更好地访问Unicode字符属性。属性转义将以\p{…}和\P{…}的形式添加。
+>* Regexp环视匹配断言：解决了环视（lookaround）的一个缺点，它是零宽度的断言，与字符串进行匹配，不消耗任何东西。使用隐藏的断言，开发人员可以确保模式之前有或没有另一个模式。例如：匹配美元的金额而不获取美元符号。
+>* Rest/spread属性：提供一个较小的语法改进。
+>* prototype.finally()：用于在处理完资源后进行清理。
+>* Regexp 命名捕获组：用来标识捕获组，使它们更容易查找并使正则表达式更容易理解。以前，捕获组是通过数字访问的。
+>* 模板文字的修订：为带标签的模板文字增加了语法的自由度。
+>* 一个预期的功能，即Function.prototype.toString的更新被删除，因为仍然有人担心它正在解决中。 toString()方法会返回一个表示函数源代码的字符串
+
+
 
 ## babel
 >*   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。

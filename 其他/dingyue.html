@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>h122</h1>
+	<img src="http:www.baidu.com"/>
+	<img src="http://www.baidu.com/imgpng"/>
+	<img src="http://www.baidu.com/img/bd_logo1.png"/>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.mi.js"></script>
+<script>
+	$(function () {
+	var sd=performance.getEntries();
+	console.log(sd)
+	var x=0;
+	for(var i= 0; i<sd.length; i++){
+		if(sd[i].initiatorType=="img"){
+			x=1+x;
+		}
+
+	}
+	// var sds= document.getElementsByName('script');
+
+
+	console.log(x)
+	console.log($('img').length)
+	var errx=$('img').length-x;
+	// (new Image()).src="http://www.baidu.com/add?name="+errx;
+	// Navigator.sendBeacon("a.php"+errx)
+	console.log(errx)
+	navigator.sendBeacon('https://www.baidu.com/a.php?sd='+errx)
+	// var sd=new Promise(function(resolve,reject){
+	// 	    console.log('Promise');
+	// 	    resolve('hello worlde');
+	// 	})
+	// sd.then(function(val){
+	// 	console.log(val)
+	//     console.log('resolved');
+	// });
+	// console.log('Hi!');
+
+	// window.onerror()
+
+	// window.onerror = function(msg, url, line, col, error) {
+	//   // 直接将错误打印到控制台
+	//   console.log(arguments)
+	//   console.log(msg)
+	//   console.log(url)
+	//   console.log(line)
+	//   console.log(col)
+	//   console.log(error)
+	//   // 方便在未打开控制台的时候，记录错误对象
+	//   window.demoError = arguments
+
+	// }
+
+	// function makeError () {
+	//   var name = "geoff"
+	//   var msg = "Hi, " + Name
+	//   console.log(msg)
+	// }
+
+	// makeError()
+
+
+
+	})
+</script> -->
