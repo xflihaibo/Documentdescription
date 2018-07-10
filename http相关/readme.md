@@ -183,8 +183,11 @@ img ,script,iframe,link,jsonp 、Hash、 cors、 webSocket、 postMessage
 > -   雅虎军规
 > -   简化页面标签, 减少重排 重绘
 > -   精简 css uncss( 去除无用的 css)
+> -   精简 js 代码 巧用数据结构与算法
 > -   打包压缩合并
-> -   开启 cnd 加速(最多 5 个)。节约 cookie 带宽 节约主域名的连接数，优化页面响应速度
+> -   开启 cnd 加速(并行最多 5 个)。节约 cookie 带宽 节约主域名的连接数，优化页面响应速度
 > -   开启懒加载
 > -   缓存静态资源文件
 > -   nginx 开启 gzip etag expires
+> -   合理计算 qps
+
