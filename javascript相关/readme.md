@@ -219,7 +219,7 @@ function selectionSort(arr) {
 *   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
 
 ## prototype __proto__ constructor
-把 公用的方法与属性抽离出来 生成一个构造函数，  把抽离出来的方法和属性 通过 prototype 绑定在构造函数上，
+把 公用的方法与属性抽离出来 生成一个构造函数，  把抽离出来的方法 通过 prototype 绑定在构造函数上，
 如果要继承构造函数的属性与方法 需要通过实例化(new)，实例的方法就继承构造函数的方法与属性，实例的原型对象（__proto__）与构造函数的原型(prototype)对象相同
 构造函数.prototype.constructor指向 构造函数
 实例的__proto__.constructor 指向  构造函数
@@ -233,10 +233,6 @@ Object.getOwnPropertyNames(object) ：返回一个数组，包含对象的所有
 Object.getPrototypeOf(object) ：返回对象的上一级原型
 Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属性名称
 ```
-
-
-
-
 
 ![Profile](img/prototype.png)
 #### new 操作符会经历以下四个步骤
@@ -271,8 +267,8 @@ Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属
 >* Object.prototype.toString.call(undefined) // "[object Undefined]"
 >* Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
-#### 函数重载
->* 重载就是一组具有相同名字、不同参数列表的函数（方法）
+#### 函数重载（多态）
+>* 重载就是一组具有相同名字、不同参数列表的函数（方法）(多态就是通过对传递的参数判断来执行逻辑，即可实现一种多态处理机制)
 >* 使用 arguments.length 可以实现重载
 
 
