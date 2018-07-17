@@ -9,6 +9,8 @@
 
 ### babel常用插件
 >* babel-plugin-import  :按需加载插件。只需要引入模块即可，无需单独引入样式。
+>* transform-remove-console：使用这个插件，编译后的代码都会移除console.*
+>* transform-object-assign  我们在代码中使用Object.assign方法，
 >* babel-plugin-imports-transform : import代码智能转换Babel插件，优化(webpack等)打包构建体积
 >* babel-plugin-transform-decorators-legacy ： Decorators，装饰器
 >* babel-preset-react：react是一个比较特别的官方推荐的presets，大概是因为比较火吧。加入了flow，jsx等语法
