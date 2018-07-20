@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>html</title>
+</head>
+
+<body>
+</body>
+<script>
+window.onload = function() {
+    // concat
+    let arr = [1, 2];
+    let arr2 = [123, 456, 678];
+    let obj= {'name': '王二','age': 123 };
+    let initbool = false;
+    let newarr = arr.concat([3, 4, 5], 7, 8, [9, 10])
+    let newarr2 = arr.concat(3, 4, 5, arr2, obj, initbool)
+    console.log(arr)
+    console.log(newarr)
+    console.log(newarr2)
+
+
+
+
+}
+</script>
+
+</html>
