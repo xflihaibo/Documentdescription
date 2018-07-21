@@ -98,11 +98,11 @@ console.log(arr); // ["a", "b", "c"]
 -   语法：Arr.every(function(currentValue,index,arr), thisValue)
 -   参数：
 
-*   function(currentValue, index,arr) 必须。函数，数组中的每个元素都会执行这个函数
-*          currentValue:必须。当前元素的值
-*         index:可选。当前元素的索引值
-*          arr:可选。当前元素属于的数组对象
-*   thisValue:可选。对象作为该执行回调时使用，传递给函数，用作 "this" 的值。如果省略了 thisValue ，"this" 的值为 "undefined"
+-   function(currentValue, index,arr) 必须。函数，数组中的每个元素都会执行这个函数
+-             currentValue:必须。当前元素的值
+-             index:可选。当前元素的索引值
+-             arr:可选。当前元素属于的数组对象
+-   thisValue:可选。对象作为该执行回调时使用，传递给函数，用作 "this" 的值。如果省略了 thisValue ，"this" 的值为 "undefined"
 
 -   返回值：布尔值。如果所有元素都通过检测返回 true，否则返回 false
 
