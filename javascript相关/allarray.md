@@ -28,10 +28,9 @@ console.log(newarr2); //[1, 2, 3, 4, 5, 123, 456, 678, {name: "王二", age: 123
 
 -   语法： Arr.copyWithin(target, start = 0, end = this.length)
 -   参数：传入的值 默认为 number,传入其他类型值 (bool,string,array,object,undefined)会进行类型转化成 number 类型(参数为 NaN 的话为默认值)
-
-*   target （必需）：从该位置开始替换数据。
-*   start （可选）：从该位置开始读取数据，默认为 0 。如果为负值，表示倒数。
-*   end （可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数。
+-   target （必需）：从该位置开始替换数据。
+-   start （可选）：从该位置开始读取数据，默认为 0 。如果为负值，表示倒数。
+-   end （可选）：到该位置前停止读取数据，默认等于数组长度。如果为负值，表示倒数。
 
 -   返回值：返回当前数组。也就是说，使用这个方法，会修改当前数组
 
@@ -99,9 +98,9 @@ console.log(arr); // ["a", "b", "c"]
 -   参数：
 
 -   function(currentValue, index,arr) 必须。函数，数组中的每个元素都会执行这个函数
--                                                 currentValue:必须。当前元素的值
--                                                 index:可选。当前元素的索引值
--                                                 arr:可选。当前元素属于的数组对象
+    -   currentValue:必须。当前元素的值
+    -   index:可选。当前元素的索引值
+    -   arr:可选。当前元素属于的数组对象
 -   thisValue:可选。对象作为该执行回调时使用，传递给函数，用作 "this" 的值。如果省略了 thisValue ，"this" 的值为 "undefined"
 
 -   返回值：布尔值。如果所有元素都通过检测返回 true，否则返回 false
@@ -288,7 +287,7 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 
 -   语法：Array.isArray(obj)
 -   参数：
--         	obj:必需，要判断的对象。
+-             	obj:必需，要判断的对象。
 -   返回值：布尔值，如果对象是数组返回 true，否则返回 false。
 
 ```javascript
