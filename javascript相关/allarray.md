@@ -99,9 +99,9 @@ console.log(arr); // ["a", "b", "c"]
 -   参数：
 
 -   function(currentValue, index,arr) 必须。函数，数组中的每个元素都会执行这个函数
--             currentValue:必须。当前元素的值
--             index:可选。当前元素的索引值
--             arr:可选。当前元素属于的数组对象
+-                                                 currentValue:必须。当前元素的值
+-                                                 index:可选。当前元素的索引值
+-                                                 arr:可选。当前元素属于的数组对象
 -   thisValue:可选。对象作为该执行回调时使用，传递给函数，用作 "this" 的值。如果省略了 thisValue ，"this" 的值为 "undefined"
 
 -   返回值：布尔值。如果所有元素都通过检测返回 true，否则返回 false
@@ -114,4 +114,218 @@ let passed1 = [12, 5, 8, 130, 44].every(isBigEnough);
 let passed2 = [12, 54, 18, 130, 44].every(isBigEnough);
 console.log(passed1); // false
 console.log(passed2); // true
+```
+
+### fill()
+
+> (ES6 新增)用一个固定值填充一个数组中从起始索引到终止索引内的全部元素
+
+-   语法：Arr.fill(value, start, end)
+-   参数：
+-   value:用来填充数组元素的值
+-   start:可选 起始索引，默认值为 0
+-   end:可选 终止索引，默认值为 this.length。
+-   返回值：修改后的原数组。
+
+```javascript
+let arr1 = [1, 2, 3];
+let arr2 = [1, 2, 3];
+let arr3 = [1, 2, 3];
+let arr4 = [1, 2, 3];
+let arr5 = [1, 2, 3];
+let arr6 = [1, 2, 3];
+let arr7 = [1, 2, 3];
+let arr8 = [1, 2, 3];
+let arr9 = [1, 2, 3];
+let newarr = arr1.fill(7);
+arr2.fill(4);
+arr3.fill(4, 1);
+arr4.fill(4, 1, 2);
+arr5.fill(4, 1, 1);
+arr6.fill(4, 3, 3);
+arr7.fill(4, -3, -2);
+arr8.fill(4, NaN, NaN);
+arr9.fill(4, 3, 5); // [1, 2, 3]
+console.log(arr1); //[7, 7, 7]
+console.log(newarr); //[7, 7, 7]
+console.log(arr2); // [4, 4, 4]
+console.log(arr3); // [1, 4, 4]
+console.log(arr4); // [1, 4, 3]
+console.log(arr5); // [1, 4, 3]
+console.log(arr6); // [1, 2, 3]
+console.log(arr7); // [1, 2, 3]
+console.log(arr8); // [4, 2, 3]
+console.log(arr9); // [1, 2, 3]
+```
+
+### filter()
+
+> 创建一个新数组, 其包含通过所提供函数实现的测试的所有元素
+
+-   语法：arr.filter(callback(element index array),thisArg])
+-   参数：
+-   callback 用来测试数组的每个元素的函数。调用时使用参数 (element, index, array)。返回 true 表示保留该元素（通过测试），false 则不保留。它接受三个参数
+
+    -   element:当前在数组中处理的元素
+    -   index:可选 正在处理元素在数组中的索引
+    -   array:可选 调用了 filter 筛选器的数组
+
+-   thisArg 可选。执行 callback 时的用于 this 的值。
+-   返回值：一个新的通过测试的元素的集合的数组，如果没有通过测试则返回空数组
+
+```javascript
+let arr = [1, 2, 4, 5, 6, 9, 10, 15];
+let newarr = arr.filter(function(x) {
+	return x % 2 !== 0;
+});
+console.log(arr); // [1, 2, 4, 5, 6, 9, 10, 15]
+console.log(newarr); //[1, 5, 9, 15]
+//去重
+let arr2 = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+let arr3 = arr2.filter(function(element, index, self) {
+	return self.indexOf(element) === index;
+});
+console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
+```
+
+### find()
+
+> (ES6 新增) 用来查找目标元素，找到就返回该元素，找不到返回 undefined
+
+-   语法：arr.find(callback(element index array),thisArg])
+-   参数：
+-   callback 在数组每一项上执行的函数，接收 3 个参数
+
+    -   element:当前遍历到的元素
+    -   index:可选 当前遍历到的索引
+    -   array:可选 数组本身
+
+-   thisArg 可选。指定 callback 的 this 参数。
+-   返回值：当某个元素通过 callback 的测试时，返回数组中的一个值，否则返回 undefined。
+
+```javascript
+```
+
+### findIndex()
+
+> 方法返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1
+
+-   语法：arr.findIndex(callback(element index array),thisArg])
+-   参数：
+-   callback 在数组每一项上执行的函数，接收 3 个参数
+
+    -   element:当前遍历到的元素
+    -   index:可选 当前遍历到的索引
+    -   array:可选 数组本身
+
+-   thisArg 可选。指定 callback 的 this 参数。
+-   返回值：返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。
+
+```javascript
+```
+
+### forEach()
+
+> 对数组的每个元素执行一次提供的函数
+
+-   语法：arr.forEach(callback(currentValue index array),thisArg])
+-   参数：
+-   callback 在数组每一项上执行的函数，接收 3 个参数
+
+    -   currentValue:数组中正在处理的当前元素
+    -   index:可选 数组中正在处理的当前元素的索引。
+    -   array:可选 forEach()方法正在操作的数组。
+
+-   thisArg 可选。指定 callback 的 this 参数。
+-   返回值：undefined
+
+```javascript
+```
+
+### from()
+
+> (ES6 新增) from() 方法用于通过拥有 length 属性的对象或可迭代的对象来返回一个数组。如果对象是数组返回 true，否则返回 false。
+
+-   语法：Array.from(object, mapFunction, thisValue)
+-   参数：
+-   object:必需，要转换为数组的对象。
+-   mapFunction:可选，数组中每个元素要调用的函数。
+-   thisValue:可选，映射函数(mapFunction)中的 this 对象。
+-   返回值：对象是数组返回 true，否则返回 false
+
+```javascript
+```
+
+### includes()
+
+> 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false。
+
+-   语法：arr.includes(searchElement, fromIndex)
+-   参数：
+-   searchElement :需要查找的元素值
+-   fromIndex 从该索引处开始查找 searchElement。如果为负值，则按升序从 array.length + fromIndex 的索引开始搜索。默认为 0。
+-   返回值：如果包含则返回 true，否则返回 false
+
+```javascript
+```
+
+### indexOf()
+
+> 方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1。
+
+-   语法：arr.indexOf(searchElement[, fromIndex = 0])
+-   参数：
+-   searchElement: 要查找的元素
+-   fromIndex: 开始查找的位置。如果该索引值大于或等于数组长度，意味着不会在数组里查找，返回-1。如果参数中提供的索引值是一个负值，则将其作为数组末尾的一个抵消，即-1 表示从最后一个元素开始查找，-2 表示从倒数第二个元素开始查找 ，以此类推。 注意：如果参数中提供的索引值是一个负值，并不改变其查找顺序，查找顺序仍然是从前向后查询数组。如果抵消后的索引值仍小于 0，则整个数组都将会被查询。其默认值为 0.
+-   返回值：首个被找到的元素在数组中的索引位置; 若没有找到则返回 -1
+
+```javascript
+```
+
+### isArray()
+
+> isArray() 方法用于判断一个对象是否为数组。如果对象是数组返回 true，否则返回 false。
+
+-   语法：Array.isArray(obj)
+-   参数：
+-         	obj:必需，要判断的对象。
+-   返回值：布尔值，如果对象是数组返回 true，否则返回 false。
+
+```javascript
+```
+
+### join()
+
+> 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。
+
+-   语法：Arr.join(separator)
+-   参数：
+-   separator: 可选。指定要使用的分隔符。如果省略该参数，则使用逗号作为分隔符。
+-   返回值：返回一个字符串。该字符串是通过把 Arr 的每个元素转换为字符串，然后把这些字符串连接起来，在两个元素之间插入 separator 字符串而生成的。
+
+```javascript
+```
+
+### keys()
+
+> (ES6 新增) keys() 方法用于从数组创建一个包含数组键的可迭代对象。如果对象是数组返回 true，否则返回 false。
+
+-   语法：arr.keys()
+-   参数：
+-   返回值：一个数组可迭代对象
+
+```javascript
+```
+
+### lastIndexOf()
+
+> lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。如果要检索的字符串值没有出现，则该方法返回 -1。
+
+-   语法：array.lastIndexOf(item,start)
+-   参数：
+    item: 必需。规定需检索的字符串值
+    start: 可选的整数参数。规定在字符串中开始检索的位置。它的合法取值是 0 到 stringObject.length -1。如省略该参数，则将从字符串的最后一个字符处开始检索。
+-   返回值：如果在 stringObject 中的 fromindex 位置之前存在 searchvalue，则返回的是出现的最后一个 searchvalue 的位置。
+
+```javascript
 ```
