@@ -95,13 +95,111 @@ window.onload = function() {
     // });
     // console.log(arr3);  // ["apple", "strawberry", "banana", "pear", "orange"]
 
+    // let arr1 = [1, 2, 3, 4, 5, 6, 7, 8]
+    // let arr2 = arr1.find((value, index, arr) => {
+    //     return value > 4
+    // })
+    // let arr3 = arr1.find((value, index, arr) => {
+    //     return value > 14
+    // })
+    // console.log(arr1) // [1, 2, 3, 4, 5, 6, 7, 8]
+    // console.log(arr2) //5
+    // console.log(arr3) //undefined
+
+    // let arr1 = [1, 2, 3, 4, 5, 6, 7, 8]
+    //    let arr2 = arr1.findIndex((value, index, arr) => {
+    //        return value > 4
+    //    })
+    // let arr3 = arr1.findIndex((value, index, arr) => {
+    //        return value > 14
+    //    })
+    //    console.log(arr1) // [1, 2, 3, 4, 5, 6, 7, 8]
+    //    console.log(arr2) //4
+    //    console.log(arr3) //-1
+
+
+    // forEach
+    // 	 let arr=[{a:1},{}];
+    // 　  arr.forEach(function(item,idx){
+    //   　　item.b=idx;
+    // 　  });
+    // 　 console.log(arr) // [{a: 1, b: 0}, {b: 1}]
+
+    // let setObj = new Set(["a", "b", "c"]);
+    // let arr = Array.from(setObj);
+    // console.log(arr) //["a", "b", "c"]
+    // console.log(Array.from([1, 2, 3], x => x + x)); //[2, 4, 6]
+
+
+    // let arr=[1, 2, 3];
+    // let arrobj=[{name:'zs'},{name:'ls'},{name:'we'},{name:'mz'}];
+    // let arr2=arr.includes(2); 
+    // let arr3=arr.includes(4); 
+    // console.log(arr) //[1, 2, 3]
+    // console.log(arr2) // true
+    // console.log(arr3)// false
+    // let e1 = { "name": "zs", "age": "12" };
+    // let e2 = { "name": "ls", "age": "13" };
+    // let arr1 = [e1, e2];
+    // let arr4 =arr1.includes(e1);
+    // console.log(arr4)
+
+    // let arr = [{ "name": "zs", "age": "12" }, { "name": "ls", "age": "13" }];
+    // let index = arr.indexOf({ "name": "zs", "age": "12" });
+    // console.log(index);
+
+    // let e1 = { "name": "zs", "age": "12" };
+    // let e2 = { "name": "ls", "age": "13" };
+    // let arr1 = [e1, e2];
+    // let index1 = arr1.indexOf(e2);
+    // console.log(index1);
+
+// console.log(Array.isArray([])); //true
+// console.log(Array.isArray([1])); //true
+// console.log(Array.isArray(new Array())); //true
+// console.log(Array.isArray()); //false
+// console.log(Array.isArray({})); //false
+// console.log(Array.isArray(null)); //false
+// console.log(Array.isArray(undefined)); //false
+// console.log(Array.isArray(17)); //false
+// console.log(Array.isArray('Array')); //false
+// console.log(Array.isArray(true)); //false
+// console.log(Array.isArray(false)); //false
 
 
 
+// let elements = ['1', '2', '3'];
+// console.log(elements.join());
+// console.log(elements.join('+'));
+// console.log(elements.join('-'));
+
+
+// var fruits = ["Banana", "Orange", "Apple", "Mango"];
+// var x=fruits.keys();
+// console.log(x.next().value)
+// console.log(x.next().value)
+// console.log(x.next().value)
+// console.log(x.next().value)
+// console.log(x.next().value)
+
+// var arr = ["a", "b", "c"];
+// var iterator = arr.keys();
+
+// console.log(iterator.next()); // { value: 0, done: false }
+// console.log(iterator.next()); // { value: 1, done: false }
+// console.log(iterator.next()); // { value: 2, done: false }
+// console.log(iterator.next()); // { value: undefined, done: true }
 
 
 
-    
+// Create an array.
+let arr = ["ab", "cd", "ef", "ab", "cd"];
+console.log(arr.lastIndexOf("cd"));  //4
+console.log(arr.lastIndexOf("cd", 2) ); //1
+console.log(arr.lastIndexOf("ab", -3)); //0
+
+
+
 }
 </script>
 

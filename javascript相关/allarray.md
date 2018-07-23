@@ -203,11 +203,21 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 -   返回值：当某个元素通过 callback 的测试时，返回数组中的一个值，否则返回 undefined。
 
 ```javascript
+let arr1 = [1, 2, 3, 4, 5, 6, 7, 8];
+let arr2 = arr1.find((value, index, arr) => {
+	return value > 4;
+});
+let arr3 = arr1.find((value, index, arr) => {
+	return value > 14;
+});
+console.log(arr1); // [1, 2, 3, 4, 5, 6, 7, 8]
+console.log(arr2); //5
+console.log(arr3); //undefined
 ```
 
 ### findIndex()
 
-> 方法返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1
+> (ES6 新增) 方法返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1
 
 -   语法：arr.findIndex(callback(element index array),thisArg])
 -   参数：
@@ -221,6 +231,16 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 -   返回值：返回数组中满足提供的测试函数的第一个元素的索引。否则返回-1。
 
 ```javascript
+let arr1 = [1, 2, 3, 4, 5, 6, 7, 8];
+let arr2 = arr1.findIndex((value, index, arr) => {
+	return value > 4;
+});
+let arr3 = arr1.findIndex((value, index, arr) => {
+	return value > 14;
+});
+console.log(arr1); // [1, 2, 3, 4, 5, 6, 7, 8]
+console.log(arr2); //4
+console.log(arr3); //-1
 ```
 
 ### forEach()
@@ -236,9 +256,14 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
     -   array:可选 forEach()方法正在操作的数组。
 
 -   thisArg 可选。指定 callback 的 this 参数。
--   返回值：undefined
+-   返回值：undefined, 对原数组的操作有影响
 
 ```javascript
+let arr = [{ a: 1 }, {}];
+arr.forEach(function(item, idx) {
+	item.b = idx;
+});
+console.log(arr); // [{a: 1, b: 0}, {b: 1}]
 ```
 
 ### from()
@@ -253,19 +278,31 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 -   返回值：对象是数组返回 true，否则返回 false
 
 ```javascript
+let setObj = new Set(['a', 'b', 'c']);
+let arr = Array.from(setObj);
+console.log(arr); //["a", "b", "c"]
+console.log(Array.from([1, 2, 3], x => x + x)); //[2, 4, 6]
 ```
 
 ### includes()
 
-> 方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false。
+> (ES6 新增)方法用来判断一个数组是否包含一个指定的值，根据情况，如果包含则返回 true，否则返回 false。
 
 -   语法：arr.includes(searchElement, fromIndex)
 -   参数：
 -   searchElement :需要查找的元素值
 -   fromIndex 从该索引处开始查找 searchElement。如果为负值，则按升序从 array.length + fromIndex 的索引开始搜索。默认为 0。
--   返回值：如果包含则返回 true，否则返回 false
+-   返回值：如果包含则返回 true，否则返回 false; (includes 方法使用全等（===）来判断一个元素是否符合您的搜索)
 
 ```javascript
+[1, 2, 3].includes(2); // true
+[1, 2, 3].includes(4); // false
+[1, 2, NaN].includes(NaN); // true
+let e1 = { name: 'zs', age: '12' };
+let e2 = { name: 'ls', age: '13' };
+let arr1 = [e1, e2];
+let arr4 = arr1.includes(e1);
+console.log(arr4); //true
 ```
 
 ### indexOf()
@@ -275,10 +312,18 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 -   语法：arr.indexOf(searchElement[, fromIndex = 0])
 -   参数：
 -   searchElement: 要查找的元素
--   fromIndex: 开始查找的位置。如果该索引值大于或等于数组长度，意味着不会在数组里查找，返回-1。如果参数中提供的索引值是一个负值，则将其作为数组末尾的一个抵消，即-1 表示从最后一个元素开始查找，-2 表示从倒数第二个元素开始查找 ，以此类推。 注意：如果参数中提供的索引值是一个负值，并不改变其查找顺序，查找顺序仍然是从前向后查询数组。如果抵消后的索引值仍小于 0，则整个数组都将会被查询。其默认值为 0.
+-   fromIndex: 开始查找的位置。如果该索引值大于或等于数组长度，意味着不会在数组里查找，返回-1。如果参数中提供的索引值是一个负值，则将其作为数组末尾的一个抵消，即-1 表示从最后一个元素开始查找，-2 表示从倒数第二个元素开始查找 ，以此类推。 注意：如果参数中提供的索引值是一个负值，并不改变其查找顺序，查找顺序仍然是从前向后查询数组。如果抵消后的索引值仍小于 0，则整个数组都将会被查询。其默认值为 0,indexOf 方法使用全等（===）来判断一个元素是否符合您的搜索
 -   返回值：首个被找到的元素在数组中的索引位置; 若没有找到则返回 -1
 
 ```javascript
+let arr = [{ name: 'zs', age: '12' }, { name: 'ls', age: '13' }];
+let index = arr.indexOf({ name: 'zs', age: '12' });
+console.log(index); //-1
+let e1 = { name: 'zs', age: '12' };
+let e2 = { name: 'ls', age: '13' };
+let arr1 = [e1, e2];
+let index1 = arr1.indexOf(e2);
+console.log(index1); //1
 ```
 
 ### isArray()
@@ -287,10 +332,21 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 
 -   语法：Array.isArray(obj)
 -   参数：
--             	obj:必需，要判断的对象。
+-                                                 	obj:必需，要判断的对象。
 -   返回值：布尔值，如果对象是数组返回 true，否则返回 false。
 
 ```javascript
+console.log(Array.isArray([])); //true
+console.log(Array.isArray([1])); //true
+console.log(Array.isArray(new Array())); //true
+console.log(Array.isArray()); //false
+console.log(Array.isArray({})); //false
+console.log(Array.isArray(null)); //false
+console.log(Array.isArray(undefined)); //false
+console.log(Array.isArray(17)); //false
+console.log(Array.isArray('Array')); //false
+console.log(Array.isArray(true)); //false
+console.log(Array.isArray(false)); //false
 ```
 
 ### join()
@@ -303,6 +359,10 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 -   返回值：返回一个字符串。该字符串是通过把 Arr 的每个元素转换为字符串，然后把这些字符串连接起来，在两个元素之间插入 separator 字符串而生成的。
 
 ```javascript
+let elements = ['1', '2', '3'];
+console.log(elements.join());
+console.log(elements.join('+'));
+console.log(elements.join('-'));
 ```
 
 ### keys()
@@ -314,6 +374,12 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 -   返回值：一个数组可迭代对象
 
 ```javascript
+let arr = ['a', 'b', 'c'];
+let iterator = arr.keys();
+console.log(iterator.next()); // { value: 0, done: false }
+console.log(iterator.next()); // { value: 1, done: false }
+console.log(iterator.next()); // { value: 2, done: false }
+console.log(iterator.next()); // { value: undefined, done: true }
 ```
 
 ### lastIndexOf()
@@ -327,4 +393,8 @@ console.log(arr3); // ["apple", "strawberry", "banana", "pear", "orange"]
 -   返回值：如果在 stringObject 中的 fromindex 位置之前存在 searchvalue，则返回的是出现的最后一个 searchvalue 的位置。
 
 ```javascript
+let arr = ['ab', 'cd', 'ef', 'ab', 'cd'];
+console.log(arr.lastIndexOf('cd')); //4
+console.log(arr.lastIndexOf('cd', 2)); //1
+console.log(arr.lastIndexOf('ab', -3)); //0
 ```
