@@ -1,4 +1,4 @@
-# javascript 数组(array) 常用的方法集锦
+# javascript 数组(array) 常用的方法集锦(上)
 
 由于三大框架的出现,对 DOM 的操作转成对数据的操作,二对数据的操作主要体现在数组和对象,今天就以数据为例,对数组的各种操作进行对比
 
@@ -332,7 +332,7 @@ console.log(index1); //1
 
 -   语法：Array.isArray(obj)
 -   参数：
--                                                 	obj:必需，要判断的对象。
+-                                                   	obj:必需，要判断的对象。
 -   返回值：布尔值，如果对象是数组返回 true，否则返回 false。
 
 ```javascript
