@@ -200,11 +200,136 @@ window.onload = function() {
 
 
 
-let arr1 = [1, 4, 9, 16];
-const arr2 = arr1.map(x => x * 2);
-console.log(arr1); //[1, 4, 9, 16]
-console.log(arr2); //[2, 8, 18, 32]
+// let arr1 = [1, 4, 9, 16];
+// const arr2 = arr1.map(x => x * 2);
+// console.log(arr1); //[1, 4, 9, 16]
+// console.log(arr2); //[2, 8, 18, 32]
 // expected output: Arra
+
+
+// let plants = ['kale', 'tomato'];
+// console.log(plants.pop()); //tomato
+// console.log(plants); // ["broccoli", "cauliflower", "cabbage", "kale"]
+// console.log(plants.pop()); //kale
+// console.log(plants); //[]
+// console.log(plants.pop()); //undefined
+
+
+// let arr = ['pigs', 'goats', 'sheep'];
+// console.log(arr.push('cows')); //4
+// console.log(arr);  ["pigs", "goats", "sheep", "cows"]
+// console.log(arr.push(['hello','world'])); //5
+// console.log(arr); //["pigs", "goats", "sheep", "cows", ["hello", "world"]]
+// console.log(arr.push('hello','world')); //7
+// console.log(arr); //["pigs", "goats", "sheep", "cows", ["hello", "world"], "hello", "world"]
+
+// let items = [10, 80, 100];
+// let add=(sumSoFar, item)=>{ return sumSoFar + item; };
+// let total = items.reduce(add, 0); 
+// let total1 = items.reduce(add, 10);
+// console.log(items); //[10, 80, 100]
+// console.log(total);  //190
+// console.log(total1);  //200
+
+
+// let items = [10, 80, 100];
+// let add=(sumSoFar, item)=>{ return sumSoFar + item; };
+// let total = items.reduceRight(add, 0); 
+// let total1 = items.reduceRight(add, 10);
+// console.log(items); //[10, 80, 100]
+// console.log(total);  //190
+// console.log(total1);  //200
+
+
+// let arr1 = [0,1,5,10,15];
+// let arr2=arr1.reverse();
+// console.log(arr1) //[15, 10, 5, 1, 0]
+// console.log(arr2)//[15, 10, 5, 1, 0]
+
+// var arr = [1, 2];
+// let arr1 = arr.shift();
+// console.log(arr); //[2]
+// console.log(arr1);//1
+// let arr2 = arr.shift();
+// console.log(arr2);//2
+// let arr3 = arr.shift();
+// console.log(arr3);//undefined
+
+	// let arr=[3,5,7,9];
+	// let arr1=arr.splice(1, 2);
+	// let arr2=[3,5,7,9];
+	// let arr3=arr2.splice(1);
+	// console.log(arr) //[3, 9]
+	// console.log(arr1)//[5, 7]
+	// console.log(arr2) //[3]
+	// console.log(arr3)//[5, 7, 9]
+
+
+	// let arr = [1, 2, 3, 4, 5];
+	// let arr1= arr.some((elem, index, arr)=> {return elem >= 4});
+	// console.log(arr) // [1, 2, 3, 4, 5]
+	// console.log(arr1) //true
+
+
+// let arr = ["张三", "李四", "王五"];
+// let count = arr.unshift("赵六", "小明");
+// console.log(count); //5
+// console.log(arr); // ["赵六", "小明", "张三", "李四", "王五"]
+
+// let arr = ["2", "4", "5", "8"];
+// let arr1=arr.valueOf();
+// console.log(arr) //["2", "4", "5", "8"]
+// console.log(arr1) //["2", "4", "5", "8"]
+
+// let arr = [1, 2, 3, 4, 5];
+// let arr2= arr.splice(0, 1);  
+// console.log(arr); // [2, 3, 4, 5]
+// console.log(arr2); // [1]
+// let arr3= arr.splice(0, 1,8,9,10);  
+// console.log(arr) //[8, 9, 10, 3, 4, 5]
+// console.log(arr3) //[2]
+
+
+// let  NumAscSort=(a,b)=>{return a - b}
+// let NumDescSort= (a,b)=>{return b - a}
+// var arr =[90,88,93,106,20,10,66] 
+// let arr1=arr.sort(NumDescSort);
+// console.log(arr);
+// console.log(arr1);
+// let arr2=arr.sort(NumAscSort);
+// console.log(arr2);
+
+
+// let arr = [1, 'heoolo', false, {name:'zs',age:12}];
+// let arr1 = arr.toString();
+// console.log(arr);//[1, 'heoolo', false, {name:'zs',age:12}];
+// console.log(arr1);//1,heoolo,false,[object Object]
+
+
+// let arr = [1, 'heoolo', false, {name:'zs',age:12}];
+// let arr1 = arr.toLocaleString();
+// console.log(arr);//[1, 'heoolo', false, {name:'zs',age:12}];
+// console.log(arr1);//1,heoolo,false,[object Object]
+
+
+	// let numberA = 123456789;
+ //    let dateA=new Date();
+ //    let toLocaleStringArry2 = numberA.toLocaleString();
+ //    let toLocaleStringArry3 = dateA.toLocaleString();
+ //    let toStringArry2 = numberA.toString();
+ //    let toStringArry3 = dateA.toString();
+ //    console.log('number-toLocaleString方法：' + toLocaleStringArry2);
+ //    console.log('number-toString方法：' + toStringArry2);
+ //    console.log('date-toLocaleString方法：' + toLocaleStringArry3);
+ //    console.log('date-toString方法：' + toStringArry3);
+
+
+let arr = ['￥7', 500, 8123, 12];
+let arr1=arr.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' });
+console.log(arr) //["￥7", 500, 8123, 12]
+console.log(arr1) //￥7,￥500,￥8,123,￥12"
+
+
 
 
 }
