@@ -1,20 +1,40 @@
+## npm 上传自己的包
+
+```json
 npm install allblue   //检查npm 是否存在
-如果没有
-新建一个 allblue 的文件夹
+```
+
+-   如果没有 新建一个 allblue 的文件夹
+
+```json
 cd allblue
-npm init 
+npm init  -y
+```
 
- "name": "allblue", //必填项目
-  "version": "0.0.1"
+-   进入 package.json 文件
 
-然后 npm login ，会要求你输入用户名、密码和邮箱
+```json
+ "name": "allblue", //必填项目名称
+ "version": "0.0.1" //必填版本信息
+```
 
-更新npm 包
-修改 package.json文件夹中的  version 版本信息
-然后执行 npm publish
+-   登录 npm
 
- 
-//https://www.cnblogs.com/penghuwan/p/6973702.html
+```json
+ npm login //输入用户名、密码和邮箱
+```
 
-利用npm撤销发布包
-输入npm unpublish 包名
+-   更新 npm 包 修改 package.json 文件夹中的 version 版本信息
+    执行
+
+```json
+ npm publish
+```
+
+-   利用 npm 撤销发布包
+
+```json
+ npm unpublish 包名
+```
+
+[参考](https://www.cnblogs.com/penghuwan/p/6973702.html)
