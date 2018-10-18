@@ -221,8 +221,8 @@ function selectionSort(arr) {
 
 ## console
 
--   如果打印的是 obj 类型 则需要 valueOf()
--   如果打印的是 其他类型 则需要 toString()
+-   如果打印的是 obj 类型 默认转 valueOf()
+-   如果打印的是 其他类型 默认转 toString()
 
 ## es5 三剑客
 
