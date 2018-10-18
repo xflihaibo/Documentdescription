@@ -1,33 +1,34 @@
 ## js 数据类型
 
-*  基本类型(栈 stack) : Number、String 、Boolean、Null 和 Undefined , Symbol(es6 新增)
-*  基本数据类型是按值访问 高低分配,栈内存最大是 8MB, String:是特殊的栈内存 ,程序员分配
-*  引用类型(堆 heap) :Object 、Array 、Function 、Data
-*  引用类型数据在栈内存中保存的实际上是对象在堆内存中的引用地址(指针),向高分配,系统自动分配
+-   基本类型(栈 stack) : Number、String 、Boolean、Null 和 Undefined , Symbol(es6 新增)
+-   基本数据类型是按值访问 高低分配,栈内存最大是 8MB, String:是特殊的栈内存 ,程序员分配
+-   引用类型(堆 heap) :Object 、Array 、Function 、Data
+-   引用类型数据在栈内存中保存的实际上是对象在堆内存中的引用地址(指针),向高分配,系统自动分配
 
 ##### 堆栈空间分配区别：
 
-> *  栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈；
-> *  堆（操作系统）： 一般由程序员分配释放，若程序员不释放，程序结束时可能由 OS 回收，分配方式倒是类似于链表。
+> -   栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈；
+> -   堆（操作系统）： 一般由程序员分配释放，若程序员不释放，程序结束时可能由 OS 回收，分配方式倒是类似于链表。
 
 ##### 二、堆栈缓存方式区别：
 
-> *  栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放；
-> *  堆是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。
+> -   栈使用的是一级缓存， 他们通常都是被调用时处于存储空间中，调用完毕立即释放；
+> -   堆是存放在二级缓存中，生命周期由虚拟机的垃圾回收算法来决定（并不是一旦成为孤儿对象就能被回收）。所以调用这些对象的速度要相对来得低一些。
 
 ###### 堆 、栈数据结构区别：
 
-> *  堆（数据结构）：堆可以被看成是一棵树，如：堆排序；
-> *  栈（数据结构）：一种先进后出的数据结构。
+> -   堆（数据结构）：堆可以被看成是一棵树，如：堆排序；
+> -   栈（数据结构）：一种先进后出的数据结构。
 >     Symbol，表示独一无二的值, Symbol 最大的用途是用来定义对象的唯一属性名;
-*  Symbol 值通过 Symbol 函数生成 let symbol1 = Symbol();
-*  typeof 运算符用于 Symbol 类型值，返回 symbol;
-*  Symbol 不是一个构造函数，如果用 new Symbol 会报错;
-*  由于 Symbol 值不是对象，所以不能添加属性;
-*  Symbol 值不能与其他类型的值进行运算;
-*  Symbol 值可以显式转为字符串，也可以转为布尔值，但是不能转为数值;
-*  在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中，如果不放在方括号中，该属性名就是字符串，而不是代表的 Symbol 值。
-*  Symbol 值作为对象属性名时，不能用点运算符。由于点运算符后面总是字符串，所以不会读取 name 作为标识名所指代的那个值，导致属性名实际上是一个字符串，而不是一个 Symbol 值。
+
+-   Symbol 值通过 Symbol 函数生成 let symbol1 = Symbol();
+-   typeof 运算符用于 Symbol 类型值，返回 symbol;
+-   Symbol 不是一个构造函数，如果用 new Symbol 会报错;
+-   由于 Symbol 值不是对象，所以不能添加属性;
+-   Symbol 值不能与其他类型的值进行运算;
+-   Symbol 值可以显式转为字符串，也可以转为布尔值，但是不能转为数值;
+-   在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中，如果不放在方括号中，该属性名就是字符串，而不是代表的 Symbol 值。
+-   Symbol 值作为对象属性名时，不能用点运算符。由于点运算符后面总是字符串，所以不会读取 name 作为标识名所指代的那个值，导致属性名实际上是一个字符串，而不是一个 Symbol 值。
 
 ## 数据结构
 
@@ -72,16 +73,21 @@
 ## 算法
 
 #### 算法特征:
+
 有穷性、确定性、可行性、输入、输出
 
 #### 算法设计衡量：
+
 正确性、可读性、健壮性, 时间复杂度, 空间复杂度
 
 #### 算法分类
+
 ![node](img/suanfa.png)
 
 ### 基本算法(必会)
+
 #### 冒泡排序
+
 > ![node](img/maopao.gif)
 
 ```javascript
@@ -89,9 +95,10 @@ function bubbleSort(arr) {
     var len = arr.length;
     for (var i = 0; i < len - 1; i++) {
         for (var j = 0; j < len - 1 - i; j++) {
-            if (arr[j] > arr[j+1]) {        // 相邻元素两两对比
-                var temp = arr[j+1];        // 元素交换
-                arr[j+1] = arr[j];
+            if (arr[j] > arr[j + 1]) {
+                // 相邻元素两两对比
+                var temp = arr[j + 1]; // 元素交换
+                arr[j + 1] = arr[j];
                 arr[j] = temp;
             }
         }
@@ -99,30 +106,32 @@ function bubbleSort(arr) {
     return arr;
 }
 ```
+
 #### 快速排序
+
 > ![node](img/kuaisu.gif)
 
 ```javascript
 //方案1
- var arrs = [123, 45, 656, 233, 46, 80, 23, 122];
+var arrs = [123, 45, 656, 233, 46, 80, 23, 122];
 function quckilyu(arr) {
     var valete = arr[0];
     var leftarr = [];
     var rightarr = [];
-    if(arr.length<1){
-     return arr
+    if (arr.length < 1) {
+        return arr;
     }
     for (var i = 1; i < arr.length; i++) {
         if (arr[i] < valete) {
-            leftarr.push(arr[i])
+            leftarr.push(arr[i]);
         } else {
-            rightarr.push(arr[i])
+            rightarr.push(arr[i]);
         }
     }
     return quckilyu(leftarr).concat(valete, quckilyu(rightarr));
 }
 //方案2
-function swap(items, firstIndex, secondIndex){
+function swap(items, firstIndex, secondIndex) {
     var temp = items[firstIndex];
     items[firstIndex] = items[secondIndex];
     items[secondIndex] = temp;
@@ -162,10 +171,12 @@ function quickSort(items, left, right) {
     return items;
 }
 
-var items = [3,8,7,2,9,4,10]
+var items = [3, 8, 7, 2, 9, 4, 10];
 var result = quickSort(items, 0, items.length - 1);
 ```
+
 #### 插入排序
+
 > ![node](img/charu.gif)
 
 ```javascript
@@ -175,16 +186,18 @@ function insertionSort(arr) {
     for (var i = 1; i < len; i++) {
         preIndex = i - 1;
         current = arr[i];
-        while(preIndex >= 0 && arr[preIndex] > current) {
-            arr[preIndex+1] = arr[preIndex];
+        while (preIndex >= 0 && arr[preIndex] > current) {
+            arr[preIndex + 1] = arr[preIndex];
             preIndex--;
         }
-        arr[preIndex+1] = current;
+        arr[preIndex + 1] = current;
     }
     return arr;
 }
 ```
+
 #### 选择排序
+
 > ![node](img/xuanze.gif)
 
 ```javaScript
@@ -206,32 +219,37 @@ function selectionSort(arr) {
 }
 ```
 
+## console
+
+-   如果打印的是 obj 类型 则需要 valueOf()
+-   如果打印的是 其他类型 则需要 toString()
+
 ## es5 三剑客
 
-*   this:谁调用 this 指向谁 改变 this 指向 (call apply bind new)
-*   闭包: 函数嵌套函数,函数外部的不能引用函数内部的函数变量,函数内部的可以引用函数外部的变量(用完记得回收掉,容易引起内存泄漏)
-*   原型:为一群对象添加属性和方法的对象 **proto** 指向根
-*   原型链:由原型组成的链式查找
-*   继承:复用其他对象的属性和方法,来扩张自己的属性和方法
-    > *   函数提升的优先级高于变量
-    > *   已经声明的变量再次声明会被忽略
-    > *   如果局部变量未被声明引用，者默认声明为全局变量，
-*   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
+-   this:谁调用 this 指向谁 改变 this 指向 (call apply bind new)
+-   闭包: 函数嵌套函数,函数外部的不能引用函数内部的函数变量,函数内部的可以引用函数外部的变量(用完记得回收掉,容易引起内存泄漏)
+-   原型:为一群对象添加属性和方法的对象 **proto** 指向根
+-   原型链:由原型组成的链式查找
+-   继承:复用其他对象的属性和方法,来扩张自己的属性和方法
+    > -   函数提升的优先级高于变量
+    > -   已经声明的变量再次声明会被忽略
+    > -   如果局部变量未被声明引用，者默认声明为全局变量，
+-   setTimeout 共有 4 个参数。最后那两个参数，将在 1000 毫秒之后回调函数执行时，作为回调函数的参数. 最小的间隔是 4 毫秒
 
-## call apply bind的用法和区别
-* 函数.call(对象,arg1,arg2....)
-* 函数.apply(对象，[arg1,arg2,...])
-* var ss=函数.bind(对象,arg1,arg2,....)
-* bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和call()相同。
+## call apply bind 的用法和区别
 
- 
+-   函数.call(对象,arg1,arg2....)
+-   函数.apply(对象，[arg1,arg2,...])
+-   var ss=函数.bind(对象,arg1,arg2,....)
+-   bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和 call()相同。
 
-## prototype __proto__ constructor
-把 公用的方法与属性抽离出来 生成一个构造函数，  把抽离出来的方法 通过 prototype 绑定在构造函数上，
-如果要继承构造函数的属性与方法 需要通过实例化(new)，实例的方法就继承构造函数的方法与属性，实例的原型对象（__proto__）与构造函数的原型(prototype)对象相同
-构造函数.prototype.constructor指向 构造函数
-实例的__proto__.constructor 指向  构造函数
-constructor指向构造函数
+## prototype **proto** constructor
+
+把 公用的方法与属性抽离出来 生成一个构造函数， 把抽离出来的方法 通过 prototype 绑定在构造函数上，
+如果要继承构造函数的属性与方法 需要通过实例化(new)，实例的方法就继承构造函数的方法与属性，实例的原型对象（**proto**）与构造函数的原型(prototype)对象相同
+构造函数.prototype.constructor 指向 构造函数
+实例的**proto**.constructor 指向 构造函数
+constructor 指向构造函数
 
 ```javascript
 hasOwnProperty(propertyName) ：判断对象是否拥有一个指定名称的实例属性(非继承)
@@ -243,51 +261,61 @@ Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属
 ```
 
 ![Profile](img/prototype.png)
+
 #### new 操作符会经历以下四个步骤
->* 创建一个新对象
->* 将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
->* 执行构造函数中的代码（为这个新对象添加属性）
->* 返回新对象
+
+> -   创建一个新对象
+> -   将构造函数的作用域赋给新对象（因此 this 指向了这个新对象）
+> -   执行构造函数中的代码（为这个新对象添加属性）
+> -   返回新对象
 
 ## 创建对象的方式
->* new
->* object.create()
->* var obe={a:'12'}
->* function(){}
+
+> -   new
+> -   object.create()
+> -   var obe={a:'12'}
+> -   function(){}
 
 ## 判断数据类型的方法
+
 #### typeof 实现原理
->* typeof 一般被用于判断一个变量的类型，我们可以利用 typeof 来判断 number, string, object, boolean, function, undefined,symbol 这七种类型，这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候，typeof 能比较清楚的告诉我们具体是哪一类的类型。但是，很遗憾的一点是，typeof 在判断一个 object 的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object
->* null：所有机器码均为 0 typeof null 是 object
+
+> -   typeof 一般被用于判断一个变量的类型，我们可以利用 typeof 来判断 number, string, object, boolean, function, undefined,symbol 这七种类型，这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候，typeof 能比较清楚的告诉我们具体是哪一类的类型。但是，很遗憾的一点是，typeof 在判断一个 object 的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object
+> -   null：所有机器码均为 0 typeof null 是 object
 
 #### instanceof 操作符的实现原理
->* instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实
->* 原型的链式查找
+
+> -   instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实
+> -   原型的链式查找
 
 #### Object.prototype.toString.call()
->* Object.prototype.toString.call(1) // "[object Number]"
->* Object.prototype.toString.call('hi') // "[object String]"
->* Object.prototype.toString.call({a:'hi'}) // "[object Object]"
->* Object.prototype.toString.call([1,'a']) // "[object Array]"
->* Object.prototype.toString.call(true) // "[object Boolean]"
->* Object.prototype.toString.call(() => {}) // "[object Function]"
->* Object.prototype.toString.call(null) // "[object Null]"
->* Object.prototype.toString.call(undefined) // "[object Undefined]"
->* Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
+
+> -   Object.prototype.toString.call(1) // "[object Number]"
+> -   Object.prototype.toString.call('hi') // "[object String]"
+> -   Object.prototype.toString.call({a:'hi'}) // "[object Object]"
+> -   Object.prototype.toString.call([1,'a']) // "[object Array]"
+> -   Object.prototype.toString.call(true) // "[object Boolean]"
+> -   Object.prototype.toString.call(() => {}) // "[object Function]"
+> -   Object.prototype.toString.call(null) // "[object Null]"
+> -   Object.prototype.toString.call(undefined) // "[object Undefined]"
+> -   Object.prototype.toString.call(Symbol(1)) // "[object Symbol]"
 
 #### 函数重载（多态）
->* 重载就是一组具有相同名字、不同参数列表的函数（方法）(多态就是通过对传递的参数判断来执行逻辑，即可实现一种多态处理机制)
->* 使用 arguments.length 可以实现重载
 
+> -   重载就是一组具有相同名字、不同参数列表的函数（方法）(多态就是通过对传递的参数判断来执行逻辑，即可实现一种多态处理机制)
+> -   使用 arguments.length 可以实现重载
 
 ## Promise
+
 #### 三种状态:
->* pending：进行中
->* fulfilled :已经成功 reslove
->* rejected 已经失败 reject
->* promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
+
+> -   pending：进行中
+> -   fulfilled :已经成功 reslove
+> -   rejected 已经失败 reject
+> -   promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
 
 #### 原理
+
 ```javascript
  var promise = new Promise(function (resolve, reject) {
    if (/* 异步操作成功 */){
@@ -299,11 +327,12 @@ Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属
 ```
 
 ## enent
->* event.preventDefault()//，是用来阻止点击 a 默认跳转
->* event.stopPropagation()// 该方法将停止事件的传播，阻止它被分派到其他 Document 节点
->* event.stopImmediatePropagation() //函数用于阻止剩余的事件处理函数的执行，并防止当前事件在 DOM 树上冒泡。
->* event.target //返回的是点击的元素节点
->* event.currentTarget //事件属性返回其监听器触发事件的节点，即当前处理该事件的元素、文档或窗口。
+
+> -   event.preventDefault()//，是用来阻止点击 a 默认跳转
+> -   event.stopPropagation()// 该方法将停止事件的传播，阻止它被分派到其他 Document 节点
+> -   event.stopImmediatePropagation() //函数用于阻止剩余的事件处理函数的执行，并防止当前事件在 DOM 树上冒泡。
+> -   event.target //返回的是点击的元素节点
+> -   event.currentTarget //事件属性返回其监听器触发事件的节点，即当前处理该事件的元素、文档或窗口。
 
 ## 自定义事件
 
@@ -319,30 +348,38 @@ setTimeout(function() {
 ```
 
 ## 内存泄漏
+
 #### 内存泄漏
->* javaScript 会自动垃圾收集，但是如果我们的代码写法不当，会让变量一直处于“进入环境”的状态，无法被回收
+
+> -   javaScript 会自动垃圾收集，但是如果我们的代码写法不当，会让变量一直处于“进入环境”的状态，无法被回收
 
 #### 那些会引起内存泄漏
-*   1.意外的全局变量
-*   2.被遗忘的计时器或回调
-*   3.超出 DOM 引用
-*   4.闭包
+
+-   1.意外的全局变量
+-   2.被遗忘的计时器或回调
+-   3.超出 DOM 引用
+-   4.闭包
 
 #### 内存泄漏检测
+
 > Chrome 内存分析工具
 
 ###### Timeline 视图
+
 ![Timeline视图](img/timeline.png)
 
 ###### Profile 视图
+
 ![Profile](img/profiles.png)
 
 #### 垃圾回收机制
-*   标记清除（mark and sweep）
-    >* 1.垃圾回收器，在运行的时候会给存储在内存中的所有变量都加上标记。 2.去掉环境中的变量以及被环境中的变量引用的变量的标记。 3.再被加上标记的会被视为准备删除的变量。 4.垃圾回收器完成内存清除工作，销毁那些带标记的值并回收他们所占用的内存空间。
-    > *   大部分浏览器都是使用这种方式进行垃圾回收，区别在于如何标记及垃圾回收间隔而已，只有低版本 IE，不出所料，又是 IE。
 
-*   引用计数(reference counting)
+-   标记清除（mark and sweep）
+
+    > -   1.垃圾回收器，在运行的时候会给存储在内存中的所有变量都加上标记。 2.去掉环境中的变量以及被环境中的变量引用的变量的标记。 3.再被加上标记的会被视为准备删除的变量。 4.垃圾回收器完成内存清除工作，销毁那些带标记的值并回收他们所占用的内存空间。
+    > -   大部分浏览器都是使用这种方式进行垃圾回收，区别在于如何标记及垃圾回收间隔而已，只有低版本 IE，不出所料，又是 IE。
+
+-   引用计数(reference counting)
     > 1.  声明了一个变量并将一个引用类型的值赋值给这个变量，这个引用类型值的引用次数就是 1。
     > 2.  同一个值又被赋值给另一个变量，这个引用类型值的引用次数加 1.
     > 3.  当包含这个引用类型值的变量又被赋值成另一个值了，那么这个引用类型值的引用次数减 1.
@@ -350,60 +387,71 @@ setTimeout(function() {
     > 5.  当垃圾收集器下一次运行时，它就会释放引用次数是 0 的值所占的内存。
 
 #### 什么时候触发垃圾回收
+
 ## 事件队列
+
 > JavaScript 语言的一大特点就是单线程，也就是说，同一个时间只能做一件事
 
 ##### 怎么才能多线程
+
 > webworker(html5),
 > concurrent.Thread.js
 
 #### 任务可以分成两种:
->*   同步任务(synchronous):在主线程上排队执行的任务 **(执行栈)** ，只有前一个任务执行完毕(入栈出栈)，才能执行后一个任务
->*   异步任务(asynchronous):不进入主线程、而进入"任务队列"(task queue)的任务，只有"任务队列"通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行
+
+> -   同步任务(synchronous):在主线程上排队执行的任务 **(执行栈)** ，只有前一个任务执行完毕(入栈出栈)，才能执行后一个任务
+> -   异步任务(asynchronous):不进入主线程、而进入"任务队列"(task queue)的任务，只有"任务队列"通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行
 
 #### 任务队列分为:
->*   微任务:process.nextTick, Promises, Object.observe, MutationObserver
->*   任务队列:是一个先进先出的数据结构，排在前面的事件，优先被主线程读取
+
+> -   微任务:process.nextTick, Promises, Object.observe, MutationObserver
+> -   任务队列:是一个先进先出的数据结构，排在前面的事件，优先被主线程读取
 
 ## [node 相关](https://github.com/Silence520/Documentdescription/tree/master/node%E7%9B%B8%E5%85%B3)
+
 ![node](img/node.png)
+
 > [node 相关](https://github.com/Silence520/Documentdescription/tree/master/node%E7%9B%B8%E5%85%B3)
 
 ## js 设计模式
->*   单例模式
->*   代理模式
->*   命令模式
->*   职责链模式
->*   发布订阅者模式
->*   工厂模式
->*   迭代器模式
->*   适配器模式
+
+> -   单例模式
+> -   代理模式
+> -   命令模式
+> -   职责链模式
+> -   发布订阅者模式
+> -   工厂模式
+> -   迭代器模式
+> -   适配器模式
 
 ## 函数式编程
->* 说到函数式编程，大家可能第一印象都是学院派的那些晦涩难懂的代码，充满了一大堆抽象的不知所云的符号，似乎只有大学里的计算机教授才会使用这些东西。在曾经的某个时代可能确实如此，但是近年来随着技术的发展，函数式编程已经在实际生产中发挥巨大的作用了，越来越多的语言开始加入闭包，匿名函数等非常典型的函数式编程的特性，从某种程度上来讲，函数式编程正在逐步“同化”命令式编程
 
->*JavaScript 作为一种典型的多范式编程语言，这两年随着React的火热，函数式编程的概念也开始流行起来，RxJS、cycleJS、lodashJS、underscoreJS等多种开源库都使用了函数式的特性。所以下面介绍一些函数式编程的知识和概念。
+> -   说到函数式编程，大家可能第一印象都是学院派的那些晦涩难懂的代码，充满了一大堆抽象的不知所云的符号，似乎只有大学里的计算机教授才会使用这些东西。在曾经的某个时代可能确实如此，但是近年来随着技术的发展，函数式编程已经在实际生产中发挥巨大的作用了，越来越多的语言开始加入闭包，匿名函数等非常典型的函数式编程的特性，从某种程度上来讲，函数式编程正在逐步“同化”命令式编程
 
+> \*JavaScript 作为一种典型的多范式编程语言，这两年随着 React 的火热，函数式编程的概念也开始流行起来，RxJS、cycleJS、lodashJS、underscoreJS 等多种开源库都使用了函数式的特性。所以下面介绍一些函数式编程的知识和概念。
 
+### 纯函数
 
-###  纯函数
->* 纯函数的定义是，对于相同的输入，永远会得到相同的输出，而且没有任何可观察的副作用，也不依赖外部环境的状态
+> -   纯函数的定义是，对于相同的输入，永远会得到相同的输出，而且没有任何可观察的副作用，也不依赖外部环境的状态
+
 ```javascript
-var arr = [1,2,3,4,5];
+var arr = [1, 2, 3, 4, 5];
 
 // Array.slice是纯函数，因为它没有副作用，对于固定的输入，输出总是固定的
-xs.slice(0,3);    //=> [1,2,3]
-xs.slice(0,3);    //=> [1,2,3]
+xs.slice(0, 3); //=> [1,2,3]
+xs.slice(0, 3); //=> [1,2,3]
 
 // Array.splice是不纯的，它有副作用，对于固定的输入，输出不是固定的
-xs.splice(0,3);     //=> [1,2,3]
-xs.splice(0,3);     //=> [4,5]
-xs.splice(0,3);     //=> []
+xs.splice(0, 3); //=> [1,2,3]
+xs.splice(0, 3); //=> [4,5]
+xs.splice(0, 3); //=> []
 ```
 
 ### 函数的柯里化
->* 函数柯里化（curry）的定义很简单：传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数
->* 比如对于加法函数 var add = (x, y) =>　x + y ，我们可以这样进行柯里化：
+
+> -   函数柯里化（curry）的定义很简单：传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数
+> -   比如对于加法函数 var add = (x, y) =>　 x + y ，我们可以这样进行柯里化：
+
 ```jacascript
 var add = function(x){ //比较容易读懂的ES5写法
     return function(y){
@@ -417,12 +465,13 @@ add2(2); // 4
 var add200 = add(200);
 add200(80); // 280
 ```
->* 事实上柯里化是一种“预加载”函数的方法，通过传递较少的参数，得到一个已经记住了这些参数的新函数，某种意义上讲，这是一种对参数的“缓存”，是一种非常高效的编写函数的方法;
 
-
+> -   事实上柯里化是一种“预加载”函数的方法，通过传递较少的参数，得到一个已经记住了这些参数的新函数，某种意义上讲，这是一种对参数的“缓存”，是一种非常高效的编写函数的方法;
 
 ### 函数组合 f(g(y(x))
->* 学会了使用纯函数以及如何把它柯里化之后，我们会很容易写出这样的“包菜式”代码
+
+> -   学会了使用纯函数以及如何把它柯里化之后，我们会很容易写出这样的“包菜式”代码
+
 ```javascript
 h(g(f(x)));
 ```
@@ -436,100 +485,124 @@ var compose = function(f, g) {
 };
 
 //es6
-var compose = (f, g) => (x => f(g(x)));
+var compose = (f, g) => x => f(g(x));
 var add1 = x => x + 1;
 var mul5 = x => x * 5;
-compose(mul5, add1)(2);     //15 
+compose(
+    mul5,
+    add1
+)(2); //15
 ```
->* 我们定义的compose就像双面胶一样，可以把任何两个纯函数结合到一起。
-* 这种灵活的组合可以让我们像拼积木一样来组合函数式的代码
+
+> -   我们定义的 compose 就像双面胶一样，可以把任何两个纯函数结合到一起。
+
+-   这种灵活的组合可以让我们像拼积木一样来组合函数式的代码
+
 ```javascript
 var first = arr => arr[0];
 var reverse = arr => arr.reverse();
-var last = compose(first, reverse);
-last([1,2,3,4,5]);   //5
-
+var last = compose(
+    first,
+    reverse
+);
+last([1, 2, 3, 4, 5]); //5
 ```
 
 ### Point Free
->* 不要命名转瞬即逝的中间变量
+
+> -   不要命名转瞬即逝的中间变量
+
 ```javascript
-var f = str => str.toUpperCase().split(' ');   //这不Piont free
+var f = str => str.toUpperCase().split(' '); //这不Piont free
 //这个函数中，我们使用了 str 作为我们的中间变量，但这个中间变量除了让代码变得长了一点以外是毫无意义的。下面改造一下这段代码：
 
 var toUpperCase = word => word.toUpperCase();
-var split = x => (str => str.split(x));
-var f = compose(split(' '), toUpperCase);
-f("abcd efgh");  //["ABCD", "EFGH"]
-
+var split = x => str => str.split(x);
+var f = compose(
+    split(' '),
+    toUpperCase
+);
+f('abcd efgh'); //["ABCD", "EFGH"]
 ```
 
-
-
-
 ## 版本更新记录
+
 #### ES6
->*   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
+
+> -   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
 
 #### ES7
->*   async/await 异步
->*   Array.prototype.includes()。 是查找一个值在不在数组里，若在，则返回 true，反之返回 false
->*   3 ** 2 求幂运算符
+
+> -   async/await 异步
+> -   Array.prototype.includes()。 是查找一个值在不在数组里，若在，则返回 true，反之返回 false
+> -   3 \*\* 2 求幂运算符
 
 #### ES8
->*   async function foo() {}
->*   Object.entries() 如果一个对象是具有键值对的数据结构，则每一个键值对都将会编译成一个具有两个元素的数组，这些数组最终会放到一个数组中，返回一个二维数组
->*   Object.values()只返回自己的键值对中属性的值
->*   Object.getOwnPropertyDescriptors()
->*   padStart()。//'x'.padStart(4, 'ab') abax
->*   padEnd()。//'x'.padEnd(4, 'ab') xaba
+
+> -   async function foo() {}
+> -   Object.entries() 如果一个对象是具有键值对的数据结构，则每一个键值对都将会编译成一个具有两个元素的数组，这些数组最终会放到一个数组中，返回一个二维数组
+> -   Object.values()只返回自己的键值对中属性的值
+> -   Object.getOwnPropertyDescriptors()
+> -   padStart()。//'x'.padStart(4, 'ab') abax
+> -   padEnd()。//'x'.padEnd(4, 'ab') xaba
 
 #### ES9
->* 异步迭代器：使用AsyncIterable和AsyncIterator协议为异步迭代添加语法支持。该特性使创建异步生成器函数和方法的语法成为可能。
->* 为正则表达式添加s (dotAll)标志：为这些表达式提供一致的行为。该特性旨在解决正则表达式中的点(.)不匹配行终止符的限制。s标志改变了这一点。此标志将在选择的基础上运行，因此现有的正则表达式模式不会受到影响。
->* Regexp(正则表达式) Unicode属性转义：使开发者能够更好地访问Unicode字符属性。属性转义将以\p{…}和\P{…}的形式添加。
->* Regexp环视匹配断言：解决了环视（lookaround）的一个缺点，它是零宽度的断言，与字符串进行匹配，不消耗任何东西。使用隐藏的断言，开发人员可以确保模式之前有或没有另一个模式。例如：匹配美元的金额而不获取美元符号。
->* Rest/spread属性：提供一个较小的语法改进。
->* prototype.finally()：用于在处理完资源后进行清理。
->* Regexp 命名捕获组：用来标识捕获组，使它们更容易查找并使正则表达式更容易理解。以前，捕获组是通过数字访问的。
->* 模板文字的修订：为带标签的模板文字增加了语法的自由度。
->* 一个预期的功能，即Function.prototype.toString的更新被删除，因为仍然有人担心它正在解决中。 toString()方法会返回一个表示函数源代码的字符串
 
-
+> -   异步迭代器：使用 AsyncIterable 和 AsyncIterator 协议为异步迭代添加语法支持。该特性使创建异步生成器函数和方法的语法成为可能。
+> -   为正则表达式添加 s (dotAll)标志：为这些表达式提供一致的行为。该特性旨在解决正则表达式中的点(.)不匹配行终止符的限制。s 标志改变了这一点。此标志将在选择的基础上运行，因此现有的正则表达式模式不会受到影响。
+> -   Regexp(正则表达式) Unicode 属性转义：使开发者能够更好地访问 Unicode 字符属性。属性转义将以\p{…}和\P{…}的形式添加。
+> -   Regexp 环视匹配断言：解决了环视（lookaround）的一个缺点，它是零宽度的断言，与字符串进行匹配，不消耗任何东西。使用隐藏的断言，开发人员可以确保模式之前有或没有另一个模式。例如：匹配美元的金额而不获取美元符号。
+> -   Rest/spread 属性：提供一个较小的语法改进。
+> -   prototype.finally()：用于在处理完资源后进行清理。
+> -   Regexp 命名捕获组：用来标识捕获组，使它们更容易查找并使正则表达式更容易理解。以前，捕获组是通过数字访问的。
+> -   模板文字的修订：为带标签的模板文字增加了语法的自由度。
+> -   一个预期的功能，即 Function.prototype.toString 的更新被删除，因为仍然有人担心它正在解决中。 toString()方法会返回一个表示函数源代码的字符串
 
 ## babel
->*   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
->*   babel-polyfill 主要包含了 core-js 和 regenerator 两部分
->*   babel-polyfill：提供了如 ES5、ES6、ES7 等规范中 中新定义的各种对象、方法的模拟实现。
->*   regenerator：提供 generator 支持，如果应用代码中用到 generator、async 函数的话用到。
+
+> -   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
+> -   babel-polyfill 主要包含了 core-js 和 regenerator 两部分
+> -   babel-polyfill：提供了如 ES5、ES6、ES7 等规范中 中新定义的各种对象、方法的模拟实现。
+> -   regenerator：提供 generator 支持，如果应用代码中用到 generator、async 函数的话用到。
 
 ## 错误监控
+
 #### 错误分类
 
 > 1 即时运行错误
+
 ###### 捕获错误
->* try ...catch
->* window.onerror()
-> 2 资源加载失败
+
+> -   try ...catch
+> -   window.onerror()
+>     2 资源加载失败
+
 ###### 捕获错误
->* object.onerror()(img\ script)
->* performance.getEnries() 返回数组
+
+> -   object.onerror()(img\ script)
+> -   performance.getEnries() 返回数组
 
 #### 资源加载失败不能用冒泡得到错误,可以用捕获处理可以到的错误监听
+
 > 捕获错误
 > try ...catch
 > window.onerror()
 
 ### 错误上报
+
 ```javascript
-(new Image()).src='http://www.baidu.com?sa=we';
-navigator.sendBeacon("a.php"); //埋点
+new Image().src = 'http://www.baidu.com?sa=we';
+navigator.sendBeacon('a.php'); //埋点
 ```
+
 ## 安全
+
 #### 混淆
+
 > 混淆:具体处理为重命名局部变量、在相同语义 的情况下压缩代码，比如去掉末尾分号(Remove Terminator Semicolons)，常量替 换(Constant Propagation)、移除代码空白(Space、Tab、Line-Feed)全局变量 不会更名如 LocalStorage。
 
 #### 常⽤用混淆技术
+
 UglifyJS, JS Packer, Closure Compiler, JS Min
 
 ![node](img/biaoshi.png)
