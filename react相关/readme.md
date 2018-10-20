@@ -92,7 +92,10 @@ store：数据
 > -   componentWillMount--使用 componentDidMount 代替
 > -   componentWillUpdate--使用 componentDidUpdate 代替
 > -   componentWillReceiveProps--使用一个新的方法：static getDerivedStateFromProps 来代替。
-> -   全新的 Context API
+> -   全新的 Context API。（Provider Consumer）
+
+> -   使用了 React.createRef 取得 Ref 对象 this.myRef = React.createRef()
+> -   React.Fragment 和 DocumentFragment 类似
 
 #### react 16.4
 
@@ -102,6 +105,7 @@ store：数据
 > -   React DOM：改进 forwardRef（）和 context consumers 在组件堆栈中的显示方式；
 > -   React DOM：当 forwardRef（）渲染函数具有 propTypes 或 defaultProps 时发出警告；
 > -   React Test Renderer：修复 getDerivedStateFromProps（）支持以匹配新的 React DOM 行为
+> -   使用 createPortal 将组件渲染到当前组件树之外
 
 #### react-router4
 
