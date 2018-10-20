@@ -87,10 +87,12 @@ store：数据
 #### react 16.3
 
 > -   React.createContext()，这样就创建了两个组件：
+> -   标记为不安全 componentWillMount、componentWillReceiveProps、componentWillUpdate
 > -   要被废弃的方法：
 > -   componentWillMount--使用 componentDidMount 代替
 > -   componentWillUpdate--使用 componentDidUpdate 代替
 > -   componentWillReceiveProps--使用一个新的方法：static getDerivedStateFromProps 来代替。
+> -   全新的 Context API
 
 #### react 16.4
 
