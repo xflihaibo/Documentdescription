@@ -1,4 +1,4 @@
-## js 数据类型
+<!-- ## js 数据类型
 
 -   基本类型(栈 stack) : Number、String 、Boolean、Null 和 Undefined , Symbol(es6 新增)
 -   基本数据类型是按值访问 高低分配,栈内存最大是 8MB, String:是特殊的栈内存 ,程序员分配
@@ -218,6 +218,7 @@ function selectionSort(arr) {
     return arr;
 }
 ```
+ -->
 
 ## console
 
@@ -525,7 +526,7 @@ var f = compose(
 f('abcd efgh'); //["ABCD", "EFGH"]
 ```
 
-## 版本更新记录
+<!-- ## 版本更新记录
 
 #### ES6
 
@@ -563,7 +564,7 @@ f('abcd efgh'); //["ABCD", "EFGH"]
 > -   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
 > -   babel-polyfill 主要包含了 core-js 和 regenerator 两部分
 > -   babel-polyfill：提供了如 ES5、ES6、ES7 等规范中 中新定义的各种对象、方法的模拟实现。
-> -   regenerator：提供 generator 支持，如果应用代码中用到 generator、async 函数的话用到。
+> -   regenerator：提供 generator 支持，如果应用代码中用到 generator、async 函数的话用到。 -->
 
 ## 错误监控
 

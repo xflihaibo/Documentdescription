@@ -1,4 +1,11 @@
+# babel
+
 ## babel
+
+> -   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
+> -   babel-polyfill 主要包含了 core-js 和 regenerator 两部分
+> -   babel-polyfill：提供了如 ES5、ES6、ES7 等规范中 中新定义的各种对象、方法的模拟实现。
+> -   regenerator：提供 generator 支持，如果应用代码中用到 generator、async 函数的话用到。
 
 ## babel 核心
 

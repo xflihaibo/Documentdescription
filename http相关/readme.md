@@ -94,8 +94,13 @@
 
 img ,
 script,
+link,
+jsonp ,
 iframe,
-postMessage
+postMessage,
+webSocket、
+http-proxy,
+nginx,
 
 ```javascript
     A page
@@ -108,8 +113,6 @@ postMessage
     }
 ```
 
-link,
-jsonp 、
 location.Hash、
 
 ```javascript
@@ -141,8 +144,6 @@ cors、
 ```javascript
 setHeader('Access_Control_Allow-Origin', 'http://localhost:3000');
 ```
-
-webSocket、
 
 document.domain
 //根域名相同
@@ -190,9 +191,6 @@ window.name
     </script>
 ```
 
-http-proxy
-nginx
-
 #### 埋点
 
 > navigator.sendBeacon('a.html')
@@ -233,7 +231,7 @@ nginx
     proxy_pass http://web_mgrsys;
 ``` -->
 
-## chrome 相关
+<!-- ## chrome 相关
 
 #### preformance.timing
 
@@ -289,3 +287,4 @@ nginx
 > -   缓存静态资源文件
 > -   nginx 开启 gzip etag expires
 > -   合理计算 qps
+ -->
