@@ -1,7 +1,5 @@
 # babel
 
-## babel
-
 > -   Babel 默认只转换新的 JavaScript 句法（syntax），而不转换新的 API，比如 Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转码。
 > -   babel-polyfill 主要包含了 core-js 和 regenerator 两部分
 > -   babel-polyfill：提供了如 ES5、ES6、ES7 等规范中 中新定义的各种对象、方法的模拟实现。
@@ -28,22 +26,30 @@
 > -   babel-polyfill：polyfill 在代码中的作用主要是用已经存在的语法和 api 实现一些浏览器还没有实现的 api，，Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转译。如果想使用这些新的对象和方法，必须使用 babel-polyfill，为当前环境提供一个垫片。
 
 > -   babel-preset-stage-0:为什么说“stage-0” 法力无边呢，因为它包含 stage-1, stage-2 以及 stage-3 的所有功能
-> -          transform-do-expressions:这个插件是为了方便在 jsx写if/else表达式而提出的.
-> -          transform-function-bind:这个插件其实就是提供过 :: 这个操作符来方便快速切换上下文this。
+> -              transform-do-expressions:这个插件是为了方便在 jsx写if/else表达式而提出的.
+> -              transform-function-bind:这个插件其实就是提供过 :: 这个操作符来方便快速切换上下文this。
 > -   babel-preset-stage-1:stage-1 除了包含 stage-2 和 stage-3，还包含了下面 4 个插件
-> -         transform-class-constructor-call：这个模块已经废弃，不再使用了
-> -         transform-class-properties
-> -         transform-decorators
-> -         transform-export-extensions
+> -             transform-class-constructor-call：这个模块已经废弃，不再使用了
+> -             transform-class-properties
+> -             transform-decorators
+> -             transform-export-extensions
 > -   babel-preset-stage-2 除了包含 stage-3，还包含了下面 2 个插件
-> -         syntax-trailing-function-commas：支持函数的最后一个参数后面允许加逗号
-> -         transform-object-reset-spread：这个插件支持解释扩展运算符
+> -             syntax-trailing-function-commas：支持函数的最后一个参数后面允许加逗号
+> -             transform-object-reset-spread：这个插件支持解释扩展运算符
 > -   babel-preset-stage-3
-> -          transform-async-to-generator：插件用来支持es7中的async和await，
-> -          transform-exponentiation-operator：这个插件可以支持 ** 操作符进行幂操作
+> -              transform-async-to-generator：插件用来支持es7中的async和await，
+> -              transform-exponentiation-operator：这个插件可以支持 ** 操作符进行幂操作
 
 #### babel-runtime && babel-plugin-transform-runtime
 
 > -   babel-runtime:transform-runtime 只会对 es6 的语法进行转换，而不会对新 api 进行转换
-> -         babel-runtime和 babel-plugin-transform-runtime的区别是，相当一前者是手动挡而后者是自动挡，每当要转译一个api时都要手动加上require('babel-runtime')，
-> -         babel-plugin-transform-runtime 实际上是依赖babel-runtime因为babel编译es6到es5的过程中，babel-plugin-transform-runtime这个插件会自动polyfill es5不支持的特性，这些polyfill包就是在babel-runtime这个包里
+> -             babel-runtime和 babel-plugin-transform-runtime的区别是，相当一前者是手动挡而后者是自动挡，每当要转译一个api时都要手动加上require('babel-runtime')，
+> -             babel-plugin-transform-runtime 实际上是依赖babel-runtime因为babel编译es6到es5的过程中，babel-plugin-transform-runtime这个插件会自动polyfill es5不支持的特性，这些polyfill包就是在babel-runtime这个包里
+
+## Babel7
+
+> -   Babel 团队会通过使用 “scoped” packages 的方式，来给自己的 babel package name 加上 @babel 命名空间（详情），这样以便于区分官方 package 以及 非官方 package，所以 babel-core 会变成 @babel/core
+> -   移除（并且停止发布）所有与 yearly 有关的 presets（preset-es2015),@babel/preset-env 会取代这些 presets，这是因为 @babel/preset-env 囊括了所有 yearly presets 的功能，而且 @babel/preset-env 还具备了针对特定浏览器进行“因材施教”的能力
+> -   放弃 Stage presets（@babel/preset-stage-0 等），选择支持单个 proposal。相似的地方还有，会默认移除 @babel/polyfill 对 proposals 支持
+> -   有些 package 已经换名字：所有 TC39 proposal plugin 的名字都已经变成以 @babel/plugin-proposal 开头，替换之前的 @babel/plugin-transform（详情）。所以 @babel/plugin-transform-class-properties 变成 @babel/plugin-proposal-class-properties
+> -   babel-upgrade，Babel 团队开发的新工具，旨在用来处理升级过程中的琐事（changes）：目前只是针对 package.json 的 dependencies 以及 .babelrc 配置。

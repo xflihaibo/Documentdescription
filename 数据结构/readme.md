@@ -19,7 +19,7 @@
 
 > -   堆（数据结构）：堆可以被看成是一棵树，如：堆排序；
 > -   栈（数据结构）：一种先进后出的数据结构。
->     Symbol，表示独一无二的值, Symbol 最大的用途是用来定义对象的唯一属性名;
+> -   Symbol，表示独一无二的值, Symbol 最大的用途是用来定义对象的唯一属性名;
 
 -   Symbol 值通过 Symbol 函数生成 let symbol1 = Symbol();
 -   typeof 运算符用于 Symbol 类型值，返回 symbol;
