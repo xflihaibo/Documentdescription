@@ -1,6 +1,6 @@
 # 常用插件
 
-# plugin
+# plugin 相关
 
 > -   监控打包面板 speed-measure-webpack-plugin
 > -   监听错误 webpack-build-notifier
@@ -9,7 +9,7 @@
 > -   webpack-dashboard 优化 item
 > -   node-bash-title 修改 bash bar title
 > -   webpack-deep-scope-plugin 深度 tree shakeing
-> -   set-iterm2-badge// xianshi
+> -   set-iterm2-badge // 设置面板 title
 > -   webpack-bundle-analyzer 分析打包 📦 结果
 > -   webpack-manifest-plugin 性能优化命脉 hot-reload
 > -   bundlesize
