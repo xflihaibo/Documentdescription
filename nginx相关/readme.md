@@ -101,3 +101,4 @@ proxy_pass http://web_mgrsys;
 -   4.fail_timeout：max_fails 次失败后，暂停的时间。
 -   5.max_conns：限制分配给某台 Server 处理的最大连接数量，超过这个数量，将不会分配新的连接给它。默认为 0，表示不限制。注意：1.5.9 之后的版本才有这个配置
 -   6 ip_hash; 每个请求按访问 ip 的 hash 结果分配，这样每个访客固定访问一个后端服务器，可以解决 session 的问题
+
