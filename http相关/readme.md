@@ -92,13 +92,112 @@
 
 #### 跨域
 
-img ,script,iframe,link,jsonp 、Hash、 cors、 webSocket、 postMessage
+img ,
+script,
+iframe,
+postMessage
+
+```javascript
+    A page
+    let frame=document.getElementById('frame');
+    frame.contentWindow.postMessage('hahha',"http://localhost:3000")
+    B page
+    window.onmessage=functiopn(e){
+    consoel.log(e.data)
+    e.source.postMessage('hehehh',e.origin)
+    }
+```
+
+link,
+jsonp 、
+location.Hash、
+
+```javascript
+    c.html
+    <script>
+        console.log(location.hash)
+        let iframe=docuemnt.createElement('iframe');
+        ifrime.src="http://localhost:3000/b.html#hhehehe"
+        document.body.appendChild('iframe')
+    </script>
+    b.html
+     <script>
+        window.parent.parent.location.hash=location.hash
+     </script>
+
+    A.html
+    <iframe src="http://localhost:4000/c.html#hqhqh" id="iframe"></iframe>
+    <script>
+    let iframe =docuemnt.getElementById('iframe');
+    window.onhashchange=function(){
+        console.log.log(location.hash)
+    }
+
+    </script>
+```
+
+cors、
+
+```javascript
+setHeader('Access_Control_Allow-Origin', 'http://localhost:3000');
+```
+
+webSocket、
+
+document.domain
+//根域名相同
+
+```javascript
+a.html; //a.bb.com
+
+    <script>
+    document.domain=bb.com
+        var a=109;
+    </script>
+b.html; b.bb.com
+<
+    <iframe src="http://a.bb.com/a.html" id="iframe" onload="load()"></iframe>
+    <script>
+    document.domain=bb.com
+    function load(){
+           let iframe =docuemnt.getElementById('iframe');
+          iframe.contentWindow.a;
+    }
+    </script>
+```
+
+window.name
+
+```javascript
+    c.html
+    <script>
+        window.name="666";
+    </script>
+    A.html
+    <iframe src="http://localhost:4000/c.html" id="iframe" onload="load()"></iframe>
+    <script>
+    function load(){
+        let first =true;
+           let iframe =docuemnt.getElementById('iframe');
+        if(first){
+
+             iframe.src='http:http://localhost:3000/b.html';
+             first =false;
+            }else{
+                console.log(iframe.contentWindow.name)
+            }
+    }
+    </script>
+```
+
+http-proxy
+nginx
 
 #### 埋点
 
 > navigator.sendBeacon('a.html')
 
-## nginx 相关
+<!-- ## nginx 相关
 
 #### 缓存
 
@@ -132,7 +231,7 @@ img ,script,iframe,link,jsonp 、Hash、 cors、 webSocket、 postMessage
         server 127.0.0.1:3000 weight=3;
     }
     proxy_pass http://web_mgrsys;
-```
+``` -->
 
 ## chrome 相关
 
@@ -190,4 +289,3 @@ img ,script,iframe,link,jsonp 、Hash、 cors、 webSocket、 postMessage
 > -   缓存静态资源文件
 > -   nginx 开启 gzip etag expires
 > -   合理计算 qps
-

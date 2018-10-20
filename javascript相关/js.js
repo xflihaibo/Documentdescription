@@ -1,58 +1,55 @@
 //得到嵌套函数的 递归
-var arr = [1,[2,3],[4,5,[6,7]]]
-console.log(arr+'')
-var newArr= (arr + ' ').split(',')
-console.log(newArr)
+var arr = [1, [2, 3], [4, 5, [6, 7]]];
+console.log(arr.toString());
+console.log(arr + '');
+var newArr = (arr + ' ').split(',');
+console.log(newArr);
 // 手机号处理
-"12345678901".replace(/(^\d{3}|\d{4}\B)/g,"$1-");
+'12345678901'.replace(/(^\d{3}|\d{4}\B)/g, '$1-');
 // "123-4567-8901"
 //数组去重
 //方法一
-var arr = [1,2,3,3,4,5,5];
+var arr = [1, 2, 3, 3, 4, 5, 5];
 var set = new Set(arr);
 var newArr = Array.from(set);
-	var tt =[...new Set([1,2,3,4,1,3,4,6])]
-	var set1 = Array.from(new Set([1,1,2,2,33,'33',44,'44']))
+var tt = [...new Set([1, 2, 3, 4, 1, 3, 4, 6])];
+var set1 = Array.from(new Set([1, 1, 2, 2, 33, '33', 44, '44']));
 //方法二
-var arr = [1, 3, 5, 7, 10, 1];
-function chong(arr) {
-	var newarr = new Array();
-	if (! arr instanceof Array ) {
-		return;
-	}
-	for (var i = 0; i < arr.length; i++) {
-		for(var y=0; y<newarr.length; y++){
-			if(newarr.[y]!=arr[i]){
-				arr.push(newarr);
-			}
-		}
-	}
-}
-chong(arr)
+// var arr = [1, 3, 5, 7, 10, 1];
+// function chong(arr) {
+// 	var newarr = new Array();
+// 	if (! arr instanceof Array ) {
+// 		return;
+// 	}
+// 	for (var i = 0; i < arr.length; i++) {
+// 		for(var y=0; y<newarr.length; y++){
+// 			if(newarr.[y]!=arr[i]){
+// 				arr.push(newarr);
+// 			}
+// 		}
+// 	}
+//chong(arr)
 //方法三
-	var arr= [12,24,56,78,32,12,24];
-	var obj={};
-	var newArr=[];
-	for(var i=0;i<arr.length;i++){
-		if(!obj[arr[i]]){
-			newArr.push(arr[i]);
-			obj[arr[i]]=1;
-		}
-	}
-	console.log(newArr)
+// var arr= [12,24,56,78,32,12,24];
+// var obj={};
+// var newArr=[];
+// for(var i=0;i<arr.length;i++){
+// 	if(!obj[arr[i]]){
+// 		newArr.push(arr[i]);
+// 		obj[arr[i]]=1;
+// 	}
+// }
+// console.log(newArr)
 
 //数组深拷贝
-	var array = [1, 2, 3, 4];
-	var testArray =  Array.from(array);
-	testArray.push(5)
-	//方法二
-	var array = [1, 2, 3, 4];
-	var tasarr= JSON.parse(JSON.stringify(array))
-	tasarr.push(5)
-	console.log(tasarr)
-  
-	
-
+var array = [1, 2, 3, 4];
+var testArray = Array.from(array);
+testArray.push(5);
+//方法二
+var array = [1, 2, 3, 4];
+var tasarr = JSON.parse(JSON.stringify(array));
+tasarr.push(5);
+console.log(tasarr);
 
 // concat(): 合并数组
 // copyWithin() es6 数组实例新增 数组实例的copyWithin方法，在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组。也就是说，使用这个方法，会修改当前数组。

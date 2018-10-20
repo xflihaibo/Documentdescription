@@ -98,7 +98,7 @@ img ,script,iframe,link,jsonp 、Hash、 cors、 webSocket、 postMessage
 
 > navigator.sendBeacon('a.html')
 
-## nginx 相关
+<!-- ## nginx 相关
 
 #### 缓存
 
@@ -133,6 +133,7 @@ img ,script,iframe,link,jsonp 、Hash、 cors、 webSocket、 postMessage
     }
     proxy_pass http://web_mgrsys;
 ```
+ -->
 
 ## chrome 相关
 
