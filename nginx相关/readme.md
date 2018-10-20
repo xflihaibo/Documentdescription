@@ -28,24 +28,24 @@ nginx -s reload //重启nginx
 
 #### 强缓存
 
-> 开启 expires
-> expires 30d;
-> add_header Cache-Control no-cache;
-> Cache-Control
+> -   开启 expires
+> -   expires 30d;
+> -   add_header Cache-Control no-cache;
+> -   Cache-Control
 
 #### 协商缓存
 
-> 开启 etag on
-> last-modified
+-   开启 etag on
+-   last-modified
 
 #### 压缩
 
-> gizp:on
-> gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
-> gzip_vary on;是否在 http header 中添加 Vary: Accept-Encoding，建议开启
-> gzip_comp_level: 5(建议) gzip 压缩比，1 压缩比最小处理速度最快，9 压缩比最大但处理最慢（传输快但比较消耗 cpu）
-> gzip_min_length: 默认值是 0，不管页面多大都压缩。 建议设置成大于 1k 的字节数，小于 1k 可能会越压越大
-> gzip_http_version
+> -   gizp:on
+> -   gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
+> -   gzip_vary on;是否在 http header 中添加 Vary: Accept-Encoding，建议开启
+> -   gzip_comp_level: 5(建议) gzip 压缩比，1 压缩比最小处理速度最快，9 压缩比最大但处理最慢（传输快但比较消耗 cpu）
+> -   gzip_min_length: 默认值是 0，不管页面多大都压缩。 建议设置成大于 1k 的字节数，小于 1k 可能会越压越大
+> -   gzip_http_version
 
 ## 配置文件访问权限(防盗链)
 
