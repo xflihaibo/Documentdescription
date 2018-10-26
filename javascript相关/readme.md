@@ -277,6 +277,12 @@ Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属
 > -   var obe={a:'12'}
 > -   function(){}
 
+## 继承方法
+
+> -   Child.prototype.**proto**=Parent.prototype;
+> -   object.create();
+> -   object.setPrototypeof()
+
 ## 判断数据类型的方法
 
 #### typeof 实现原理
