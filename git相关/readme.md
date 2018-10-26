@@ -2,6 +2,7 @@
 
 ```bash
 git push -u https://gitee.com/silenceLi/test.git master -f
+
 强制push 一般会丢失远程代码
 $ git status  查看状态
     Untracked  未被追踪
@@ -10,9 +11,15 @@ git push https://gitee.com/silenceLi/test.git master 提交本地代码
 git pull https://gitee.com/silenceLi/test.git master 拉取本地代码
 --allow-unrelated-histories
 git remote add qhht git@https://gitee.com/silenceLi/QHHT.git 取个别名方便拉取
+git remote  //查看关联的远程仓库的名称
+git remote -v // 查看关联的远程仓库的详细信息
+git remote remove <name> 删除远程仓库的关联
+git remote set-url origin <newurl> 修改远程仓库的关联地址
 ls –a 查看代码
 git config --global user.email 1056497547@qq.com
 git config --global user.name "name"
+git config user.name  查看自己的用户名
+git config user.email  查看自己的邮箱地址
 git add .     暂存区
 git commit -m '修改代码'  提交到代码区
 git diff <file> # 比较当前文件和暂存区文件差异 git diff

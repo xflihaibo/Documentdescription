@@ -8,7 +8,7 @@
 
 #### AST(静态语法分析树)
 
-> uglify ,esprima,acorn(webpack)
+> uglify ,esprima,acorn(webpack), babel-types,aglify,shift,espres
 > ![webpack](webpackimg/03.png)
 
 ##### 为什么 parcel 比 webpack 快？
