@@ -4,7 +4,24 @@
 
 #### ES6
 
-> -   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出):
+###### 迭代器
+
+```code
+let likeArray = {
+  0: 1, 1: 2, 2: 3, length: 3, [Symbol.iterator]:function*() {
+    let index = 0;
+    while (index !== this.length) {
+      yield this[index++];
+    }
+  }
+}
+// 迭代器就是一个有next方法的对象 每次调用next都会返回一个对象 对象里有done，value, for of 必须拥有迭代器的元素才能使用
+// 默认我用...likeArray 会让迭代器执行
+let arr = [...likeArray];
+console.log(arr);
+```
+
+> -   let const. 字符串模版, 箭头函数, 结构赋值, promise, 默认参数。import(导入) 和 export(导出): generator（生成器）
 
 #### ES7
 

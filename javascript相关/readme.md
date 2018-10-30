@@ -320,11 +320,46 @@ Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属
 > -   fulfilled :已经成功 reslove
 > -   rejected 已经失败 reject
 > -   promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
+> -   Promise.all 表示全部成功才成功 有任意一个失败 都会失败(同时执行队列)
 
 #### 原理
 
 ```javascript
- var promise = new Promise(function (resolve, reject) {
+function Promise(executor) {
+    let _this = this;
+    _this.value = undefined;
+    _this.reason = undefined;
+
+    //Promise 三个状态
+    _this.status = 'pending';
+
+    function resolve(value) {
+        if (_this.status == 'pending') {
+            _this.value = value;
+            _this.status = 'resolved';
+        }
+    }
+    function reject(reason) {
+        if (_this.status == 'pending') {
+            _this.reason = reason;
+            _this.status = 'rejected';
+        }
+    }
+    executor(resolve, reject);
+}
+//then
+Promise.prototype.then = function(onFufilled, onRejected) {
+    let _this = this;
+    if (_this.status === 'resolved') {
+        onFufilled(_this.value);
+    } else if (_this.status === 'rejected') {
+        onRejected(_this.reason);
+    }
+};
+module.exports = Promise;
+
+
+var promise = new Promise(function (resolve, reject) {
    if (/* 异步操作成功 */){
      resolve(value);
    } else { /* 异步操作失败 */
