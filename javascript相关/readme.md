@@ -447,6 +447,7 @@ setTimeout(function() {
 #### 任务队列分为:
 
 > -   微任务:process.nextTick, Promises, Object.observe, MutationObserver
+> -   宏任务: MessageChannel setImmediate setTimeout,setInterval
 > -   任务队列:是一个先进先出的数据结构，排在前面的事件，优先被主线程读取
 
 ## [node 相关](https://github.com/Silence520/Documentdescription/tree/master/node%E7%9B%B8%E5%85%B3)

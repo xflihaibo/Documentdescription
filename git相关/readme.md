@@ -35,6 +35,7 @@ git commit –amend 覆盖上次提交的版本信息
 git checkout   取消本次修改在工作区内
 git reset HEAD 取消本次修改在暂存区
 git branch  查看分支
+ git branch -r 查看远程分支
 git branch dev 创建dev分支
 git checkout dev 切换分支dev
 git branch -d dev  删除分支
