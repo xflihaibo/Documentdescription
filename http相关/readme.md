@@ -76,6 +76,7 @@
 
 ```javascript
      200 ok
+     206 断点续传
      301 暂时本地重定向
      302 永久本地重定向
      304 本地缓存文件
@@ -89,6 +90,18 @@
      503 服务器不可用
      504 超时
 ```
+
+#### 强缓存
+
+> -   开启 expires
+> -   expires 30d;
+> -   add_header Cache-Control no-cache;
+> -   Cache-Control 新版本
+
+#### 协商缓存
+
+-   开启 etag on 空间换时间 文件过大性能很差
+-   last-modified if-modified-since
 
 #### 跨域
 

@@ -107,6 +107,18 @@ store：数据
 > -   React Test Renderer：修复 getDerivedStateFromProps（）支持以匹配新的 React DOM 行为
 > -   使用 createPortal 将组件渲染到当前组件树之外
 
+### React 16.6
+
+> -   lazy 最让人期待的功能肯定就是 lazy 功能了，配合发布了一个 Suspense 组件，也就是最开始命名为 Placeholder 的组件，用来配合 render 方法内部的异步操作的，让我们先来看一下 lazy 的用法
+> -   React.memo 方法，来实现类似 PureComponent 的功能，即浅比较 props 是否有变化，如果没有变化，就不重新渲染当前组件
+> -   static getDerivedStateFromError()
+> -   StrictMode 是用来提醒开发者用了即将被废弃的 API 的，像 componentWillMount 这些声明周期都会提醒，这次新加了两个 API 的提醒，ReactDOM.findDOMNode()，和老的 context api
+> -   static contextType 通过声明 static contextType = context，让 ClassComponent 可以订阅最近的一个 context provider，注意这里 contextType 是固定声明，换成别的名字都不行。如果 ConsumerComp 不在 Provider 的子树中，那么会使用 defaultValue
+
+### React v16.7
+
+> -   React 提供了一些内置 Hook
+
 #### react-router4
 
 > -   所有组件更改为从 react-router-dom 导入
