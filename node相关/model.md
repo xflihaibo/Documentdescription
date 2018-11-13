@@ -9,4 +9,5 @@ commander ：//终端输入
 co把异步改为同步
 mz  把node 模块转换成promise
 os：node模块
+nodemon :热启动
 ```
