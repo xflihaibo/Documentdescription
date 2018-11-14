@@ -76,4 +76,168 @@
 
 ## 常见的设计模式
 
-#### 工厂模式
+### 工厂模式
+
+-   核心的工厂类不再负责所有的产品的创建，而是将具体创建的工作交给子类去做
+
+```code
+class Plant {
+    constructor(name) {
+        this.name = name;
+    }
+    grow() {}
+}
+class Apple extends Plant {
+    constructor(name, taste) {
+        super(name);
+        this.taste = taste;
+    }
+    grow() {}
+}
+class Orange extends Plant {
+    constructor(name, taste) {
+        super(name);
+        this.taste = taste;
+    }
+    grow() {}
+}
+
+class Factory {
+    create(type) {
+        switch (type) {
+            case 'apple':
+                return new Apple('🍎', '甜甜的');
+            case 'orange':
+                return new Orange('🍊', '酸酸的');
+            default:
+                throw new Error('错误❌');
+        }
+    }
+}
+let factory = new Factory();
+let apple = factory.create('apple');
+let orange = factory.create('orange');
+console.log(apple.taste);
+console.log(orange.taste);
+react:
+class Vnode {
+    constructor(tag, attrs, children) {
+        this.tag = tag;
+        this.attrs = attrs;
+        this.children = children;
+    }
+}
+React.createElement  = function(tag, attrs, children) {
+    return new Vnode(tag, attr, children);
+};
+```
+
+##### 工厂方法模式
+
+-工厂方法模式 Factory Method，又称多态性工厂模式。 -在工厂方法模式中，核心的工厂类不再负责所有的产品的创建，而是将具体创建的工作交给子类去做。
+
+```code
+class Plant {
+    constructor(name) {
+        this.name = name;
+    }
+    grow() {
+        console.log('growing~~~~~~');
+    }
+}
+class Apple extends Plant {
+    constructor(name) {
+        super(name);
+        this.taste = '甜';
+    }
+}
+class Orange extends Plant {
+    constructor(name) {
+        super(name);
+        this.taste = '酸';
+    }
+}
+class AppleFactory {
+    create() {
+        return new Apple();
+    }
+}
+class OrangeFactory {
+    create() {
+        return new Orange();
+    }
+}
+const settings = {
+    apple: AppleFactory,
+    orange: OrangeFactory
+};
+let apple = new settings['apple']().create();
+console.log(apple);
+let orange = new settings['orange']().create();
+console.log(orange);
+```
+
+##### 抽象工厂
+
+```code
+class Button {
+    render() {}
+}
+class AppleButton {
+    render() {
+        console.log('苹果按钮');
+    }
+}
+class WindowButton {
+    render() {
+        console.log('Windows按钮');
+    }
+}
+
+class Icon {
+    render() {}
+}
+class AppleIcon {
+    render() {
+        console.log('苹果图标');
+    }
+}
+class WindowIcon {
+    render() {
+        console.log('Windows图标');
+    }
+}
+class Factory {
+    createButton() {}
+    createIcon() {}
+}
+class AppleFactory {
+    createButton() {
+        return new AppleButton();
+    }
+    createIcon() {
+        return new AppleButton();
+    }
+}
+class WindowsFactory {
+    createButton() {
+        return new WindowButton();
+    }
+    createIcon() {
+        return new WindowIcon();
+    }
+}
+const settings = {
+    apple: AppleFactory,
+    windows: WindowsFactory
+};
+let appleFactory = new settings['apple']();
+appleFactory.createButton().render();
+appleFactory.createIcon().render();
+
+let windowsFactory = new settings['windows']();
+windowsFactory.createButton().render();
+windowsFactory.createIcon().render();
+```
+
+### 单例模式
