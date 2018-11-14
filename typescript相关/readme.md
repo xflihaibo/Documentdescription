@@ -11,6 +11,8 @@
 
 #### 参数类型
 
+![react](./img/ts01.png)
+
 ```code
 Undefined
 Null 空
@@ -25,9 +27,29 @@ any：任何类型
 void：不需要返回值 function
 ```
 
-#### 参数默认值
+```code
+let a=13 //默认number
+let a;  // any
+let a:string='asd'
+let a:string|number=12 //string number 都可以
+let arr:number[]=[1,2,3] //array 是number
+let arr:any[]=['svb',12,false] //any
 
-![react](./img/ts01.png)
+let point :{x:number,y:number,z?:number};
+point={x:12,y:30}
+point={x:12,y:30,z:99}
+```
+
+### 外部引用第三方库
+
+```code
+declare var $
+$(function(){
+
+})
+```
+
+#### 参数默认值
 
 ```code
 function test(a: string, b: string, c: string = 'hb') {
@@ -149,9 +171,10 @@ for (let n of arrnum) {
 
 ```code
 class Person {
-    public name;
-    private age = 12;
-    protected money = 12;
+    //访问修饰符
+    public name; //公共的
+    private age = 12; //私有的
+    protected money = 12; //受保护的
     public eat() {
         console.log(this.age);
     }
@@ -186,9 +209,18 @@ function testFun<t extends jicheng>(chr: t): t {
 console.log(testFun('hello'));
 ```
 
-## 接口
+## 接口 interface
 
 ```code
+interface Point {
+    x: number;
+    y: number;
+    z?: number;
+}
+let p: Point;
+p = {x: 12, y: 12};
+p = {x: 12, y: 12, z: 20};
+
 interface searchRepeat {
     (siurceText: string, findText: string): boolean;
 }
