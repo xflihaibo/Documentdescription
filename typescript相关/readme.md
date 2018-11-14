@@ -12,9 +12,15 @@
 #### 参数类型
 
 ```code
+Undefined
+Null 空
+Number 数值
+Boolean 布尔
+enum 枚举
+Array 数组
+Tuple 元祖
+Null 空
 string:字符串
-number：数字
-bool：
 any：任何类型
 void：不需要返回值 function
 ```
