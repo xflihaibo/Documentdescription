@@ -27,6 +27,48 @@
 -   loadEventStart：返回当前网页 load 事件的回调函数开始时的 Unix 毫秒时间戳。如果该事件还没有发生，返回 0。
 -   loadEventEnd：返回当前网页 load 事件的回调函数运行结束时的 Unix 毫秒时间戳。如果该事件还没有发生，返回 0。
 
+##### 常用的计算
+
+-   DNS 查询耗时 ：domainLookupEnd - domainLookupStart
+-   TCP 链接耗时 ：connectEnd - connectStart
+-   request 请求耗时 ：responseEnd - responseStart
+-   解析 dom 树耗时 ： domComplete - domInteractive
+-   白屏时间 ：responseStart - navigationStart
+-   domready 时间(用户可操作时间节点) ：domContentLoadedEventEnd - navigationStart
+-   onload 时间(总下载时间) ：loadEventEnd - navigationStart
+
+#### preformance.navigation
+
+-   旨在告诉开发者当前页面是通过什么方式导航过来的，只有两个属性：type，redirectCount
+
+-   type:标志页面导航类型,值如下表
+    | type 常数 | 枚举值 | 描述 |
+    | ----------------- | :----: | :--------------------------------------------------------------------------------------------------------------------------: |
+    | TYPE_NAVIGATE | 0 | 普通进入，包括：点击链接、在地址栏中输入 URL、表单提交、或者通过除下表中 TYPE_RELOAD 和 TYPE_BACK_FORWARD 的方式初始化脚本。 |
+    | ----------------- | :----: | :--------------------------------------------------------------------------------------------------------------------------: |
+    | TYPE_RELOAD | 1 | 通过刷新进入，包括：浏览器的刷新按钮、快捷键刷新、location.reload()等方法。 |
+    | ----------------- | :----: | :--------------------------------------------------------------------------------------------------------------------------: |
+    | TYPE_BACK_FORWARD | 2 | 通过操作历史记录进入，包括：浏览器的前进后退按钮、快捷键操作、history.forward()、history.back()、history.go(num)。 |
+    | ----------------- | :----: | :--------------------------------------------------------------------------------------------------------------------------: |
+    | TYPE_UNDEFINED | 255 | 其他非以上类型的方式进入。 |
+
+#### preformance.memory
+
+-   描述内存多少，是在 Chrome 中添加的一个非标准属性。
+    > -   jsHeapSizeLimit: 内存大小限制
+    > -   totalJSHeapSize: 可使用的内存
+    > -   usedJSHeapSize: JS 对象(包括 V8 引擎内部对象)占用的内存，不能大于 totalJSHeapSize，如果大于，有可能出现了内存泄漏
+
+#### 方法
+
+getEntries()
+
+#### 注意
+
+-   目前主流浏览器虽然都已支持 Performance 对象，但是并不能支持它上面的全部属性和方法，本文主要依据 chrome 编写，因此提到的 chrome 浏览器都是兼容的，其他具体使用时兼容性请自行测试，目前已测如下：
+-   1.safari 浏览器(包括 mac 和 ios)只支持 navigation,timing,now 其余均不支持
+-   2.微信浏览器支持 timing,navigation 属性，不支持 performance.getEntries 方法
+
 #### Sumary chrome 浏览器
 
 > -   蓝色:网络通信
