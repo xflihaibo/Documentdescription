@@ -39,12 +39,6 @@
 
 #### preformance.navigation
 
-| 项目   |  价格 | 数量 |
-| ------ | ----: | :--: |
-| 计算机 | $1600 |  5   |
-| 手机   |   $12 |  12  |
-| 管线   |    $1 | 234  |
-
 -   旨在告诉开发者当前页面是通过什么方式导航过来的，只有两个属性：type，redirectCount
 
 -   type:标志页面导航类型,值如下表
@@ -56,6 +50,8 @@
 | TYPE_BACK_FORWARD |   2    |      通过操作历史记录进入，包括：浏览器的前进后退按钮、快捷键操作、history.forward()、history.back()、history.go(num)。      |
 | TYPE_UNDEFINED    |  255   |                                                  其他非以上类型的方式进入。                                                  |
 
+-   redirectCount:表示到达最终页面前，重定向的次数，但是这个接口有同源策略限制，即仅能检测同源的重定向。
+
 #### preformance.memory
 
 -   描述内存多少，是在 Chrome 中添加的一个非标准属性。
@@ -65,7 +61,8 @@
 
 #### 方法
 
-getEntries()
+performance.now()是当前时间与 performance.timing.navigationStart 的时间差，以微秒（百万分之一秒）为单位的时间，与 Date.now()-performance.timing.navigationStart 的区别是不受系统程序执行阻塞的影响，因此更加精准。
+![链接地址](http://www.cnblogs.com/bldxh/p/6857324.html)
 
 #### 注意
 
