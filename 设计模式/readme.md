@@ -241,3 +241,58 @@ windowsFactory.createIcon().render();
 ```
 
 ### 单例模式
+
+```code
+code1:
+function Window(name) {
+    this.name = name;
+}
+Window.prototype.getName = function() {
+    return this.name;
+};
+Window.getInstance = (function() {
+    let instance;
+    return function(name) {
+        if (!instance) {
+            instance = new Window(name);
+        }
+        return instance;
+    };
+})();
+let w1 = Window.getInstance();
+let w2 = Window.getInstance();
+console.log(w1 === w2);
+
+code2:
+let Window = (function() {
+    let window;
+    let Window = function(name) {
+        if (window) {
+            return window;
+        } else {
+            this.name = name;
+            return (window = this);
+        }
+    };
+    Window.prototype.getName = function() {
+        console.log(this.name);
+    };
+    return Window;
+})();
+
+let window1 = new Window('666');
+let window2 = new Window('666');
+window1.getName();
+console.log(window1 === window2);
+```
+
+##### 命名空间
+
+```code
+let a={
+    name:'a'
+}
+let b={
+    name:'b'
+}
+```
