@@ -71,6 +71,11 @@ store：数据
 ![fllux](./img/flux.png)
 ![fllux](./img/flux2.png)
 
+### HOC 高阶组件
+
+高阶函数：函数作为参数传递。返回值 为函数
+高阶组件：
+
 ##版本更新记录
 
 #### react16
