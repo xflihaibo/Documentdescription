@@ -34,6 +34,10 @@
 -   componentDidUpdate() 组件初始化时不调用，组件更新完成后调用，此时可以获取 dom 节点.
 -   componentWillUnmount() 组件将要卸载时调用，一些事件监听和定时器需要在此时清除.
 
+### dangerouslySetInnerHTML
+
+-   将 HTML 字符串解析为 html 样式显示
+
 ### Fiber
 
 -   Fiber 是一种轻量的执行线程，同线程一样共享定址空间，线程靠系统调度，并且是抢占式多任务处理，Fiber 则是自调用，协作式多任务处理。
