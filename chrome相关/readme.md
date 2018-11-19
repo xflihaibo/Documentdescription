@@ -73,6 +73,8 @@ performance.now()是当前时间与 performance.timing.navigationStart 的时间
 
 #### Sumary chrome 浏览器
 
+![chrome](./img/img1.png)
+
 > -   蓝色:网络通信
 > -   黄色:javascript 执行
 > -   紫色:样式计算 重排
