@@ -32,7 +32,7 @@
 
 ### css
 
--   css 编译器：less,sass, styles, postcss(推荐 cssnext)
+-   css 编译器：less,sass, styles, postcss(推荐 cssnext) autoplayflex cssnano
 -   css 格式化：reset.css normalize.css neat.css(推荐)
 -   css 分层理论：(oocss 方便后期维护) SMACSS，ACSS
 -   css:圣杯布局，动画，3d,bfc,ifc,gfc,
