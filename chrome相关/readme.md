@@ -85,7 +85,7 @@ performance.now()是当前时间与 performance.timing.navigationStart 的时间
 -   pagespeed （chrome 插件）
 -   performance-bookmarklet （chrome 插件）
 -   Make the web faster （chrome 插件）
--   profiles
+-   preformance(profiles 旧版)
 -   性能魔方(第三方网站)
 -   benchmark js 性能跑分
 
