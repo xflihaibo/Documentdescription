@@ -43,6 +43,8 @@ npm init  -y
 
 ## nvm
 
+-   nvm 是一个可以让你在同一台机器上安装和切换不同版本 node 的工具
+
 ```code
 npm  install   -g   nrm //安装
 nvm install ## 安装指定版本，可模糊安装，如：安装v6.2.0，既可nvm install v6.2.0，又可nvm install 6.2
@@ -64,7 +66,7 @@ nvm reinstall-packages ## 在当前版本node环境下，重新全局安装指�
 nrm ls  列出可用的源
 nrm use taobao 选择国内淘宝的源
 nrm test npm 测试速度
-nrm add registry http://192.168.10.127:8081/repository/npm-public/  添加源
+nrm add taobao http://192.168.10.127:8081/repository/npm-public/  添加源
 nrm del  taobao删除对应的源
 ```
 
@@ -74,6 +76,14 @@ nrm del  taobao删除对应的源
 -   全局安装 parcel，但有时不同项目使用不同版本，不允许使用全局包，只能考虑下面一些方法
     使用 npm scripts，在 package.json 加一个 script ,将 node_modules 的可执行目录加到 PATH 中.指定可执行命令路径
 -   当我们执行 npx parcel index.html 时，会自动去./node_modules/.bin 目录下搜索。
+
+```code
+old:
+npm install -g create-react-app
+create-react-app my-app
+new:
+npx create-react-app my-app
+```
 
 ## rpm
 
