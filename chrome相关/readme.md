@@ -90,21 +90,26 @@ performance.now()是当前时间与 performance.timing.navigationStart 的时间
 ### 性能优化
 
 -   code：
-    > -   前端性能优化:小字为先，navigator.sendBeacon("a.php") 埋点测速， DNS prefetch
-    > -   雅虎军规
-    > -   简化页面标签, 减少重排 重绘
-    > -   精简 css uncss( 去除无用的 css)
-    > -   精简 js 代码 巧用数据结构与算法
-    > -   打包压缩合并 tree-shaking
-    > -   开启 cnd 加速(并行最多 5 个)。节约 cookie 带宽 节约主域名的连接数，优化页面响应速度
-    > -   开启页面懒加载
-    > -   缓存静态资源文件 localstrage
+
+1.  前端性能优化:小字为先，navigator.sendBeacon("a.php") 埋点测速， DNS prefetch
+2.  雅虎军规
+3.  简化页面标签, 减少重排 重绘
+4.  精简 css uncss( 去除无用的 css)
+5.  精简 js 代码 巧用数据结构与算法
+6.  打包压缩合并 tree-shaking
+7.  开启 cnd 加速(并行最多 5 个)。节约 cookie 带宽 节约主域名的连接数，优化页面响应速度
+8.  开启页面懒加载
+9.  缓存静态资源文件 localstrage
+
 -   nginx：
-    > -   nginx 开启 gzip 压缩 etag expires 缓存
-    > -   nginx 开启 反向代理 负载均衡
+
+1.  nginx 开启 gzip 压缩 etag expires 缓存
+2.  nginx 开启 反向代理 负载均衡
+
 -   node：
-    > -   合理利用压力测试工具
-    > -   缓存 队列 内存泄露 耗时较长的代码
-    > -   node 优化：内存泄漏 闭包，数组无线的扩大,Jimb Esser ,Dave Pacheco, Danny Coates, Felix Geisendörfer, Joyent ,memwatch+heapdump
-    > -   没经过压力测试的 Node 代码基本只完成 10%
-    > -   合理计算 QPS 未雨绸缪
+
+1.  合理利用压力测试工具
+2.  缓存 队列 内存泄露 耗时较长的代码
+3.  node 优化：内存泄漏 闭包，数组无线的扩大,Jimb Esser ,Dave Pacheco, Danny Coates, Felix Geisendörfer, Joyent ,memwatch+heapdump
+4.  没经过压力测试的 Node 代码基本只完成 10%
+5.  合理计算 QPS 未雨绸缪
