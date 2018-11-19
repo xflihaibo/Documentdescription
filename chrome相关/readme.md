@@ -89,7 +89,7 @@ performance.now()是当前时间与 performance.timing.navigationStart 的时间
 
 ### 性能优化
 
--   code：
+###### code：
 
 1.  前端性能优化:小字为先，navigator.sendBeacon("a.php") 埋点测速， DNS prefetch
 2.  雅虎军规
@@ -101,12 +101,12 @@ performance.now()是当前时间与 performance.timing.navigationStart 的时间
 8.  开启页面懒加载
 9.  缓存静态资源文件 localstrage
 
--   nginx：
+###### nginx：
 
 1.  nginx 开启 gzip 压缩 etag expires 缓存
 2.  nginx 开启 反向代理 负载均衡
 
--   node：
+###### node：
 
 1.  合理利用压力测试工具
 2.  缓存 队列 内存泄露 耗时较长的代码
