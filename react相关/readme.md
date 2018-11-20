@@ -86,6 +86,32 @@ store：数据
 继承模式高阶组件： 采用继承关联作为参数返回组件，假如传入的参数是 A 返回的组件直接继承 A
 应用场景： 操纵 props ，操纵生命周期函数
 
+### React Context Api
+
+```code
+context.js
+import React, {Component} from 'react';
+let {Provider, Consumer} = React.createContext();
+export {Provider, Consumer};
+
+parent.js
+import {Provider} from '../context.js';
+return <Provider value={value}>{this.props.children}</Provider>;
+
+
+import {Consumer} from '../context.js';
+ render() {
+        return (
+            <Consumer>
+                {state => {
+                    state.history.push(this.props.to);
+                    return <div>hello world</div>;
+                }}
+            </Consumer>
+        );
+    }
+```
+
 ##版本更新记录
 
 #### react16
