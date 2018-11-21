@@ -118,6 +118,10 @@
 
 -   指示代码中插入、修改、删除的地方
 
+### html-css-js prettify
+
+-   格式化压缩代码
+
 ### HTML5
 
 ### JavaScript Completions
