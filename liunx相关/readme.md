@@ -30,6 +30,21 @@
 > -   service nginx restar 启动 nginx 进程
 > -   yum uninstall nginx 卸载
 > -   curl 127.0.0.1; 访问网络
+> -   Exit：退出
+> -   hostname hb 更改主机用户名
+> -   where is nginx 查找文件位置
+> -   which nginx (别名)查找文件位置
+> -   find /etc -name init.d 查找文件
+> -   find /etc -name init.\* (多个)查找文件
+> -   find /etc -name init.? （一个）查找文件
+> -   find /etc -iname init.T 忽略大小写
+> -   find /etc -atime 5 //文件访问时间
+> -   find /etc -ctime 5 //改变文件属性
+> -   find /etc -mtime 5 //修改时间
+> -   find /etc -size -100k //文件小于 100k 的
+> -   find /etc -size +100k //文件大于 100k 的
+> -   find /etc -size 100k //文件等于 100k 的
+> -   main ls 查看帮助
 
 -   注如果 scp ssh 失败：
 -   sudo ps -e |grep ssh“–>回车–>有 sshd,说明 ssh 服务已经启动，如果没有启动，输入”sudo service ssh start“–>回车–>ssh 服务就会启动 如果没有下载 apt-get install openssh-server 并且
@@ -48,21 +63,19 @@
 -   ssh 登录：ssh -i pri-key root@192.168.50.134
 
 ```bash
-	known_hosts: 存放其他服务器生成的指纹
-	config 配置
-	      	Host evil-cloud
-	      	User root
-	      	Host yideng
-	      	HostName 192.168.50.142
-	      	port 22
-	      	IdentityFile ~/.ssh/new
-	      	IdentitiesOnly yes
-	      	Protocol 2
-	      	Compression yes
-	      	ServerAliveInterval 60
-	      	ServerAliveCountMax 20
-	      	LogLevel INFO
-	ssh yideng  可直接登录
+    known_hosts: 存放其他服务器生成的指纹
+    config 配置
+            Host evil-cloud
+            User root
+            Host yideng
+            HostName 192.168.50.142
+            port 22
+            IdentityFile ~/.ssh/new
+            IdentitiesOnly yes
+            Protocol 2
+            Compression yes
+            ServerAliveInterval 60
+            ServerAliveCountMax 20
+            LogLevel INFO
+    ssh yideng  可直接登录
 ```
-
-

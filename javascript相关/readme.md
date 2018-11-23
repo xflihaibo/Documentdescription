@@ -278,6 +278,7 @@ with (Math) {
   x = r * cos(PI);
   y = r * sin(PI / 2);
 }
+console.log('%cI am a button', 'color: white; background-color: green; padding: 2px 5px; border-radius: 2px');
 ```
 
 #### new 操作符会经历以下四个步骤

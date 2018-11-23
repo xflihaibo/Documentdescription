@@ -29,9 +29,7 @@ sudo yum remove docenginegine
 -   安装依赖
 
 ```code
-sudo yum  install -y yum-utils
-sudo yum  install -y device-mapper-persistent-data
-sudo yum  install -y lvm2
+sudo yum  install -y device-mapper-persistent-data  lvm2  yum-utils
 ```
 
 -   安装 docker 启动
@@ -39,9 +37,12 @@ sudo yum  install -y lvm2
 ```code
  sudo yum install -y docker
  systemctl start docker ||  service docker start //启动
+ yum -y install docker-io
 
 docker info //查看信息
 docker version //查看版本
+
+decker run --detach centos ping www.baidu.com  //后台运行doker容器
 
 systemctl start docker #启动
 systemctl restart docker #重启
@@ -73,6 +74,8 @@ https://hub.docker.com/explore/
 docker container ls 列举本地运行的程序‘
 docker container ls -a 列举本地所有的程序
 docker run -it  hello-world 交互运行
+
+docker  container cp cb4acb4acb4a:/u.txt u.txt 复制docker 文件到指定目录
 ```
 
 ## docker-machine
