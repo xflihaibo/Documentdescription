@@ -7,6 +7,8 @@
 -   批处理：批处理就是对某对象进行批量的处理，通常被认为是一种简化的脚本语言
 -   事务： 一个事务是一个不可分割的工作单位，事务中包括的诸操作要么都做，要么都不做 , react 的 setState 同步线程执行
 
+## react.children.map()
+
 #### setState 执行
 
 ![react](./img/React.png)
