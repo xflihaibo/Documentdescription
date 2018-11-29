@@ -26,25 +26,25 @@
 > -   babel-polyfill：polyfill 在代码中的作用主要是用已经存在的语法和 api 实现一些浏览器还没有实现的 api，，Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise 等全局对象，以及一些定义在全局对象上的方法（比如 Object.assign）都不会转译。如果想使用这些新的对象和方法，必须使用 babel-polyfill，为当前环境提供一个垫片。
 
 > -   babel-preset-stage-0:为什么说“stage-0” 法力无边呢，因为它包含 stage-1, stage-2 以及 stage-3 的所有功能
-> -                  transform-do-expressions:这个插件是为了方便在 jsx写if/else表达式而提出的.
-> -                  transform-function-bind:这个插件其实就是提供过 :: 这个操作符来方便快速切换上下文this。
+> -   transform-do-expressions:这个插件是为了方便在 jsx 写 if/else 表达式而提出的.
+> -   transform-function-bind:这个插件其实就是提供过 :: 这个操作符来方便快速切换上下文 this。
 > -   babel-preset-stage-1:stage-1 除了包含 stage-2 和 stage-3，还包含了下面 4 个插件
-> -                 transform-class-constructor-call：这个模块已经废弃，不再使用了
-> -                 transform-class-properties
-> -                 transform-decorators
-> -                 transform-export-extensions
+> -   transform-class-constructor-call：这个模块已经废弃，不再使用了
+> -   transform-class-properties
+> -   transform-decorators
+> -   transform-export-extensions
 > -   babel-preset-stage-2 除了包含 stage-3，还包含了下面 2 个插件
-> -                 syntax-trailing-function-commas：支持函数的最后一个参数后面允许加逗号
-> -                 transform-object-reset-spread：这个插件支持解释扩展运算符
+> -   syntax-trailing-function-commas：支持函数的最后一个参数后面允许加逗号
+> -   transform-object-reset-spread：这个插件支持解释扩展运算符
 > -   babel-preset-stage-3
-> -                  transform-async-to-generator：插件用来支持es7中的async和await，
-> -                  transform-exponentiation-operator：这个插件可以支持 ** 操作符进行幂操作
+> -   transform-async-to-generator：插件用来支持 es7 中的 async 和 await，
+> -   transform-exponentiation-operator：这个插件可以支持 \*\* 操作符进行幂操作
 
 #### babel-runtime && babel-plugin-transform-runtime
 
 > -   babel-runtime:transform-runtime 只会对 es6 的语法进行转换，而不会对新 api 进行转换
-> -                 babel-runtime和 babel-plugin-transform-runtime的区别是，相当一前者是手动挡而后者是自动挡，每当要转译一个api时都要手动加上require('babel-runtime')，
-> -                 babel-plugin-transform-runtime 实际上是依赖babel-runtime因为babel编译es6到es5的过程中，babel-plugin-transform-runtime这个插件会自动polyfill es5不支持的特性，这些polyfill包就是在babel-runtime这个包里
+> -   babel-runtime 和 babel-plugin-transform-runtime 的区别是，相当一前者是手动挡而后者是自动挡，每当要转译一个 api 时都要手动加上 require('babel-runtime')，
+> -   babel-plugin-transform-runtime 实际上是依赖 babel-runtime 因为 babel 编译 es6 到 es5 的过程中，babel-plugin-transform-runtime 这个插件会自动 polyfill es5 不支持的特性，这些 polyfill 包就是在 babel-runtime 这个包里
 
 ## Babel7
 
