@@ -10,7 +10,7 @@ yum -y install docker-io
 
 ```code
 docker version
- docker info
+docker info
 ```
 
 #### 启动

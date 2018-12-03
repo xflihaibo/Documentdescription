@@ -37,11 +37,12 @@ git reset HEAD 取消本次修改在暂存区
 git checkout dev 切换分支dev
 git checkout -b dev 创建并切换分支dev
 git branch  查看本地分支
- git branch -a  查看本地 远程分支 remotes开头的代表是远程分支
+git branch -a  查看本地 远程分支 remotes开头的代表是远程分支
 git branch -r 查看远程分支
 git branch dev 创建dev分支
 git branch -d dev  删除分支
 git branch –m dev fix  修改分支名称
+git checkout -b  D_1.3.0  origin/D_1.3.0 拉取远程分支到本地 <本地分支名称> <远程分支名称>
 ssh-keygen -C 'email@maik.com' 生成 密钥 注 用ssh协议生成
 git remote –v 查看仓库地址
 git remote remove qhht 删除远程库名
