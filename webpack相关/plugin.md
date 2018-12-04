@@ -19,4 +19,5 @@
 > -   purifycss-webpack 消除未使用的 css . 消除未使用的 css . purifycss-webpack 使用这个插件必须配合 extract-text-webpack-plugin 这个插
 > -   lodash-webpack-plugin babel-plugin-lodash 优化 lodash https://segmentfault.com/a/1190000010815848
 > -   commander https://blog.csdn.net/qq_40129176/article/details/80816853
-
+> -   new webpack.BannerPlugin('版权所有，翻版必究')
+> -   dll 开发优化第三方包不再每次都要打包加载 new.webpack.DllPlugin({name:'\_dll_name'})
