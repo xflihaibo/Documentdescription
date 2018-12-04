@@ -41,7 +41,7 @@
 
 ### js
 
-> -   框架 react, vue ,angular,zepto X-tag.js,moon.js san.js，apm.js, elm.js ...
+> -   框架 react, vue ,angular,zepto X-tag.js,moon.js san.js，apm.js, elm.js regx.js ...
 > -   函数式编程 underscore.js,lodash.js
 > -   es6：解构赋值，箭头函数，字符串模板，new Set(),new Map()，proxy, Reflect,Promise,class ....
 > -   巧用设计模式：命令模式、代理模式、单例模式、职责链模式、发布订阅者模式
@@ -70,7 +70,7 @@
 
 -   TDD：测试驱动开发（Test-Driven Development）
 -   BDD：行为驱动开发（Behavior Driven Development）
-    > -   1，单元测试 (Mocha+chai) kaima+mocha
+    > -   1，单元测试 (Mocha+chai) kaima+mocha,jest
     > -   2，e2e 测试 selenium webdirver ,rize,nightwatchjs,
     > -   3，API 测试 mocha+chai (supertest) ,rize
     > -   4，UI 还原性测试 backstop.js 、uirecorder、 phantomcss,F2etest
@@ -79,7 +79,7 @@
 ### 上线阶段
 
 -   持续集成平台：Travis ci, jenkins
--   微服务 docker
+-   微服务 docker 容器技术
 -   部署工具：rsync,shell.js,yargs
 -   网站监测:pm2 塞满线程,进程守护
 -   nginx: 负载均衡，反向代理，开启 gzip 压缩, etag，expire 缓存，
