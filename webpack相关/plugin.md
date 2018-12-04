@@ -21,3 +21,4 @@
 > -   commander https://blog.csdn.net/qq_40129176/article/details/80816853
 > -   new webpack.BannerPlugin('版权所有，翻版必究')
 > -   dll 开发优化第三方包不再每次都要打包加载 new.webpack.DllPlugin({name:'\_dll_name'})
+> -   new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(zh-cn|en-gb)$/), //禁止 moment 多语言打入包内
