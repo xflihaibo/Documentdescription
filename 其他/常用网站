@@ -30,7 +30,8 @@ https://github.com/blowsie/Pure-JavaScript-HTML5-Parser
 
 p2m:https://keymetrics.io/
 lazyload.js并行加载css ，js: https://appelsiini.net/projects/lazyload/
-Eruda:移动端调试插件：https://github.com/liriliri/eruda/blob/master/doc/README_CN.md
+Eruda:移动端调试插件：https://github.com/liriliri/eruda/blob/master/doc/README_CN.md 
+vconsole 针对手机网页的前端开发者调试面板。
 谷歌插件：
 	性能插件PageSpeed Insights for Chrome ， 
 	跨域插件Allow-Control-Allow-Origin:*，
