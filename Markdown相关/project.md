@@ -45,25 +45,58 @@ npm run prod-build
 
 文件夹命名使用统一小写，文件命名小写 js变量命名大驼峰写法，css 命名以文件名作为全局顶级变量，子元素命明方式 全局变量_模块名称方便改写
 
+####### 例如：
+```code
+	<div className="experiment-container">
+					<div className="experiment-container-navlist">
+          </div>
+   </div>     
+```
 
 
 
 
 #### 文件结构
 ```
-+-- build
-|   +-- begin-with-the-crazy-ideas.textile
-|   +-- on-simplicity-in-technology.markdown
++-- build // webpack 配置文件
+|   +-- devServer.conf.js
+|   +-- getLocalIp.js //获取本地IP地址
+|   +-- webpack.build.js
+|   +-- webpack.common.js
+|   +-- webpack.dev.js
+|   +-- webpack.prod.js
+|   +-- webpack.test.js
 +-- node_modules
 |   +-- ...依赖
 +-- src
-|   +-- footer.html
-|   +-- header.html
-+-- template
+|   +-- actions //redux动作
+|       +-- index.js
+|   +-- assets //静态资源存储
+|       +-- css
+|       +-- font
+|       +-- image
+|   +-- config //全局配置
+|       +-- index.js
+|   +-- model
+|   +-- router //路由
+|       +-- componentMap.js
+|       +-- index.js
+|       +-- routers.js
+|   +-- store
+|       +-- index.js
+|   +-- view //页面
+|       +-- component //组件
+|       +-- container 
+|       +-- page   //页面
+|       +-- power  //权限控制
+|       +-- acrtion.js
+|       +-- app.jsx
+|   +-- index.jsx //全局入口文件
++-- template //模版文件
 |   +-- dev.html
 |   +-- prod.html
-+-- package.json
-+-- README.md
-+-- .babelrc
-+-- .eslintrc.js
++-- package.json //依赖
++-- README.md  //说明文档
++-- .babelrc   //babel 配置
++-- .eslintrc.js //eslint 配置
 ```
