@@ -1,4 +1,5 @@
 # etrila
+
 #### etrila简介
 
 项目名称： eTrial 1期病房系统
@@ -10,7 +11,17 @@
 #### 项目安装 启动 调试 发布流程
 
 ```code
+npm i -g nrm  安装nrm 管理镜像
+nrm add tm http://192.168.1.185:7001/  安装太美镜像
+nrm use tm   切换到太美镜像
+进入到项目中下载依赖
+npm inatall or yarn install
 
+启动项目
+npm start
+
+打包发布📦📦📦📦
+npm run prod-build
 
 ```
 
@@ -40,21 +51,19 @@
 
 #### 文件结构
 ```
-+-- _config.yml
-+-- _drafts
++-- build
 |   +-- begin-with-the-crazy-ideas.textile
 |   +-- on-simplicity-in-technology.markdown
-+-- _includes
++-- node_modules
+|   +-- ...依赖
++-- src
 |   +-- footer.html
 |   +-- header.html
-+-- _layouts
-|   +-- default.html
-|   +-- post.html
-+-- _posts
-|   +-- 2007-10-29-why-every-programmer-should-play-nethack.textile
-|   +-- 2009-04-26-barcamp-boston-4-roundup.textile
-+-- _data
-|   +-- members.yml
-+-- _site
-+-- index.html
++-- template
+|   +-- dev.html
+|   +-- prod.html
++-- package.json
++-- README.md
++-- .babelrc
++-- .eslintrc.js
 ```
