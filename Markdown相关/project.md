@@ -1,15 +1,15 @@
-# etrila
+# eTrial
 
-#### etrila简介
+#### eTrial简介
 
 项目名称： eTrial 1期病房系统
 
-简介：该项目为1期病房系统，为医院端开展新药临床试验提供一整套的互联网解决方案。
+简介：该项目为1期病房系统，  主要为医院开展新药临床试验提供一整套的互联网解决方案，操作清晰，工作高效！
 
-演示地址：http://loaclhost/trial/subjects/person
+演示地址：http://loaclhost:3800/trial/subjects/person
 
 #### 项目安装 启动 调试 发布流程
-
+nrm 是一个 npm 源管理器，允许你快速地在 npm 源间切换；[参考地址](https://github.com/Pana/nrm)
 ```code
 npm i -g nrm  安装nrm 管理镜像
 nrm add tm http://192.168.1.185:7001/  安装太美镜像
@@ -21,6 +21,7 @@ npm inatall or yarn install
 npm start
 
 打包发布📦📦📦📦
+npm run prod-dev
 npm run prod-build
 
 ```
@@ -43,18 +44,17 @@ npm run prod-build
 
 工具主要使用 [eslint](https://eslint.org/)js规范检查≈，希望编辑器安装有[prettier](https://prettier.io/)插件方便修复一些简单的规范 [postcss](https://postcss.org/)对css进行清洗去污 , [cssnano](https://cssnano.co/) , 推荐[oocss](http://oocss.org/) 作为css规范开发本项目，方便开发，防止样式错乱🤪🤪，✌️✌️✌️
 
-文件夹命名使用统一小写，文件命名小写 js变量命名大驼峰写法，css 命名以文件名作为全局顶级变量，子元素命明方式 全局变量_模块名称方便改写
+文件夹命名使用统一小写，文件夹、文件命名统一小写， js变量命名大驼峰写法，css 命名以文件名作为全局顶级变量，子元素命明方式 全局变量_模块名称方便阅读，修改样式，避免样式发生错乱，和覆盖；
 
-####### 例如：
+###### 例如：
+
 ```code
-	<div className="experiment-container">
-					<div className="experiment-container-navlist">
+experiment.js
+    <div className="experiment-container">
+                    <div className="experiment-container-navlist">
           </div>
    </div>     
 ```
-
-
-
 
 #### 文件结构
 ```
