@@ -51,7 +51,8 @@ npm run prod-build
 ```code
 experiment.js
     <div className="experiment-container">
-                    <div className="experiment-container-navlist">
+          <div className="experiment-container-navlist">
+              ...
           </div>
    </div>     
 ```
@@ -59,30 +60,30 @@ experiment.js
 #### 文件结构
 ```
 +-- build // webpack 配置文件
-|   +-- devServer.conf.js
+|   +-- devServer.conf.js //本地服务器 配置代理地址
 |   +-- getLocalIp.js //获取本地IP地址
 |   +-- webpack.build.js
 |   +-- webpack.common.js
 |   +-- webpack.dev.js
-|   +-- webpack.prod.js
+|   +-- webpack.prod.js //生产环境
 |   +-- webpack.test.js
 +-- node_modules
-|   +-- ...依赖
+|   +-- ...依赖包
 +-- src
 |   +-- actions //redux动作
 |       +-- index.js
-|   +-- assets //静态资源存储
+|   +-- assets //静态资源
 |       +-- css
 |       +-- font
 |       +-- image
-|   +-- config //全局配置
+|   +-- config //全局配置参数
 |       +-- index.js
 |   +-- model
 |   +-- router //路由
 |       +-- componentMap.js
 |       +-- index.js
 |       +-- routers.js
-|   +-- store
+|   +-- store  //redux仓库
 |       +-- index.js
 |   +-- view //页面
 |       +-- component //组件
@@ -92,7 +93,7 @@ experiment.js
 |       +-- acrtion.js
 |       +-- app.jsx
 |   +-- index.jsx //全局入口文件
-+-- template //模版文件
++-- template //html模版
 |   +-- dev.html
 |   +-- prod.html
 +-- package.json //依赖
