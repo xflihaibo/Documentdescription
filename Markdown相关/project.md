@@ -42,7 +42,8 @@ npm run prod-build
 
 ### 相关规范
 
-工具主要使用 [eslint](https://eslint.org/)js规范检查≈，希望编辑器安装有[prettier](https://prettier.io/)插件方便修复一些简单的规范 [postcss](https://postcss.org/)对css进行清洗去污 , [cssnano](https://cssnano.co/) , 推荐[oocss](http://oocss.org/) 作为css规范开发本项目，方便开发，防止样式错乱🤪🤪，✌️✌️✌️
+工具主要使用 [eslint](https://eslint.org/)，js规范检查，希望编辑器安装有[prettier](https://prettier.io/)插件方便修复一些简单的空格、
+[postcss](https://postcss.org/)对css进行清洗去污 , [cssnano](https://cssnano.co/) , 推荐[oocss](http://oocss.org/) 作为css规范开发本项目，方便开发，防止样式错乱🤪🤪，✌️✌️✌️
 
 文件夹命名使用统一小写，文件夹、文件命名统一小写， js变量命名大驼峰写法，css 命名以文件名作为全局顶级变量，子元素命明方式 全局变量_模块名称方便阅读，修改样式，避免样式发生错乱，和覆盖；
 
