@@ -1,10 +1,109 @@
-## webpack 解析
+# webpack 解析
 
 ![webpack](webpackimg/01.png)
 ![webpack](webpackimg/02.png)
 
 > happypack:多核打包，加快 打包速度  
 > 原理 nodejs 多线程模块 cluster
+
+#### loader
+
+webpack 的规则提供了多种配置形式
+
+1.  { test: ... } 匹配特定条件
+2.  { include: ... } 匹配特定路径
+3.  { exclude: ... } 排除特定路径
+4.  { and: [...] }必须匹配数组中所有条件
+5.  { or: [...] } 匹配数组中任意一个条件
+6.  { not: [...] } 排除匹配数组中所有条件
+
+上述的所谓条件的值可以是
+
+1.  字符串：必须以提供的字符串开始，所以是字符串的话，这里我们需要提供绝对路径
+2.  正则表达式：调用正则的 test 方法来判断匹配
+3.  函数：(path) => boolean，返回 true 表示匹配
+4.  数组：至少包含一个条件的数组
+5.  对象：匹配所有属性值的条件
+
+###### module type
+
+webpack 会有针对性地进行处理，现阶段实现了以下 5 种模块类型。
+
+1.  javascript/auto：即 webpack 3 默认的类型，支持现有的各种 JS 代码模块类型 —— CommonJS、AMD、ESM
+2.  javascript/esm：ECMAScript modules，其他模块系统，例如 CommonJS 或者 AMD 等不支持，是 .mjs 文件的默认类型
+3.  javascript/dynamic：CommonJS 和 AMD，排除 ESM
+4.  javascript/json：JSON 格式数据，require 或者 import 都可以引入，是 .json 文件的默认类型
+5.  webassembly/experimental：WebAssembly modules，当前还处于试验阶段，是 .wasm 文件的默认类型
+
+```code
+{
+  test: /\.js/,
+  include: [
+    path.resolve(__dirname, 'src'),
+  ],
+  type: 'javascript/esm', // 这里指定模块类型
+}
+```
+
+use 字段可以是一个数组，也可以是一个字符串或者表示 loader 的对象。如果只需要一个 loader，也可以这样：use: { loader: 'babel-loader', options: { ... } }。
+
+###### noParse
+
+> 可以用于配置哪些模块文件的内容不需要进行解析。对于一些不需要解析依赖（即无依赖） 的第三方大型类库等，可以通过这个字段来配置，以提高整体的构建速度。
+
+```code
+module.exports = {
+  // ...
+  module: {
+    noParse: /jquery|lodash/, // 正则表达式
+
+    // 或者使用 function
+    noParse(content) {
+      return /jquery|lodash/.test(content)
+    },
+  }
+}
+```
+
+## plugin
+
+### optimization
+
+```code
+module.exports = {
+  optimization: {
+    splitChunks: {
+      chunks: "all", // 所有的 chunks 代码公共的部分分离出来成为一个单独的文件
+    },
+  },
+}
+```
+
+"sideEffects": false,
+
+#### resolve
+
+1.  resolve.alias 配置某个模块的别名
+2.  resolve.extensions 定义在进行模块路径解析时，webpack 会尝试帮你补全那些后缀名来进行查找
+3.  resolve.modules 这样配置在某种程度上可以简化模块的查找，提升构建速度
+4.  resolve.mainFields 有 package.json 文件则按照文件中 main 字段的文件名来查找文件
+5.  resolve.mainFiles 当目录下没有 package.json 文件时，我们说会默认使用目录下的 index.js 这个文件，其实这个也是可以配置的，是的，使用 resolve.mainFiles 字段，
+6.  resolve.resolveLoader 用于配置解析 loader 时的 resolve 配置，原本 resolve 的配置项在这个字段下基本都有
+
+```code
+resolve: {
+	alias: {
+  		utils$: path.resolve(__dirname, 'src/utils') // 只会匹配 import 'utils'
+		},
+   extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.css'],
+  modules: [
+    path.resolve(__dirname, 'node_modules'), // 指定当前目录下的 node_modules 优先查找
+    'node_modules', // 如果有一些类库是放在一些奇怪的地方的，你可以添加自定义的路径或者目录
+  ],
+    mainFields: ["module", "main"],
+    mainFiles: ['index'], // 你可以添加其他默认使用的文件名
+},
+```
 
 #### AST(静态语法分析树)
 

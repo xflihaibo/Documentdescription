@@ -4,6 +4,80 @@
 
 -   常用命令
 
+可以用下面的命令去修改默认配置：
+
+```code
+npm config set init.author.email "wangshijun2010@gmail.com" //设置 package.js email
+npm config set init.author.name "wangshijun"
+npm config set init.author.url "http://github.com/wangshijun"
+npm config set init.license "MIT"
+npm config set init.version "0.1.0"
+```
+
+让多个 npm script 串行
+
+```code
+ "test": "npm run lint:js && npm run lint:css && npm run lint:json && npm run lint:markdown && mocha tests/"
+```
+
+从输出可以看到子命令的执行顺序是严格按照我们在 scripts 中声明的先后顺序来的 eslint ==> stylelint ==> jsonlint ==> markdownlint ==> mocha
+
+多个 npm script 并行
+
+```code
+ "test": "npm run lint:js & npm run lint:css & npm run lint:json & npm run lint:markdown & mocha tests/"
+```
+
+npm run lint:js 的结果在进程退出之后才输出，如果你自己运行，不一定能稳定复现这个问题，但 npm 内置支持的多条命令并行跟 js 里面同时发起多个异步请求非常类似，它只负责触发多条命令，而不管结果的收集，如果并行的命令执行时间差异非常大，上面的问题就会稳定复现
+
+```code
+ npm run lint:js & npm run lint:css & npm run lint:json & npm run lint:markdown & mocha tests/ & wait
+```
+
+原生方式来运行多条命令很臃肿，幸运的是，我们可以使用 npm-run-all 实现更轻量和简洁的多命令运行
+
+```code
+npm i npm-run-all -D
+
+"mocha": "mocha tests/",
+"test": "npm-run-all lint:js lint:css lint:json lint:markdown mocha"
+
+npm-run-all 还支持通配符匹配分组的 npm script
+"test": "npm-run-all lint:* mocha"
+
+多个 npm script 并行执行
+"test": "npm-run-all --parallel lint:* mocha"
+```
+
+##### npm script 运行时日志
+
+##### 显示尽可能少的有用信息
+
+调用 npm script 的时候比较有用，需要使用 --loglevel silent，或者 --silent，或者更简单的 -s 来控制
+
+##### 显示尽可能多的运行时状态
+
+需要使用 --loglevel verbose，或者 --verbose，或者更简单的 -d 来控制
+
+##### 代码检查自动化
+
+我们使用的代码检查工具 stylelint、eslint、jsonlint 不全支持 watch 模式，这里我们需要借助 onchange 工具包来实现，onchange 可以方便的让我们在文件被修改、添加、删除时运行需要的命令。
+
+```code
+npm i onchange -D
+
+
+ "watch": "npm-run-all --parallel watch:*",
+ "watch:lint": "onchange -i \"**/*.js\" \"**/*.less\" -- npm run lint",
+"watch:test": "npm t -- --watch",
+```
+
+watch:lint 里面的文件匹配模式可以使用通配符，但是模式两边使用了转义的双引号，这样是跨平台兼容的；
+watch:lint 里面的 -i 参数是让 onchange 在启动时就运行一次 -- 之后的命令，即代码没变化的时候，变化前后的对比大多数时候还是有价值的；
+watch 命令实际上是使用了 npm-run-all 来运行所有的 watch 子命令；
+
+有没有好奇过 onchange 是怎么实现文件系统监听的？所有的魔法都藏在它的源代码里面，实际上它使用了跨平台的文件系统监听包 chokidar，基于它，你能做点什么有意思的事情呢？
+
 ```code
 npm install 安装模块
 npm uninstall 卸载模块
