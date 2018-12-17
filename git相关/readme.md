@@ -42,6 +42,7 @@ git branch -r 查看远程分支
 git branch dev 创建dev分支
 git branch -d dev  删除分支
 git branch –m dev fix  修改分支名称
+git remote update origin --prune 刷新获取远程分支
 git checkout -b  D_1.3.0  origin/D_1.3.0 拉取远程分支到本地 <本地分支名称> <远程分支名称>
 ssh-keygen -C 'email@maik.com' 生成 密钥 注 用ssh协议生成
 git remote –v 查看仓库地址
