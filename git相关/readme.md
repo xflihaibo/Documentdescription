@@ -11,6 +11,7 @@ git push https://gitee.com/silenceLi/test.git master 提交本地代码
 git pull https://gitee.com/silenceLi/test.git master 拉取本地代码
 --allow-unrelated-histories
 git remote add qhht git@https://gitee.com/silenceLi/QHHT.git 取个别名方便拉取
+git remote set-url origin <newurl>  更新远程仓库的 url
 git remote  //查看关联的远程仓库的名称
 git remote -v // 查看关联的远程仓库的详细信息
 git remote remove <name> 删除远程仓库的关联
