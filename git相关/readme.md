@@ -11,6 +11,7 @@ git push https://gitee.com/silenceLi/test.git master 提交本地代码
 git pull https://gitee.com/silenceLi/test.git master 拉取本地代码
 --allow-unrelated-histories
 git remote add qhht git@https://gitee.com/silenceLi/QHHT.git 取个别名方便拉取
+git remote set-url origin <newurl>  更新远程仓库的 url
 git remote  //查看关联的远程仓库的名称
 git remote -v // 查看关联的远程仓库的详细信息
 git remote remove <name> 删除远程仓库的关联
@@ -43,7 +44,8 @@ git branch -r 查看远程分支
 git branch dev 创建dev分支
 git branch -d dev  删除分支
 git branch –m dev fix  修改分支名称
-git -b  -b  D_1.3.0  origin/D_1.3.0 拉取远程分支到本地 <本地分支名称> <远程分支名称>
+git remote update origin --prune 刷新获取远程分支
+git checkout -b  D_1.3.0  origin/D_1.3.0 拉取远程分支到本地 <本地分支名称> <远程分支名称>
 ssh-keygen -C 'email@maik.com' 生成 密钥 注 用ssh协议生成
 git remote –v 查看仓库地址
 git remote remove qhht 删除远程库名
