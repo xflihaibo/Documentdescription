@@ -243,6 +243,47 @@ windowsFactory.createIcon().render();
 
 ### 单例模式
 
+保证一个类只有一个实例，并提供一个访问他的全局访问点，
+
+```javascript
+let __instance = (function() {
+    let instance;
+    return newInstance => {
+        if (newInstance) instance = newInstance;
+        return instance;
+    };
+})();
+
+class Universe {
+    constructor() {
+        if (__instance()) return __instance();
+
+        this.foo = 'bar';
+        __instance(this);
+    }
+}
+
+var CreateDiv = function() {
+    var instance;
+    var CreateDiv = function(html) {
+        if (instance) {
+            return instance;
+        }
+        this.html = html;
+        this.init();
+        return (instance = this);
+    };
+    CreateDiv.prototype.init = function() {
+        var div = document.Element('div');
+        div.innerHtml = this.html;
+        document.body.appendChild(div);
+    };
+    return CreateDiv;
+};
+var a = new CreateDiv('a');
+var b = new CreateDiv('b');
+```
+
 ```code
 code1:
 function Window(name) {
@@ -287,13 +328,177 @@ window1.getName();
 console.log(window1 === window2);
 ```
 
-##### 命名空间
+##### 代理模式
 
-```code
-let a={
-    name:'a'
+为一个对象提供一个代用品或占位符，以便控制对他的访问
+
+```javascript
+var mgImag = (function() {
+    var imgNode = document.createElement('img');
+    document.body.appendChild(imgNode);
+    return {
+        setSrc: function(src) {
+            imgNode.src = src;
+        }
+    };
+})();
+
+var ProxyImage = (function() {
+    var img = new Image();
+    img.onload = function() {
+        myImage.setSrc(this.src);
+    };
+    return {
+        setSrc: function(src) {
+            mgImag.setSrc('loading.gif');
+            img.src = src;
+        }
+    };
+})();
+ProxyImage.setSrc('xxxxxx.png');
+
+class Peal {
+    dosomething() {
+        console.log('do something');
+    }
 }
-let b={
-    name:'b'
+
+class Proxy extends Real {
+    constructor() {
+        super();
+    }
+    dosomething() {
+        setTimeout(super.dosomething, 1000 * 3);
+    }
 }
+new Proxy().dosomething();
+```
+
+### 命令模式
+
+命令模式中的命令指的是一个执行某些特定的事情的指令，有时候需要向某些特定事情的指令。
+
+```javascript
+var makeCommand = function(receiver, state) {
+    return function(argument) {
+        return receiver[state]();
+    };
+};
+var Ryu = {
+    attack: function() {
+        console.log('攻击！');
+    },
+    defense: function() {
+        console.log('防御');
+    },
+    crouch: function() {
+        console.log('蹲下');
+    }
+};
+
+var command = makeCommand(Ryu, 'attack');
+command();
+```
+
+### 发布订阅模式
+
+发布订阅模式又叫观察者模式，他定义对象间的一种一对多的依赖关系，当一个对象的状态发生变化时，所有依赖它的对象都将得到通知
+
+```javascript
+function Observer() {
+    this.fns = [];
+}
+Observer.prototype = {
+    subscribe: function(fn) {
+        this.fns.push(fn);
+    },
+    unsubscribe: function(fn) {
+        this.fns = this.fns.filter(function(el) {
+            if (el !== fn) {
+                return el;
+            }
+        });
+    },
+    update: function(o, thisObj) {
+        var scope = thisObj || window;
+        this.fns.forEach(function(el) {
+            el.call(scope, o);
+        });
+    }
+};
+
+//测试
+var o = new Observer();
+var f1 = function(data) {
+    console.log('Robbin: ' + data + ', 赶紧干活了！');
+};
+
+var f2 = function(data) {
+    console.log('Randall: ' + data + ', 找他加点工资去！');
+};
+
+o.subscribe(f1);
+o.subscribe(f2);
+
+o.update('Tom 回来了！');
+
+//退订 f1
+o.unsubscribe(f1);
+//再来验证
+o.update('Tom 回来了！');
+
+class Event {
+    constructor() {
+        this.subscribers = new Map([['any', []]]);
+    }
+    on(fn, type = 'any') {
+        let subs = this.subscribers;
+        if (!subs.get(type)) return subs.set(type, [fn]);
+        subs.set(type, subs.get(type).push(fn));
+    }
+    emit(content, type = 'any') {
+        for (let fn of this.subscribers.get(type)) {
+            fn(content);
+        }
+    }
+}
+
+let event = new Event();
+event.on(contenr => console.log(`get publish content:${content}`), 'myEvent');
+event.emit('java ', 'myEvent');
+```
+
+### 职责链模式
+
+使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系，将这些关系连成一条链，并沿着这条链的传递请求，知道一个对象处理为止。
+
+```javascript
+var fn1=function(data){
+if(data==1){
+console.log('fn1=>'+data)
+}else{
+return 'next';
+}
+
+var fn2=function(data){
+console.log('fn2=>'+data)
+return 'next';
+}
+var fn3=function(data){
+console.log('fn3=>'+data)
+console.log('done')
+}
+
+Function.prototype.after=function(fn){
+var self=this;
+return function(){
+var ret=self.apply(this,arguments);
+if(ret=='next'){
+return fn.apply(this,arguments)
+}
+return ret;
+}
+}
+var order=fn1.after(fn2).after(fn3)
+order(1)
 ```

@@ -1,0 +1,27 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest ",
+    "test-is": "jest --coverage",
+    "test-report": "jest  --reporters default jest-stare",
+    "test-reportone": "jest --testResultsProcessor=jest-stare "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "axios": "^0.18.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "jest-stare": "^1.8.0",
+    "resolve-from": "^4.0.0"
+  }
+}

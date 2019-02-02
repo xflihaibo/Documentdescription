@@ -54,6 +54,29 @@
 > -   有些 package 已经换名字：所有 TC39 proposal plugin 的名字都已经变成以 @babel/plugin-proposal 开头，替换之前的 @babel/plugin-transform（详情）。所以 @babel/plugin-transform-class-properties 变成 @babel/plugin-proposal-class-properties
 > -   babel-upgrade，Babel 团队开发的新工具，旨在用来处理升级过程中的琐事（changes）：目前只是针对 package.json 的 dependencies 以及 .babelrc 配置。
 
+> @babel/plugin-proposal-optional-chaining
+
+````code
+const obj = {
+  foo: {
+    bar: {
+      baz: 42,
+    },
+  },
+};
+const baz = obj?.foo?.bar?.baz; // 没有返回 undefined
+```
+
+> @babel/plugin-proposal-nullish-coalescing-operator,
+
+```code
+  let myObj = {
+            firstProp: 'hello react'
+        };
+        let data = myObj.foo ?? 'default';
+        console.log(data);//没有给默认
+````
+
 ### 新版本 stage 包含相应的插件
 
 ```code
@@ -63,7 +86,7 @@
     "@babel/plugin-proposal-function-bind",
 
     // Stage 1
-    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-default-from", //    export v from 'mod'
     "@babel/plugin-proposal-logical-assignment-operators",
     ["@babel/plugin-proposal-optional-chaining", { loose: false }],
     ["@babel/plugin-proposal-pipeline-operator", { proposal: "minimal" }],
@@ -72,15 +95,15 @@
 
     // Stage 2
     ["@babel/plugin-proposal-decorators", { legacy: true }],
-    "@babel/plugin-proposal-function-sent",
-    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-function-sent", //* generator()
+    "@babel/plugin-proposal-export-namespace-from", //export * as ns from 'mod';
     "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
 
     // Stage 3
-    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-syntax-dynamic-import", //懒加载
     "@babel/plugin-syntax-import-meta",
-    ["@babel/plugin-proposal-class-properties", { loose: false }],
+    ["@babel/plugin-proposal-class-properties", { loose: false }], //class
     "@babel/plugin-proposal-json-strings",
   ],
 }

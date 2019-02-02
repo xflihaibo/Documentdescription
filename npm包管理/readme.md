@@ -58,6 +58,7 @@ npm-run-all 还支持通配符匹配分组的 npm script
 ##### 显示尽可能多的运行时状态
 
 需要使用 --loglevel verbose，或者 --verbose，或者更简单的 -d 来控制
+peerDependencies:但是如果是组件（前端组件或后端组件都包含）依赖一些框架或比较大型的包，可以考虑放
 
 ##### 代码检查自动化
 
@@ -65,8 +66,6 @@ npm-run-all 还支持通配符匹配分组的 npm script
 
 ```code
 npm i onchange -D
-
-
  "watch": "npm-run-all --parallel watch:*",
  "watch:lint": "onchange -i \"**/*.js\" \"**/*.less\" -- npm run lint",
 "watch:test": "npm t -- --watch",
@@ -119,6 +118,11 @@ npm init  -y
 ```code
  "name": "allblue", //必填项目名称
  "version": "0.0.1" //必填版本信息
+
+ "repository": { //关联github 的库
+    "type": "git",
+    "url": "git@github.com:****/**.git"
+  },
 ```
 
 -   登录 npm

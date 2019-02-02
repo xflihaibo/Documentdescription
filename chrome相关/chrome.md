@@ -39,3 +39,8 @@ console.table(await navigator.getBattery())
 #### 给 logs 加上时间戳
 
 > 在 Commands 菜单中寻找 timestamps 开启 timestamps.你可以在设置(在调试工具中的
+
+#### 断点调试
+
+与其在你的源码的不同地方去添加 console.log / console.table / console.time 等等，不如你直接使用条件判断来将它们“连接”到 Source 面板中。它们不会停止，而是会一直执行，并且当你不再需要它们的时候，有一个地方(Breakpoints section)会完美列出它们。你可以点两下鼠标把所有的都移除，它们就像一堆忍者一样消失
+[断点调试](../img/chrome01.gif)

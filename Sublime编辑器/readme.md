@@ -171,6 +171,17 @@
 
 -   LiveStyle 是 Chrome 中提高开发效率的一款 CSS 编辑器插件。利用 LiveStyle 和 Sublime Text3 编辑器结合可实现可视化开发，一次配置，简单易用！，并且最近支持 less,scss 你本地 css 文件可以和浏览器的 css 文件映射，同步到本地，但是必须在 chrome 上运行，chrome 必须安装相应的插件
 
+### Markdown
+
+> 安装 Markdown Editing + MarkdownLivePreview
+> 在 MarkdownLivePreview 设置
+
+```json
+{
+    "markdown_live_preview_on_open": true
+}
+```
+
 ### Terminal
 
 -   在编辑的文件目录打开 cmd：ctrl+shift+t

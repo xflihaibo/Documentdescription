@@ -1,4 +1,4 @@
-## docker
+#F# docker
 
 #### 安装
 
@@ -73,8 +73,8 @@ docker kill  2bbd6d7923ac 停止容器运行（暴力）
 docker rm  2bbd6d7923ac 删除容器
 docker start  2bbd6d7923ac 启动容器
 docker ps -a | wc -l  查看数量
-docker container exec -it 833523dc3af5 /bin/bash 进入运行中的容器
-docker container cp 833523dc3af5:/u.txt u.txt  拷贝dockr 容器
+docker container exec -it 833523dc3af5 /bin/bash 进入已经运行中的容器
+docker container cp 833523dc3af5:/u.txt u.txt  拷贝docker 容器的文件
 docker run --rm ubuntu /bin/bash hello 运行并删除容器dock
  docker commit -m"add readme" -a"lihaibo" 843f41b41b9f lihaibo/hello:latest 创建新的docker image
 ```
@@ -87,7 +87,7 @@ https://store.docker.com/ 仓库
 docker run -it  ubuntu /bin/bash //运行进入
 touch README.md  //修改ubunt镜像文件
 exit //退出
-docker container ps -l //列出最新修改的
+docker container ps -l //列出最新的容器ID
 dockeixter commit -m"add readme" -a"lihaibo" 843f41b41b9f lihaibo/hello:latest // 打包自定义包名
 docker image ls //查看镜像
 docker login  登录docker
@@ -96,10 +96,10 @@ docker inspect lihaibo/hello  查看层级 镜像具有继承功能
 docker tag 80ffb8c8925b lihaibo/express-app 修改镜像名称
 ```
 
-## Dockerfile
+## 安装 node 、cnpm
 
 ```code
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash  //下周nvm
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash  //下载nvm
 source  /root/.bashrc //执行
 nvm install stable //下载node
 node -v
@@ -107,7 +107,14 @@ npm i cnpm -g
 npm i nrm -g
 
 cnpm install express-generator -g
+
+mkdir lidocker//新建文件夹
+cd lidocker
+
 vi .dockerignore //创建忽略文件
+//忽略文件
+node_modules
+.git
 ```
 
 #### Dockerfile
@@ -115,27 +122,27 @@ vi .dockerignore //创建忽略文件
 创建 Dockerfile 文件
 
 ```code
-FROM node
-COPY ./app /app
-WORKDIR /app
-RUN npm install
-EXPROSE 3000
+FROM node             //继承的镜像
+COPY ./app /app     //拷贝镜像
+WORKDIR /app     //当前工作目录
+RUN npm install    //安装依赖
+EXPROSE 3000    //暴露端口号
 ```
 
 ```code
-docker build -t express-app .   //打包
-docker image ls
+docker build -t express-app .   //打包 编译
+docker image ls         //列取镜像
 docker run -it express-app /bin/bash
 
 docker run -it -p 8081:3000 express-app /bin/bash
 
-apt update
+apt update //升级
 #ping
 apt install inetutils-ping
 #nslookup
 apt install dnsutils
 #ifconfig
-apt install net-tools
+apt install net-tools  //ip地址
 #ip
 apt install iproute2
 #curl

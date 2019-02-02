@@ -1,0 +1,62 @@
+exports[`Snapshot Header 1`] = `
+<div
+  className="container">
+  <ul>
+    <li
+      className="libox">
+      12
+    </li>
+    <li
+      className="libox">
+      123
+    </li>
+    <li
+      className="libox">
+      12
+    </li>
+  </ul>
+  <h2>
+    using from init
+  </h2>
+  <div
+    className="HeaderBox" />
+  <div>
+    Input 1
+    <input
+      onChange={[Function]}
+      placeholder="Input 1"
+      type="text"
+      value={2} />
+  </div>
+  <div>
+    Input 2 :
+    <input
+      onChange={[Function]}
+      placeholder="Input 2"
+      type="text"
+      value={2} />
+  </div>
+  <div>
+    Output :
+    <span>
+      0
+       
+    </span>
+  </div>
+  <div>
+    <button
+      id="add"
+      onClick={[Function]}>
+      Add
+    </button>
+    <button
+      id="subtract"
+      onClick={[Function]}>
+      <span>
+        Subtract
+      </span>
+    </button>
+  </div>
+  <hr />
+</div>
+`;

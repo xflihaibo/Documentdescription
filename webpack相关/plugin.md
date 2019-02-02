@@ -17,14 +17,18 @@ DefinePlugin 用于创建一些在编译时可以配置的全局常量
 
 # plugin 相关
 
+> - uncss 剔除 不支持 react
 > - speed-measure-webpack-plugin 监控打包面板
 > - webpack-build-notifier 监听错误
 > - progress-bar-webpack-plugin webpackbar 打包进度条
+> - nyan-progress-webpack-plugin 魔性打包进度彩虹条
 > - webpack-dashboard 控制面板优化样式
 > - webpack-dashboard 优化 打包面板
 > - node-bash-title 修改 面板 bash bar title
+> - title-notify 浏览器提示消息插件 https://wangchujiang.com/iNotify/。//一个js库消息提示
 > - webpack-deep-scope-plugin 深度 tree shakeing
 > - set-iterm2-badge 设置面板 title
+> - iterm2-tab-set 设置面板 title
 > - webpack-bundle-analyzer 分析打包 📦 结果
 > - webpack-manifest-plugin 性能优化命脉 hot-reload
 > - bundlesize
@@ -34,6 +38,8 @@ DefinePlugin 用于创建一些在编译时可以配置的全局常量
 > - purifycss-webpack 消除未使用的 css . 消除未使用的 css . purifycss-webpack 使用这个插件必须配合 extract-text-webpack-plugin 这个插
 > - lodash-webpack-plugin babel-plugin-lodash 优化 lodash https://segmentfault.com/a/1190000010815848
 > - commander https://blog.csdn.net/qq_40129176/article/details/80816853
+> - webpack-cdn-upload-plugin 打包生成的静态资源上传到 CDN
+> - babel-plugin-module-resolver 统一添加文件路径的别名类似@
 > - new webpack.BannerPlugin('版权所有，翻版必究')
 > - dll 开发优化第三方包不再每次都要打包加载 new.webpack.DllPlugin({name:'\_dll_name'})
 > - new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(zh-cn|en-gb)$/), //禁止 moment 多语言打入包内
@@ -42,24 +48,17 @@ DefinePlugin 用于创建一些在编译时可以配置的全局常量
 > - HappyPack
 > - code-metrics-loader 降低代码复杂度神器
 > - const CompressionWebpackPlugin = require('compression-webpack-plugin'); gzip 压缩
-> - docz
 
 ```code
 webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
-      filename: '[path].gz[query]',
+      asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp('\\.(js|css)$'),
       threshold: 10240,
       minRatio: 0.8
     })
-)、
-
-nginx：
-gzip on;
-gzip_disable "msie6";
-gzip_buffers 32 4k;
-gzip_static on;
+)
 ```
 
 > - Scope Hosting webapck
@@ -75,3 +74,7 @@ gzip_static on;
 
              }
         }
+
+> - html-withimg-loader : 解析 html 图片 loader
+> - webpack-parallel-uglify-plugin : 解析 打包 js 压缩
+> -

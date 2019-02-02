@@ -47,7 +47,7 @@ export const tmsLetterValidate = char => {
 };
 
 /**
- * 去掉字符串中所有空格(包括中间空格)
+ * 去除字符串中的空格(包括中间空格)
  * @constructor tmsClearTrim
  * @param {string} params - 字符串.
  * @param {string} global- g
@@ -68,29 +68,6 @@ export const tmsClearTrim = (params, global) => {
  */
 export const tmsBack = () => {
     window.history.back();
-};
-
-/**
- * [GetUrlParam description] 获取url 参数值
- * @type {[type]} URL 参数地址
- */
-export const GetUrlParam = paraName => {
-    var url = document.location.toString();
-    var arrObj = url.split('?');
-    if (arrObj.length > 1) {
-        var arrPara = arrObj[1].split('&');
-        var arr;
-        for (var i = 0; i < arrPara.length; i++) {
-            arr = arrPara[i].split('=');
-
-            if (arr != null && arr[0] == paraName) {
-                return arr[1];
-            }
-        }
-        return '';
-    } else {
-        return '';
-    }
 };
 
 /**
@@ -155,7 +132,7 @@ export const tmsClearCookie = name => {
  * @constructor tmsGetParameterByName
  * @param {string} name - key值.
  */
-export const tmsGetParameterByName = name => {
+export const tmsGetUrlParam = name => {
     const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.href);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 };
@@ -221,6 +198,120 @@ export const tmsGetSessionItem = name => {
 export const tmsRemoveSessionItem = name => {
     sessionStorage.removeItem(name);
 };
+
+/**
+ * 前端生成文件并下载
+ * @DateTime 2019-01-12T16:05:38+0800
+ * @version                           1.0
+ * @param    {[type]}                 fileName :文件名称
+ * @param    {[type]}                 content 内容
+ * @return   {[type]}                  生成一段 json文本的下载
+ */
+export const tmsCreateAndDownloadFile = (fileName, content) => {
+    const aTag = document.createElement('a');
+    const blob = new Blob([content]);
+    aTag.download = `${fileName}.json`;
+    aTag.href = URL.createObjectURL(blob);
+    aTag.click();
+    URL.revokeObjectURL(blob);
+};
+
+/**
+ * iOS，Safari移动端浏览器，input等表单focus后fixed元素错位问题
+ * @DateTime 2019-01-12T16:09:21+0800
+ * @version                           1.0
+ * @param    {[type]}                 /iPhone|iPod|iPad/i.test(navigator.userAgent) [description]
+ * @return   {[type]}                                                               [description]
+ */
+export const tmsElementDislocation = () => {
+    if (/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
+        $(document).on('focus', 'input, textarea', function() {
+            $('header').css('position', 'absolute');
+            $('footer').css('position', 'absolute');
+        });
+
+        $(document).on('blur', 'input, textarea', function() {
+            $('header').css('position', 'fixed');
+            $('footer').css('position', 'fixed');
+        });
+    }
+};
+
+/**
+ * 判断数据类型
+ * @param    {[any]}                 params [description]
+ * @return   {[boolean]}                     [返回值]
+ */
+export const tmsGetType = params => {
+    var typeArray = Object.prototype.toString.call(params).split(' ');
+    return typeArray[1].slice(0, -1);
+};
+/**
+ * 数组对象深度拷贝
+ * @Author   TaiMie
+ * @DateTime 2019-01-31T17:40:09+0800
+ * @version                           1.0
+ * @param    {[array | object]}                 params [接收参数]
+ * @return   {[array |object]}                        [返回参数]
+ */
+export const tmsDeepCopy = params => {
+    return JSON.parse(JSON.stringify(params));
+};
+
+/**
+ * 获取页面高度
+ * @Author   TaiMie
+ * @DateTime 2019-01-12T16:22:19+0800
+ * @version                           1.0
+ * @return   {[type]}                 [description]
+ */
+export const tmsGetPageHeight = () => {
+    var g = document,
+        a = g.body,
+        f = g.documentElement,
+        d = g.compatMode == 'BackCompat' ? a : g.documentElement;
+    return Math.max(f.scrollHeight, a.scrollHeight, d.clientHeight);
+};
+/**
+ * 获取页面可视宽度
+ * @Author   TaiMie
+ * @DateTime 2019-01-12T16:22:26+0800
+ * @version                           1.0
+ * @return   {[type]}                 [description]
+ */
+export const tmsGetPageViewWidth = () => {
+    var d = document,
+        a = d.compatMode == 'BackCompat' ? d.body : d.documentElement;
+    return a.clientWidth;
+};
+/**
+ * 获取页面宽度
+ * @Author   TaiMie
+ * @DateTime 2019-01-12T16:22:31+0800
+ * @version                           1.0
+ * @return   {[type]}                 [description]
+ */
+export const tmsGetPageWidth = () => {
+    var g = document,
+        a = g.body,
+        f = g.documentElement,
+        d = g.compatMode == 'BackCompat' ? a : g.documentElement;
+    return Math.max(f.scrollWidth, a.scrollWidth, d.clientWidth);
+};
+
+//从全局捕获错误
+// window.onerror = function (errMsg, scriptURI, lineNumber, columnNumber, errorObj) {
+//     setTimeout(function () {
+//         var rst = {
+//             "错误信息：": errMsg,
+//             "出错文件：": scriptURI,
+//             "出错行号：": lineNumber,
+//             "出错列号：": columnNumber,
+//             "错误详情：": errorObj
+//         };
+//         console.log(JSON.stringify(rst, null, 10));
+//     });
+// };
 
 /**
  * 数组 通过下标删除数据

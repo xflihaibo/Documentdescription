@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+window.onload = function() {
+// var obj = [ {a:1,b:2}, {a:3,b:4}, {a:5,b:6}];
+// var obj1 = {a:1,b:2};
+// const tmsGetType = val => {
+//     var typeArray = Object.prototype.toString.call(val).split(' ');
+//     return typeArray[1].slice(0, -1);
+// };
+
+// const tmsDeepCopy = params => {
+//     console.log(tmsGetType(params))
+//     if (tmsGetType(params)=='Array' ) {
+//         let newParams=  [...params];
+//         return  newParams
+//     } else {
+//         let newParams= {...params};
+//        return  newParams
+//     }
+//      //newParams;
+// };
+// let as=tmsDeepCopy(obj)
+// as[2].a=33;
+// console.log(as)
+// console.log(obj)
+
+// let asobj=tmsDeepCopy(obj1)
+// asobj.b=3;
+// console.log(asobj)
+// console.log(obj1)
+
+window.a=3;
+function f1(name){
+   
+    console.log(this)
+    console.log('on')
+}
+
+function f2(name){
+    console.log(name)
+    // return '12'
+}
+
+f1.call(f2,'hello world')
+
+
+
+
+// var arr = [1,2,3,4,5]
+// var [ ...arr2 ] = arr
+// let add=[...arr]
+// add.push(12)
+// console.log(add)
+// console.log(arr2)
+
+    //assign()
+    // 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回新目标对象。
+    // var obj = { a: 1 };
+    // var copy = Object.assign({}, obj);
+    // console.table(copy); // { a: 1 }
+    // console.info(obj==copy)
+    // obj.a=211
+    // console.table(obj)
+    // console.table(copy)
+    //，需要使用其他方法，因为 Object.assign()拷贝的是属性值。假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值
+    //
+     
+    // defineProperties 方法直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
+    // 
+    // 
+    // entries()方法返回一个给定对象自身可枚举属性的键值对数组，其排列与使用 for...in 循环遍历该对象时返回的顺序一致（区别在于 for-in 循环也枚举原型链中的属性）。
+    // const obj1 = { foo: 'bar', baz: 42 };
+    // console.table(Object.entries(obj1)); // [ ['foo', 'bar'], ['baz', 42] ]
+    // // array like object
+    // const obj = { 0: 'a', 1: 'b', 2: 'c' };
+    // console.table(Object.entries(obj)); // [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ]
+
+    // console.log(Object.entries('hello')); // [ ['0', 'f'], ['1', 'o'], ['2', 'o'] ]
+
+
+    // Object.freeze() 方法可以冻结一个对象，冻结指的是不能向这个对象添加新的属性，不能修改其已有属性的值，不能删除已有属性，以及不能修改该对象已有属性的可枚举性、可配置性、可写性。该方法返回被冻结的对象。
+    // const object1 = {
+    // property1: 42
+    // };
+    // const object2 = Object.freeze(object1);
+    // object2.property1 = 33; // Throws an error in strict mode
+    // console.log(object2.property1);// expected output: 42
+
+
+    // Object.fromEntries() 函数传入一个键值对的列表，并返回一个带有这些键值对的新对象。
+    // const arr = [ ['0', 'a'], ['1', 'b'], ['2', 'c'] ];
+    // const obj = Object.fromEntries(arr);
+    // console.log(obj); // { 0: "a", 1: "b", 2: "c" }
+    // Object.fromEntries 是 Object.entries() 的反转函数， 借用 array manipulation methods 可以转换对象
+
+
+    // function add({one, two}){
+    //     console.log(one)
+    //     console.log(two)
+    // }
+    // add({one:1,two:2})
+    
+    //@ babel / plugin-proposal-optional-chaining  
+//     let myObj={.
+//         firstProp:'hello react'
+//     }
+// const data = myObj?.firstProp;
+// console.log(data)
+
+}
+</script>

@@ -240,9 +240,36 @@ function selectionSort(arr) {
 ## call apply bind 的用法和区别
 
 -   函数.call(对象,arg1,arg2....)
+-
 -   函数.apply(对象，[arg1,arg2,...])
 -   var ss=函数.bind(对象,arg1,arg2,....)
 -   bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和 call()相同。
+
+```javascript
+function.prototype.call=function(context){
+    context=context?Object(context):window;
+    context.fn=this;
+    var args=[]
+    for(i=1;i<arguments.length;i++){
+    args.push('arguments['+i+']');
+}
+let r=eval('context.fn('+args+']')
+delete context.fn;
+return r;
+}
+
+
+function.prototype.apply=function(context,args){
+    context=context?Object(context):window;
+    context.fn=this;
+    if(!args){
+         return context.fn()
+    }
+    let r=context.fn(args)
+    delete context.fn;
+    return r;
+}
+```
 
 ## prototype **proto** constructor
 

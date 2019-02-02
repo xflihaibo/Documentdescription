@@ -92,9 +92,9 @@ module.exports = {
 
 ```code
 resolve: {
-	alias: {
-  		utils$: path.resolve(__dirname, 'src/utils') // 只会匹配 import 'utils'
-		},
+  alias: {
+      utils$: path.resolve(__dirname, 'src/utils') // 只会匹配 import 'utils'
+    },
    extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx', '.css'],
   modules: [
     path.resolve(__dirname, 'node_modules'), // 指定当前目录下的 node_modules 优先查找
@@ -141,20 +141,20 @@ moduel.exports.pitch=function(r1,r2,data){
 > ![webpack](webpackimg/04.png)
 
 ```bash
-	const pluginName = 'ConsoleLogOnBuildWebpackPlugin';
-	class ConsoleLogOnBuildWebpackPlugin {//
-			apply(compiler) {
-			// 在 compiler的hooks中注册⼀个⽅法，当执⾏到该阶段时会调⽤
-			compiler.hooks.run.tap(pluginName, compilation => { //运行时
-				console.log("The webpack build process is starting!!!");
-			});
-		}
-	}
+  const pluginName = 'ConsoleLogOnBuildWebpackPlugin';
+  class ConsoleLogOnBuildWebpackPlugin {//
+      apply(compiler) {
+      // 在 compiler的hooks中注册⼀个⽅法，当执⾏到该阶段时会调⽤
+      compiler.hooks.run.tap(pluginName, compilation => { //运行时
+        console.log("The webpack build process is starting!!!");
+      });
+    }
+  }
 
 
-	plugins: [
-		new ConsoleLogOnBuildWebpackPlugin()
-	]
+  plugins: [
+    new ConsoleLogOnBuildWebpackPlugin()
+  ]
 ```
 
 ##### 实现机制
@@ -172,6 +172,41 @@ webpack 利用了 tapable 这个库（https://github.com/webpack/tapable）来�
 ![webpack](webpackimg/05.png)
 ![webpack](webpackimg/06.png)
 ![webpack](webpackimg/07.png)
+
+### webpack 插件
+
+```javascript
+new UploadPlugin({
+  bucket: 'silenceli',
+  domain: 'qiniu.liahaoren.com',
+  accessKey: '233-vyciCZ',
+  secretKey: '12-'
+}),
+  class P {
+    apply(compiler) {
+      compiler.hooks.emit.tap('emit', () => {
+        console.error('hello  TMS');
+        console.log('hello  TMS');
+        console.log('hello  TMS');
+        console.error('hello  TMS');
+      });
+    }
+  };
+```
+
+### 主要的钩子函数
+
+(参考文档)[https://webpack.docschina.org/api/compiler/#%E4%BA%8B%E4%BB%B6%E9%92%A9%E5%AD%90]
+
+钩子作用参数类型
+after-plugins 设置完一组初始化插件之后 compiler sync
+after-resolvers 设置完 resolvers 之后 compiler sync
+run 在读取记录之前 compiler async
+compile 在创建新 compilation 之前 compilationParams sync
+compilation compilation 创建完成 compilation sync
+emit 在生成资源并输出到目录之前 compilationa sync
+after-emit 在生成资源并输出到目录之后 compilation async
+done 完成
 
 ##### webpack5 废除 happypack
 
@@ -196,18 +231,18 @@ webpack-bundle-analyzer：自动帮你计算出各个模块在你的项目中的
 > webpack4 受 Parcel 打包工具启发，尽可能的让开发者运行项目的成本变低。为了做到 0 配置，webpack4 不再强制需要 webpack.config.js 作为打包的入口配置文件了，它默认的入口为'./src/'和默认出口'./dist'，
 > webpack4 删除了 CommonsChunkPlugin 插件，它使用内置 API optimization.splitChunks 和 ** optimization.runtimeChunk **
 >
-> -   这意味着 webpack 会默认为你生成共享的代码块。其它插件变化如下:
->     NoEmitOnErrorsPlugin 废弃，使用 optimization.noEmitOnErrors 替代，在生产环境中默认开启该插件。
->     ModuleConcatenationPlugin 废弃，使用 optimization.concatenateModules 替代，在生产环境默认开启该插件。
->     NamedModulesPlugin 废弃，使用 optimization.namedModules 替代，在生产环境默认开启。
->     uglifyjs-webpack-plugin 升级到了 v1.0 版本, 默认开启缓存和并行功能。
+> - 这意味着 webpack 会默认为你生成共享的代码块。其它插件变化如下:
+>   NoEmitOnErrorsPlugin 废弃，使用 optimization.noEmitOnErrors 替代，在生产环境中默认开启该插件。
+>   ModuleConcatenationPlugin 废弃，使用 optimization.concatenateModules 替代，在生产环境默认开启该插件。
+>   NamedModulesPlugin 废弃，使用 optimization.namedModules 替代，在生产环境默认开启。
+>   uglifyjs-webpack-plugin 升级到了 v1.0 版本, 默认开启缓存和并行功能。
 
 #### Webpack5 展望
 
 > 已经有不少关于 webpack5 的计划正在进行中了，包括以下：
 >
-> -   对 WebAssembly 的支持更加稳定
-> -   支持开发者自定义模块类型
-> -   去除 ExtractTextWebpackPlugig 插件，支持开箱即用的 CSS 模块类型
-> -   支持 Html 模块类型
-> -   持久化缓存
+> - 对 WebAssembly 的支持更加稳定
+> - 支持开发者自定义模块类型
+> - 去除 ExtractTextWebpackPlugig 插件，支持开箱即用的 CSS 模块类型
+> - 支持 Html 模块类型
+> - 持久化缓存

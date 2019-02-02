@@ -304,6 +304,7 @@ Object.keys(object) ：返回一个数组，包含对象的可枚举的实例属
 > -   fulfilled :已经成功 reslove
 > -   rejected 已经失败 reject
 > -   promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
+> -   finally 在 promise 执行结束时，无论结果是 fulfilled 或者是 rejected，在执行 then()和 catch()后，都会执行 finally 指定的回调函数
 
 #### 原理
 
