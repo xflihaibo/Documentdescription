@@ -33,6 +33,8 @@ git reset --hard fdce8d 回到指定版本
 git reflog 查看提交历史log
 git commit –amend 覆盖上次提交的版本信息
 按 shift+Z+Z保存编辑并退出
+git stash 将该文件暂存本地
+git stash pop 
 git checkout --   取消本次修改在工作区内
 git reset HEAD 取消本次修改在暂存区
 git checkout dev 切换分支dev
