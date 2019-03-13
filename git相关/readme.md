@@ -53,6 +53,8 @@ git remote –v 查看仓库地址
 git remote remove qhht 删除远程库名
 git remote add qhht https://www.github.com/test.git 添加远程库名
 git merge qhht 合并分支
+git reset --hard 【merge前的版本号】
+git revert -m merge前的版本号  撤销合并当前merge
 git remote –v 查看项目
 git remote add home git@github.com:Silence520/homework02.git  添加项目别名
 $ ssh-keygen -t rsa -C 'xxx@qq.com' 配置密钥对 公钥在git上配置
