@@ -1,5 +1,19 @@
 ## HTMl 相关
 
+html 4 分为 松散 和严格模式
+html 5 是为适应移动端开发而生
+低版本浏览器(Ie) 兼容 html 语义化标签的方式
+
+1.  js 创建 document.createElement('nav') css {display:block}
+2.  插件 html5shiv.min.js
+3.  终极解决
+
+```code
+<!--[if let IE 8]>
+<script src='./ html5shiv.min.js'></script>
+<![endif]-->
+```
+
 #### 标准的 CSS 的盒子模型？与低版本 IE 的盒子模型有什么不同的
 
 > -   标准盒子模型：宽度=内容的宽度（content）+ border + padding + margin

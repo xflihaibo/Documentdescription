@@ -49,3 +49,47 @@ console.log(arr);
 > -   Regexp 命名捕获组：用来标识捕获组，使它们更容易查找并使正则表达式更容易理解。以前，捕获组是通过数字访问的。
 > -   模板文字的修订：为带标签的模板文字增加了语法的自由度。
 > -   一个预期的功能，即 Function.prototype.toString 的更新被删除，因为仍然有人担心它正在解决中。 toString()方法会返回一个表示函数源代码的字符串
+
+#### ES10
+
+> 数组降维，递归地将数组展平到指定的深度，默认为 1
+
+```code
+const array = [1, [2, [3]]];
+array.flat(); // → [1, 2, [3]]
+array.flat(Infinity); // → [1, 2, 3]
+[2, 3, 4].flatMap((x) => [x, x * 2]);
+// → [2, 4, 3, 6, 4, 8]
+const arr = ["Codedam", "is Awsome", "!"];
+const mapResult = arr.map(item => item.split(" "));
+console.log(mapResult); // [ [ 'Codedam' ], [ 'is', 'Awsome' ], [ '!' ] ]
+```
+
+> Object.fromEntries
+
+> 我们之前已经在函数原型中使用了 toString 方法，但是在 ES2019 中它已被修改并包含函数内的注释，请注意它在 Arrow Functions 上不起作用。
+
+```code
+function /* comment */ foo /* another comment */() {}
+// Before
+console.log(foo.toString()); // function foo(){}
+// Now ES2019
+console.log(foo.toString()); // function /* comment */ foo /* another comment */ (){}
+// Arrow Syntax
+const bar /* comment */ = /* another comment */ () => {};
+console.log(bar.toString()); // () => {}
+```
+
+> trimStart 和 trimEnd
+
+```code
+// Trim
+const name = "   Codedam ";
+console.log(name.trim()); // "Codedam"
+// Trim Start
+const description = "   Unlocks Secret Codes ";
+console.log(description.trimStart()); // "Unlocks Secret Codes "
+// Trim End
+const category = "  JavaScript ";
+console.log(category.trimEnd()); // "  JavaScript"
+```

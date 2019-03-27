@@ -246,3 +246,43 @@ webpack-bundle-analyzer：自动帮你计算出各个模块在你的项目中的
 > - 去除 ExtractTextWebpackPlugig 插件，支持开箱即用的 CSS 模块类型
 > - 支持 Html 模块类型
 > - 持久化缓存
+> -
+
+今天 V5 可以在开发模式中启用了一个新命名的块 id 算法，该算法提供块(以及文件名)可读的引用。 模块 ID 由其相对于上下文的路径确定。 块 ID 是由块的内容决定的，所以你不再需要使用 Magic Comments。
+
+V5 的版本中都带来些哪些改变呢？其实你只要在配置文件中加上这样一句
+
+```code
+module.exports = {
+    cache: {
+        type: "filesystem"
+    }
+}
+```
+
+minSize&maxSize 更好的方式表达
+
+```code
+module.exports = {
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    chunks: "all",
+                    name: "commons",
+                }
+            },
+            //最小的文件大小 超过之后将不予打包
+            minSize: {
+                javascript: 0,
+                style: 0,
+            },
+            //最大的文件 超过之后继续拆分
+            maxSize: {
+                javascript: 1, //故意写小的效果更明显
+                style: 3000,
+            }
+        }
+    }
+}
+```
