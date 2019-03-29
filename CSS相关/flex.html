@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+</head>
+<style>
+    .pox{
+     display:  flex;
+     background:  #ede;
+     width: 800px;
+     height: 400px;
+     justify-content: space-between;
+     align-items: center;
+     margin-left: 0px;
+     }  
+.pox div:not(:first-child){
+     margin-left: 10px;
+}
+    .pox div{
+       flex-grow: 1;
+    min-width: 200px;
+       width: 200px;
+       height: 100px;
+      
+       background: #fed;
+    }  
+
+
+
+#box{
+        display: flex;
+        flex-direction: row;
+         flex-wrap: wrap; 
+        background: #acb;
+        width: 800px;
+        height: 240px;
+        align-items: center;
+}
+.inner{
+    flex-grow: 1;
+        width: 110px;
+        min-width: 110px;
+        height: 100px;
+        background: #8a4182;
+        margin: 10px ;
+
+}
+</style>
+<body>
+
+<div class="pox">
+
+            <div></div>
+            <div></div>
+            <div></div>
+             <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            
+            
+         
+    </div>
+
+
+
+<div id="box">
+    <div class="inner"></div>
+    <div class="inner"></div>
+    <div class="inner"></div>
+    <div class="inner"></div>
+    <div class="inner"></div>
+<!--     <div class="inner"></div>
+ -->   
+ 
+</div>
+
+</body>
+</html>

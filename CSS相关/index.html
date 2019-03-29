@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello </title>
+</head>
+<style>
+    .active{background: #abc;}
+    .activebefore:before{
+        content: '';
+        width: 30px;
+        height: 48px;
+        position: absolute;
+        left: 0px;
+        background:#fff;
+    }
+  .activebefore:after{
+        content: '';
+        width: 24px;
+        height: 48px;
+        position: absolute;
+        left: 6px;
+        background: #abc;
+        border-radius:  24px 0 0 24px ; 
+    } 
+     .activeafter:before{
+        content: '';
+        width: 30px;
+        height: 48px;
+        position: absolute;
+        right: 0px;
+        background: #fff;
+    }
+    .activeafter:after{
+        content: '';
+        width: 24px;
+        height: 48px;
+        position: absolute;
+        right: 6px;
+        background: #abc;
+        border-radius: 0 24px 24px 0; 
+       
+    }
+     .tms-calender{width:1000px; font-size: 0px; position: relative}
+     .tms-calender ul{margin: 0px; padding: 0px;  }
+     .tms-calender li{width: 14.28571%;display: inline-block;height: 48px; padding-left: 6px;   box-sizing: border-box; overflow: hidden;   margin-top: 10px;
+        position: relative;
+     }
+    .tms-calender-day{
+            font-size: 16px;
+            width: 48px;
+            height: 48px;
+            line-height:48px;
+            display: inline-block;
+            text-align: center;
+            position: absolute;
+            z-index: 99;
+        }
+     .tms-calender-day_active{
+          background: red;
+          border-radius: 28px;
+     }
+    .tms-calender-icongroup{
+          position: absolute;
+          left: 53px;
+          width:90px;
+          height: 48px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+        .tms-calender-icongroup span{
+             display:block;
+             width: 28px; 
+             height: 24px;
+             font-size: 14px;
+             text-align: center;
+             line-height: 24px;
+          }
+</style>
+<body>
+    <div class="tms-calender">
+    <ul class="tms-calender-header">
+        <li><div class="tms-calender-day">日</div></li>
+        <li><div class="tms-calender-day">一</div></li>
+        <li><div class="tms-calender-day">二</div></li>
+        <li><div class="tms-calender-day">三</div></li>
+        <li><div class="tms-calender-day">四</div></li>
+        <li><div class="tms-calender-day">五</div></li>
+        <li><div class="tms-calender-day">六</div></li>
+    </ul>
+    <ul>
+        <li class="activebefore active">
+            <div class="tms-calender-day tms-calender-day_active">30</div>
+            <div class="tms-calender-icongroup ">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div>
+        </li>
+        <li class="active">
+            <div class="tms-calender-day  ">31</div>
+            <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+                <span>2</span>
+            </div>
+        </li>
+        <li class="active"><div class="tms-calender-day ">1</div></li>
+        <li class="active">
+            <div class="tms-calender-day ">2</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>3</span>
+                <span>2</span>
+            </div>
+        </li>
+        <li class="active">
+             <div class="tms-calender-day ">3</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div>
+        </li>
+        <li class="active">
+              <div class="tms-calender-day ">4</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div>
+        </li>
+        <li class="activeafter active">
+             <div class="tms-calender-day ">5</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div>
+        </li>
+        <li class="activebefore active"><div class="tms-calender-day ">6</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li class="active"><div class="tms-calender-day ">7</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li class="active"><div class="tms-calender-day ">8</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li class="activeafter active "><div class="tms-calender-day ">9</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li class="activebefore active"><div class="tms-calender-day ">10</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li class="active"><div class="tms-calender-day ">11</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li class=" activeafter active"><div class="tms-calender-day ">12</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li> 
+        <li ><div class="tms-calender-day ">13</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li><div class="tms-calender-day ">14</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li><div class="tms-calender-day ">15</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li><div class="tms-calender-day ">16</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li><div class="tms-calender-day ">17</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li><div class="tms-calender-day ">18</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+        <li><div class="tms-calender-day ">19</div>
+             <div class="tms-calender-icongroup">
+                <span>1</span>
+                <span>3</span>
+                <span>2</span>
+            </div></li>
+    </ul>
+</div>
+   
+</body>
+</html>
+<script>
+    window.onload=function(){
+    
+ 
+
+// //获取指定日期是周几
+const oneWeek=(year,month,day)=>{
+     var myDate=new Date();
+     myDate.setFullYear(year,month-1,day);
+    return myDate.getDay()     
+}
+
+const getYearMonth =()=>{
+ let date=new Date;
+ let year=date.getFullYear(); 
+ let month=date.getMonth()+1;
+}
+
+ 
+
+
+//获取指定日期是周几
+const eachDays=(arrMonth)=>{
+    let monthdays=[];
+    console.log(arrMonth)
+    arrMonth.map(item => {
+        for (let i = item.begin; i <= item.end; i++) {
+            monthdays.push(i)
+        }
+    })
+    return monthdays
+}
+
+
+const  getYMWeek =function (year,month){
+           let begin,end;
+           let arrMonth=[];
+           let date= new Date();
+           let week = date.getDay();  //  这天是周几
+           let todays = date.getDate(); 
+           let days= new Date(year, month, 0).getDate()
+           //计算月头
+            if(oneWeek(year,month,1)!==0){
+                    let prevYear=month===1?year-1:year;
+                    let prevMonth=month===1?12: month-1;
+                     let oldDays=new Date(prevYear,prevMonth, 0).getDate()
+                     begin= `${prevYear}-${prevMonth}-${oldDays-oneWeek(year,month,1)+1}`;
+                      arrMonth.push({
+                        begin:oldDays-oneWeek(year,month,1)+1,
+                        end: oldDays,
+                        month:prevMonth
+                    })
+           }else{
+              begin= `${year}-${month}-1`;
+           }
+            arrMonth.push({
+                    begin:1,
+                    end: days,
+                    month:month
+            })
+
+           // 计算月末
+           if(6-oneWeek(year,month,days)!==0){
+                let nextYear=month===12?year+1:year;
+                let nextMonth=month===12?1: month+1;
+                end= `${nextYear}-${nextMonth}-${6-oneWeek(year,month,days)}`;
+                arrMonth.push({
+                    begin:1,
+                    end: 6-oneWeek(year,month,days),
+                    month:nextMonth
+                })
+           }else{
+              end=  `${ year}-${ month}-${days}`;
+           }
+          let monthdays=   eachDays(arrMonth)
+          console.log(monthdays)
+           return{
+            begin,
+            end,
+            monthdays,
+            todays,
+            months:arrMonth
+           } 
+}
+
+  console.log(getYMWeek(2019, 11));
+    }
+</script>
