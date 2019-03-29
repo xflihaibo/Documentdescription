@@ -53,7 +53,7 @@
 
 -   ssh-keygen –t rsa –C ‘sddr’ -f ‘wenjanjaim’
     > -   -t 选择加密方式量不用中文
-    > -   -f 文件名
+    > -   -f t
     > -   rsa 加密方式
     > -   “happy” 什么标识 尽
     > -   ubuntu02_key.pub >> authorized_keys 把公钥写入 authorized_keys

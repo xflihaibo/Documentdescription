@@ -5,3 +5,7 @@ git remote -v
 
 配置公钥
 ssh-keygen -t rsa -C '1056497547@qq.com'
+
+touch ~/.ssh/config
+
+hello worls
