@@ -18,7 +18,7 @@ ab 是 apache 自带的压力测试工具。ab 非常实用，它不仅可以对
 
 ## 参数
 
--n 即 requests，用于指定压力测试总共的执行次数。
+-n 即 requests，用于指定压力测试总共的执行次数。git
 -c 即 concurrency，用于指定压力测试的并发数。
 -t 即 timelimit，等待响应的最大时间(单位：秒)。
 -b 即 windowsize，TCP 发送/接收的缓冲大小(单位：字节)。
