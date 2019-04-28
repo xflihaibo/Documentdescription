@@ -4,38 +4,103 @@
     <meta charset="UTF-8">
     <title>ok</title>
     <style type="text/css" media="screen">
-  /*   li{ line-height: 20px; width: 100px; }
-        .itemlist1:nth-child(4n-1){ background: #ccc; }
-        .itemlist1:nth-child(4n-1)+.itemlist{ background: #ccc; } */
-      /*   .itemlist1:nth-child(4n-2){ background: green; }
-        .itemlist1:nth-child(4n-2)+.itemlist{ background: green; } */
+  
+
+        /*     html {
+            --maxWidth:1284px;
+            scrollbar-color: linear-gradient(to bottom,#ff8a00,#da1b60);
+            scrollbar-width: 30px;
+            background: #100e17;
+            color: #fff;
+            overflow-x: hidden
+            }
+
+            html::-webkit-scrollbar {
+            width: 30px;
+            height: 30px
+            }
+
+            html::-webkit-scrollbar-thumb {
+            background: -webkit-gradient(linear,left top,left bottom,from(#ff8a00),to(#da1b60));
+            background: linear-gradient(to bottom,#ff8a00,#da1b60);
+            border-radius: 30px;
+            -webkit-box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25);
+            box-shadow: inset 2px 2px 2px rgba(255,255,255,.25),inset -2px -2px 2px rgba(0,0,0,.25)
+            }
+
+            html::-webkit-scrollbar-track {
+            background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17)
+            }
+             */
+            
+   .scrollbar {
+    margin-left: 22px;
+    float: left;
+    height: 300px;
+    width: 3000px;
+    background: #F5F5F5;
+    overflow: auto;
+    margin-bottom: 25px;
+}
+.force-overflow {
+    min-height: 450px;
+    max-width: 300px;
+}
 
 
-        
-        ul{
-            display: flex;
-            flex-wrap: wrap;
-            border: 1px solid #ccc;
-            width: 100%;
-            list-style: none;
-            /* margin-left: -12px; */
-            padding: 0px;
-        }
-        li{
+   
+* ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #F5F5F5;
+}
+/**  STYLE 11 */
+* ::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+}
 
-              flex: 0 0 20%;
-                /* width: 200px; */
-                /* min-width: 200px; */
-                /* max-width: 400px; */
-                /* flex-grow: 1; */
-            /* margin-left: 12px; */
-                border: 1px solid #ccc;
-                box-sizing: border-box;
+* ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(left, #fff, #e4e4e4);
+
+  border: 1px solid #aaa;
+}
+
+* ::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+* ::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(left, #22ADD4, #1E98BA);
+}
+
+
+    .ul{
+            height: 200px;
+            overflow: auto;
         }
     </style>
 </head>
 <body>
-    <ul>
+
+    <div class="scrollbar" id="style-3">
+  <div class="force-overflow"></div>
+</div>
+    <ul class="ul">
+        <li class="itemlist1">12</li>
+        <li class="itemlist">12</li>
+        <li class="itemlist1">12fggffg</li>
+        <li class="itemlist">12</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">12fgf</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">12</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">12</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">1fgfgf2</li>
         <li class="itemlist1">12</li>
         <li class="itemlist">12</li>
         <li class="itemlist1">12</li>
@@ -44,19 +109,43 @@
         <li class="itemlist">12</li>
         <li class="itemlist1">12</li>
         <li class="itemlist">12</li>
-        <li class="itemlist1">12</li>
+        <li class="itemlist">12</li>
+        <li class="itemlist">12</li>
+              <li class="itemlist1">122</li>
         <li class="itemlist">12</li>
         <li class="itemlist1">12</li>
         <li class="itemlist">12</li>
+        <li class="itemlist1">1fgfgf22</li>
+        <li class="itemlist">12</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">1fgfgfg2</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">1221rfdf</li>
+        <li class="itemlist">12</li>
+        <li class="itemlist">12</li>
+              <li class="itemlist1">12</li>
+        <li class="itemlist">12</li>
         <li class="itemlist1">12</li>
         <li class="itemlist">12</li>
         <li class="itemlist1">12</li>
+        <li class="itemlist">12dfd</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">12fdfd</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">12</li>
+        <li class="itemlist">12df</li>
+        <li class="itemlist">12</li>
+              <li class="itemlist1">12fdf</li>
         <li class="itemlist">12</li>
         <li class="itemlist1">12</li>
         <li class="itemlist">12</li>
         <li class="itemlist1">12</li>
+        <li class="itemlist">1fgfgf2</li>
+        <li class="itemlist1">12</li>
         <li class="itemlist">12</li>
-        <li class="itemlist">12</li>
+        <li class="itemlist1">12</li>
+        <li class="itemlist">1gfgfg2</li>
+        <li class="itemlist">1fgfg2</li>
         <li class="itemlist">12</li>
     </ul>
 

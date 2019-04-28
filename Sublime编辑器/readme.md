@@ -12,6 +12,7 @@
     "tab_size": 4, //tab 4个空格
     "theme": "Adaptive.sublime-theme",
     "translate_tabs_to_spaces": true //空格代替tab缩近
+    "dpi_scale": 1.0 //文件名称中文乱码问题
 }
 ```
 
@@ -78,7 +79,7 @@
 
 ### ChineseLocalizations
 
--   一种让 sublime 汉化的插件
+-   一种让 sublime 汉化的插件 出现乱码
 
 ### CSS3
 

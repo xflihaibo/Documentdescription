@@ -12,6 +12,7 @@ npm config set init.author.name "wangshijun"
 npm config set init.author.url "http://github.com/wangshijun"
 npm config set init.license "MIT"
 npm config set init.version "0.1.0"
+npm cache clean -f 清除缓存
 ```
 
 让多个 npm script 串行
@@ -98,6 +99,15 @@ npm adduser  用户登录
 npm publish 发布模块
 npm access 在发布的包上设置访问级别
 npm package.json的语法
+
+npm config set registry https://registry.npm.taobao.org //设置淘宝源
+npm update //更新
+npm config get cache //npm的缓存目录
+npm cache clean -f //npm清除缓存
+npm config get prefix //npm的全局node包
+npm config edit //编辑配置文件
+npm root -g  //npm安装目录
+npm config list //查看npm配置信息
 ```
 
 ## npm 上传自己的包

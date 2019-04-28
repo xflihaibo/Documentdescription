@@ -3,8 +3,8 @@
 ### 安装
 
 ```bash
-$ npm install jsdoc --save-dev
-$ npm install docdash  --save-dev
+$ npm install jsdoc --save-dev.  //下载依赖包
+$ npm install docdash  --save-dev //ui
 ```
 
 ### 新建 jsdoc.json

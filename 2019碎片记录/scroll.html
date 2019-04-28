@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .scrollbar {
+    margin-left: 22px;
+    float: left;
+    height: 300px;
+    width: 65px;
+    background: #F5F5F5;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+}
+
+.force-overflow {
+    min-height: 450px;
+}
+
+#wrapper {
+    text-align: center;
+    margin: auto;
+}
+
+#style-1::-webkit-scrollbar,
+#style-2::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar,
+#style-5::-webkit-scrollbar,
+#style-6::-webkit-scrollbar,
+#style-7::-webkit-scrollbar,
+#style-8::-webkit-scrollbar,
+#style-9::-webkit-scrollbar,
+#style-10::-webkit-scrollbar,
+#style-11::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+/**  STYLE 1 */
+#style-1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+/**  STYLE 2 */
+#style-2::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #D62929;
+}
+
+#style-2::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+/**  STYLE 3 */
+#style-3::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+
+/**  STYLE 4 */
+#style-4::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #555555;
+}
+
+/**  STYLE 5 */
+#style-5::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#style-5::-webkit-scrollbar-thumb {
+    background-color: #0ae;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%,
+                      color-stop(.5, rgba(255, 255, 255, .2)),
+                              color-stop(.5, transparent), to(transparent));
+}
+
+/**  STYLE 6 */
+#style-6::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#style-6::-webkit-scrollbar-thumb {
+    background-color: #F90; 
+    background-image: -webkit-linear-gradient(45deg,rgba(255, 255, 255, .2) 25%,
+                                              transparent 25%,
+                                              transparent 50%,
+                                              rgba(255, 255, 255, .2) 50%,
+                                              rgba(255, 255, 255, .2) 75%,
+                                              transparent 75%,
+                                              transparent)
+}
+
+/** STYLE 7 */
+#style-7::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+#style-7::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear,
+                                       left bottom,
+                                       left top,
+                                       color-stop(0.44, rgb(122,153,217)),
+                                       color-stop(0.72, rgb(73,125,189)),
+                                       color-stop(0.86, rgb(28,58,148)));
+}
+
+/**  STYLE 8 */
+#style-8::-webkit-scrollbar-track {
+    border: 1px solid black;
+    background-color: #F5F5F5;
+}
+
+#style-8::-webkit-scrollbar-thumb {
+    background-color: #000000;  
+}
+
+/**  STYLE 9 */
+#style-9::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#style-9::-webkit-scrollbar-thumb {
+    background-color: #F90; 
+    background-image: -webkit-linear-gradient(90deg, rgba(255, 255, 255, .2) 25%,
+                                              transparent 25%,
+                                              transparent 50%,
+                                              rgba(255, 255, 255, .2) 50%,
+                                              rgba(255, 255, 255, .2) 75%,
+                                              transparent 75%,
+                                              transparent)
+}
+
+/**  STYLE 10 */
+#style-10::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(left, #96A6BF, #63738C);
+  box-shadow: inset 0 0 1px 1px #5C6670;
+}
+
+#style-10::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: #eee;
+  box-shadow: 0 0 1px 1px #bbb, inset 0 0 7px rgba(0,0,0,0.3)
+}
+
+#style-10::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(left, #8391A6, #536175);
+}
+
+
+/**  STYLE 11 */
+#style-11::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+}
+
+#style-11::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(left, #fff, #e4e4e4);
+  border: 1px solid #aaa;
+}
+
+#style-11::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+#style-11::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(left, #22ADD4, #1E98BA);
+}
+    </style>
+</head>
+<body translate="no">
+
+  
+<h1>Customize the Browser's Scrollbar with CSS</h1>
+<div id="wrapper">
+  <div class="scrollbar" id="style-default">
+    <div class="force-overflow"></div>
+  </div>
+</div>
+
+
+<div class="scrollbar" id="style-1">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-2">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-3">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-4">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-5">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-6">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-7">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-8">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-9">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-10">
+  <div class="force-overflow"></div>
+</div>
+<div class="scrollbar" id="style-11">
+  <div class="force-overflow"></div>
+</div>
+
+</body>
+</html>

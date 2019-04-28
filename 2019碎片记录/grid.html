@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grid</title>
+</head>
+<style>
+    .grid1{
+        display: grid;
+        background: #ccc;
+        width: 300px;
+        height: 300px;
+        grid-template-columns:repeat(2 ,80px) 1fr;
+
+        grid-column-gap: 1px 1px 1px 1px;
+    }
+  .grid1 div{
+    font-size:  20px;
+    
+  }
+  .item4{
+     grid-row-start: 2;
+    grid-row-end: 4;
+    background: #c1c1c1
+  }
+.item8{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    background: #c1c1c1
+
+}
+
+
+
+.item-a {
+  grid-area: header;
+  background: #abcdef;
+}
+.item-b {
+  grid-area: main;
+    background: blue;
+
+}
+.item-c {
+  grid-area: sidebar;
+    background: green;
+}
+.item-d {
+  grid-area: footer;
+    background: red;
+}
+
+
+.container1 {
+       display: grid;
+        background: #ccc;
+        width: 300px;
+        height: 300px;
+    grid-column-gap: 15px;
+    grid-row-gap:20px;
+
+  grid-template-columns: repeat(3,auto);
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header header"
+    "main main . sidebar"
+    "footer footer footer footer";
+}
+
+
+
+</style>
+<body>
+    
+    <div class="grid1">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div class="item4">4</div>
+        <div>5</div>
+        <div>6</div>
+        <div class="item8">8</div>
+    </div>
+
+    <div class="container1">
+        <div class="item-a">1</div>
+        <div class="item-b">2</div>
+        <div>3</div>
+        <div class="item-c">4</div>
+        <div class="item-d">8</div>
+    </div>
+
+
+    
+</body>
+</html>
