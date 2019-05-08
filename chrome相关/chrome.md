@@ -13,6 +13,7 @@ console.log('%c 你%c 说%c 什么%c?', 'background: #000; color: #fff','color: 
 ###### 异步 console
 
 console.table(await navigator.getBattery())
+await navigator.storage.estimate() // 占用数 和 空闲数
 
 #### 通过'h'来隐藏
 
@@ -26,6 +27,7 @@ console.table(await navigator.getBattery())
 
 > 有一些 Chrome 调试工具的功能被深深的隐藏在特别的面板中，菜单中等等。并且有一些甚至隐藏在这些地方之下。这也是为什么 Command 菜单
 > 在 Chrome 的调试打开的情况下 按下 [ Ctrl]+[Shift]+[P] (or [⌘]+[Shift]+[P] on Mac)
+> $0 是对我们当前选中的 html 节点的引用。 $1 是对上一次我们选择的节点的引用，$2 是对在那之前选择的节点的引用，等等。一直到 $4
 
 #### 截屏，大小通吃
 
@@ -44,3 +46,15 @@ console.table(await navigator.getBattery())
 
 与其在你的源码的不同地方去添加 console.log / console.table / console.time 等等，不如你直接使用条件判断来将它们“连接”到 Source 面板中。它们不会停止，而是会一直执行，并且当你不再需要它们的时候，有一个地方(Breakpoints section)会完美列出它们。你可以点两下鼠标把所有的都移除，它们就像一堆忍者一样消失
 [断点调试](../img/chrome01.gif)
+
+### npm 包
+
+> 有时你只是想玩玩新出的 npm 包，现在不用再大费周章去建一个项目测试了，只需要在 Chrome 插件:Console Importer 的帮助之下，快速的在 console 中引入和测试一些 npm 库
+> 运行 $i('lodash') \_.VERSION
+
+> 只需按下 "眼睛" 符号，你就可以在那里定义任何 JavaScript 表达式。 它会不断更新，所以表达的结果将永远，存在 :-) document.querySelectorAll('h1').length
+
+### 请求
+
+> Request initiator 显示了调用堆栈信息 将鼠标悬停在显示的 initiator（例如 外部库）上，你将看到完整的调用堆栈，包括你的文件：
+> 重新发送 XHR 的请求 Replay XHR

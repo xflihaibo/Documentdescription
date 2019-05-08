@@ -18,7 +18,7 @@ DefinePlugin 用于创建一些在编译时可以配置的全局常量
 # plugin 相关
 
 > - uncss 剔除 不支持 react
-> - speed-measure-webpack-plugin 监控打包面板
+> - speed-measure-webpack-plugin 监控打包时间
 > - webpack-build-notifier 监听错误
 > - progress-bar-webpack-plugin webpackbar 打包进度条
 > - nyan-progress-webpack-plugin 魔性打包进度彩虹条
@@ -79,4 +79,5 @@ webpackConfig.plugins.push(
 
 > - html-withimg-loader : 解析 html 图片 loader
 > - webpack-parallel-uglify-plugin : 解析 打包 js 压缩
-> -
+> - fast-sass-loader 加快打包速度
+> - add-asset-html-webpack-plugin 静态文件插入

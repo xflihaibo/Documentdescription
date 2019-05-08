@@ -61,7 +61,8 @@ try_files $uri ? /index.html?$uri
 
 #### 压缩
 
-> -   gizp:on
+> -   gzip on;
+> -   gzip_static on;
 > -   gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
 > -   gzip_vary on;是否在 http header 中添加 Vary: Accept-Encoding，建议开启
 > -   gzip_comp_level: 5(建议) gzip 压缩比，1 压缩比最小处理速度最快，9 压缩比最大但处理最慢（传输快但比较消耗 cpu）
@@ -191,3 +192,14 @@ $server_port 请求到达服务器的端口号。
 $server_protocol 请求使用的协议，通常是HTTP/1.0或HTTP/1.1。
 $uri 请求中的当前URI(不带请求参数，参数位于$args)，不同于浏览器传递的$request_uri的值，它可以通过内部重定向，或者使用index指令进行修改。不包括协议和主机名，例如/foo/bar.html
 ```
+
+## 文件缓存配置
+
+open_file_cache 打开缓存的同时也指定了缓存最大数目，以及缓存的时间。我们可以设置一个相对高的最大时间，这样我们可以在它们不活动超过 20 秒后清除掉。
+open_file_cache_valid 在 open_file_cache 中指定检测正确信息的间隔时间。
+open_file_cache_min_uses 定义了 open_file_cache 中指令参数不活动时间期间里最小的文件数。
+open_file_cache_errors 指定了当搜索一个文件时是否缓存错误信息，也包括再次给配置中添加文件。我们也包括了服务器模块，这些是在不同文件中定义的。如果你的服务器模块不在这些位置，你就得修改这一行来指定正确的位置。
+
+## 问题
+
+nginx 访问时报 403 设置 user 有问题；

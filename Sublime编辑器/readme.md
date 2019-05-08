@@ -183,6 +183,18 @@
 }
 ```
 
+### Markdown Preview
+
+##### 配置快捷键
+
+通过  Preferences -> Key Bindings - User 打开 sublime 的快捷键配置文件，把下面内容复制到这个设置文件里保存。
+
+```shell
+{ "keys": ["alt+m"], "command": "markdown_preview", "args": {"target": "browser", "parser":"markdown"} }
+```
+
+配置完成后，按下 alt + m 即可直接在浏览器里预览 markdown 的写作效果。
+
 ### Terminal
 
 -   在编辑的文件目录打开 cmd：ctrl+shift+t
