@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="https://cdn.bootcss.com/seamless-immutable/7.1.4/seamless-immutable.production.min.js"></script>
+<script >
+    window.onload=function(){
+        let im=Immutable([1,2,3,4])
+        console.log(Immutable.isImmutable([1,2,3]))
+        console.log(Immutable.isImmutable(im))
+
+
+
+                const ThemeContext = React.createContext();
+                const ThemeProvider = ThemeContext.Provider;
+                const ThemeConsumer = ThemeContext.Consumer;
+
+
+                <ThemeProvider value={{mainColor: 'green', textColor: 'red'}} >
+                     <Page />
+                </ThemeProvider>
+
+
+
+                const Paragraph = (props, context) => {
+                        return (
+                            <ThemeConsumer>
+                                {
+                                    (theme) => (
+                                          <p style={{color: theme.textColor}}>
+                                            {props.children}
+                                          </p>
+                                      )
+                                }
+                            </ThemeConsumer>
+                        );
+                };
+
+
+
+
+
+    }
+</script>
+</html>
+

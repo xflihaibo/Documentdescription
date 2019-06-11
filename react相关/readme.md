@@ -170,6 +170,15 @@ import {Consumer} from '../context.js';
 > -   v4 import {Route,BrowserRouter, Switch} from 'react-router-dom
 > -   将所有<Router>替换为<BrowserRouter>. 只能有一个子节点
 
+### React v16.8
+
+> hooks 可以让你在不编写类的情况下使用 state 和 React 的其他功能。你还可以构建自己的 hooks，在组件之间共享可重用的有状态逻辑。
+
+1.useState 函数式更新。会保存其但是状态 2. usememo 记录优化 类似 pureComponent
+3.useReducer
+4.useContext 接收一个 context 对象（React.createContext 的返回值）并返回该 context 的当前值
+5.useLayoutEffect： useEffect 相同，但它会在所有的 DOM 变更之后同步调用 effect
+
 #### 小程序注意点
 
 > -   任何情况下的视图更新只能通过 setData()

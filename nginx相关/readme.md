@@ -62,7 +62,7 @@ try_files $uri ? /index.html?$uri
 #### 压缩
 
 > -   gzip on;
-> -   gzip_static on;
+> -   gzip_static on; //静态资源
 > -   gzip_types text/plain application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;
 > -   gzip_vary on;是否在 http header 中添加 Vary: Accept-Encoding，建议开启
 > -   gzip_comp_level: 5(建议) gzip 压缩比，1 压缩比最小处理速度最快，9 压缩比最大但处理最慢（传输快但比较消耗 cpu）
@@ -71,10 +71,12 @@ try_files $uri ? /index.html?$uri
 
 ## 动静分离
 
+```shell
 location ～ .\.(jpg|png|jpeg) $ {
 proxy_pass http://192.168.1.2.0:90
 proxy_set_header X_Forwarded_for $remote_addr; //设置头部 IP 地址
 }
+```
 
 ## 配置文件访问权限(防盗链)
 
@@ -89,6 +91,7 @@ proxy_set_header X_Forwarded_for $remote_addr; //设置头部 IP 地址
 ```
 
 -   valid_referers
+
     > -   none : 允许没有 http_refer 的请求访问资源；
     > -   blocked : 允许不是http://开头的，不带协议的请求访问资源；
     > -   119.28.190.215 : 只允许指定 ip 来的请求访问资源；
@@ -100,6 +103,26 @@ location ~ .*\.json$ {
         add_header Access-Control-Allow-Origin http://localhost:3000;
         add_header Access-Control-Allow-Methods GET,POST,PUT,DELETE,OPTIONS;
         root /data/json;
+    }
+```
+
+## 随机展示文件
+
+```code
+location /  {
+            root  /usr/share/nginx/html;
+            random_index  on;
+    }
+```
+
+## 文件修改
+
+```code
+location /  {
+            root  /usr/share/nginx/html;
+            index index.html index.htm;
+            sub_filter 'work' 'hello';
+            sub_filter_once :off;
     }
 ```
 
@@ -120,6 +143,31 @@ location ~ .*\.json$ {
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
+```
+
+### 过滤网络爬虫
+
+```code
+ location / {
+        if ($http_user_agent ~* "python|curl|java|wget|httpclient|okhttp") {
+            return 503;
+        }
+        # 正常处理
+        ...
+    }
+```
+
+### URL 重定向
+
+```code
+server {
+        listen        80;
+        server_name www.abc.com;
+        location / {
+            rewrite ^/ http://192.168.18.250;
+
+          }
+}
 ```
 
 ## 配置负载均衡
@@ -154,6 +202,134 @@ proxy_pass http://web_mgrsys;
 
 ssl on;
 ssl_certificate_key ../certs
+
+## if 指令的条件表达式
+
+-   检查变量为空或者值是否为 0,直接使用
+-   将变量与字符串做匹配,使用=或者 !=
+-   将变量与正则表达式做匹配
+    > -   大小写敏感,~或者!
+    > -   大小写不敏感,\*或者!
+-   检查文件是否存在,使用-f 或者 !-f
+-   检查目录是否存在,使用 d 或者 !d
+-   检查文件、目录、软链接是否存在,使用-e 或者!-e
+-   检查是否为可执行文件,使用 x 或者!-x
+
+## location 匹配规则
+
+常规
+= ：精确匹配
+^～：匹配后不再进行正则匹配
+然后使用最长的前缀字符串
+
+## 限制客户端的并发连接数
+
+ngx_http_limit_conn_module
+
+## 限制客户端的每秒处理请求数
+
+ngx_http_limit_req_module
+
+## 请求限制
+
+limit_req_zone
+
+##限制 IP 地址访问
+
+```shell
+location / {
+deny 192.168.1.1;
+}
+```
+
+## http 请求相关变量
+
+-   arg 参数名 ：URL 中某个具体参数的值
+-   query_string: 与 args 变量完全相同
+-   args : 全部 URL 参数
+-   is_args: 如果请求 URL 中有参数则返回?否则返回空
+-   content_length: http 请求中标识包体长度的 Content-Length 头部的值
+-   content tvpe: 示识请求包体类型的 Content-Type 头部的值
+-   uri:请求的 URI (不同于 URL,不包括?后的参数)
+-   document_uri: 与 uri 完全相同
+-   request_uri: 请求的 URL(包括 UR 以及完整的参数)
+-   scheme: 协议名,例如 HTTP 或者 Https
+-   request_method: 请求方法,例如 GET 或者 POST
+-   request_length: 所有请求内容的大小,包括请求行、头部、包体等
+-   remote_user: 由 Http Basic Authentication 协议传入的用户名
+-   request_body_file : 临时存放请求包体的文件 client_body_in_file_only 强制所有包体存入的文件，且可是否决定删除
+-   request_body : 临时存放请求包体的文件
+
+注
+
+-   先从请求行中获取
+-   如果含有 Host 头部,则用其值替换掉请求行中的主机名
+-   如果前两者都取不到,则使用匹配上的 server name
+
+## TCP 连接相关的变量
+
+-   binary_remote_addr: 客户端地址的整型格式,对于 IPv4 是 4 字节,对于 Iv6 是 16 字节
+-   connection: 递增的连接序号
+-   connection_requests: 当前连接上执行过的请求数,对 keepalive 连接有意义
+-   remote_addr: 客户端端口
+-   remote_port: 客户端端口
+-   proxy_protocol_addr: 若使用了 proxy protocol 协议则返回协议中的地址,否则返回空
+
+-   proxy_protocol_port: 若使用了 proxy protocol 协议则返回协议中的端口,否则返回空
+-   server_addr: 服务器端地址
+-   server_port: 服务器端端口
+-   TCP_INFO: tcp 内核层参数,包括 $tcpinfo_rtt, $tcpinfo_rttvar, $tcpinfo_snd_cwnd, $tcpinfo_rev_space
+-   server protocol: 服务器端协议,例如 HTTP/1.l
+
+## nginx 处理请求过程中产生的变量
+
+-   request_time: 请求处理到现在的耗时,单位为秒,精确到毫秒
+-   server_name: 匹配上请求的 server_name 值
+-   https: 如果开启了 TLS/SSL,则返回 on,否则返回空
+-   request_completion: 若请求处理完则返回 OK,否则返回空
+-   request_id: 以 16 进制输出的请求标识 id,该 id 共含有 16 个字节,是随机生成的
+-   request_filename: 待访问文件的完整路径
+-   document_root:由 UR 和 root/alias 规则生成的文件夹路径
+-   realpath_root: 将 document roc 中的软链接等换成真实路径
+-   limit_rate:返回客户端响应时的速度上限,单位为每秒字节数。可以通过 set 指令修改对请求产生效果
+
+## nginx 系统变量
+
+-   time_local: 以本地时间标准输出的当前时间,例如 14Nov2018:15:55:37+C
+-   time_iso8601: 使用 ISO8601 标准输出的当前时间,例如 2018-114T15:5:37
+-   nginx-version: Nginx 版本号
+-   pid: 所属 worker 进程的进程 id
+-   pipe: 使用了管道则返回 p,否则返回
+-   hostname: 所在服务器的主机名,与 hostname 命令输出一致
+-   hostname: 1970 年 1 月 1 日到现在的时间,单位为秒,小数点后精确到毫秒
+
+限制 proxy_next_upstream 的时间与次数
+用 error_page 拦截上游失败相应
+
+## 浏览器缓存与 nginx 缀存
+
+##### 浏览器缓存
+
+优点
+
+-   使用有效缓存时,没有网络消耗,速度最快
+-   即使有网络消耗,但对失效缓存使用 304 响应做到网络流量消耗最小化
+    缺点
+
+-   仅提升一个用户的体验
+
+##### nginx 缓存
+
+优点
+
+-   提升所有用户的体验
+-   相比浏览器缓存,有效降低上游服务的負载
+-   通过 304 响应减少 nginx 与上游服务间的流量消耗
+
+缺点
+
+-   用户仍然保持网络消耗
+-   同时使用浏览器与 nginx 缓存
 
 ## nginx 变量
 

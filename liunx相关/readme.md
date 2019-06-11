@@ -51,16 +51,22 @@
 
 ### 生成密钥对
 
--   ssh-keygen –t rsa –C ‘sddr’ -f ‘wenjanjaim’
-    > -   -t 选择加密方式量不用中文
-    > -   -f t
+-   ssh-keygen –t rsa –C ‘name’ -f 'wenjianming_key’
+    > -   -t 选择加密算法
+    > -   -C 名字
+    > -   -f 生成密钥名字
     > -   rsa 加密方式
-    > -   “happy” 什么标识 尽
-    > -   ubuntu02_key.pub >> authorized_keys 把公钥写入 authorized_keys
+    > -   wenjianming_key.pub >> authorized_keys //把公钥追加 authorized_keys
     > -   > 覆盖
     > -   > > 追加
     > -   Exit：退出
 -   ssh 登录：ssh -i pri-key root@192.168.50.134
+
+### 拷贝公钥
+
+```shell
+ssh-copy-id <ip地址>
+```
 
 ```bash
     known_hosts: 存放其他服务器生成的指纹

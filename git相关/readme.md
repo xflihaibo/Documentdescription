@@ -40,6 +40,9 @@ git log --pretty=oneline 查看log信息列表
 git log -p --online 行内变化
 git log --name-only 查看变化的文件
 git log --name-status 查看文件变化
+git blame style.less  查看文件的每行的变化信息
+git log --pretty=oneline  显示所有提交记录，每条记录只显示一行
+git whatchanged style.less  显示某个文件的每个版本提交信息：提交日期，提交人员，版本号，提交备注（没有修改细节）
 git commit --amend 修改上次提交描述 本次提交并存到上次
 git reset --hard fdce8d 回到指定版本
 git reset HEAD a.txt 撤销暂存文件

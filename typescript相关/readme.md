@@ -272,7 +272,7 @@ console.log(clock.currenttime);
     外部枚举： deClare enum 已经枚举信息再次进行赋值操作
 
 ```code
-const enum familyAge {
+enum familyAge {
     father,
     mother,
     son ,
@@ -287,5 +287,5 @@ const enum familyAge {
     nameleng = 'lhb'.length
 }
 console.log(familyAge[familyAge.mother]);
-con sole.log(familyAge.father);-->
+console.log(familyAge.father);-->
 ```
