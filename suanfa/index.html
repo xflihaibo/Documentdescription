@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+
+    <body></body>
+    <script>
+        window.onload = function() {
+            var isValid = function(s) {
+               
+                if (s.length & 1) return false;
+                let stack = [];
+
+                for (let char of s) {
+           
+                    let i = '({[]})'.indexOf(char);
+                    console.log(i)
+                    if (i > -1) {
+                        console.log(stack,stack[stack.length - 1] )
+                        if (i + stack[stack.length - 1] === 5) {
+                            stack.length--;
+                        } else {
+                            stack.push(i);
+                        }
+                    }
+                }
+                return stack.length === 0;
+            };
+            console.log(isValid('[()]'));
+
+            //            var longestCommonPrefix = function(strs) {
+            //               if(strs.length<1){
+            //                   return ''
+            //               }
+            //                if(strs.length==1){
+            //                   return strs[0]
+            //               }
+            //               let res=''
+            //               const arrp=strs[0].split('');
+            //               let num=new Array(arrp.length).fill(1)
+            //               for(let i=1;i<strs.length; i++){
+            //                  strs[i].split('').map((item,index)=>{
+            //                   if(item=== arrp[index]){
+            //                       num[index]=num[index]+1;
+            //                   }
+            //                  })
+            //               }
+
+            //               num.map((nums,index)=>{
+            //                   if(nums==strs.length){
+            //                       res+=arrp[index]
+            //                   }
+            //               })
+            //               return res;
+
+            //           };
+            // console.log(  longestCommonPrefix(["flower","flow","flight"]))
+            // console.log( longestCommonPrefix(["dog","racecar","car"]))
+            // MCMXCIV
+
+            // 1000 100 1000 10 100 1 5
+
+            // 5 1 100 10 1000 100 1000
+            // 104 94 1094 994 19994
+
+            // 1000 100 500 50 10 10 5 1
+
+            // 1 5 10 10 50 500 100 1000
+
+            // 1476
+            // "MCDLXXVI"
+            // 1676
+            //     var twoSum = function(nums, target) {
+            //         for (var i = 0; i < nums.length; i++) {
+            //             for (var y = i+1; y < nums.length; y++) {
+            //                 if (parseInt(nums[i]) + parseInt(nums[y]) === target) {
+            //                     return [i, y]
+            //                 }
+            //             }
+            //         }
+            //     };
+
+            // let resArr=twoSum([3,2,4],6)
+            // console.log(resArr)
+            // console.log(twoSum([2, 7, 11, 15],9))
+
+            // var reverse = function(x) {
+
+            //     if (typeof x !== 'number') {
+            //         return false
+            //     }
+            //     if(x>=0){
+            //              return String(x).split("").reverse().join("") == x;
+            //     }else {
+            //         return false
+            //     }
+            // }
+            // let arrNum = String(Math.abs(x)).split(''),
+            //      newNum = '';
+            //     for (var i = arrNum.length - 1; i>=0; i--) {
+            //         if (!(i == arrNum - 1 && arrNum[i] === 0)) {
+            //             newNum = newNum + arrNum[i];
+            //         }
+            //     }
+            //     return  x > 0 ? parseInt(newNum) : parseInt(-newNum)
+            // };
+
+            // console.log(reverse(0))
+            //
+            //
+            //
+            //             I             1
+            // V             5
+            // X             10
+            // L             50
+            // C             100
+            // D             500
+            // M             1000
+        };
+    </script>
+</html>

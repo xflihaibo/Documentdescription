@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id='display'></p>
+    <button id="btn">ok</button>
+      <button onclick="add()">555</button>
+</body>
+<script src="https://cdn.bootcss.com/lodash.js/4.17.12-pre/lodash.js"></script>
+<script>
+
+/** _.throttle(add, 1000)
+ * 创建并返回一个像节流阀一样的函数，当重复调用函数的时候，最多每隔delay毫秒调用一次该函数
+ * @param fn 执行函数
+ * @param delay 时间间隔
+ * @returns {Function}
+ */
+// function throttle(fn, delay) {
+//   var timer = null;
+//   var timeStamp = new Date();
+//   return function() {
+//     var context = this;  //获取函数所在作用域this
+//     var args = arguments;  //取得传入参数
+//     if(new Date()-timeStamp>delay){
+//         timeStamp = new Date();
+//         timer = setTimeout(function(){
+//         fn.apply(context,args);
+//       },delay);
+//     }
+
+//   }
+// }
+// 
+// 
+function add() {
+    _.throttle(reduce,1000)
+    // debounce(reduce, 1000)
+    // reduce();
+    console.log('add')
+}
+
+function reduce() {
+    console.log('reduce')
+}
+
+/* 方法执行 */
+var btn = document.getElementById('btn');
+var el = document.getElementById('display');
+var init = 0;
+btn.addEventListener('click', _.throttle(function() {
+  init++;
+  el.innerText = init;
+}, 1000));
+
+
+//     function debounce (fn, delay) {
+//     let timer   = null;
+//     return function () {
+//     let args = arguments;
+//     let context = this;
+
+//         if (timer) {
+//             clearTimeout(timer);
+
+//             timer = setTimeout(function () {
+//                 fn.apply(context, args);
+//             }, delay);
+//         } else {
+//             timer = setTimeout(function () {
+//                 fn.apply(context, args);
+//             }, delay);
+//         }
+//     }
+// }
+
+// function throttle(fn, delay) {
+
+//     let timer = null,
+//         remaining = 0,
+//         previous = new Date();
+//     return function() {
+//         let now = new Date(),
+//             remaining = now - previous,
+//             args = arguments,
+//             context = this;
+//         if (remaining >= delay) {
+//             if (timer) {
+//                 clearTimeout(timer);
+//             }
+//             fn.apply(context, args);
+//             previous = now;
+//         } else {
+//             if (!timer) {
+//                 timer = setTimeout(function() {
+//                     console.log('12123')
+//                     fn.apply(context, args);
+//                     previous = new Date();
+//                 }, delay - remaining);
+//             }
+//         }
+//     };
+// }
+
+
+正则
+// /^(?:function)?\s*[^\(]*\(\s*([^\)]*)\)/m;
+
+
+</script>
+
+</html>

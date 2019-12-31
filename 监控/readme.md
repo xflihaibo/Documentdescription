@@ -8,15 +8,15 @@
 Resource timing Preformance API
 preformance.timing
 
--   上个页面的到这个页面的时长 fetchStartfet-navigationStart
--   重定向时常 ： redirectEnd-redirectStart
--   DNS 查询耗时 ：domainLookupEnd - domainLookupStart
--   TCP 链接耗时 ：connectEnd - connectStart
--   request 请求耗时 ：responseEnd - responseStart
--   解析 dom 树耗时 ： domComplete - domInteractive
--   白屏时间 ：responseStart - navigationStart
--   domready 时间(用户可操作时间节点) ：domContentLoadedEventEnd - navigationStart
--   onload 时间(总下载时间) ：loadEventEnd - navigationStart
+- 上个页面的到这个页面的时长 fetchStartfet-navigationStart
+- 重定向时常 ： redirectEnd-redirectStart
+- DNS 查询耗时 ：domainLookupEnd - domainLookupStart
+- TCP 链接耗时 ：connectEnd - connectStart
+- request 请求耗时 ：responseEnd - responseStart
+- 解析 dom 树耗时 ： domComplete - domInteractive
+- 白屏时间 ：responseStart - navigationStart
+- domready 时间(用户可操作时间节点) ：domContentLoadedEventEnd - navigationStart
+- onload 时间(总下载时间) ：loadEventEnd - navigationStart
 
 sentry
 
@@ -117,3 +117,8 @@ export default {
 new Image().src = 'http://www.baidu.com?sa=we';
 navigator.sendBeacon('a.php'); //埋点
 ```
+
+## 常见的监控软件
+
+https://www.fundebug.com/
+https://sentry.io/welcome/

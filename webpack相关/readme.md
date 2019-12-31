@@ -6,6 +6,12 @@
 > happypack:多核打包，加快 打包速度  
 > 原理 nodejs 多线程模块 cluster
 
+#### hash、chunkhash 和 contenthash 三者的区别
+
+1.  hash:所有文件的 hash 都是一样的，而且每次修改任何一个文件，所有文件名的 hash 至都将改变。所以一旦修改了任何一个文件，整个项目的文件缓存都将失效。
+2.  chunkhash;根据不同的入口文件(Entry)进行依赖文件解析、构建对应的 chunk，生成对应的哈希值。在生产环境里把一些公共库和程序入口文件区分开，单独打包构建，接着我们采用 chunkhash 的方式生成哈希值，那么只要我们不改动公共库的代码，就可以保证其哈希值不会受影响
+3.  contenthash: 表示由文件内容产生的 hash 值，内容不同产生的 contenthash 值也不一样。在项目中，通常做法是把项目中 css 都抽离出对应的 css 文件来加以引用,所以 css 文件最好使用 contenthash
+
 #### loader
 
 webpack 的规则提供了多种配置形式
@@ -24,6 +30,22 @@ webpack 的规则提供了多种配置形式
 3.  函数：(path) => boolean，返回 true 表示匹配
 4.  数组：至少包含一个条件的数组
 5.  对象：匹配所有属性值的条件
+
+### 手写 loader
+
+```javascript
+module.exports = function(code) {
+  //同步
+  this.callback(null, code /*source-map*/);
+  //异步
+  var callback = this.callback;
+  someAsyncOperation(code, function(err, res) {
+    if (!err) {
+      callback(null, res);
+    }
+  });
+};
+```
 
 ###### module type
 
@@ -286,3 +308,7 @@ module.exports = {
     }
 }
 ```
+
+打包过大
+--max_old_space_size=4096 ./node_modules/.bin/webpack
+fix-memory-limit

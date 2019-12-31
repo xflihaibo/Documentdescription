@@ -79,8 +79,12 @@
 ### 上线阶段
 
 -   持续集成平台：Travis ci, jenkins
+-   测试任务记录平台： jira temb
+-   私有云服务搭建： npm
+-   文档工作平台：Confluence
 -   微服务 docker 容器技术
 -   部署工具：rsync,shell.js,yargs
+-   错误监控: fundubger
 -   网站监测:pm2 塞满线程,进程守护
 -   nginx: 负载均衡，反向代理，开启 gzip 压缩, etag，expire 缓存，
 -   liunx: ssh 免密登陆,配置 node 服务

@@ -234,6 +234,10 @@ ngx_http_limit_req_module
 
 limit_req_zone
 
+## cpu 核数
+
+worker_cpu_affinity
+
 ##限制 IP 地址访问
 
 ```shell

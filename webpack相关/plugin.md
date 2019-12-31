@@ -81,3 +81,17 @@ webpackConfig.plugins.push(
 > - webpack-parallel-uglify-plugin : 解析 打包 js 压缩
 > - fast-sass-loader 加快打包速度
 > - add-asset-html-webpack-plugin 静态文件插入
+> - cache-loader :编译缓存
+> - browserslist :编译配置浏览器版本
+
+```javascript
+"browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+```
+
+> - webpack-obfuscator:加密插件
+
+<!-- webpack-bundle-analyser -->

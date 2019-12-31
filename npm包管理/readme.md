@@ -50,6 +50,58 @@ npm-run-all 还支持通配符匹配分组的 npm script
 "test": "npm-run-all --parallel lint:* mocha"
 ```
 
+#### npm scripts 的生命周期管理
+
+prepublish：在模块被发布前，其实在你安装本地包也会触发
+publish, postpublish：在发布后执行
+preinstall：模块被安装前执行
+install, postinstall：模块安装后
+preuninstall, uninstall：模块被卸载前执行
+postuninstall：模块卸载后执行
+preversion, version：获取版本号前执行
+ostversion：获取版本号之后执行
+pretest, test, posttest：执行 test 脚本时会执行
+prestop, stop, poststop：在脚本结束时执行
+prestart, start, poststart：调用 start 时执行
+prerestart, restart, postrestart：在执行 restart 时会调用
+restart 脚本比较特殊，如果你设置了 restart 脚本则只会执行：prerestart, restart, postrestart，但是如果你没有设置 restart，则会执行 stop，start 脚本。
+
+```javascript
+"scripts": {
+    "pretest" : "echo \" this is pre test \"",
+    "test" : "echo \" this is test \"",
+    "posttest" : "echo \" this is post test \"",
+​
+    "prerestart" : "echo \" this is pre restart \"",
+    "restart" : "echo \" this is restart \"",
+    "postrestart" : "echo \" this is post restart \"",
+
+    "prestop" : "echo \" this is pre stop \"",
+    "stop" : "echo \" this is stop \"",
+    "poststop" : "echo \" this is post stop \"",
+​
+    "prestart" : "echo \" this is pre start \"",
+    "start" : "echo \" this is start \"",
+    "poststart" : "echo \" this is post start \"",
+​
+    "preinstall" : "echo \" this is pre install \"",
+    "install" : "echo \" this is install \"",
+    "postinstall" : "echo \" this is post install \"",
+​
+    "prepublish" : "echo \" this is pre install \"",
+    "publish" : "echo \" this is publish \"",
+    "postpublish" : "echo \" this is post install \"",
+​
+    "preuninstall" : "echo \" this is pre uninstall \"",
+    "uninstall" : "echo \" this is uninstall \"",
+    "postuninstall" : "echo \" this is post uninstall \"",
+
+    "prebuild" : "echo \" this is pre build \"",
+    "build" : "echo \" this is build \"",
+    "postbuild" : "echo \" this is post build \""
+  },
+```
+
 ##### npm script 运行时日志
 
 ##### 显示尽可能少的有用信息
@@ -271,3 +323,17 @@ npx create-react-app my-app
 　　范例 2： 显示软件安装信息
 　　[root@hnlinux lx1 3 8.c o m]# rpm -qi dejagnu-1.4.2-10.noarch.rpm
 ```
+
+onchange: 监听指定的目录，在源文件有更改的时候，
+
+```code
+"scripts": {
+"watch": "onchange \"src/**/\*.js\" \"src/**/\*.less\" -- npm run dev"
+}
+```
+
+另外敏捷开发过程中，代码复查是至关重要的一环，团队需要使用工具辅助代码分析。经比较和实践后，使用工具：
+jsinspect： jsinspect 检测前端代码库中的重复/近似代码
+jsinspect 工具支持 js 和 jsx 格式的文件，基于抽象语法树，可以检测出结构类似的代码块
+jscpd：一个工具用于检测复制/粘贴“设计模式”在编程源代码
+jscpd 工具支持文件格式广泛，如 java、oc、js、jsx、vue、ts、less 等。其重复率判定依据为一定长度标识符的 MD5 值是否相同

@@ -134,6 +134,16 @@ yum install git
 ```javascript
 wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
 rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+
+wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum install -y jenkins
+
+wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+yum install -y jenkins
+
 ```
 
 ```javascript
@@ -148,7 +158,7 @@ Jenkins 修改权限
 vim / etc / sysconfig / jenkins;
 ```
 
-找到$JENKINS_USER 改为 “root”:
+找到\$JENKINS_USER 改为 “root”:
 ![](https://user-gold-cdn.xitu.io/2018/6/30/1644f3350cc48faa?w=966&h=275&f=png&s=21929)
 然后更改执行以下命令 Jenkins home，webroot 和日志的所有权：
 
@@ -238,3 +248,7 @@ Git Parameter 插件
 ### 角色和用户管理
 
 Role-based Authorization Strategy 插件
+
+Overall(全局) Credentials(凭证) Slave(节点) Job(任务) View(视图)
+Administer Read RunScripts UploadPlugins ConfigureUpdateCenter Create Update View Delete ManageDomains Configure Delete Create Disconnect Connect Build Create Delete Configure Read Discover Build Workspace Cancel Create Delete Configure Read
+管理员(最大) 阅读 运行脚本 升级插件 配置升级中心 创建 更新 查看 删除 管理域 配置 删除 创建 断开连接 连接 构建 创建 删除 配置 阅读 重定向 构建 查看工作区 取消构建 创建 删除 配置 阅读

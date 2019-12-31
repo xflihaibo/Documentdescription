@@ -28,3 +28,12 @@ var/log/cron 日志列表
 //etc/crontab
 PATH =/sbin:/bin:/usr/sbin:/usr/bin    //环境变量
 ```
+
+## 例如
+
+```shell
+* * * * * echo 'hello world' > $1  //每分钟
+*/2 * * * * echo 'hello world' > $1 //每两分钟
+* 7,8,9 * * * echo 'hello world' > $1  //7、8、9点执行
+* 7-9 * * * echo 'hello world' > $1  //7、8、9点执行
+```

@@ -13,6 +13,14 @@ nodemon :热启动
 uuid： 随机生成ID
 mothod： 请求方式
 path-to-RegEXP： 路径正则
+later: 定时任务老版本
+node-schedule: 定时任务  CronTab类似语法
+kue：消息队列
+ora： loading
+inquirer ： 终端输入
+lolcatjs： 终端图形化
+@darkobits/lolcatjs：终端图形化
+figlet： 图形化字符
 ```
 
 <!-- 在对象定义后通过Object的__defineGetter__、__defineSetter__方法来追加定义   -->

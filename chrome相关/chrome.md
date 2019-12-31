@@ -1,5 +1,17 @@
 # chrome 相关
 
+### 快捷键
+
+##### 打开最近关闭状态
+
+mac: Cmd+Opt+I
+windows: Ctrl+Shift+I
+
+##### 快速查看 Dom 或样式
+
+mac: Cmd+Opt+C
+windows: Ctrl+Shift+C
+
 ##### console.table
 
 console.warn("凡人你居然敢窥视我"); //警告
@@ -7,6 +19,11 @@ console.error("天兵天将，把这个凡人给我打入地狱");//错误
 console.clear()//清理控制台
 console.time("神机妙算"); console.timeEnd("神机妙算"); //性能测试
 console.log('%c 你%c 说%c 什么%c?', 'background: #000; color: #fff','color: blue','color: red; border-bottom: 1px solid red','background: blue; color: #fff; border-radius: 50%;');
+
+//赋值给 window
+window.log=console.log
+log('123')
+window.log=()=>{}
 
 > 这一个小技巧在  开发者中并没有多少人知道.如果你有一个数组(或者是类数组的对象，或者就是一个对象)，你可以使用 console.table 方法将它以一个漂亮的表格的形式打印出来
 

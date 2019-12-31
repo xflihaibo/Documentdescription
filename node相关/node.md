@@ -11,8 +11,8 @@ fs.appendFile //追加文件
 fs.mkdirSync('a') // 同步创建文件 要求父目录必须存在
 fs.readdir(path[, options], callback) //读取目录下所有的文件
 fs.stat(path, callback）//查看文件目录信息
-    stat.isDirectory() //判断是否是文件夹
-    stat.isFile() //判断是否是文件
+stat.isDirectory() //判断是否是文件夹
+stat.isFile() //判断是否是文件
 fs.rename(oldPath, newPath, callback) // 移动文件或目录
 fs.unlink(path, callback)// 删除文件
 fs.unlinkSync(path, callback)// 删除文件  同步

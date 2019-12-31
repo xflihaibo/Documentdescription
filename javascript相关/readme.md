@@ -240,7 +240,6 @@ function selectionSort(arr) {
 ## call apply bind 的用法和区别
 
 -   函数.call(对象,arg1,arg2....)
--
 -   函数.apply(对象，[arg1,arg2,...])
 -   var ss=函数.bind(对象,arg1,arg2,....)
 -   bind() 方法和前两者不同在于： bind() 方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数。他的参数和 call()相同。
@@ -365,7 +364,8 @@ console.log('%cI am a button', 'color: white; background-color: green; padding: 
 > -   fulfilled :已经成功 reslove
 > -   rejected 已经失败 reject
 > -   promise 有一个 then 方法， then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数,第三个函数用于处理进度信息（对进度回调的支持是可选的）。
-> -   Promise.all 表示全部成功才成功 有任意一个失败 都会失败(同时执行队列)
+> -   Promise.all 表示全部成功才成功 有任意一个失败 都会失败(同时执行队列),可以将多个 Promise 实例包装成一个新的 Promise 实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被 reject 失败状态的值
+> -   Promse.race 就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。
 
 #### 原理
 
@@ -450,6 +450,7 @@ setTimeout(function() {
 -   2.被遗忘的计时器或回调
 -   3.超出 DOM 引用
 -   4.闭包
+-   5.递归
 
 #### 内存泄漏检测
 
@@ -741,7 +742,7 @@ base64、md5、 sha1
 
 #### 常见的攻击
 
-> Web 前端的黑客攻防技术是一门非常新颖且有趣的黑 客技术，主要包含 Web 前端安全的跨站脚本(XSS)、 跨站请求伪造(CSRF)、界面操作劫持、WebShell 这 几大类，涉及的知识点涵盖信任与非信任关系、Cookie 安全、Flash 安全、DOM 渲染、字符集、跨域、原生态 攻击、高级钓鱼、蠕虫思想
+> Web 前端的黑客攻防技术是一门非常新颖且有趣的黑客技术，主要包含 Web 前端安全的跨站脚本(XSS)、 跨站请求伪造(CSRF)、界面操作劫持、WebShell 这 几大类，涉及的知识点涵盖信任与非信任关系、Cookie 安全、Flash 安全、DOM 渲染、字符集、跨域、原生态 攻击、高级钓鱼、蠕虫思想
 
 #### CSRF 跨站请求
 

@@ -1,28 +1,34 @@
 # Jest
 
-jest是 Facebook 的一套开源的 JavaScript 测试框架， 它自动集成了断言、JSDom、覆盖率报告等开发者所需要的所有测试工具，是一款几乎零配置的测试框架。并且它对同样是 Facebook 的开源前端框架 React 的测试十分友好。
+jest 是 Facebook 的一套开源的 JavaScript 测试框架， 它自动集成了断言、JSDom、覆盖率报告等开发者所需要的所有测试工具，是一款几乎零配置的测试框架。并且它对同样是 Facebook 的开源前端框架 React 的测试十分友好。
 
 [官方文档](https://jestjs.io/zh-Hans/)
 
 单元测试特指被测试对象为程序中最小组成单元的测试。这里的最小组成单元可以是一个函数、一个类等等。
-## 安装Jest
 
-####2.1 初始化package.json
-> 在commad中输入以下命令，初始化前端项目并生成package.json：
+## 安装 Jest
+
+####2.1 初始化 package.json
+
+> 在 commad 中输入以下命令，初始化前端项目并生成 package.json：
+
 ```code
 npm init -y
 ```
-#### 2.2 安装Jest及相关依赖
->在commad中中输入以下命令，安装测试所需要的依赖：
+
+#### 2.2 安装 Jest 及相关依赖
+
+> 在 commad 中中输入以下命令，安装测试所需要的依赖：
 
 ```code
 cnpm  install  jest babel-jest @babel/core babel-core@^7.0.0-bridge.0  @babel/preset-env --save-dev
 ```
-> babel-jest、@babel/core、 @babel/preset-env、这几个依赖是为了让我们可以使用ES6的语法特性进行单元测试，ES6提供的 import 来导入模块的方式，Jest本身是不支持的。
 
-#### 2.3 添加.babelrc文件
+> babel-jest、@babel/core、 @babel/preset-env、这几个依赖是为了让我们可以使用 ES6 的语法特性进行单元测试，ES6 提供的 import 来导入模块的方式，Jest 本身是不支持的。
 
-> 在项目的根目录下添加.babelrc文件，并在文件复制如下内容:
+#### 2.3 添加.babelrc 文件
+
+> 在项目的根目录下添加.babelrc 文件，并在文件复制如下内容:
 
 ```code
 {
@@ -34,23 +40,26 @@ cnpm  install  jest babel-jest @babel/core babel-core@^7.0.0-bridge.0  @babel/pr
   }
 }
 ```
-#### 2.4 修改package.json中的test脚本
 
->打开package.json文件，将script下的test的值修改为jest：
+#### 2.4 修改 package.json 中的 test 脚本
+
+> 打开 package.json 文件，将 script 下的 test 的值修改为 jest：
 
 ```code
 "scripts": {
   "test": "jest"
 }
 ```
-#### 3. 编写你的第一个Jest测试
->创建src和test目录及相关文件
 
->在项目根目录下创建src目录，并在src目录下添加index.js文件
->在项目根目录下创建test目录，并在test目录下创建index.test.js文件
->Jest会自动找到项目中所有使用.spec.js或.test.js文件命名的测试文件并执行，通常我们在编写测试文件时遵循的命名规范：测试文件的文件名 = 被测试模块名 + .test.js，例如被测试模块为index.js，那么对应的测试文件命名为index.test.js。
+#### 3. 编写你的第一个 Jest 测试
 
->在src/index.js中创建被测试的模块
+> 创建 src 和 test 目录及相关文件
+
+> 在项目根目录下创建 src 目录，并在 src 目录下添加 index.js 文件
+> 在项目根目录下创建 test 目录，并在 test 目录下创建 index.test.js 文件
+> Jest 会自动找到项目中所有使用.spec.js 或.test.js 文件命名的测试文件并执行，通常我们在编写测试文件时遵循的命名规范：测试文件的文件名 = 被测试模块名 + .test.js，例如被测试模块为 index.js，那么对应的测试文件命名为 index.test.js。
+
+> 在 src/index.js 中创建被测试的模块
 
 ```code
 export default {
@@ -60,7 +69,7 @@ export default {
 }
 ```
 
->在test/index.test.js文件中创建测试用例
+> 在 test/index.test.js 文件中创建测试用例
 
 ```code
 import index  from '../src/index';
@@ -69,7 +78,8 @@ test('sum(2 + 2) 等于 4', () => {
   expect(index.sum(2, 2)).toBe(4);
 })
 ```
->运行npm run test, Jest会在command中打印出以下消息：
+
+> 运行 npm run test, Jest 会在 command 中打印出以下消息：
 
 ```code
 > jest
@@ -81,51 +91,76 @@ Tests:       1 passed, 1 total
 Snapshots:   0 total
 Time:        2.357s
 Ran all test suites.
-
 ```
-####  jest.config.js
-> 新建jest.config.js并添加配置项module.exports = { 配置项 }
 
-#####配置项 
-> testMatch:设置识别哪些文件是测试文件（glob形式），与testRegex互斥，不能同时写
+#### jest.config.js
+
+> 新建 jest.config.js 并添加配置项 module.exports = { 配置项 }
+
+#####配置项
+
+> testMatch:设置识别哪些文件是测试文件（glob 形式），与 testRegex 互斥，不能同时写
+
 ```code
 testMatch: ['\*\*/\_\_tests\_\_/\*\*/\*.js?(x)','\*\*/?(*.)(spec|test).js?(x)']
 ```
 
-> testRegex:设置识别哪些文件是测试文件（正则形式），与testMatch互斥，不能同时写
+> testRegex:设置识别哪些文件是测试文件（正则形式），与 testMatch 互斥，不能同时写
+
 ```code
 testRegex: '(/\_\_tests\_\_).*|(\\\\.|/)(test|spec))\\\\.jsx?$'
 ```
 
-> testRnviroment:测试环境，默认值是：jsdom，可修改为node
+> testRnviroment:测试环境，默认值是：jsdom，可修改为 node
+
 ```code
 testEnvironment: 'jsdom'
 ```
 
-> rootDir:默认值：当前目录，一般是package.json所在的目录
+> rootDir:默认值：当前目录，一般是 package.json 所在的目录
+
 ```code
 rootDir: ' '
 ```
 
 > moduleFileExtensions:测试文件的类型
+
 ```code
 moduleFileExtensions: ['js','json','jsx','node']
 ```
->setupFiles：配置文件，在运行测试案例代码之前，Jest会先运行这里的配置文件来初始化指定的测试环境
->moduleFileExtensions：代表支持加载的文件名
->testPathIgnorePatterns：用正则来匹配不用测试的文件
->collectCoverage：是否生成测试覆盖报告，如果开启，会增加测试的时间
->collectCoverageFrom：生成测试覆盖报告是检测的覆盖文件
->moduleNameMapper：代表需要被Mock的资源名称
->transform：用babel-jest来编译文件，生成ES6/7的语法
 
+> coverageThreshold: { //测试覆盖率, 阈值不满足，就返回测试失败
 
-
-
-
-
->   配置
 ```code
+    global: {
+
+      branches: 90,
+
+      functions: 90,
+
+      lines: 90,
+
+      statements: 90,
+
+    },
+
+  },
+```
+
+> cacheDirectory: './node_modules/.cache', //测试缓存数据的存储位置
+> setupFiles：配置文件，在运行测试案例代码之前，Jest 会先运行这里的配置文件来初始化指定的测试环境
+> testPathIgnorePatterns：用正则来匹配不用测试的文件
+> collectCoverage：是否生成测试覆盖报告，如果开启，会增加测试的时间
+> collectCoverageFrom：生成测试覆盖报告是检测的覆盖文件
+> coveragePathIgnorePatterns : 该路径下的测试，忽略在测试覆盖率上
+> moduleNameMapper：配置别名，代表需要被 Mock 的资源名称
+> transform：用 babel-jest 来编译文件，生成 ES6/7 的语法,
+> modulePaths ：测试路径
+> transformIgnorePatterns： //测试过程不改变满足配置的文件
+
+> 配置
+
+````code
 module.exports = {
     testMatch: ['<rootDir>/test/\*\*/\*.js'],
     testEnvironment: 'jsdom',
@@ -174,40 +209,43 @@ anything(value)：匹配除了null和undefined以外的所有值
 toHaveBeenCalled()：用来判断mock function是否被调用过
 toHaveBeenCalledTimes(number)：用来判断mock function被调用的次数
 extend(matchers)：自定义一些断言
-```
+````
 
 #### 主要的生命周期函数：
+
 afterAll(fn, timeout): 当前文件中的所有测试执行完成后执行 fn, 如果 fn 是 promise，jest 会等待 timeout 毫秒，默认 5000
 afterEach(fn, timeout): 每个 test 执行完后执行 fn，timeout 含义同上
 beforeAll(fn, timeout): 同 afterAll，不同之处在于在所有测试开始前执行
 beforeEach(fn, timeout): 同 afterEach，不同之处在于在每个测试开始前执行
 
+#### jest 对象
 
-#### jest对象
-
-jest.fn(implementation)：返回一个全新没有使用过的mock function，这个function在被调用的时候会记录很多和函数调用有关的信息
-jest.mock(moduleName, factory, options)：用来mock一些模块或者文件
-jest.spyOn(object, methodName)：返回一个mock function，和jest.fn相似，但是能够追踪object[methodName]的调用信息，类似Sinon
-
-
+jest.fn(implementation)：返回一个全新没有使用过的 mock function，这个 function 在被调用的时候会记录很多和函数调用有关的信息
+jest.mock(moduleName, factory, options)：用来 mock 一些模块或者文件
+jest.spyOn(object, methodName)：返回一个 mock function，和 jest.fn 相似，但是能够追踪 object[methodName]的调用信息，类似 Sinon
 
 #### 生成测试覆盖率报告
-Jest 内置了测试覆盖率工具istanbul，要开启，可以直接在命令中添加 --coverage 参数，或者在 package.json 文件进行更详细的配置
+
+Jest 内置了测试覆盖率工具 istanbul，要开启，可以直接在命令中添加 --coverage 参数，或者在 package.json 文件进行更详细的配置
+
 ```code
 jest --coverage
 ```
 
+#### 调试 JEST 测试
 
-#### 调试JEST测试
-要调试(debug)一个Jest测试，比如说"index.test.js"，我们需要使用如下的node指令来实现：
+要调试(debug)一个 Jest 测试，比如说"index.test.js"，我们需要使用如下的 node 指令来实现：
+
 ```code
 node debug --harmony .\node_modules\jest-cli\bin\jest.js --runInBand myView-test.js
 ```
-"node debug"将会启动node自带的调试器。"debug"会调用一个V8引擎调试器的wrapper。这个wrapper提供了一系列的指令，用于在代码中跳进跳出和跟踪，而这些指令都不会出现在V8的"node -debug"中。（我承认它们看起来很相似，一个"-"符号之差）
-"-harmony"标志是为了让Jest正确地运行。更多关于harmony的信息可以戳这里。
-".\node_modules\jest-cli\bin\jest.js"就是Jest的入口。这个文件会在我调用"\node_modules.bin"里的"Jest"时被调用。
-"-runInBand"告诉Jest在当前的进程中运行所有测试，而不是再启动一个进程。Jest默认就会启动多个进程并行的运行测试。如下为源码中关于这个选项的描述的片段（在.\node_modules\jest-cli\bin\jest.js中）
-"index.test.js"就是我们想要debug的测试文件。像这样使用相对路径是没有问题的，因为Jest会把它转换为一段正则表达式。
+
+"node debug"将会启动 node 自带的调试器。"debug"会调用一个 V8 引擎调试器的 wrapper。这个 wrapper 提供了一系列的指令，用于在代码中跳进跳出和跟踪，而这些指令都不会出现在 V8 的"node -debug"中。（我承认它们看起来很相似，一个"-"符号之差）
+"-harmony"标志是为了让 Jest 正确地运行。更多关于 harmony 的信息可以戳这里。
+".\node_modules\jest-cli\bin\jest.js"就是 Jest 的入口。这个文件会在我调用"\node_modules.bin"里的"Jest"时被调用。
+"-runInBand"告诉 Jest 在当前的进程中运行所有测试，而不是再启动一个进程。Jest 默认就会启动多个进程并行的运行测试。如下为源码中关于这个选项的描述的片段（在.\node_modules\jest-cli\bin\jest.js 中）
+"index.test.js"就是我们想要 debug 的测试文件。像这样使用相对路径是没有问题的，因为 Jest 会把它转换为一段正则表达式。
+
 ```code
 cont, c - 继续执行
 next, n - 跳到下一步
@@ -232,4 +270,3 @@ run - 运行脚本（在调试开始时自动运行）
 restart - 重启脚本
 kill - 结束脚本
 ```
-

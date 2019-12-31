@@ -47,12 +47,12 @@ Object.getOwnPropertyNames(obj); // ['age', 'title']
 let baseArr = [1, 2, 3];
 
 let arr = [0, ...baseArr, 4];
-//------------transform-------------------
+//transform
 var arr = [0].concat(baseArr, [4])[0];
 let baseObj = {name: 'a'};
 
 let obj = {age: 1, ...baseObj, name: 'b'};
-//------------transform-------------------
+//transform
 var obj = _extends({age: 1}, baseObj, {name: 'b'});
 ```
 
@@ -67,3 +67,32 @@ var obj = _extends({age: 1}, baseObj, {name: 'b'});
 6.可以描述 new 一个对象的详细过程，手动实现一个 new 操作符
 
 7.理解 es6 class 构造以及继承的底层实现原理
+
+手动实现 call、apply、bind
+EventEmitter
+防抖
+节流
+浅拷贝和深拷贝
+数组去重、扁平、最值
+数组乱序-洗牌算法
+函数柯里化
+手动实现 JSONP
+模拟实现 promise
+手动实现 ES5 继承
+手动实现 instanceof
+微前端
+工程化
+source-map 错误解析
+
+roadog
+umi
+页面即路由
+权限路由
+layout 布局
+
+webpack 5
+打包速度快 体积小
+chunk 置有改变
+打包大小调节 写法改变
+cache 缓存
+
