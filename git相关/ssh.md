@@ -31,11 +31,11 @@ PreferredAuthentications publickey
 IdentityFile ~/.ssh/id_rsa_github   //密钥地址
 User zJiaJun //用户名
 
-#taimei
+#baidu
 Host 192.168.1.249
 HostName 192.168.1.249
 PreferredAuthentications publickey
-IdentityFile ~/.ssh/id_rsa_taimei
+IdentityFile ~/.ssh/id_rsa_baidu
 User jiajun.zhu
 ```
 
@@ -60,16 +60,16 @@ PreferredAuthentications publickey
 IdentityFile ~/.ssh/ mayun_key
 User silenceLi
 
-ssh-keygen -t rsa -C 'haibo.li@mobilemd.cn' -f 'taimei_key'
+ssh-keygen -t rsa -C 'haibo.li@baidu.cn' -f 'xxx_key'
 
-#Teimei
-Host gitlab.taimei.com
-HostName gitlab.taimei.com
+#
+Host gitlab.baidu.com
+HostName gitlab.baidu.com
 PreferredAuthentications publickey
-IdentityFile ~/.ssh/taimei_key
+IdentityFile ~/.ssh/baidu_key
 User haibo.li
 
-http://gitlab.taimei.com
+http://gitlab.baidu.com
 ```
 
 git 其他
