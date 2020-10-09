@@ -4,9 +4,9 @@ const fs = require('fs');
 //异步plugin
 class UploadPlugin {
     constructor(options = {}) {
-        let {bucket = '', domain = '', accessKey = '', secretKey = ''} = options;
+        let { bucket = '', domain = '', accessKey = '', secretKey = '' } = options;
         let mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
-        let putPolicy = new qiniu.rs.PutPolicy({scope: bucket});
+        let putPolicy = new qiniu.rs.PutPolicy({ scope: bucket });
         this.uploadToken = putPolicy.uploadToken(mac);
         let config = new qiniu.conf.Config();
         this.formUploader = new qiniu.form_up.FormUploader(config);
@@ -26,7 +26,11 @@ class UploadPlugin {
     upload(filename) {
         let localFile = path.resolve(__dirname, '../../mechanism', filename);
         return new Promise((resolve, reject) => {
-            this.formUploader.putFile(this.uploadToken, filename, localFile, this.putExtra, function(respErr, respBody, respInfo) {
+            this.formUploader.putFile(this.uploadToken, filename, localFile, this.putExtra, function(
+                respErr,
+                respBody,
+                respInfo
+            ) {
                 if (respErr) {
                     throw respErr;
                 }
@@ -39,3 +43,10 @@ class UploadPlugin {
 }
 
 module.exports = UploadPlugin;
+
+// new UploadPlugin({
+//   bucket: 'silenceli', //存储空间
+//   domain: 'qiniu.liahaoren.com', //域名
+//   accessKey: 'LHUmMTrNeAjZAnOio7RxdDDfrBOC2FBdA-vyciCZ',
+//   secretKey: '8p6C_9Tlu4b19-mSqRyzPbu6Rl28w2_sw6sRcycu'
+// }),

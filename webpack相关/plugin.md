@@ -47,6 +47,8 @@ DefinePlugin 用于创建一些在编译时可以配置的全局常量
 > - exclude include//忽略打包文件
 > - HappyPack
 > - code-metrics-loader 降低代码复杂度神器
+> - hard-source-webpack-plugin 压缩性能
+> - cache-loader，压缩性能
 > - const CompressionWebpackPlugin = require('compression-webpack-plugin'); gzip 压缩
 
 ```code

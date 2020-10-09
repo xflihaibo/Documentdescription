@@ -61,7 +61,7 @@
 
 #### 方法
 
-performance.gegetEntriesByType('resource')// 获取资源加载列表
+performance.getEntriesByType('resource')// 获取资源加载列表
 performance.now()是当前时间与 performance.timing.navigationStart 的时间差，以微秒（百万分之一秒）为单位的时间，与 Date.now()-performance.timing.navigationStart 的区别是不受系统程序执行阻塞的影响，因此更加精准。
 [链接地址](http://www.cnblogs.com/bldxh/p/6857324.html)
 

@@ -271,6 +271,9 @@ console.log(clock.currenttime);
     常数枚举：const enum 不允许计算
     外部枚举： deClare enum 已经枚举信息再次进行赋值操作
 
+-   反向映射
+-   常量枚举在编译后 会被移除
+
 ```code
 enum familyAge {
     father,
@@ -286,6 +289,13 @@ enum familyAge {
     docuder = 12 - 2,
     nameleng = 'lhb'.length
 }
+
+const enum Mouth{
+    Jan,
+    Feb,
+    Mar
+}
+
 console.log(familyAge[familyAge.mother]);
 console.log(familyAge.father);-->
 ```

@@ -29,6 +29,9 @@
 > -   css 样式主题样式字体统一
 > -   图片大小规范
 > -   css,js 命名规范化
+> -   自定义错误码
+> -   git 代码提交规范
+> -   文档描述规范
 
 ### css
 
@@ -84,7 +87,7 @@
 -   文档工作平台：Confluence
 -   微服务 docker 容器技术
 -   部署工具：rsync,shell.js,yargs
--   错误监控: fundubger
+-   错误监控: fundubger sentry
 -   网站监测:pm2 塞满线程,进程守护
 -   nginx: 负载均衡，反向代理，开启 gzip 压缩, etag，expire 缓存，
 -   liunx: ssh 免密登陆,配置 node 服务
